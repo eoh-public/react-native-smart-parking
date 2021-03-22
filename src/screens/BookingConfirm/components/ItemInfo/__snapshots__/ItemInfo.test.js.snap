@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ItemInfo  render item info with plate number value 1`] = `
+<View
+  style={
+    Object {
+      "padding": 16,
+      "paddingBottom": 24,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontFamily": "SFProDisplay-Semibold",
+          "fontSize": 16,
+          "lineHeight": 24,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginBottom": 16,
+        },
+      ]
+    }
+  >
+    license_plate
+  </Text>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "borderColor": "#E8E8E8",
+        "borderRadius": 5,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "height": 48,
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#262626",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {
+            "paddingLeft": 18,
+          },
+        ]
+      }
+    >
+      plate_number
+    </Text>
+  </View>
+</View>
+`;

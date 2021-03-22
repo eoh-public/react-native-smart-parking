@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ParkingSpotNumber create 1`] = `
+Array [
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontFamily": "SFProDisplay-Semibold",
+          "fontSize": 16,
+          "lineHeight": 24,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginBottom": 8,
+          "marginLeft": 16,
+        },
+      ]
+    }
+  >
+    [missing "en.parking_spot_number" translation]
+  </Text>,
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#595959",
+          "fontFamily": "SFProDisplay-Regular",
+          "fontSize": 14,
+          "lineHeight": 22,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginBottom": 8,
+          "marginLeft": 16,
+        },
+      ]
+    }
+  >
+    [missing "en.sub_text_parking_spot_number" translation]
+  </Text>,
+  <View
+    style={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "marginTop": 10,
+        },
+        Object {
+          "marginBottom": 8,
+          "marginLeft": 16,
+        },
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      maxLength={1}
+      name="firstInput"
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      rejectResponderTermination={true}
+      returnKeyType="done"
+      style={
+        Object {
+          "backgroundColor": "#FAFAFA",
+          "borderColor": "#E8E8E8",
+          "borderRadius": 5,
+          "borderWidth": 1,
+          "color": "#262626",
+          "height": 36,
+          "marginEnd": 5,
+          "marginStart": 5,
+          "textAlign": "center",
+          "width": 36,
+        }
+      }
+      underlineColorAndroid="transparent"
+    />
+    <TextInput
+      allowFontScaling={true}
+      maxLength={1}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      rejectResponderTermination={true}
+      returnKeyType="done"
+      style={
+        Object {
+          "backgroundColor": "#FAFAFA",
+          "borderColor": "#E8E8E8",
+          "borderRadius": 5,
+          "borderWidth": 1,
+          "color": "#262626",
+          "height": 36,
+          "marginEnd": 5,
+          "marginStart": 5,
+          "textAlign": "center",
+          "width": 36,
+        }
+      }
+      underlineColorAndroid="transparent"
+    />
+    <TextInput
+      allowFontScaling={true}
+      maxLength={1}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      rejectResponderTermination={true}
+      returnKeyType="done"
+      style={
+        Object {
+          "backgroundColor": "#FAFAFA",
+          "borderColor": "#E8E8E8",
+          "borderRadius": 5,
+          "borderWidth": 1,
+          "color": "#262626",
+          "height": 36,
+          "marginEnd": 5,
+          "marginStart": 5,
+          "textAlign": "center",
+          "width": 36,
+        }
+      }
+      underlineColorAndroid="transparent"
+    />
+  </View>,
+  <View />,
+]
+`;

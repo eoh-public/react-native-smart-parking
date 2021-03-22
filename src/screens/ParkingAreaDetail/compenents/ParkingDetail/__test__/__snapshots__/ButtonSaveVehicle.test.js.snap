@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ButtonSaveVehicle create ButtonSaveVehicle 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "paddingVertical": 8,
+    }
+  }
+>
+  <View
+    pointerEvents="none"
+  >
+    <RNCCheckbox
+      boxType="square"
+      forwardedRef={null}
+      onCheckColor="#FFFFFF"
+      onFillColor="#00979D"
+      onTintColor="#00979D"
+      onValueChange={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "height": 32,
+            "width": 32,
+          },
+          Object {
+            "height": 20,
+            "marginRight": 15,
+            "marginTop": 15,
+            "width": 20,
+          },
+        ]
+      }
+      tintColors={
+        Object {
+          "false": "#F5F5F5",
+          "true": "#00979D",
+        }
+      }
+      value={false}
+    />
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#BFBFBF",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": 14,
+            "lineHeight": 22,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {
+            "marginTop": 14,
+          },
+        ]
+      }
+    >
+      Lưu và đặt phương tiện mặc định
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Test ButtonSaveVehicle create ButtonSaveVehicle android 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "paddingVertical": 8,
+    }
+  }
+>
+  <View
+    pointerEvents="auto"
+  >
+    <RNCCheckbox
+      boxType="square"
+      forwardedRef={null}
+      onValueChange={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "height": 32,
+            "width": 32,
+          },
+          undefined,
+        ]
+      }
+      tintColors={
+        Object {
+          "false": "#F5F5F5",
+          "true": "#00979D",
+        }
+      }
+      value={false}
+    />
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#595959",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": 14,
+            "lineHeight": 22,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {
+            "marginTop": 4,
+          },
+        ]
+      }
+    >
+      Lưu và đặt phương tiện mặc định
+    </Text>
+  </View>
+</View>
+`;

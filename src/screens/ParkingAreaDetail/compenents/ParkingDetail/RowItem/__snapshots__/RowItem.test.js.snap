@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test RowItem  render row item 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "paddingLeft": 16,
+      "paddingVertical": 8,
+    }
+  }
+>
+  <View />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontFamily": "SFProDisplay-Regular",
+          "fontSize": 16,
+          "lineHeight": 24,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginLeft": 18,
+          "marginTop": 0,
+        },
+      ]
+    }
+  >
+    title
+  </Text>
+</View>
+`;

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test button component create button auth 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#00979D",
+      "borderRadius": 5,
+      "borderWidth": 0,
+      "flex": 1,
+      "height": 48,
+      "justifyContent": "center",
+      "opacity": 1,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "SFProDisplay-Semibold",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {},
+        ]
+      }
+    >
+      Title
+    </Text>
+  </View>
+</View>
+`;

@@ -1,0 +1,1171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test DetailsParkingInfo render details parking info 1`] = `
+<View
+  style={
+    Object {
+      "paddingHorizontal": 16,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "borderBottomColor": "#E8E8E8",
+        "borderBottomWidth": 1,
+        "paddingVertical": 16,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#595959",
+            "fontFamily": "SFProDisplay-Semibold",
+            "fontSize": 14,
+            "lineHeight": 22,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {},
+        ]
+      }
+    >
+      Chi tiết
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        1 giờ đỗ xe
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          20.000 đ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        Phí gia hạn
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          10.000 đ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        Phí dịch vụ
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          0 đ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        Khuyến mãi
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          -0 đ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        Tổng cộng
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          10.000 đ
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "paddingVertical": 16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        ID đặt chỗ
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          #2
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        Đặt chỗ lúc
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          3:34 AM - 23/01/2021
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        Thanh toán lúc
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          3:34 AM - 23/01/2021
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        Gia hạn lúc
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          4:34 AM - 23/01/2021
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "marginTop": 8,
+              },
+            ]
+          }
+        >
+          4:34 AM - 23/01/2021
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        Hình thức thanh toán
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          word
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Test DetailsParkingInfo render details parking info num of hour parking greater than 1 1`] = `
+<View
+  style={
+    Object {
+      "paddingHorizontal": 16,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "borderBottomColor": "#E8E8E8",
+        "borderBottomWidth": 1,
+        "paddingVertical": 16,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#595959",
+            "fontFamily": "SFProDisplay-Semibold",
+            "fontSize": 14,
+            "lineHeight": 22,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {},
+        ]
+      }
+    >
+      Chi tiết
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        10 giờ đỗ xe
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          20.000 đ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        Phí gia hạn
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          10.000 đ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        Phí dịch vụ
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          0 đ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        Khuyến mãi
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          -0 đ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        Tổng cộng
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          0
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "paddingVertical": 16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        ID đặt chỗ
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          #2
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        Đặt chỗ lúc
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          3:34 AM - 23/01/2021
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        Thanh toán lúc
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          Not paid
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        Gia hạn lúc
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          4:34 AM - 23/01/2021
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "marginTop": 8,
+              },
+            ]
+          }
+        >
+          4:34 AM - 23/01/2021
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#8C8C8C",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        Hình thức thanh toán
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#8C8C8C",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          word
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

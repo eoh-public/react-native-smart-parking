@@ -1,0 +1,1828 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test BookingSuccess container render BookingSuccess 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#FFFFFF",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    collapsable={false}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+  >
+    <View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 40,
+            "justifyContent": "center",
+            "marginLeft": 4,
+            "marginTop": 20,
+            "opacity": 1,
+            "width": 40,
+          }
+        }
+        testID="PRESS_BACK_MAP"
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#262626",
+                "fontFamily": "antoutline",
+                "fontSize": 30,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              undefined,
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#00979D",
+              "fontFamily": "antoutline",
+              "fontSize": 48,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {
+              "alignSelf": "center",
+              "marginBottom": 8,
+              "marginTop": 16,
+            },
+          ]
+        }
+      >
+        
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#262626",
+              "fontFamily": "SFProDisplay-Semibold",
+              "fontSize": 20,
+              "lineHeight": 28,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "alignSelf": "center",
+              "marginBottom": 8,
+            },
+          ]
+        }
+      >
+        Cảm ơn bạn đã đặt chỗ!
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#262626",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 16,
+              "lineHeight": 24,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "alignSelf": "center",
+              "marginBottom": 8,
+            },
+          ]
+        }
+      >
+        Thời gian đỗ xe của bạn đã được xác nhận.
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#262626",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "alignSelf": "center",
+              "marginBottom": 16,
+            },
+          ]
+        }
+      >
+        Thanh toán: 
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#52C41A",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": undefined,
+                "lineHeight": undefined,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="TEXT_PAY_CONFIRM"
+        >
+          Đã thanh toán
+        </Text>
+      </Text>
+      <View
+        style={
+          Object {
+            "alignSelf": "center",
+            "borderColor": "#E8E8E8",
+            "borderRadius": 2,
+            "borderWidth": 1,
+            "marginBottom": 16,
+            "paddingHorizontal": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          ID đặt chỗ: #1096
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "borderColor": "#E8E8E8",
+            "borderRadius": 5,
+            "borderWidth": 1,
+            "justifyContent": "center",
+            "marginHorizontal": 16,
+            "padding": 24,
+            "paddingRight": 20,
+            "shadowColor": "#303133",
+            "shadowOffset": Object {
+              "height": 16,
+              "width": 0,
+            },
+            "shadowOpacity": 0.1,
+            "shadowRadius": 24,
+          }
+        }
+      >
+        <SvgMock
+          style={
+            Object {
+              "marginBottom": 16,
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "marginBottom": 16,
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "width": "40%",
+                },
+              ]
+            }
+          >
+            Biển số xe:
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {},
+              ]
+            }
+          >
+            84H-123.45
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "marginBottom": 16,
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "width": "40%",
+                },
+              ]
+            }
+          >
+            Vị trí đỗ:
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#F08229",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {},
+              ]
+            }
+          >
+            sp22222222
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "marginBottom": 16,
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "width": "40%",
+                },
+              ]
+            }
+          >
+            Thời gian đỗ xe:
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "SFProDisplay-Semibold",
+                    "fontSize": undefined,
+                    "lineHeight": undefined,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {},
+                ]
+              }
+              testID="TEXT_HOUR_UNIT"
+            >
+              1 giờ 
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#262626",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              (5:00 AM - 6:00 AM, 20/01/2021)
+            </Text>
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "marginBottom": 16,
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "width": "40%",
+                },
+              ]
+            }
+          >
+            Địa điểm đỗ:
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+          >
+            Thảo cầm viên parking street
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "marginBottom": 16,
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "width": "40%",
+                },
+              ]
+            }
+          >
+            Địa chỉ:
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+          >
+            2 Nguyễn Bỉnh Khiêm, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh, Việt Nam
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "marginBottom": 22,
+            "marginTop": 24,
+            "paddingHorizontal": 16,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#00979D",
+              "borderRadius": 28,
+              "borderWidth": 0,
+              "flex": 1,
+              "height": 48,
+              "justifyContent": "center",
+              "opacity": 1,
+              "width": "100%",
+            }
+          }
+          testID="PRESS_BOOKING_DETAIL"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "flexDirection": "row",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#FFFFFF",
+                    "fontFamily": "SFProDisplay-Semibold",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              Xem thông tin đặt chỗ của tôi
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#E8E8E8",
+              "borderRadius": 28,
+              "borderWidth": 1,
+              "flex": 1,
+              "height": 48,
+              "justifyContent": "center",
+              "marginTop": 8,
+              "opacity": 1,
+              "width": "100%",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "flexDirection": "row",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Semibold",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              Quay lại màn hình chính
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`test BookingSuccess container render BookingSuccess is_pay_now is false 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#FFFFFF",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    collapsable={false}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+  >
+    <View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 40,
+            "justifyContent": "center",
+            "marginLeft": 4,
+            "marginTop": 20,
+            "opacity": 1,
+            "width": 40,
+          }
+        }
+        testID="PRESS_BACK_MAP"
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#262626",
+                "fontFamily": "antoutline",
+                "fontSize": 30,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              undefined,
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#00979D",
+              "fontFamily": "antoutline",
+              "fontSize": 48,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {
+              "alignSelf": "center",
+              "marginBottom": 8,
+              "marginTop": 16,
+            },
+          ]
+        }
+      >
+        
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#262626",
+              "fontFamily": "SFProDisplay-Semibold",
+              "fontSize": 20,
+              "lineHeight": 28,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "alignSelf": "center",
+              "marginBottom": 8,
+            },
+          ]
+        }
+      >
+        Cảm ơn bạn đã đặt chỗ!
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#262626",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 16,
+              "lineHeight": 24,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "alignSelf": "center",
+              "marginBottom": 8,
+            },
+          ]
+        }
+      >
+        Thời gian đỗ xe của bạn đã được xác nhận.
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#262626",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "alignSelf": "center",
+              "marginBottom": 16,
+            },
+          ]
+        }
+      >
+        Thanh toán: 
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#F5222D",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": undefined,
+                "lineHeight": undefined,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="TEXT_PAY_CONFIRM"
+        >
+          Thanh toán sau (trước 5:15 AM - 20/01/2021)
+        </Text>
+      </Text>
+      <View
+        style={
+          Object {
+            "alignSelf": "center",
+            "borderColor": "#E8E8E8",
+            "borderRadius": 2,
+            "borderWidth": 1,
+            "marginBottom": 16,
+            "paddingHorizontal": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          ID đặt chỗ: #1096
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "borderColor": "#E8E8E8",
+            "borderRadius": 5,
+            "borderWidth": 1,
+            "justifyContent": "center",
+            "marginHorizontal": 16,
+            "padding": 24,
+            "paddingRight": 20,
+            "shadowColor": "#303133",
+            "shadowOffset": Object {
+              "height": 16,
+              "width": 0,
+            },
+            "shadowOpacity": 0.1,
+            "shadowRadius": 24,
+          }
+        }
+      >
+        <SvgMock
+          style={
+            Object {
+              "marginBottom": 16,
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "marginBottom": 16,
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "width": "40%",
+                },
+              ]
+            }
+          >
+            Biển số xe:
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {},
+              ]
+            }
+          >
+            84H-123.45
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "marginBottom": 16,
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "width": "40%",
+                },
+              ]
+            }
+          >
+            Vị trí đỗ:
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#F08229",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {},
+              ]
+            }
+          >
+            sp22222222
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "marginBottom": 16,
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "width": "40%",
+                },
+              ]
+            }
+          >
+            Thời gian đỗ xe:
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "SFProDisplay-Semibold",
+                    "fontSize": undefined,
+                    "lineHeight": undefined,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {},
+                ]
+              }
+              testID="TEXT_HOUR_UNIT"
+            >
+              3 giờ 
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#262626",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              (5:00 AM - 8:00 AM, 20/01/2021)
+            </Text>
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "marginBottom": 16,
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "width": "40%",
+                },
+              ]
+            }
+          >
+            Địa điểm đỗ:
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+          >
+            Thảo cầm viên parking street
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "marginBottom": 16,
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "width": "40%",
+                },
+              ]
+            }
+          >
+            Địa chỉ:
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+          >
+            2 Nguyễn Bỉnh Khiêm, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh, Việt Nam
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "marginBottom": 22,
+            "marginTop": 24,
+            "paddingHorizontal": 16,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#00979D",
+              "borderRadius": 28,
+              "borderWidth": 0,
+              "flex": 1,
+              "height": 48,
+              "justifyContent": "center",
+              "opacity": 1,
+              "width": "100%",
+            }
+          }
+          testID="PRESS_BOOKING_DETAIL"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "flexDirection": "row",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#FFFFFF",
+                    "fontFamily": "SFProDisplay-Semibold",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              Xem thông tin đặt chỗ của tôi
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#E8E8E8",
+              "borderRadius": 28,
+              "borderWidth": 1,
+              "flex": 1,
+              "height": 48,
+              "justifyContent": "center",
+              "marginTop": 8,
+              "opacity": 1,
+              "width": "100%",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "flexDirection": "row",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Semibold",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              Quay lại màn hình chính
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`test BookingSuccess container render BookingSuccess is_pay_now is true 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#FFFFFF",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    collapsable={false}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+  >
+    <View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 40,
+            "justifyContent": "center",
+            "marginLeft": 4,
+            "marginTop": 20,
+            "opacity": 1,
+            "width": 40,
+          }
+        }
+        testID="PRESS_BACK_MAP"
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#262626",
+                "fontFamily": "antoutline",
+                "fontSize": 30,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              undefined,
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#00979D",
+              "fontFamily": "antoutline",
+              "fontSize": 48,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {
+              "alignSelf": "center",
+              "marginBottom": 8,
+              "marginTop": 16,
+            },
+          ]
+        }
+      >
+        
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#262626",
+              "fontFamily": "SFProDisplay-Semibold",
+              "fontSize": 20,
+              "lineHeight": 28,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "alignSelf": "center",
+              "marginBottom": 8,
+            },
+          ]
+        }
+      >
+        Cảm ơn bạn đã đặt chỗ!
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#262626",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 16,
+              "lineHeight": 24,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "alignSelf": "center",
+              "marginBottom": 8,
+            },
+          ]
+        }
+      >
+        Thời gian đỗ xe của bạn đã được xác nhận.
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#262626",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "alignSelf": "center",
+              "marginBottom": 16,
+            },
+          ]
+        }
+      >
+        Thanh toán: 
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#52C41A",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": undefined,
+                "lineHeight": undefined,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="TEXT_PAY_CONFIRM"
+        >
+          Đã thanh toán
+        </Text>
+      </Text>
+      <View
+        style={
+          Object {
+            "alignSelf": "center",
+            "borderColor": "#E8E8E8",
+            "borderRadius": 2,
+            "borderWidth": 1,
+            "marginBottom": 16,
+            "paddingHorizontal": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          ID đặt chỗ: #1096
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "borderColor": "#E8E8E8",
+            "borderRadius": 5,
+            "borderWidth": 1,
+            "justifyContent": "center",
+            "marginHorizontal": 16,
+            "padding": 24,
+            "paddingRight": 20,
+            "shadowColor": "#303133",
+            "shadowOffset": Object {
+              "height": 16,
+              "width": 0,
+            },
+            "shadowOpacity": 0.1,
+            "shadowRadius": 24,
+          }
+        }
+      >
+        <SvgMock
+          style={
+            Object {
+              "marginBottom": 16,
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "marginBottom": 16,
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "width": "40%",
+                },
+              ]
+            }
+          >
+            Biển số xe:
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {},
+              ]
+            }
+          >
+            84H-123.45
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "marginBottom": 16,
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "width": "40%",
+                },
+              ]
+            }
+          >
+            Vị trí đỗ:
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#F08229",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {},
+              ]
+            }
+          >
+            sp22222222
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "marginBottom": 16,
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "width": "40%",
+                },
+              ]
+            }
+          >
+            Thời gian đỗ xe:
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "SFProDisplay-Semibold",
+                    "fontSize": undefined,
+                    "lineHeight": undefined,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {},
+                ]
+              }
+              testID="TEXT_HOUR_UNIT"
+            >
+              1 giờ 
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#262626",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              (5:00 AM - 6:00 AM, 20/01/2021)
+            </Text>
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "marginBottom": 16,
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "width": "40%",
+                },
+              ]
+            }
+          >
+            Địa điểm đỗ:
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+          >
+            Thảo cầm viên parking street
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "marginBottom": 16,
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "width": "40%",
+                },
+              ]
+            }
+          >
+            Địa chỉ:
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+          >
+            2 Nguyễn Bỉnh Khiêm, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh, Việt Nam
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "marginBottom": 22,
+            "marginTop": 24,
+            "paddingHorizontal": 16,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#00979D",
+              "borderRadius": 28,
+              "borderWidth": 0,
+              "flex": 1,
+              "height": 48,
+              "justifyContent": "center",
+              "opacity": 1,
+              "width": "100%",
+            }
+          }
+          testID="PRESS_BOOKING_DETAIL"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "flexDirection": "row",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#FFFFFF",
+                    "fontFamily": "SFProDisplay-Semibold",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              Xem thông tin đặt chỗ của tôi
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#E8E8E8",
+              "borderRadius": 28,
+              "borderWidth": 1,
+              "flex": 1,
+              "height": 48,
+              "justifyContent": "center",
+              "marginTop": 8,
+              "opacity": 1,
+              "width": "100%",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "flexDirection": "row",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Semibold",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              Quay lại màn hình chính
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test SearchLocation container render SearchLocation container 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#FFFFFF",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "#E8E8E8",
+        "borderRadius": 24,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "height": 48,
+        "marginHorizontal": 16,
+        "marginVertical": 24,
+        "overflow": "hidden",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingLeft": 20,
+          "paddingRight": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "black",
+              "fontFamily": "antoutline",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            undefined,
+          ]
+        }
+      >
+        
+      </Text>
+    </View>
+    <TextInput
+      allowFontScaling={true}
+      onChangeText={[Function]}
+      placeholder="Tôi muốn đỗ xe gần..."
+      placeholderTextColor="#BFBFBF"
+      rejectResponderTermination={true}
+      style={
+        Object {
+          "color": "#262626",
+          "flex": 1,
+          "fontFamily": "SFProDisplay-Regular",
+          "fontSize": 14,
+          "height": 48,
+          "justifyContent": "center",
+          "paddingLeft": 10,
+        }
+      }
+      testID="SEARCH_BAR_INPUT"
+      underlineColorAndroid={null}
+      value=""
+    />
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingLeft": 10,
+          "paddingRight": 16,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#BFBFBF",
+              "fontFamily": "antoutline",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            undefined,
+          ]
+        }
+      >
+        
+      </Text>
+    </View>
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#262626",
+          "fontFamily": "SFProDisplay-Semibold",
+          "fontSize": 14,
+          "lineHeight": 22,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "paddingHorizontal": 16,
+        },
+      ]
+    }
+  >
+    Gần đây
+  </Text>
+  <RCTScrollView
+    contentContainerStyle={
+      Object {
+        "paddingBottom": 0,
+      }
+    }
+    data={Array []}
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "flex": 1,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View />
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;

@@ -1,0 +1,257 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test CurrentRainSensor render CurrentRainSensor 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "center",
+      "marginTop": 16,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#FEFFE6",
+          "borderColor": "#FADB14",
+          "borderRadius": 95,
+          "borderWidth": 2,
+          "height": 190,
+          "width": 190,
+        },
+        undefined,
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <BVLinearGradient
+      colors={
+        Array [
+          16777215,
+          4294967295,
+        ]
+      }
+      endPoint={
+        Object {
+          "x": 1,
+          "y": 1,
+        }
+      }
+      locations={null}
+      startPoint={
+        Object {
+          "x": 1,
+          "y": 0,
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 95,
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    />
+    <SvgMock />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": undefined,
+            "lineHeight": undefined,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {
+            "fontSize": 24,
+            "lineHeight": 32,
+            "marginTop": 8,
+          },
+        ]
+      }
+    >
+      Not raining
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Test CurrentRainSensor render CurrentRainSensor data empty 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "center",
+      "marginTop": 16,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "white",
+          "borderColor": "white",
+          "borderRadius": 95,
+          "borderWidth": 2,
+          "height": 190,
+          "width": 190,
+        },
+        undefined,
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <BVLinearGradient
+      colors={
+        Array [
+          16777215,
+          4294967295,
+        ]
+      }
+      endPoint={
+        Object {
+          "x": 1,
+          "y": 1,
+        }
+      }
+      locations={null}
+      startPoint={
+        Object {
+          "x": 1,
+          "y": 0,
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 95,
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    />
+    <SvgMock />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": undefined,
+            "lineHeight": undefined,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {
+            "fontSize": 24,
+            "lineHeight": 32,
+            "marginTop": 8,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Test CurrentRainSensor render CurrentRainSensor raining: true 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "center",
+      "marginTop": 16,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#FEFFE6",
+          "borderColor": "#FADB14",
+          "borderRadius": 95,
+          "borderWidth": 2,
+          "height": 190,
+          "width": 190,
+        },
+        undefined,
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <BVLinearGradient
+      colors={
+        Array [
+          16777215,
+          4294967295,
+        ]
+      }
+      endPoint={
+        Object {
+          "x": 1,
+          "y": 1,
+        }
+      }
+      locations={null}
+      startPoint={
+        Object {
+          "x": 1,
+          "y": 0,
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 95,
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    />
+    <SvgMock />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": undefined,
+            "lineHeight": undefined,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {
+            "fontSize": 24,
+            "lineHeight": 32,
+            "marginTop": 8,
+          },
+        ]
+      }
+    >
+      Not raining
+    </Text>
+  </View>
+</View>
+`;

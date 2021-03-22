@@ -1,0 +1,639 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ItemPaymentMethod create ItemPaymentMethod 1`] = `
+<View
+  style={
+    Object {
+      "padding": 16,
+      "paddingBottom": 24,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontFamily": "SFProDisplay-Semibold",
+          "fontSize": 16,
+          "lineHeight": 24,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginBottom": 16,
+        },
+      ]
+    }
+  >
+    Hình thức thanh toán
+  </Text>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "borderColor": "#E8E8E8",
+        "borderRadius": 5,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "height": 48,
+        "opacity": 1,
+        "paddingLeft": 16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <SvgMock
+        height={25}
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#262626",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "alignSelf": "center",
+              "flex": 1,
+              "marginLeft": 8,
+            },
+          ]
+        }
+      >
+        last4
+      </Text>
+      <View
+        style={
+          Object {
+            "paddingHorizontal": 16,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#F08229",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          Thay đổi
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "paddingRight": 16,
+        "paddingTop": 16,
+      }
+    }
+  >
+    <View
+      pointerEvents="auto"
+    >
+      <RNCCheckbox
+        boxType="square"
+        forwardedRef={null}
+        onCheckColor="#FFFFFF"
+        onFillColor="#00979D"
+        onTintColor="#00979D"
+        onValueChange={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "height": 32,
+              "width": 32,
+            },
+            Object {
+              "height": 20,
+              "marginRight": 15,
+              "marginTop": 15,
+              "width": 20,
+            },
+          ]
+        }
+        tintColors={
+          Object {
+            "false": "#F5F5F5",
+            "true": "#00979D",
+          }
+        }
+        value={true}
+      />
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "marginTop": 6,
+            },
+          ]
+        }
+      >
+        Tôi đã đọc và chấp nhận các 
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": undefined,
+                "lineHeight": undefined,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "textDecorationLine": "underline",
+              },
+            ]
+          }
+        >
+          Điều khoản và điều kiện
+        </Text>
+        , và đồng ý đặt chỗ.
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Test ItemPaymentMethod create ItemPaymentMethod is_default: false  1`] = `
+<View
+  style={
+    Object {
+      "padding": 16,
+      "paddingBottom": 24,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontFamily": "SFProDisplay-Semibold",
+          "fontSize": 16,
+          "lineHeight": 24,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginBottom": 16,
+        },
+      ]
+    }
+  >
+    Hình thức thanh toán
+  </Text>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "borderColor": "#E8E8E8",
+        "borderRadius": 5,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "height": 48,
+        "opacity": 1,
+        "paddingLeft": 16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <SvgMock
+        height={25}
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#262626",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "alignSelf": "center",
+              "flex": 1,
+              "marginLeft": 8,
+            },
+          ]
+        }
+      >
+        last4
+      </Text>
+      <View
+        style={
+          Object {
+            "paddingHorizontal": 16,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#F08229",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          Thay đổi
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "paddingRight": 16,
+        "paddingTop": 16,
+      }
+    }
+  >
+    <View
+      pointerEvents="auto"
+    >
+      <RNCCheckbox
+        boxType="square"
+        forwardedRef={null}
+        onCheckColor="#FFFFFF"
+        onFillColor="#00979D"
+        onTintColor="#00979D"
+        onValueChange={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "height": 32,
+              "width": 32,
+            },
+            Object {
+              "height": 20,
+              "marginRight": 15,
+              "marginTop": 15,
+              "width": 20,
+            },
+          ]
+        }
+        tintColors={
+          Object {
+            "false": "#F5F5F5",
+            "true": "#00979D",
+          }
+        }
+        value={true}
+      />
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "marginTop": 6,
+            },
+          ]
+        }
+      >
+        Tôi đã đọc và chấp nhận các 
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": undefined,
+                "lineHeight": undefined,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "textDecorationLine": "underline",
+              },
+            ]
+          }
+        >
+          Điều khoản và điều kiện
+        </Text>
+        , và đồng ý đặt chỗ.
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Test ItemPaymentMethod create ItemPaymentMethod paymentMethod not code 1`] = `
+<View
+  style={
+    Object {
+      "padding": 16,
+      "paddingBottom": 24,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontFamily": "SFProDisplay-Semibold",
+          "fontSize": 16,
+          "lineHeight": 24,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginBottom": 16,
+        },
+      ]
+    }
+  >
+    Hình thức thanh toán
+  </Text>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "borderColor": "#E8E8E8",
+        "borderRadius": 5,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "height": 48,
+        "opacity": 1,
+        "paddingLeft": 16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <SvgMock
+        height={25}
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#262626",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "alignSelf": "center",
+              "flex": 1,
+              "marginLeft": 8,
+            },
+          ]
+        }
+      >
+        last4
+      </Text>
+      <View
+        style={
+          Object {
+            "paddingHorizontal": 16,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontFamily": "antoutline",
+                "fontSize": 22,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              undefined,
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "paddingRight": 16,
+        "paddingTop": 16,
+      }
+    }
+  >
+    <View
+      pointerEvents="auto"
+    >
+      <RNCCheckbox
+        boxType="square"
+        forwardedRef={null}
+        onCheckColor="#FFFFFF"
+        onFillColor="#00979D"
+        onTintColor="#00979D"
+        onValueChange={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "height": 32,
+              "width": 32,
+            },
+            Object {
+              "height": 20,
+              "marginRight": 15,
+              "marginTop": 15,
+              "width": 20,
+            },
+          ]
+        }
+        tintColors={
+          Object {
+            "false": "#F5F5F5",
+            "true": "#00979D",
+          }
+        }
+        value={true}
+      />
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "marginTop": 6,
+            },
+          ]
+        }
+      >
+        Tôi đã đọc và chấp nhận các 
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": undefined,
+                "lineHeight": undefined,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "textDecorationLine": "underline",
+              },
+            ]
+          }
+        >
+          Điều khoản và điều kiện
+        </Text>
+        , và đồng ý đặt chỗ.
+      </Text>
+    </View>
+  </View>
+</View>
+`;

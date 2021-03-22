@@ -1,0 +1,435 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ScanningResponsePopup with mock OS render with device android 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  hideModalContentWhileAnimating={false}
+  onModalHide={[Function]}
+  onModalWillHide={[Function]}
+  onModalWillShow={[Function]}
+  onRequestClose={[MockFunction]}
+  scrollHorizontal={false}
+  scrollOffset={0}
+  scrollOffsetMax={0}
+  scrollTo={null}
+  supportedOrientations={
+    Array [
+      "portrait",
+      "landscape",
+    ]
+  }
+  swipeThreshold={100}
+  transparent={true}
+  visible={false}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    forwardedRef={[Function]}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "black",
+        "bottom": 0,
+        "height": 1334,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "width": 750,
+      }
+    }
+  />
+  <View
+    forwardedRef={[Function]}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    pointerEvents="box-none"
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+        "margin": 37.5,
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 10,
+          "left": 0,
+          "position": "absolute",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "flex": 1,
+            "flexDirection": "column",
+            "marginBottom": 0,
+          }
+        }
+      >
+        <Text
+          onPress={[MockFunction]}
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 22,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "top": 20,
+                "zIndex": 1,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "padding": 16,
+              },
+              Object {
+                "borderBottomWidth": 1,
+                "borderColor": "#E8E8E8",
+                "borderTopLeftRadius": 20,
+                "borderTopRightRadius": 20,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "antoutline",
+                  "fontSize": 42,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {
+                  "marginTop": 46,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "marginTop": 11,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_TITLE"
+          >
+            ---
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_DESCRIPTION"
+          >
+            ---
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#595959",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 16,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_SUB_TITLE"
+          >
+            ---
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Bold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#F08229",
+                  "fontSize": 20,
+                  "lineHeight": 28,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_DATA"
+          >
+            ---
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_INFO"
+          >
+            ---
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#595959",
+                  "fontSize": 12,
+                  "lineHeight": 20,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "marginTop": 16,
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="AVAILABLE_SPOT_NUMBER"
+            >
+              0 chỗ trống
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "antoutline",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "marginRight": 4,
+                    "marginTop": 0,
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="PARKING_PRICE_TEXT"
+            >
+              NaN đ
+              /h
+            </Text>
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="DISTANCE_TO_PARKING_TEXT"
+            >
+              NaNkm
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "marginVertical": 24,
+              "paddingHorizontal": 16,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+</Modal>
+`;

@@ -1,0 +1,1467 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test extend popup create extend popup 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  hideModalContentWhileAnimating={false}
+  onModalHide={[Function]}
+  onModalWillHide={[Function]}
+  onModalWillShow={[Function]}
+  onRequestClose={[Function]}
+  scrollHorizontal={false}
+  scrollOffset={0}
+  scrollOffsetMax={0}
+  scrollTo={null}
+  supportedOrientations={
+    Array [
+      "portrait",
+      "landscape",
+    ]
+  }
+  swipeThreshold={100}
+  testID="MODAL_BUTTON_POPUP"
+  transparent={true}
+  visible={false}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    forwardedRef={[Function]}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "black",
+        "bottom": 0,
+        "height": 1334,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "width": 750,
+      }
+    }
+  />
+  <View
+    forwardedRef={[Function]}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    pointerEvents="box-none"
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+        "margin": 37.5,
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+    testID="MODAL_BUTTON_POPUP"
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 10,
+          "position": "absolute",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "flex": 1,
+            "flexDirection": "column",
+            "marginBottom": 20,
+            "position": "relative",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 22,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "top": 20,
+                "zIndex": 1,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "padding": 16,
+                "paddingTop": 60,
+              },
+              Object {
+                "marginTop": 47,
+              },
+            ]
+          }
+        >
+          <View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "SFProDisplay-Semibold",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginBottom": 8,
+                  },
+                ]
+              }
+            >
+              Thêm giờ đỗ xe
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginBottom": 16,
+                  },
+                ]
+              }
+            >
+              Chọn thời gian mà bạn cần gia hạn đỗ xe
+            </Text>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                    "paddingHorizontal": 16,
+                  },
+                  Object {
+                    "paddingHorizontal": 0,
+                  },
+                ]
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#E8E8E8",
+                    "borderRadius": 2,
+                    "borderWidth": 1,
+                    "height": 48,
+                    "justifyContent": "center",
+                    "opacity": 1,
+                    "width": 48,
+                  }
+                }
+                testID="MINUS"
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#262626",
+                        "fontFamily": "antoutline",
+                        "fontSize": 24,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FFFFFF",
+                    "borderColor": "#E8E8E8",
+                    "borderWidth": 1,
+                    "flex": 1,
+                    "justifyContent": "center",
+                    "marginHorizontal": 8,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#00979D",
+                        "fontFamily": "SFProDisplay-Regular",
+                        "fontSize": 20,
+                        "lineHeight": 28,
+                        "textAlign": "left",
+                        "textDecorationLine": "none",
+                      },
+                      Object {},
+                    ]
+                  }
+                  testID="HOUR"
+                >
+                  undefined giờ
+                </Text>
+              </View>
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#E8E8E8",
+                    "borderRadius": 2,
+                    "borderWidth": 1,
+                    "height": 48,
+                    "justifyContent": "center",
+                    "opacity": 1,
+                    "width": 48,
+                  }
+                }
+                testID="PLUS"
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#262626",
+                        "fontFamily": "antoutline",
+                        "fontSize": 24,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+            </View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 12,
+                    "lineHeight": 20,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "alignSelf": "center",
+                    "marginBottom": 17,
+                    "marginTop": 8,
+                  },
+                ]
+              }
+            >
+              Kết thúc 5:00 AM - 20/01/2021
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "bottom": 0,
+                "flex": 1,
+                "left": 0,
+                "paddingHorizontal": 16,
+                "paddingVertical": 8,
+                "position": "absolute",
+                "right": 0,
+              },
+              Object {
+                "flexDirection": "row-reverse",
+                "justifyContent": "center",
+              },
+              Array [
+                Object {
+                  "marginBottom": 24,
+                  "position": "relative",
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#00979D",
+                "borderRadius": 28,
+                "borderWidth": 0,
+                "flex": 1,
+                "height": 48,
+                "justifyContent": "center",
+                "marginLeft": 4,
+                "opacity": 1,
+                "width": "100%",
+              }
+            }
+            testID="BUTTON_POPUPBOTTOM_VIEW_MAIN"
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#FFFFFF",
+                      "fontFamily": "SFProDisplay-Semibold",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Xác nhận
+              </Text>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E8E8E8",
+                "borderRadius": 28,
+                "borderWidth": 1,
+                "flex": 1,
+                "height": 48,
+                "justifyContent": "center",
+                "marginRight": 4,
+                "opacity": 1,
+                "width": "100%",
+              }
+            }
+            testID="BUTTON_POPUPBOTTOM_VIEW_SECONDARY"
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#595959",
+                      "fontFamily": "SFProDisplay-Semibold",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Hủy
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;
+
+exports[`Test extend popup test click confirmed 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  hideModalContentWhileAnimating={false}
+  onModalHide={[Function]}
+  onModalWillHide={[Function]}
+  onModalWillShow={[Function]}
+  onRequestClose={[Function]}
+  scrollHorizontal={false}
+  scrollOffset={0}
+  scrollOffsetMax={0}
+  scrollTo={null}
+  supportedOrientations={
+    Array [
+      "portrait",
+      "landscape",
+    ]
+  }
+  swipeThreshold={100}
+  testID="MODAL_BUTTON_POPUP"
+  transparent={true}
+  visible={false}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    forwardedRef={[Function]}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "black",
+        "bottom": 0,
+        "height": 1334,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "width": 750,
+      }
+    }
+  />
+  <View
+    forwardedRef={[Function]}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    pointerEvents="box-none"
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+        "margin": 37.5,
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+    testID="MODAL_BUTTON_POPUP"
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 10,
+          "position": "absolute",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "flex": 1,
+            "flexDirection": "column",
+            "marginBottom": 20,
+            "position": "relative",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 22,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "top": 20,
+                "zIndex": 1,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "padding": 16,
+                "paddingTop": 60,
+              },
+              Object {
+                "marginTop": 47,
+              },
+            ]
+          }
+        >
+          <View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "SFProDisplay-Semibold",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginBottom": 8,
+                  },
+                ]
+              }
+            >
+              Thêm giờ đỗ xe
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginBottom": 16,
+                  },
+                ]
+              }
+            >
+              Chọn thời gian mà bạn cần gia hạn đỗ xe
+            </Text>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                    "paddingHorizontal": 16,
+                  },
+                  Object {
+                    "paddingHorizontal": 0,
+                  },
+                ]
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#E8E8E8",
+                    "borderRadius": 2,
+                    "borderWidth": 1,
+                    "height": 48,
+                    "justifyContent": "center",
+                    "opacity": 1,
+                    "width": 48,
+                  }
+                }
+                testID="MINUS"
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#cccccc",
+                        "fontFamily": "antoutline",
+                        "fontSize": 24,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FFFFFF",
+                    "borderColor": "#E8E8E8",
+                    "borderWidth": 1,
+                    "flex": 1,
+                    "justifyContent": "center",
+                    "marginHorizontal": 8,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#00979D",
+                        "fontFamily": "SFProDisplay-Regular",
+                        "fontSize": 20,
+                        "lineHeight": 28,
+                        "textAlign": "left",
+                        "textDecorationLine": "none",
+                      },
+                      Object {},
+                    ]
+                  }
+                  testID="HOUR"
+                >
+                  1 giờ
+                </Text>
+              </View>
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#E8E8E8",
+                    "borderRadius": 2,
+                    "borderWidth": 1,
+                    "height": 48,
+                    "justifyContent": "center",
+                    "opacity": 1,
+                    "width": 48,
+                  }
+                }
+                testID="PLUS"
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#cccccc",
+                        "fontFamily": "antoutline",
+                        "fontSize": 24,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+            </View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 12,
+                    "lineHeight": 20,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "alignSelf": "center",
+                    "marginBottom": 17,
+                    "marginTop": 8,
+                  },
+                ]
+              }
+            >
+              Kết thúc 6:00 AM - 20/01/2021
+            </Text>
+            <View
+              style={
+                Object {
+                  "borderBottomWidth": 1,
+                  "borderColor": "#E8E8E8",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "paddingBottom": 17,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#595959",
+                      "fontFamily": "SFProDisplay-Regular",
+                      "fontSize": 14,
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Tổng cộng
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#F08229",
+                      "fontFamily": "SFProDisplay-Semibold",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+                testID="EXTEND_TOTAL_PRICE"
+              >
+                0 đ
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "bottom": 0,
+                "flex": 1,
+                "left": 0,
+                "paddingHorizontal": 16,
+                "paddingVertical": 8,
+                "position": "absolute",
+                "right": 0,
+              },
+              Object {
+                "flexDirection": "row-reverse",
+                "justifyContent": "center",
+              },
+              Array [
+                Object {
+                  "marginBottom": 24,
+                  "position": "relative",
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#00979D",
+                "borderRadius": 28,
+                "borderWidth": 0,
+                "flex": 1,
+                "height": 48,
+                "justifyContent": "center",
+                "marginLeft": 4,
+                "opacity": 1,
+                "width": "100%",
+              }
+            }
+            testID="BUTTON_POPUPBOTTOM_VIEW_MAIN"
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#FFFFFF",
+                      "fontFamily": "SFProDisplay-Semibold",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Thanh toán
+              </Text>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E8E8E8",
+                "borderRadius": 28,
+                "borderWidth": 1,
+                "flex": 1,
+                "height": 48,
+                "justifyContent": "center",
+                "marginRight": 4,
+                "opacity": 1,
+                "width": "100%",
+              }
+            }
+            testID="BUTTON_POPUPBOTTOM_VIEW_SECONDARY"
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#595959",
+                      "fontFamily": "SFProDisplay-Semibold",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Quay lại
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;
+
+exports[`Test extend popup test click confirmed and then go back 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  hideModalContentWhileAnimating={false}
+  onModalHide={[Function]}
+  onModalWillHide={[Function]}
+  onModalWillShow={[Function]}
+  onRequestClose={[Function]}
+  scrollHorizontal={false}
+  scrollOffset={0}
+  scrollOffsetMax={0}
+  scrollTo={null}
+  supportedOrientations={
+    Array [
+      "portrait",
+      "landscape",
+    ]
+  }
+  swipeThreshold={100}
+  testID="MODAL_BUTTON_POPUP"
+  transparent={true}
+  visible={false}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    forwardedRef={[Function]}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "black",
+        "bottom": 0,
+        "height": 1334,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "width": 750,
+      }
+    }
+  />
+  <View
+    forwardedRef={[Function]}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    pointerEvents="box-none"
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+        "margin": 37.5,
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+    testID="MODAL_BUTTON_POPUP"
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 10,
+          "position": "absolute",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "flex": 1,
+            "flexDirection": "column",
+            "marginBottom": 20,
+            "position": "relative",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 22,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "top": 20,
+                "zIndex": 1,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "padding": 16,
+                "paddingTop": 60,
+              },
+              Object {
+                "marginTop": 47,
+              },
+            ]
+          }
+        >
+          <View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "SFProDisplay-Semibold",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginBottom": 8,
+                  },
+                ]
+              }
+            >
+              Thêm giờ đỗ xe
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginBottom": 16,
+                  },
+                ]
+              }
+            >
+              Chọn thời gian mà bạn cần gia hạn đỗ xe
+            </Text>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                    "paddingHorizontal": 16,
+                  },
+                  Object {
+                    "paddingHorizontal": 0,
+                  },
+                ]
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#E8E8E8",
+                    "borderRadius": 2,
+                    "borderWidth": 1,
+                    "height": 48,
+                    "justifyContent": "center",
+                    "opacity": 1,
+                    "width": 48,
+                  }
+                }
+                testID="MINUS"
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#262626",
+                        "fontFamily": "antoutline",
+                        "fontSize": 24,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FFFFFF",
+                    "borderColor": "#E8E8E8",
+                    "borderWidth": 1,
+                    "flex": 1,
+                    "justifyContent": "center",
+                    "marginHorizontal": 8,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#00979D",
+                        "fontFamily": "SFProDisplay-Regular",
+                        "fontSize": 20,
+                        "lineHeight": 28,
+                        "textAlign": "left",
+                        "textDecorationLine": "none",
+                      },
+                      Object {},
+                    ]
+                  }
+                  testID="HOUR"
+                >
+                  1 giờ
+                </Text>
+              </View>
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#E8E8E8",
+                    "borderRadius": 2,
+                    "borderWidth": 1,
+                    "height": 48,
+                    "justifyContent": "center",
+                    "opacity": 1,
+                    "width": 48,
+                  }
+                }
+                testID="PLUS"
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#262626",
+                        "fontFamily": "antoutline",
+                        "fontSize": 24,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+            </View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 12,
+                    "lineHeight": 20,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "alignSelf": "center",
+                    "marginBottom": 17,
+                    "marginTop": 8,
+                  },
+                ]
+              }
+            >
+              Kết thúc 6:00 AM - 20/01/2021
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "bottom": 0,
+                "flex": 1,
+                "left": 0,
+                "paddingHorizontal": 16,
+                "paddingVertical": 8,
+                "position": "absolute",
+                "right": 0,
+              },
+              Object {
+                "flexDirection": "row-reverse",
+                "justifyContent": "center",
+              },
+              Array [
+                Object {
+                  "marginBottom": 24,
+                  "position": "relative",
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#00979D",
+                "borderRadius": 28,
+                "borderWidth": 0,
+                "flex": 1,
+                "height": 48,
+                "justifyContent": "center",
+                "marginLeft": 4,
+                "opacity": 1,
+                "width": "100%",
+              }
+            }
+            testID="BUTTON_POPUPBOTTOM_VIEW_MAIN"
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#FFFFFF",
+                      "fontFamily": "SFProDisplay-Semibold",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Xác nhận
+              </Text>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E8E8E8",
+                "borderRadius": 28,
+                "borderWidth": 1,
+                "flex": 1,
+                "height": 48,
+                "justifyContent": "center",
+                "marginRight": 4,
+                "opacity": 1,
+                "width": "100%",
+              }
+            }
+            testID="BUTTON_POPUPBOTTOM_VIEW_SECONDARY"
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#595959",
+                      "fontFamily": "SFProDisplay-Semibold",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Hủy
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;

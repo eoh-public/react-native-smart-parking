@@ -1,0 +1,1366 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test active session test create active session with default 1`] = `
+<View
+  style={
+    Object {
+      "marginTop": 24,
+      "paddingHorizontal": 16,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#262626",
+          "fontFamily": "SFProDisplay-Semibold",
+          "fontSize": 14,
+          "lineHeight": 22,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {},
+      ]
+    }
+  >
+    Đang đỗ xe
+  </Text>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "#E8E8E8",
+        "borderRadius": 5,
+        "borderWidth": 1,
+        "marginTop": 16,
+        "opacity": 1,
+        "padding": 16,
+      }
+    }
+    testID="ACTIVE_SESSION_ITEM"
+  >
+    <View
+      style={
+        Object {
+          "borderBottomColor": "#E8E8E8",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "height": 70,
+            "width": 70,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "height": 70,
+                "width": 70,
+              },
+            ]
+          }
+        >
+          <FastImageView
+            resizeMode="cover"
+            source={
+              Object {
+                "uri": "",
+              }
+            }
+            style={
+              Object {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "marginLeft": 8,
+            "paddingBottom": 16,
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#262626",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          Trường Đại học Giao thông Vận tải TP.HCM
+        </Text>
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "marginTop": 4,
+              },
+            ]
+          }
+        >
+          2 Võ Oanh, Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#262626",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "marginTop": 4,
+              },
+            ]
+          }
+        >
+          1.200 đ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "borderBottomColor": "#E8E8E8",
+          "borderBottomWidth": 1,
+          "marginTop": 8,
+          "paddingBottom": 18,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginTop": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 12,
+                "lineHeight": 12,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="LEFT_TEXT_ROW_TIME_PARKING"
+        >
+          Bắt đầu:
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="RIGHT_TEXT_ROW_TIME_PARKING"
+        >
+          7:00 AM, 26/01/2021
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginTop": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 12,
+                "lineHeight": 12,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="LEFT_TEXT_ROW_TIME_PARKING"
+        >
+          Kết thúc:
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="RIGHT_TEXT_ROW_TIME_PARKING"
+        >
+          8:00 AM, 26/01/2021
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginTop": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 12,
+                "lineHeight": 12,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="LEFT_TEXT_ROW_TIME_PARKING"
+        >
+          Thời gian còn lại:
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#F08229",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 16,
+                "lineHeight": 24,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="RIGHT_TEXT_ROW_TIME_PARKING"
+        >
+          01 : 00 : 00
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 16,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#262626",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 12,
+              "lineHeight": 20,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "width": "50%",
+            },
+          ]
+        }
+      >
+        Thanh toán trước 07:15
+      </Text>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#E8E8E8",
+              "borderRadius": 30,
+              "borderWidth": 1,
+              "justifyContent": "center",
+              "marginLeft": 8,
+              "opacity": 1,
+              "paddingHorizontal": 8,
+              "paddingVertical": 6,
+            }
+          }
+          testID="BUTTON_TEXT_BOTTOM_LEFT"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#00979D",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": 12,
+                  "lineHeight": 20,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "minWidth": 60,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Chỉ đường
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#00979D",
+              "borderColor": "#00979D",
+              "borderRadius": 30,
+              "borderWidth": 1,
+              "justifyContent": "center",
+              "marginLeft": 8,
+              "opacity": 1,
+              "paddingHorizontal": 8,
+              "paddingVertical": 6,
+            }
+          }
+          testID="BUTTON_TEXT_BOTTOM_RIGHT"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#FFFFFF",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "minWidth": 60,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Thanh toán
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Test active session test rerender active session with confirm arrival and paid 1`] = `
+<View
+  style={
+    Object {
+      "marginTop": 24,
+      "paddingHorizontal": 16,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#262626",
+          "fontFamily": "SFProDisplay-Semibold",
+          "fontSize": 14,
+          "lineHeight": 22,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {},
+      ]
+    }
+  >
+    Đang đỗ xe
+  </Text>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "#E8E8E8",
+        "borderRadius": 5,
+        "borderWidth": 1,
+        "marginTop": 16,
+        "opacity": 1,
+        "padding": 16,
+      }
+    }
+    testID="ACTIVE_SESSION_ITEM"
+  >
+    <View
+      style={
+        Object {
+          "borderBottomColor": "#E8E8E8",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "height": 70,
+            "width": 70,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "height": 70,
+                "width": 70,
+              },
+            ]
+          }
+        >
+          <FastImageView
+            resizeMode="cover"
+            source={
+              Object {
+                "uri": "",
+              }
+            }
+            style={
+              Object {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "marginLeft": 8,
+            "paddingBottom": 16,
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#262626",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          Trường Đại học Giao thông Vận tải TP.HCM
+        </Text>
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "marginTop": 4,
+              },
+            ]
+          }
+        >
+          2 Võ Oanh, Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#262626",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "marginTop": 4,
+              },
+            ]
+          }
+        >
+          1.200 đ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "borderBottomColor": "#E8E8E8",
+          "borderBottomWidth": 1,
+          "marginTop": 8,
+          "paddingBottom": 18,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginTop": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 12,
+                "lineHeight": 12,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="LEFT_TEXT_ROW_TIME_PARKING"
+        >
+          Bắt đầu:
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="RIGHT_TEXT_ROW_TIME_PARKING"
+        >
+          7:00 AM, 26/01/2021
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginTop": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 12,
+                "lineHeight": 12,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="LEFT_TEXT_ROW_TIME_PARKING"
+        >
+          Kết thúc:
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="RIGHT_TEXT_ROW_TIME_PARKING"
+        >
+          8:00 AM, 26/01/2021
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginTop": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 12,
+                "lineHeight": 12,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="LEFT_TEXT_ROW_TIME_PARKING"
+        >
+          Thời gian còn lại:
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#F08229",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 16,
+                "lineHeight": 24,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="RIGHT_TEXT_ROW_TIME_PARKING"
+        >
+          01 : 00 : 00
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 16,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#262626",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 12,
+              "lineHeight": 20,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "width": "50%",
+            },
+          ]
+        }
+      >
+        Thanh toán trước 07:15
+      </Text>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#E8E8E8",
+              "borderRadius": 30,
+              "borderWidth": 1,
+              "justifyContent": "center",
+              "marginLeft": 8,
+              "opacity": 1,
+              "paddingHorizontal": 8,
+              "paddingVertical": 6,
+            }
+          }
+          testID="BUTTON_TEXT_BOTTOM_LEFT"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#00979D",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": 12,
+                  "lineHeight": 20,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "minWidth": 60,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Chỉ đường
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#00979D",
+              "borderColor": "#00979D",
+              "borderRadius": 30,
+              "borderWidth": 1,
+              "justifyContent": "center",
+              "marginLeft": 8,
+              "opacity": 1,
+              "paddingHorizontal": 8,
+              "paddingVertical": 6,
+            }
+          }
+          testID="BUTTON_TEXT_BOTTOM_RIGHT"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#FFFFFF",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "minWidth": 60,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Thanh toán
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Test active session test rerender active session with paid but not arrive 1`] = `
+<View
+  style={
+    Object {
+      "marginTop": 24,
+      "paddingHorizontal": 16,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#262626",
+          "fontFamily": "SFProDisplay-Semibold",
+          "fontSize": 14,
+          "lineHeight": 22,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {},
+      ]
+    }
+  >
+    Đang đỗ xe
+  </Text>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "#E8E8E8",
+        "borderRadius": 5,
+        "borderWidth": 1,
+        "marginTop": 16,
+        "opacity": 1,
+        "padding": 16,
+      }
+    }
+    testID="ACTIVE_SESSION_ITEM"
+  >
+    <View
+      style={
+        Object {
+          "borderBottomColor": "#E8E8E8",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "height": 70,
+            "width": 70,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "height": 70,
+                "width": 70,
+              },
+            ]
+          }
+        >
+          <FastImageView
+            resizeMode="cover"
+            source={
+              Object {
+                "uri": "",
+              }
+            }
+            style={
+              Object {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "marginLeft": 8,
+            "paddingBottom": 16,
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#262626",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          Trường Đại học Giao thông Vận tải TP.HCM
+        </Text>
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "marginTop": 4,
+              },
+            ]
+          }
+        >
+          2 Võ Oanh, Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#262626",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "marginTop": 4,
+              },
+            ]
+          }
+        >
+          1.200 đ
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "borderBottomColor": "#E8E8E8",
+          "borderBottomWidth": 1,
+          "marginTop": 8,
+          "paddingBottom": 18,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginTop": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 12,
+                "lineHeight": 12,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="LEFT_TEXT_ROW_TIME_PARKING"
+        >
+          Bắt đầu:
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="RIGHT_TEXT_ROW_TIME_PARKING"
+        >
+          7:00 AM, 26/01/2021
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginTop": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 12,
+                "lineHeight": 12,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="LEFT_TEXT_ROW_TIME_PARKING"
+        >
+          Kết thúc:
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="RIGHT_TEXT_ROW_TIME_PARKING"
+        >
+          8:00 AM, 26/01/2021
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginTop": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 12,
+                "lineHeight": 12,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="LEFT_TEXT_ROW_TIME_PARKING"
+        >
+          Thời gian còn lại:
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#F08229",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 16,
+                "lineHeight": 24,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+          testID="RIGHT_TEXT_ROW_TIME_PARKING"
+        >
+          01 : 00 : 00
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 16,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#262626",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 12,
+              "lineHeight": 20,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "width": "50%",
+            },
+          ]
+        }
+      >
+        Thanh toán trước 07:15
+      </Text>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#E8E8E8",
+              "borderRadius": 30,
+              "borderWidth": 1,
+              "justifyContent": "center",
+              "marginLeft": 8,
+              "opacity": 1,
+              "paddingHorizontal": 8,
+              "paddingVertical": 6,
+            }
+          }
+          testID="BUTTON_TEXT_BOTTOM_LEFT"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#00979D",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": 12,
+                  "lineHeight": 20,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "minWidth": 60,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Chỉ đường
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#00979D",
+              "borderColor": "#00979D",
+              "borderRadius": 30,
+              "borderWidth": 1,
+              "justifyContent": "center",
+              "marginLeft": 8,
+              "opacity": 1,
+              "paddingHorizontal": 8,
+              "paddingVertical": 6,
+            }
+          }
+          testID="BUTTON_TEXT_BOTTOM_RIGHT"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#FFFFFF",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "minWidth": 60,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Thanh toán
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

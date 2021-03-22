@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test SearchBox SearchBox render 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "#E8E8E8",
+        "borderRadius": 5,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "height": 48,
+        "marginTop": 8,
+        "paddingHorizontal": 16,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "marginHorizontal": -12,
+        "opacity": 1,
+        "padding": 12,
+      }
+    }
+  >
+    <SvgMock />
+  </View>
+  <TextInput
+    allowFontScaling={true}
+    onFocus={[Function]}
+    placeholder="Tìm kiếm địa điểm công cộng, cửa hàng, nhà hàng,..."
+    placeholderTextColor="#8C8C8C"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "flex": 1,
+        "fontSize": 14,
+        "height": "100%",
+        "marginLeft": 20,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+</View>
+`;

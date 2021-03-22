@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test RowDetails render row details 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "marginTop": 8,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#8C8C8C",
+          "fontFamily": "SFProDisplay-Regular",
+          "fontSize": 14,
+          "lineHeight": 22,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {},
+      ]
+    }
+  >
+    title
+  </Text>
+  <View
+    style={
+      Object {
+        "flexDirection": "column",
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#595959",
+            "fontFamily": "SFProDisplay-Semibold",
+            "fontSize": 14,
+            "lineHeight": 22,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {},
+        ]
+      }
+    >
+      value
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Test RowDetails render row details 2 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "marginTop": 8,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#8C8C8C",
+          "fontFamily": "SFProDisplay-Regular",
+          "fontSize": 14,
+          "lineHeight": 22,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {},
+      ]
+    }
+  >
+    title
+  </Text>
+  <View
+    style={
+      Object {
+        "flexDirection": "column",
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#8C8C8C",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": 14,
+            "lineHeight": 22,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {},
+        ]
+      }
+    >
+      extend_time_1
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#8C8C8C",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": 14,
+            "lineHeight": 22,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {
+            "marginTop": 8,
+          },
+        ]
+      }
+    >
+      extend_time_2
+    </Text>
+  </View>
+</View>
+`;

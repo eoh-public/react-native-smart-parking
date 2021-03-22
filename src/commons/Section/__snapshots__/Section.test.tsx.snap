@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Section  Shoud match empty snapshot when type is border 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "#E8E8E8",
+        "borderRadius": 20,
+        "borderWidth": 1,
+        "marginBottom": 16,
+        "paddingBottom": 24,
+        "paddingHorizontal": 16,
+        "paddingTop": 8,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text>
+    Hello world
+  </Text>
+</View>
+`;
+
+exports[`Section  Shoud match empty snapshot when type is shadow 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "elevation": 3,
+        "marginBottom": 16,
+        "padding": 16,
+        "shadowColor": "#303133",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.1,
+        "shadowRadius": 4,
+      },
+      Object {
+        "padding": 10,
+      },
+    ]
+  }
+>
+  <Text>
+    Hello world
+  </Text>
+</View>
+`;

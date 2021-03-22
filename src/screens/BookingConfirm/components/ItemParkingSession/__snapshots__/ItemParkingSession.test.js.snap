@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ItemParkingSession  render item parking session 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "marginBottom": 16,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#595959",
+          "fontFamily": "SFProDisplay-Regular",
+          "fontSize": 14,
+          "lineHeight": 22,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {},
+      ]
+    }
+  >
+    total_parking_hours
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#262626",
+          "fontFamily": "SFProDisplay-Regular",
+          "fontSize": 14,
+          "lineHeight": 22,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {},
+      ]
+    }
+  >
+    parking_hours
+  </Text>
+</View>
+`;
+
+exports[`Test ItemParkingSession  render item parking session with isPrimary 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "marginBottom": 16,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#595959",
+          "fontFamily": "SFProDisplay-Regular",
+          "fontSize": 14,
+          "lineHeight": 22,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {},
+      ]
+    }
+  >
+    total_parking_hours
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#00979D",
+          "fontFamily": "SFProDisplay-Regular",
+          "fontSize": 14,
+          "lineHeight": 22,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {},
+      ]
+    }
+  >
+    parking_hours
+  </Text>
+</View>
+`;

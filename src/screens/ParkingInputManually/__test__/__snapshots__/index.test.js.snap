@@ -1,0 +1,3621 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ParkingInputManually container create ParkingInputManually container 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#FFFFFF",
+      "flex": 1,
+      "paddingBottom": 8,
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        Object {
+          "backgroundColor": "#FFFFFF",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "width": "100%",
+          "zIndex": 2,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FAFAFA",
+            "borderColor": "#BFBFBF",
+            "borderWidth": 0.5,
+            "height": 88,
+            "opacity": 0,
+            "position": "absolute",
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+            ],
+            "width": "100%",
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 44,
+              "justifyContent": "center",
+              "opacity": 1,
+              "width": 44,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "antoutline",
+                  "fontSize": 27,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                undefined,
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+        <View
+          styles={
+            Object {
+              "height": 44,
+              "width": 44,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "height": 44,
+            "justifyContent": "center",
+            "marginRight": 0,
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+              Object {
+                "translateX": 0,
+              },
+              Object {
+                "scale": 1,
+              },
+            ],
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 24,
+                "lineHeight": 32,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "color": "#262626",
+                "marginLeft": 16,
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          Vị trí đỗ
+        </Text>
+      </View>
+    </View>
+    <RCTScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "paddingBottom": 88,
+          },
+          Object {
+            "paddingBottom": 88,
+          },
+        ]
+      }
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      refreshControl={
+        <RefreshControlMock
+          refreshing={false}
+        />
+      }
+      scrollEventThrottle={16}
+      showsVerticalScrollIndicator={false}
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "flex": 1,
+          "marginBottom": -88,
+          "paddingTop": 16,
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        }
+      }
+    >
+      <RCTRefreshControl />
+      <View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <SvgMock
+            style={
+              Object {
+                "alignSelf": "center",
+                "marginTop": 32,
+              }
+            }
+          />
+          <Text
+            onLayout={[Function]}
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": 20,
+                  "lineHeight": 28,
+                  "textAlign": "center",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "flexDirection": "row",
+                  "marginLeft": 54,
+                  "marginRight": 54,
+                  "marginTop": 32,
+                },
+              ]
+            }
+          >
+            Nhập mã số được sơn tại vị trí đỗ xe của bạn
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#595959",
+                      "fontFamily": "antoutline",
+                      "fontSize": 20,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {
+                      "marginBottom": 0,
+                      "marginLeft": 12,
+                    },
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </Text>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "marginVertical": 24,
+                "opacity": 1,
+              }
+            }
+            testID="SPOT_INPUT_FOCUS"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#E8E8E8",
+                    "borderWidth": 1,
+                    "height": 56,
+                    "justifyContent": "center",
+                    "width": 56,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#00979D",
+                      "fontFamily": "SFProDisplay-Regular",
+                      "fontSize": 24,
+                      "lineHeight": 32,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+                testID="SPOT_INPUT_0"
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#E8E8E8",
+                    "borderWidth": 1,
+                    "height": 56,
+                    "justifyContent": "center",
+                    "width": 56,
+                  },
+                  Object {
+                    "marginLeft": 16,
+                  },
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#E8E8E8",
+                    "borderWidth": 1,
+                    "height": 56,
+                    "justifyContent": "center",
+                    "width": 56,
+                  },
+                  Object {
+                    "marginLeft": 16,
+                  },
+                  undefined,
+                ]
+              }
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "marginBottom": 8,
+                "marginRight": 12,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "antoutline",
+                    "fontSize": 20,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "marginRight": 8,
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              Địa điểm đỗ
+            </Text>
+          </View>
+          <Text
+            numberOfLines={1}
+            style={
+              Array [
+                Object {
+                  "color": "#00979D",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {},
+              ]
+            }
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#BFBFBF",
+                "borderColor": "#FFFFFF",
+                "borderRadius": 28,
+                "borderWidth": 0,
+                "height": 56,
+                "justifyContent": "center",
+                "opacity": 1,
+                "width": 56,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#FFFFFF",
+                    "fontFamily": "antoutline",
+                    "fontSize": 24,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#262626",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "center",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          Hoặc quét mã QR để xác nhận đặt chỗ của bạn
+        </Text>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "marginTop": 8,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#F08229",
+                  "fontFamily": "SFProDisplay-Bold",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {},
+              ]
+            }
+          >
+            Quét mã QR
+          </Text>
+        </View>
+        <TextInput
+          allowFontScaling={true}
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          rejectResponderTermination={true}
+          style={
+            Object {
+              "position": "absolute",
+              "top": -200,
+            }
+          }
+          testID="PARKING_SPOT_INPUT"
+          underlineColorAndroid="transparent"
+          value=""
+        />
+      </View>
+    </RCTScrollView>
+  </RCTSafeAreaView>
+  <Modal
+    animationType="none"
+    hardwareAccelerated={false}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    onRequestClose={[Function]}
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+    testID="MODAL_BUTTON_POPUP"
+    transparent={true}
+    visible={false}
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      forwardedRef={[Function]}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "black",
+          "bottom": 0,
+          "height": 1334,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "width": 750,
+        }
+      }
+    />
+    <View
+      forwardedRef={[Function]}
+      hideModalContentWhileAnimating={false}
+      onModalHide={[Function]}
+      onModalWillHide={[Function]}
+      onModalWillShow={[Function]}
+      pointerEvents="box-none"
+      scrollHorizontal={false}
+      scrollOffset={0}
+      scrollOffsetMax={0}
+      scrollTo={null}
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "center",
+          "margin": 37.5,
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        }
+      }
+      supportedOrientations={
+        Array [
+          "portrait",
+          "landscape",
+        ]
+      }
+      swipeThreshold={100}
+      testID="MODAL_BUTTON_POPUP"
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "position": "absolute",
+            "width": "100%",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderRadius": 10,
+              "flex": 1,
+              "flexDirection": "column",
+              "marginBottom": 20,
+              "position": "relative",
+            }
+          }
+        >
+          <Text
+            onPress={[Function]}
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "antoutline",
+                  "fontSize": 22,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {
+                  "position": "absolute",
+                  "right": 20,
+                  "top": 20,
+                  "zIndex": 1,
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "padding": 16,
+                  "paddingTop": 60,
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "flex": 1,
+                  "left": 0,
+                  "paddingHorizontal": 16,
+                  "paddingVertical": 8,
+                  "position": "absolute",
+                  "right": 0,
+                },
+                Object {
+                  "flexDirection": "row-reverse",
+                  "justifyContent": "center",
+                },
+                Array [
+                  Object {
+                    "marginBottom": 24,
+                    "position": "relative",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#E8E8E8",
+                  "borderRadius": 28,
+                  "borderWidth": 1,
+                  "flex": 1,
+                  "height": 48,
+                  "justifyContent": "center",
+                  "marginRight": 4,
+                  "opacity": 1,
+                  "width": "100%",
+                }
+              }
+              testID="BUTTON_POPUPBOTTOM_VIEW_SECONDARY"
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#595959",
+                        "fontFamily": "SFProDisplay-Semibold",
+                        "fontSize": 16,
+                        "lineHeight": 24,
+                        "textAlign": "left",
+                        "textDecorationLine": "none",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  OK
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
+  <Modal
+    animationType="none"
+    hardwareAccelerated={false}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    onRequestClose={[Function]}
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+    transparent={true}
+    visible={false}
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      forwardedRef={[Function]}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#00000000",
+          "bottom": 0,
+          "height": 1334,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "width": 750,
+        }
+      }
+    />
+    <View
+      forwardedRef={[Function]}
+      hideModalContentWhileAnimating={false}
+      onModalHide={[Function]}
+      onModalWillHide={[Function]}
+      onModalWillShow={[Function]}
+      pointerEvents="box-none"
+      scrollHorizontal={false}
+      scrollOffset={0}
+      scrollOffsetMax={0}
+      scrollTo={null}
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "center",
+          "margin": 37.5,
+          "top": 36,
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        }
+      }
+      supportedOrientations={
+        Array [
+          "portrait",
+          "landscape",
+        ]
+      }
+      swipeThreshold={100}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderRadius": 10,
+              "margin": 24,
+            },
+            Object {
+              "elevation": 5,
+              "shadowColor": "#3031331a",
+              "shadowOffset": Object {
+                "height": 5,
+                "width": 0,
+              },
+              "shadowOpacity": 1,
+              "shadowRadius": 12,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "center",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "padding": 16,
+              },
+            ]
+          }
+        >
+          Vị trí đỗ xe là một mã số gồm 3 chữ số được sơn ở đầu mỗi điểm đỗ xe và được sử dụng để xác định đặt chỗ. Vui lòng nhập chính xác vị trí đỗ xe của bạn để tiến hành đặt chỗ.
+        </Text>
+      </View>
+    </View>
+  </Modal>
+</View>
+`;
+
+exports[`Test ParkingInputManually container focus input spot 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#FFFFFF",
+      "flex": 1,
+      "paddingBottom": 8,
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        Object {
+          "backgroundColor": "#FFFFFF",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "width": "100%",
+          "zIndex": 2,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FAFAFA",
+            "borderColor": "#BFBFBF",
+            "borderWidth": 0.5,
+            "height": 88,
+            "opacity": 0,
+            "position": "absolute",
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+            ],
+            "width": "100%",
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 44,
+              "justifyContent": "center",
+              "opacity": 1,
+              "width": 44,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "antoutline",
+                  "fontSize": 27,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                undefined,
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+        <View
+          styles={
+            Object {
+              "height": 44,
+              "width": 44,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "height": 44,
+            "justifyContent": "center",
+            "marginRight": 0,
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+              Object {
+                "translateX": 0,
+              },
+              Object {
+                "scale": 1,
+              },
+            ],
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 24,
+                "lineHeight": 32,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "color": "#262626",
+                "marginLeft": 16,
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          Vị trí đỗ
+        </Text>
+      </View>
+    </View>
+    <RCTScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "paddingBottom": 88,
+          },
+          Object {
+            "paddingBottom": 88,
+          },
+        ]
+      }
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      refreshControl={
+        <RefreshControlMock
+          refreshing={false}
+        />
+      }
+      scrollEventThrottle={16}
+      showsVerticalScrollIndicator={false}
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "flex": 1,
+          "marginBottom": -88,
+          "paddingTop": 16,
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        }
+      }
+    >
+      <RCTRefreshControl />
+      <View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <SvgMock
+            style={
+              Object {
+                "alignSelf": "center",
+                "marginTop": 32,
+              }
+            }
+          />
+          <Text
+            onLayout={[Function]}
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": 20,
+                  "lineHeight": 28,
+                  "textAlign": "center",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "flexDirection": "row",
+                  "marginLeft": 54,
+                  "marginRight": 54,
+                  "marginTop": 32,
+                },
+              ]
+            }
+          >
+            Nhập mã số được sơn tại vị trí đỗ xe của bạn
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#595959",
+                      "fontFamily": "antoutline",
+                      "fontSize": 20,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {
+                      "marginBottom": 0,
+                      "marginLeft": 12,
+                    },
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </Text>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "marginVertical": 24,
+                "opacity": 1,
+              }
+            }
+            testID="SPOT_INPUT_FOCUS"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#E8E8E8",
+                    "borderWidth": 1,
+                    "height": 56,
+                    "justifyContent": "center",
+                    "width": 56,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#00979D",
+                      "fontFamily": "SFProDisplay-Regular",
+                      "fontSize": 24,
+                      "lineHeight": 32,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+                testID="SPOT_INPUT_0"
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#E8E8E8",
+                    "borderWidth": 1,
+                    "height": 56,
+                    "justifyContent": "center",
+                    "width": 56,
+                  },
+                  Object {
+                    "marginLeft": 16,
+                  },
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#E8E8E8",
+                    "borderWidth": 1,
+                    "height": 56,
+                    "justifyContent": "center",
+                    "width": 56,
+                  },
+                  Object {
+                    "marginLeft": 16,
+                  },
+                  undefined,
+                ]
+              }
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "marginBottom": 8,
+                "marginRight": 12,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "antoutline",
+                    "fontSize": 20,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "marginRight": 8,
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              Địa điểm đỗ
+            </Text>
+          </View>
+          <Text
+            numberOfLines={1}
+            style={
+              Array [
+                Object {
+                  "color": "#00979D",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {},
+              ]
+            }
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#BFBFBF",
+                "borderColor": "#FFFFFF",
+                "borderRadius": 28,
+                "borderWidth": 0,
+                "height": 56,
+                "justifyContent": "center",
+                "opacity": 1,
+                "width": 56,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#FFFFFF",
+                    "fontFamily": "antoutline",
+                    "fontSize": 24,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#262626",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "center",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          Hoặc quét mã QR để xác nhận đặt chỗ của bạn
+        </Text>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "marginTop": 8,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#F08229",
+                  "fontFamily": "SFProDisplay-Bold",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {},
+              ]
+            }
+          >
+            Quét mã QR
+          </Text>
+        </View>
+        <TextInput
+          allowFontScaling={true}
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          rejectResponderTermination={true}
+          style={
+            Object {
+              "position": "absolute",
+              "top": -200,
+            }
+          }
+          testID="PARKING_SPOT_INPUT"
+          underlineColorAndroid="transparent"
+          value=""
+        />
+      </View>
+    </RCTScrollView>
+  </RCTSafeAreaView>
+  <Modal
+    animationType="none"
+    hardwareAccelerated={false}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    onRequestClose={[Function]}
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+    testID="MODAL_BUTTON_POPUP"
+    transparent={true}
+    visible={false}
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      forwardedRef={[Function]}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "black",
+          "bottom": 0,
+          "height": 1334,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "width": 750,
+        }
+      }
+    />
+    <View
+      forwardedRef={[Function]}
+      hideModalContentWhileAnimating={false}
+      onModalHide={[Function]}
+      onModalWillHide={[Function]}
+      onModalWillShow={[Function]}
+      pointerEvents="box-none"
+      scrollHorizontal={false}
+      scrollOffset={0}
+      scrollOffsetMax={0}
+      scrollTo={null}
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "center",
+          "margin": 37.5,
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        }
+      }
+      supportedOrientations={
+        Array [
+          "portrait",
+          "landscape",
+        ]
+      }
+      swipeThreshold={100}
+      testID="MODAL_BUTTON_POPUP"
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "position": "absolute",
+            "width": "100%",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderRadius": 10,
+              "flex": 1,
+              "flexDirection": "column",
+              "marginBottom": 20,
+              "position": "relative",
+            }
+          }
+        >
+          <Text
+            onPress={[Function]}
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "antoutline",
+                  "fontSize": 22,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {
+                  "position": "absolute",
+                  "right": 20,
+                  "top": 20,
+                  "zIndex": 1,
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "padding": 16,
+                  "paddingTop": 60,
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "flex": 1,
+                  "left": 0,
+                  "paddingHorizontal": 16,
+                  "paddingVertical": 8,
+                  "position": "absolute",
+                  "right": 0,
+                },
+                Object {
+                  "flexDirection": "row-reverse",
+                  "justifyContent": "center",
+                },
+                Array [
+                  Object {
+                    "marginBottom": 24,
+                    "position": "relative",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#E8E8E8",
+                  "borderRadius": 28,
+                  "borderWidth": 1,
+                  "flex": 1,
+                  "height": 48,
+                  "justifyContent": "center",
+                  "marginRight": 4,
+                  "opacity": 1,
+                  "width": "100%",
+                }
+              }
+              testID="BUTTON_POPUPBOTTOM_VIEW_SECONDARY"
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#595959",
+                        "fontFamily": "SFProDisplay-Semibold",
+                        "fontSize": 16,
+                        "lineHeight": 24,
+                        "textAlign": "left",
+                        "textDecorationLine": "none",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  OK
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
+  <Modal
+    animationType="none"
+    hardwareAccelerated={false}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    onRequestClose={[Function]}
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+    transparent={true}
+    visible={false}
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      forwardedRef={[Function]}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#00000000",
+          "bottom": 0,
+          "height": 1334,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "width": 750,
+        }
+      }
+    />
+    <View
+      forwardedRef={[Function]}
+      hideModalContentWhileAnimating={false}
+      onModalHide={[Function]}
+      onModalWillHide={[Function]}
+      onModalWillShow={[Function]}
+      pointerEvents="box-none"
+      scrollHorizontal={false}
+      scrollOffset={0}
+      scrollOffsetMax={0}
+      scrollTo={null}
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "center",
+          "margin": 37.5,
+          "top": 36,
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        }
+      }
+      supportedOrientations={
+        Array [
+          "portrait",
+          "landscape",
+        ]
+      }
+      swipeThreshold={100}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderRadius": 10,
+              "margin": 24,
+            },
+            Object {
+              "elevation": 5,
+              "shadowColor": "#3031331a",
+              "shadowOffset": Object {
+                "height": 5,
+                "width": 0,
+              },
+              "shadowOpacity": 1,
+              "shadowRadius": 12,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "center",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "padding": 16,
+              },
+            ]
+          }
+        >
+          Vị trí đỗ xe là một mã số gồm 3 chữ số được sơn ở đầu mỗi điểm đỗ xe và được sử dụng để xác định đặt chỗ. Vui lòng nhập chính xác vị trí đỗ xe của bạn để tiến hành đặt chỗ.
+        </Text>
+      </View>
+    </View>
+  </Modal>
+</View>
+`;
+
+exports[`Test ParkingInputManually container focus input spot 2`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#FFFFFF",
+      "flex": 1,
+      "paddingBottom": 8,
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        Object {
+          "backgroundColor": "#FFFFFF",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "width": "100%",
+          "zIndex": 2,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FAFAFA",
+            "borderColor": "#BFBFBF",
+            "borderWidth": 0.5,
+            "height": 88,
+            "opacity": 0,
+            "position": "absolute",
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+            ],
+            "width": "100%",
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 44,
+              "justifyContent": "center",
+              "opacity": 1,
+              "width": 44,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "antoutline",
+                  "fontSize": 27,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                undefined,
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+        <View
+          styles={
+            Object {
+              "height": 44,
+              "width": 44,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "height": 44,
+            "justifyContent": "center",
+            "marginRight": 0,
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+              Object {
+                "translateX": 0,
+              },
+              Object {
+                "scale": 1,
+              },
+            ],
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 24,
+                "lineHeight": 32,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "color": "#262626",
+                "marginLeft": 16,
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          Vị trí đỗ
+        </Text>
+      </View>
+    </View>
+    <RCTScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "paddingBottom": 88,
+          },
+          Object {
+            "paddingBottom": 88,
+          },
+        ]
+      }
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      refreshControl={
+        <RefreshControlMock
+          refreshing={false}
+        />
+      }
+      scrollEventThrottle={16}
+      showsVerticalScrollIndicator={false}
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "flex": 1,
+          "marginBottom": -88,
+          "paddingTop": 16,
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        }
+      }
+    >
+      <RCTRefreshControl />
+      <View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <SvgMock
+            style={
+              Object {
+                "alignSelf": "center",
+                "marginTop": 32,
+              }
+            }
+          />
+          <Text
+            onLayout={[Function]}
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": 20,
+                  "lineHeight": 28,
+                  "textAlign": "center",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "flexDirection": "row",
+                  "marginLeft": 54,
+                  "marginRight": 54,
+                  "marginTop": 32,
+                },
+              ]
+            }
+          >
+            Nhập mã số được sơn tại vị trí đỗ xe của bạn
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#595959",
+                      "fontFamily": "antoutline",
+                      "fontSize": 20,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {
+                      "marginBottom": 0,
+                      "marginLeft": 12,
+                    },
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </Text>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "marginVertical": 24,
+                "opacity": 1,
+              }
+            }
+            testID="SPOT_INPUT_FOCUS"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#E8E8E8",
+                    "borderWidth": 1,
+                    "height": 56,
+                    "justifyContent": "center",
+                    "width": 56,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#00979D",
+                      "fontFamily": "SFProDisplay-Regular",
+                      "fontSize": 24,
+                      "lineHeight": 32,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+                testID="SPOT_INPUT_0"
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#E8E8E8",
+                    "borderWidth": 1,
+                    "height": 56,
+                    "justifyContent": "center",
+                    "width": 56,
+                  },
+                  Object {
+                    "marginLeft": 16,
+                  },
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#E8E8E8",
+                    "borderWidth": 1,
+                    "height": 56,
+                    "justifyContent": "center",
+                    "width": 56,
+                  },
+                  Object {
+                    "marginLeft": 16,
+                  },
+                  undefined,
+                ]
+              }
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "marginBottom": 8,
+                "marginRight": 12,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "antoutline",
+                    "fontSize": 20,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "marginRight": 8,
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              Địa điểm đỗ
+            </Text>
+          </View>
+          <Text
+            numberOfLines={1}
+            style={
+              Array [
+                Object {
+                  "color": "#00979D",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {},
+              ]
+            }
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#BFBFBF",
+                "borderColor": "#FFFFFF",
+                "borderRadius": 28,
+                "borderWidth": 0,
+                "height": 56,
+                "justifyContent": "center",
+                "opacity": 1,
+                "width": 56,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#FFFFFF",
+                    "fontFamily": "antoutline",
+                    "fontSize": 24,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#262626",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "center",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          Hoặc quét mã QR để xác nhận đặt chỗ của bạn
+        </Text>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "marginTop": 8,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#F08229",
+                  "fontFamily": "SFProDisplay-Bold",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {},
+              ]
+            }
+          >
+            Quét mã QR
+          </Text>
+        </View>
+        <TextInput
+          allowFontScaling={true}
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          rejectResponderTermination={true}
+          style={
+            Object {
+              "position": "absolute",
+              "top": -200,
+            }
+          }
+          testID="PARKING_SPOT_INPUT"
+          underlineColorAndroid="transparent"
+          value=""
+        />
+      </View>
+    </RCTScrollView>
+  </RCTSafeAreaView>
+  <Modal
+    animationType="none"
+    hardwareAccelerated={false}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    onRequestClose={[Function]}
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+    testID="MODAL_BUTTON_POPUP"
+    transparent={true}
+    visible={false}
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      forwardedRef={[Function]}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "black",
+          "bottom": 0,
+          "height": 1334,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "width": 750,
+        }
+      }
+    />
+    <View
+      forwardedRef={[Function]}
+      hideModalContentWhileAnimating={false}
+      onModalHide={[Function]}
+      onModalWillHide={[Function]}
+      onModalWillShow={[Function]}
+      pointerEvents="box-none"
+      scrollHorizontal={false}
+      scrollOffset={0}
+      scrollOffsetMax={0}
+      scrollTo={null}
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "center",
+          "margin": 37.5,
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        }
+      }
+      supportedOrientations={
+        Array [
+          "portrait",
+          "landscape",
+        ]
+      }
+      swipeThreshold={100}
+      testID="MODAL_BUTTON_POPUP"
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "position": "absolute",
+            "width": "100%",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderRadius": 10,
+              "flex": 1,
+              "flexDirection": "column",
+              "marginBottom": 20,
+              "position": "relative",
+            }
+          }
+        >
+          <Text
+            onPress={[Function]}
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "antoutline",
+                  "fontSize": 22,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {
+                  "position": "absolute",
+                  "right": 20,
+                  "top": 20,
+                  "zIndex": 1,
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "padding": 16,
+                  "paddingTop": 60,
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "flex": 1,
+                  "left": 0,
+                  "paddingHorizontal": 16,
+                  "paddingVertical": 8,
+                  "position": "absolute",
+                  "right": 0,
+                },
+                Object {
+                  "flexDirection": "row-reverse",
+                  "justifyContent": "center",
+                },
+                Array [
+                  Object {
+                    "marginBottom": 24,
+                    "position": "relative",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#E8E8E8",
+                  "borderRadius": 28,
+                  "borderWidth": 1,
+                  "flex": 1,
+                  "height": 48,
+                  "justifyContent": "center",
+                  "marginRight": 4,
+                  "opacity": 1,
+                  "width": "100%",
+                }
+              }
+              testID="BUTTON_POPUPBOTTOM_VIEW_SECONDARY"
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#595959",
+                        "fontFamily": "SFProDisplay-Semibold",
+                        "fontSize": 16,
+                        "lineHeight": 24,
+                        "textAlign": "left",
+                        "textDecorationLine": "none",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  OK
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
+  <Modal
+    animationType="none"
+    hardwareAccelerated={false}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    onRequestClose={[Function]}
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+    transparent={true}
+    visible={false}
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      forwardedRef={[Function]}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#00000000",
+          "bottom": 0,
+          "height": 1334,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "width": 750,
+        }
+      }
+    />
+    <View
+      forwardedRef={[Function]}
+      hideModalContentWhileAnimating={false}
+      onModalHide={[Function]}
+      onModalWillHide={[Function]}
+      onModalWillShow={[Function]}
+      pointerEvents="box-none"
+      scrollHorizontal={false}
+      scrollOffset={0}
+      scrollOffsetMax={0}
+      scrollTo={null}
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "center",
+          "margin": 37.5,
+          "top": 36,
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        }
+      }
+      supportedOrientations={
+        Array [
+          "portrait",
+          "landscape",
+        ]
+      }
+      swipeThreshold={100}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderRadius": 10,
+              "margin": 24,
+            },
+            Object {
+              "elevation": 5,
+              "shadowColor": "#3031331a",
+              "shadowOffset": Object {
+                "height": 5,
+                "width": 0,
+              },
+              "shadowOpacity": 1,
+              "shadowRadius": 12,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "center",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "padding": 16,
+              },
+            ]
+          }
+        >
+          Vị trí đỗ xe là một mã số gồm 3 chữ số được sơn ở đầu mỗi điểm đỗ xe và được sử dụng để xác định đặt chỗ. Vui lòng nhập chính xác vị trí đỗ xe của bạn để tiến hành đặt chỗ.
+        </Text>
+      </View>
+    </View>
+  </Modal>
+</View>
+`;
+
+exports[`Test ParkingInputManually container test input spot 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#FFFFFF",
+      "flex": 1,
+      "paddingBottom": 8,
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        Object {
+          "backgroundColor": "#FFFFFF",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "width": "100%",
+          "zIndex": 2,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FAFAFA",
+            "borderColor": "#BFBFBF",
+            "borderWidth": 0.5,
+            "height": 88,
+            "opacity": 0,
+            "position": "absolute",
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+            ],
+            "width": "100%",
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 44,
+              "justifyContent": "center",
+              "opacity": 1,
+              "width": 44,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "antoutline",
+                  "fontSize": 27,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                undefined,
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+        <View
+          styles={
+            Object {
+              "height": 44,
+              "width": 44,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "height": 44,
+            "justifyContent": "center",
+            "marginRight": 0,
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+              Object {
+                "translateX": 0,
+              },
+              Object {
+                "scale": 1,
+              },
+            ],
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "SFProDisplay-Semibold",
+                "fontSize": 24,
+                "lineHeight": 32,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "color": "#262626",
+                "marginLeft": 16,
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          Vị trí đỗ
+        </Text>
+      </View>
+    </View>
+    <RCTScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "paddingBottom": 88,
+          },
+          Object {
+            "paddingBottom": 88,
+          },
+        ]
+      }
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      refreshControl={
+        <RefreshControlMock
+          refreshing={false}
+        />
+      }
+      scrollEventThrottle={16}
+      showsVerticalScrollIndicator={false}
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "flex": 1,
+          "marginBottom": -88,
+          "paddingTop": 16,
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        }
+      }
+    >
+      <RCTRefreshControl />
+      <View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <SvgMock
+            style={
+              Object {
+                "alignSelf": "center",
+                "marginTop": 32,
+              }
+            }
+          />
+          <Text
+            onLayout={[Function]}
+            style={
+              Array [
+                Object {
+                  "color": "#262626",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": 20,
+                  "lineHeight": 28,
+                  "textAlign": "center",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "flexDirection": "row",
+                  "marginLeft": 54,
+                  "marginRight": 54,
+                  "marginTop": 32,
+                },
+              ]
+            }
+          >
+            Nhập mã số được sơn tại vị trí đỗ xe của bạn
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#595959",
+                      "fontFamily": "antoutline",
+                      "fontSize": 20,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {
+                      "marginBottom": 0,
+                      "marginLeft": 12,
+                    },
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </Text>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "marginVertical": 24,
+                "opacity": 1,
+              }
+            }
+            testID="SPOT_INPUT_FOCUS"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#E8E8E8",
+                    "borderWidth": 1,
+                    "height": 56,
+                    "justifyContent": "center",
+                    "width": 56,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#00979D",
+                      "fontFamily": "SFProDisplay-Regular",
+                      "fontSize": 24,
+                      "lineHeight": 32,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+                testID="SPOT_INPUT_0"
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#E8E8E8",
+                    "borderWidth": 1,
+                    "height": 56,
+                    "justifyContent": "center",
+                    "width": 56,
+                  },
+                  Object {
+                    "marginLeft": 16,
+                  },
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#E8E8E8",
+                    "borderWidth": 1,
+                    "height": 56,
+                    "justifyContent": "center",
+                    "width": 56,
+                  },
+                  Object {
+                    "marginLeft": 16,
+                  },
+                  undefined,
+                ]
+              }
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "marginBottom": 8,
+                "marginRight": 12,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "antoutline",
+                    "fontSize": 20,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "marginRight": 8,
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              Địa điểm đỗ
+            </Text>
+          </View>
+          <Text
+            numberOfLines={1}
+            style={
+              Array [
+                Object {
+                  "color": "#00979D",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {},
+              ]
+            }
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#BFBFBF",
+                "borderColor": "#FFFFFF",
+                "borderRadius": 28,
+                "borderWidth": 0,
+                "height": 56,
+                "justifyContent": "center",
+                "opacity": 1,
+                "width": 56,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#FFFFFF",
+                    "fontFamily": "antoutline",
+                    "fontSize": 24,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#262626",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 14,
+                "lineHeight": 22,
+                "textAlign": "center",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          Hoặc quét mã QR để xác nhận đặt chỗ của bạn
+        </Text>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "marginTop": 8,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#F08229",
+                  "fontFamily": "SFProDisplay-Bold",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {},
+              ]
+            }
+          >
+            Quét mã QR
+          </Text>
+        </View>
+        <TextInput
+          allowFontScaling={true}
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          rejectResponderTermination={true}
+          style={
+            Object {
+              "position": "absolute",
+              "top": -200,
+            }
+          }
+          testID="PARKING_SPOT_INPUT"
+          underlineColorAndroid="transparent"
+          value=""
+        />
+      </View>
+    </RCTScrollView>
+  </RCTSafeAreaView>
+  <Modal
+    animationType="none"
+    hardwareAccelerated={false}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    onRequestClose={[Function]}
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+    testID="MODAL_BUTTON_POPUP"
+    transparent={true}
+    visible={false}
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      forwardedRef={[Function]}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "black",
+          "bottom": 0,
+          "height": 1334,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "width": 750,
+        }
+      }
+    />
+    <View
+      forwardedRef={[Function]}
+      hideModalContentWhileAnimating={false}
+      onModalHide={[Function]}
+      onModalWillHide={[Function]}
+      onModalWillShow={[Function]}
+      pointerEvents="box-none"
+      scrollHorizontal={false}
+      scrollOffset={0}
+      scrollOffsetMax={0}
+      scrollTo={null}
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "center",
+          "margin": 37.5,
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        }
+      }
+      supportedOrientations={
+        Array [
+          "portrait",
+          "landscape",
+        ]
+      }
+      swipeThreshold={100}
+      testID="MODAL_BUTTON_POPUP"
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "position": "absolute",
+            "width": "100%",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderRadius": 10,
+              "flex": 1,
+              "flexDirection": "column",
+              "marginBottom": 20,
+              "position": "relative",
+            }
+          }
+        >
+          <Text
+            onPress={[Function]}
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "antoutline",
+                  "fontSize": 22,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {
+                  "position": "absolute",
+                  "right": 20,
+                  "top": 20,
+                  "zIndex": 1,
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "padding": 16,
+                  "paddingTop": 60,
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "flex": 1,
+                  "left": 0,
+                  "paddingHorizontal": 16,
+                  "paddingVertical": 8,
+                  "position": "absolute",
+                  "right": 0,
+                },
+                Object {
+                  "flexDirection": "row-reverse",
+                  "justifyContent": "center",
+                },
+                Array [
+                  Object {
+                    "marginBottom": 24,
+                    "position": "relative",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#E8E8E8",
+                  "borderRadius": 28,
+                  "borderWidth": 1,
+                  "flex": 1,
+                  "height": 48,
+                  "justifyContent": "center",
+                  "marginRight": 4,
+                  "opacity": 1,
+                  "width": "100%",
+                }
+              }
+              testID="BUTTON_POPUPBOTTOM_VIEW_SECONDARY"
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#595959",
+                        "fontFamily": "SFProDisplay-Semibold",
+                        "fontSize": 16,
+                        "lineHeight": 24,
+                        "textAlign": "left",
+                        "textDecorationLine": "none",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  OK
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
+  <Modal
+    animationType="none"
+    hardwareAccelerated={false}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    onRequestClose={[Function]}
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+    transparent={true}
+    visible={false}
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      forwardedRef={[Function]}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#00000000",
+          "bottom": 0,
+          "height": 1334,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "width": 750,
+        }
+      }
+    />
+    <View
+      forwardedRef={[Function]}
+      hideModalContentWhileAnimating={false}
+      onModalHide={[Function]}
+      onModalWillHide={[Function]}
+      onModalWillShow={[Function]}
+      pointerEvents="box-none"
+      scrollHorizontal={false}
+      scrollOffset={0}
+      scrollOffsetMax={0}
+      scrollTo={null}
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "center",
+          "margin": 37.5,
+          "top": 36,
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        }
+      }
+      supportedOrientations={
+        Array [
+          "portrait",
+          "landscape",
+        ]
+      }
+      swipeThreshold={100}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderRadius": 10,
+              "margin": 24,
+            },
+            Object {
+              "elevation": 5,
+              "shadowColor": "#3031331a",
+              "shadowOffset": Object {
+                "height": 5,
+                "width": 0,
+              },
+              "shadowOpacity": 1,
+              "shadowRadius": 12,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "center",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "padding": 16,
+              },
+            ]
+          }
+        >
+          Vị trí đỗ xe là một mã số gồm 3 chữ số được sơn ở đầu mỗi điểm đỗ xe và được sử dụng để xác định đặt chỗ. Vui lòng nhập chính xác vị trí đỗ xe của bạn để tiến hành đặt chỗ.
+        </Text>
+      </View>
+    </View>
+  </Modal>
+</View>
+`;

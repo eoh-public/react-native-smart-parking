@@ -1,0 +1,4570 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ScanningResponsePopup render 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  hideModalContentWhileAnimating={false}
+  onModalHide={[Function]}
+  onModalWillHide={[Function]}
+  onModalWillShow={[Function]}
+  onRequestClose={[MockFunction]}
+  scrollHorizontal={false}
+  scrollOffset={0}
+  scrollOffsetMax={0}
+  scrollTo={null}
+  supportedOrientations={
+    Array [
+      "portrait",
+      "landscape",
+    ]
+  }
+  swipeThreshold={100}
+  transparent={true}
+  visible={false}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    forwardedRef={[Function]}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "black",
+        "bottom": 0,
+        "height": 1334,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "width": 750,
+      }
+    }
+  />
+  <View
+    forwardedRef={[Function]}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    pointerEvents="box-none"
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+        "margin": 37.5,
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 10,
+          "left": 0,
+          "position": "absolute",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "flex": 1,
+            "flexDirection": "column",
+            "marginBottom": 20,
+          }
+        }
+      >
+        <Text
+          onPress={[MockFunction]}
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 22,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "top": 20,
+                "zIndex": 1,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "padding": 16,
+              },
+              Object {
+                "borderBottomWidth": 1,
+                "borderColor": "#E8E8E8",
+                "borderTopLeftRadius": 20,
+                "borderTopRightRadius": 20,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "antoutline",
+                  "fontSize": 42,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {
+                  "marginTop": 46,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "marginTop": 11,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_TITLE"
+          >
+            ---
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_DESCRIPTION"
+          >
+            ---
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#595959",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 16,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_SUB_TITLE"
+          >
+            ---
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Bold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#F08229",
+                  "fontSize": 20,
+                  "lineHeight": 28,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_DATA"
+          >
+            ---
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_INFO"
+          >
+            ---
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#595959",
+                  "fontSize": 12,
+                  "lineHeight": 20,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "marginTop": 16,
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="AVAILABLE_SPOT_NUMBER"
+            >
+              0 chỗ trống
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "antoutline",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "marginRight": 4,
+                    "marginTop": 0,
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="PARKING_PRICE_TEXT"
+            >
+              NaN đ
+              /h
+            </Text>
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="DISTANCE_TO_PARKING_TEXT"
+            >
+              NaNkm
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "marginVertical": 24,
+              "paddingHorizontal": 16,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+</Modal>
+`;
+
+exports[`Test ScanningResponsePopup render status AVAILABLE_SPOTS 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  hideModalContentWhileAnimating={false}
+  onModalHide={[Function]}
+  onModalWillHide={[Function]}
+  onModalWillShow={[Function]}
+  onRequestClose={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  scrollHorizontal={false}
+  scrollOffset={0}
+  scrollOffsetMax={0}
+  scrollTo={null}
+  supportedOrientations={
+    Array [
+      "portrait",
+      "landscape",
+    ]
+  }
+  swipeThreshold={100}
+  transparent={true}
+  visible={false}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    forwardedRef={[Function]}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "black",
+        "bottom": 0,
+        "height": 1334,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "width": 750,
+      }
+    }
+  />
+  <View
+    forwardedRef={[Function]}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    pointerEvents="box-none"
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+        "margin": 37.5,
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 10,
+          "left": 0,
+          "position": "absolute",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "flex": 1,
+            "flexDirection": "column",
+            "marginBottom": 20,
+          }
+        }
+      >
+        <Text
+          onPress={
+            [MockFunction] {
+              "calls": Array [
+                Array [],
+                Array [],
+              ],
+              "results": Array [
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+              ],
+            }
+          }
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 22,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "top": 20,
+                "zIndex": 1,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "padding": 16,
+              },
+              Object {
+                "borderBottomWidth": 1,
+                "borderColor": "#E8E8E8",
+                "borderTopLeftRadius": 20,
+                "borderTopRightRadius": 20,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "antoutline",
+                  "fontSize": 42,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {
+                  "marginTop": 46,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "marginTop": 11,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_TITLE"
+          >
+            Rất tiếc...
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_DESCRIPTION"
+          >
+            Vị trí hiện tại đã được đặt chỗ trước. Tuy nhiên, chúng tôi có những vị trí trống khác dành cho bạn.
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#595959",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 16,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_SUB_TITLE"
+          >
+            Vị trí đỗ còn trống
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Bold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#F08229",
+                  "fontSize": 20,
+                  "lineHeight": 28,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_DATA"
+          >
+            A0, A1
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_INFO"
+          >
+            Vui lòng di chuyển xe đến một trong những vị trí đỗ trên và tiến hành quét mã QR để bắt đầu đặt chỗ.
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#595959",
+                  "fontSize": 12,
+                  "lineHeight": 20,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "marginTop": 16,
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="AVAILABLE_SPOT_NUMBER"
+            >
+              0 chỗ trống
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "antoutline",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "marginRight": 4,
+                    "marginTop": 0,
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="PARKING_PRICE_TEXT"
+            >
+              NaN đ
+              /h
+            </Text>
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="DISTANCE_TO_PARKING_TEXT"
+            >
+              NaNkm
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "marginVertical": 24,
+              "paddingHorizontal": 16,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E8E8E8",
+                "borderRadius": 28,
+                "borderWidth": 1,
+                "flex": 1,
+                "height": 48,
+                "justifyContent": "center",
+                "marginRight": 4,
+                "opacity": 1,
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#595959",
+                      "fontFamily": "SFProDisplay-Semibold",
+                      "fontSize": 14,
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Hủy
+              </Text>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#00979D",
+                "borderRadius": 28,
+                "borderWidth": 0,
+                "flex": 1,
+                "height": 48,
+                "justifyContent": "center",
+                "marginLeft": 4,
+                "opacity": 1,
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#FFFFFF",
+                      "fontFamily": "SFProDisplay-Semibold",
+                      "fontSize": 14,
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Quét mã QR
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;
+
+exports[`Test ScanningResponsePopup render status AVAILABLE_SPOTS but null 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  hideModalContentWhileAnimating={false}
+  onModalHide={[Function]}
+  onModalWillHide={[Function]}
+  onModalWillShow={[Function]}
+  onRequestClose={[MockFunction]}
+  scrollHorizontal={false}
+  scrollOffset={0}
+  scrollOffsetMax={0}
+  scrollTo={null}
+  supportedOrientations={
+    Array [
+      "portrait",
+      "landscape",
+    ]
+  }
+  swipeThreshold={100}
+  transparent={true}
+  visible={false}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    forwardedRef={[Function]}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "black",
+        "bottom": 0,
+        "height": 1334,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "width": 750,
+      }
+    }
+  />
+  <View
+    forwardedRef={[Function]}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    pointerEvents="box-none"
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+        "margin": 37.5,
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 10,
+          "left": 0,
+          "position": "absolute",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "flex": 1,
+            "flexDirection": "column",
+            "marginBottom": 20,
+          }
+        }
+      >
+        <Text
+          onPress={[MockFunction]}
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 22,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "top": 20,
+                "zIndex": 1,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "padding": 16,
+              },
+              Object {
+                "borderBottomWidth": 1,
+                "borderColor": "#E8E8E8",
+                "borderTopLeftRadius": 20,
+                "borderTopRightRadius": 20,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "antoutline",
+                  "fontSize": 42,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {
+                  "marginTop": 46,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "marginTop": 11,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_TITLE"
+          >
+            Rất tiếc...
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_DESCRIPTION"
+          >
+            Vị trí hiện tại đã được đặt chỗ trước. Tuy nhiên, chúng tôi có những vị trí trống khác dành cho bạn.
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#595959",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 16,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_SUB_TITLE"
+          >
+            Vị trí đỗ còn trống
+          </Text>
+          
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_INFO"
+          >
+            Vui lòng di chuyển xe đến một trong những vị trí đỗ trên và tiến hành quét mã QR để bắt đầu đặt chỗ.
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#595959",
+                  "fontSize": 12,
+                  "lineHeight": 20,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "marginTop": 16,
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="AVAILABLE_SPOT_NUMBER"
+            >
+              0 chỗ trống
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "antoutline",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "marginRight": 4,
+                    "marginTop": 0,
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="PARKING_PRICE_TEXT"
+            >
+              NaN đ
+              /h
+            </Text>
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="DISTANCE_TO_PARKING_TEXT"
+            >
+              NaNkm
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "marginVertical": 24,
+              "paddingHorizontal": 16,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E8E8E8",
+                "borderRadius": 28,
+                "borderWidth": 1,
+                "flex": 1,
+                "height": 48,
+                "justifyContent": "center",
+                "marginRight": 4,
+                "opacity": 1,
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#595959",
+                      "fontFamily": "SFProDisplay-Semibold",
+                      "fontSize": 14,
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Hủy
+              </Text>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#00979D",
+                "borderRadius": 28,
+                "borderWidth": 0,
+                "flex": 1,
+                "height": 48,
+                "justifyContent": "center",
+                "marginLeft": 4,
+                "opacity": 1,
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#FFFFFF",
+                      "fontFamily": "SFProDisplay-Semibold",
+                      "fontSize": 14,
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Quét mã QR
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;
+
+exports[`Test ScanningResponsePopup render status BOOKING_ACTIVATED 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  hideModalContentWhileAnimating={false}
+  onModalHide={[Function]}
+  onModalWillHide={[Function]}
+  onModalWillShow={[Function]}
+  onRequestClose={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  scrollHorizontal={false}
+  scrollOffset={0}
+  scrollOffsetMax={0}
+  scrollTo={null}
+  supportedOrientations={
+    Array [
+      "portrait",
+      "landscape",
+    ]
+  }
+  swipeThreshold={100}
+  transparent={true}
+  visible={false}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    forwardedRef={[Function]}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "black",
+        "bottom": 0,
+        "height": 1334,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "width": 750,
+      }
+    }
+  />
+  <View
+    forwardedRef={[Function]}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    pointerEvents="box-none"
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+        "margin": 37.5,
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 10,
+          "left": 0,
+          "position": "absolute",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "flex": 1,
+            "flexDirection": "column",
+            "marginBottom": 20,
+          }
+        }
+      >
+        <Text
+          onPress={
+            [MockFunction] {
+              "calls": Array [
+                Array [],
+              ],
+              "results": Array [
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+              ],
+            }
+          }
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 22,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "top": 20,
+                "zIndex": 1,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "padding": 16,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#00979D",
+                  "fontFamily": "antoutline",
+                  "fontSize": 42,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {
+                  "marginTop": 46,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "marginTop": 11,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_TITLE"
+          >
+            Đã kích hoạt!
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_DESCRIPTION"
+          >
+            Bạn đã đến vị trí đỗ được đặt trước. Xin đừng quên di chuyển xe của bạn khi kết thúc giờ đỗ xe đã đặt hoặc chọn thêm giờ đỗ trong trường hợp bạn cần thêm thời gian.
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#595959",
+                  "fontSize": 12,
+                  "lineHeight": 20,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "marginTop": 16,
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="AVAILABLE_SPOT_NUMBER"
+            >
+              0 chỗ trống
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "antoutline",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "marginRight": 4,
+                    "marginTop": 0,
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="PARKING_PRICE_TEXT"
+            >
+              NaN đ
+              /h
+            </Text>
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="DISTANCE_TO_PARKING_TEXT"
+            >
+              NaNkm
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "marginVertical": 24,
+              "paddingHorizontal": 16,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#00979D",
+                "borderRadius": 28,
+                "borderWidth": 0,
+                "flex": 1,
+                "height": 48,
+                "justifyContent": "center",
+                "opacity": 1,
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#FFFFFF",
+                      "fontFamily": "SFProDisplay-Semibold",
+                      "fontSize": 14,
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Tôi đã hiểu
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;
+
+exports[`Test ScanningResponsePopup render status NOT_WORKING_FOR_SENSOR_ONLY 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  hideModalContentWhileAnimating={false}
+  onModalHide={[Function]}
+  onModalWillHide={[Function]}
+  onModalWillShow={[Function]}
+  onRequestClose={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  scrollHorizontal={false}
+  scrollOffset={0}
+  scrollOffsetMax={0}
+  scrollTo={null}
+  supportedOrientations={
+    Array [
+      "portrait",
+      "landscape",
+    ]
+  }
+  swipeThreshold={100}
+  transparent={true}
+  visible={false}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    forwardedRef={[Function]}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "black",
+        "bottom": 0,
+        "height": 1334,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "width": 750,
+      }
+    }
+  />
+  <View
+    forwardedRef={[Function]}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    pointerEvents="box-none"
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+        "margin": 37.5,
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 10,
+          "left": 0,
+          "position": "absolute",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "flex": 1,
+            "flexDirection": "column",
+            "marginBottom": 20,
+          }
+        }
+      >
+        <Text
+          onPress={
+            [MockFunction] {
+              "calls": Array [
+                Array [],
+              ],
+              "results": Array [
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+              ],
+            }
+          }
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 22,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "top": 20,
+                "zIndex": 1,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "padding": 16,
+              },
+              Object {
+                "borderBottomWidth": 1,
+                "borderColor": "#E8E8E8",
+                "borderTopLeftRadius": 20,
+                "borderTopRightRadius": 20,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "antoutline",
+                  "fontSize": 42,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {
+                  "marginTop": 46,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "marginTop": 11,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_TITLE"
+          >
+            Vị trí đỗ này không hỗ trợ quét
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_DESCRIPTION"
+          >
+            Vui lòng đặt trước bằng cách thông thường
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#595959",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 16,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_SUB_TITLE"
+          >
+            ---
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Bold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#F08229",
+                  "fontSize": 20,
+                  "lineHeight": 28,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_DATA"
+          >
+            ---
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#595959",
+                  "fontSize": 12,
+                  "lineHeight": 20,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "marginTop": 16,
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="AVAILABLE_SPOT_NUMBER"
+            >
+              0 chỗ trống
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "antoutline",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "marginRight": 4,
+                    "marginTop": 0,
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="PARKING_PRICE_TEXT"
+            >
+              NaN đ
+              /h
+            </Text>
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="DISTANCE_TO_PARKING_TEXT"
+            >
+              NaNkm
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "marginVertical": 24,
+              "paddingHorizontal": 16,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E8E8E8",
+                "borderRadius": 28,
+                "borderWidth": 1,
+                "flex": 1,
+                "height": 48,
+                "justifyContent": "center",
+                "opacity": 1,
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#595959",
+                      "fontFamily": "SFProDisplay-Semibold",
+                      "fontSize": 14,
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Hủy
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;
+
+exports[`Test ScanningResponsePopup render status PARKING_NEAREST 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  hideModalContentWhileAnimating={false}
+  onModalHide={[Function]}
+  onModalWillHide={[Function]}
+  onModalWillShow={[Function]}
+  onRequestClose={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  scrollHorizontal={false}
+  scrollOffset={0}
+  scrollOffsetMax={0}
+  scrollTo={null}
+  supportedOrientations={
+    Array [
+      "portrait",
+      "landscape",
+    ]
+  }
+  swipeThreshold={100}
+  transparent={true}
+  visible={false}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    forwardedRef={[Function]}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "black",
+        "bottom": 0,
+        "height": 1334,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "width": 750,
+      }
+    }
+  />
+  <View
+    forwardedRef={[Function]}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    pointerEvents="box-none"
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+        "margin": 37.5,
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 10,
+          "left": 0,
+          "position": "absolute",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "flex": 1,
+            "flexDirection": "column",
+            "marginBottom": 20,
+          }
+        }
+      >
+        <Text
+          onPress={
+            [MockFunction] {
+              "calls": Array [
+                Array [],
+              ],
+              "results": Array [
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+              ],
+            }
+          }
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 22,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "top": 20,
+                "zIndex": 1,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "padding": 16,
+              },
+              Object {
+                "borderBottomWidth": 1,
+                "borderColor": "#E8E8E8",
+                "borderTopLeftRadius": 20,
+                "borderTopRightRadius": 20,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "antoutline",
+                  "fontSize": 42,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {
+                  "marginTop": 46,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "marginTop": 11,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_TITLE"
+          >
+            Ôi không...
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_DESCRIPTION"
+          >
+            Điểm đỗ xe này hiện tại đã hết chỗ. Tuy nhiên, những điểm đỗ gần đây có thể vẫn còn chỗ trống dành cho bạn.
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#595959",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 16,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_SUB_TITLE"
+          >
+            Gợi ý điểm đỗ gần nhất
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Bold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#F08229",
+                  "fontSize": 20,
+                  "lineHeight": 28,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_DATA"
+          >
+            EOH
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#595959",
+                  "fontSize": 12,
+                  "lineHeight": 20,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            1
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "marginTop": 16,
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="AVAILABLE_SPOT_NUMBER"
+            >
+              2 chỗ trống
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "antoutline",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "marginRight": 4,
+                    "marginTop": 0,
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="PARKING_PRICE_TEXT"
+            >
+              1.000 đ
+              /h
+            </Text>
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="DISTANCE_TO_PARKING_TEXT"
+            >
+              100m
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "marginVertical": 24,
+              "paddingHorizontal": 16,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E8E8E8",
+                "borderRadius": 28,
+                "borderWidth": 1,
+                "flex": 1,
+                "height": 48,
+                "justifyContent": "center",
+                "marginRight": 4,
+                "opacity": 1,
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#595959",
+                      "fontFamily": "SFProDisplay-Semibold",
+                      "fontSize": 14,
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Chỉ đường
+              </Text>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#00979D",
+                "borderRadius": 28,
+                "borderWidth": 0,
+                "flex": 1,
+                "height": 48,
+                "justifyContent": "center",
+                "marginLeft": 4,
+                "opacity": 1,
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#FFFFFF",
+                      "fontFamily": "SFProDisplay-Semibold",
+                      "fontSize": 14,
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Xem chi tiết
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;
+
+exports[`Test ScanningResponsePopup render status SPOT_DOES_NOT_EXIST 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  hideModalContentWhileAnimating={false}
+  onModalHide={[Function]}
+  onModalWillHide={[Function]}
+  onModalWillShow={[Function]}
+  onRequestClose={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  scrollHorizontal={false}
+  scrollOffset={0}
+  scrollOffsetMax={0}
+  scrollTo={null}
+  supportedOrientations={
+    Array [
+      "portrait",
+      "landscape",
+    ]
+  }
+  swipeThreshold={100}
+  transparent={true}
+  visible={false}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    forwardedRef={[Function]}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "black",
+        "bottom": 0,
+        "height": 1334,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "width": 750,
+      }
+    }
+  />
+  <View
+    forwardedRef={[Function]}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    pointerEvents="box-none"
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+        "margin": 37.5,
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 10,
+          "left": 0,
+          "position": "absolute",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "flex": 1,
+            "flexDirection": "column",
+            "marginBottom": 20,
+          }
+        }
+      >
+        <Text
+          onPress={
+            [MockFunction] {
+              "calls": Array [
+                Array [],
+                Array [],
+              ],
+              "results": Array [
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+              ],
+            }
+          }
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 22,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "top": 20,
+                "zIndex": 1,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "padding": 16,
+              },
+              Object {
+                "borderBottomWidth": 1,
+                "borderColor": "#E8E8E8",
+                "borderTopLeftRadius": 20,
+                "borderTopRightRadius": 20,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "antoutline",
+                  "fontSize": 42,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {
+                  "marginTop": 46,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "marginTop": 11,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_TITLE"
+          >
+            Vị trí đỗ này không tồn tại
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_DESCRIPTION"
+          >
+            Vui lòng quét lại hoặc liên hệ với người quản lý bãi đậu xe
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#595959",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 16,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_SUB_TITLE"
+          >
+            ---
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Bold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#F08229",
+                  "fontSize": 20,
+                  "lineHeight": 28,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_DATA"
+          >
+            ---
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#595959",
+                  "fontSize": 12,
+                  "lineHeight": 20,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "marginTop": 16,
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="AVAILABLE_SPOT_NUMBER"
+            >
+              0 chỗ trống
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "antoutline",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "marginRight": 4,
+                    "marginTop": 0,
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="PARKING_PRICE_TEXT"
+            >
+              NaN đ
+              /h
+            </Text>
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="DISTANCE_TO_PARKING_TEXT"
+            >
+              NaNkm
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "marginVertical": 24,
+              "paddingHorizontal": 16,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E8E8E8",
+                "borderRadius": 28,
+                "borderWidth": 1,
+                "flex": 1,
+                "height": 48,
+                "justifyContent": "center",
+                "marginRight": 4,
+                "opacity": 1,
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#595959",
+                      "fontFamily": "SFProDisplay-Semibold",
+                      "fontSize": 14,
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Hủy
+              </Text>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#00979D",
+                "borderRadius": 28,
+                "borderWidth": 0,
+                "flex": 1,
+                "height": 48,
+                "justifyContent": "center",
+                "marginLeft": 4,
+                "opacity": 1,
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#FFFFFF",
+                      "fontFamily": "SFProDisplay-Semibold",
+                      "fontSize": 14,
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Quét mã QR
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;
+
+exports[`Test ScanningResponsePopup render status WRONG_SPOT 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  hideModalContentWhileAnimating={false}
+  onModalHide={[Function]}
+  onModalWillHide={[Function]}
+  onModalWillShow={[Function]}
+  onRequestClose={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  scrollHorizontal={false}
+  scrollOffset={0}
+  scrollOffsetMax={0}
+  scrollTo={null}
+  supportedOrientations={
+    Array [
+      "portrait",
+      "landscape",
+    ]
+  }
+  swipeThreshold={100}
+  transparent={true}
+  visible={false}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    forwardedRef={[Function]}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "black",
+        "bottom": 0,
+        "height": 1334,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "width": 750,
+      }
+    }
+  />
+  <View
+    forwardedRef={[Function]}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    pointerEvents="box-none"
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+        "margin": 37.5,
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 10,
+          "left": 0,
+          "position": "absolute",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "flex": 1,
+            "flexDirection": "column",
+            "marginBottom": 20,
+          }
+        }
+      >
+        <Text
+          onPress={
+            [MockFunction] {
+              "calls": Array [
+                Array [],
+                Array [],
+              ],
+              "results": Array [
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+              ],
+            }
+          }
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 22,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "top": 20,
+                "zIndex": 1,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "padding": 16,
+              },
+              Object {
+                "borderBottomWidth": 1,
+                "borderColor": "#E8E8E8",
+                "borderTopLeftRadius": 20,
+                "borderTopRightRadius": 20,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#F5222D",
+                  "fontFamily": "antoutline",
+                  "fontSize": 42,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {
+                  "marginTop": 46,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "marginTop": 11,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_TITLE"
+          >
+            Bạn đang đỗ sai vị trí!
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_DESCRIPTION"
+          >
+            Đây không phải là vị trí đỗ của bạn. Hãy di chuyển xe đến vị trí đúng.
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#595959",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 16,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_SUB_TITLE"
+          >
+            Vị trí đỗ của bạn
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Bold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#F08229",
+                  "fontSize": 20,
+                  "lineHeight": 28,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_DATA"
+          >
+            A1
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_INFO"
+          >
+            Vui lòng dời xe của bạn đến vị trí đỗ đã đặt trước và tiến hành quét mã QR để kích hoạt đặt chỗ.
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#595959",
+                  "fontSize": 12,
+                  "lineHeight": 20,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "marginTop": 16,
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="AVAILABLE_SPOT_NUMBER"
+            >
+              0 chỗ trống
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "antoutline",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "marginRight": 4,
+                    "marginTop": 0,
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="PARKING_PRICE_TEXT"
+            >
+              NaN đ
+              /h
+            </Text>
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="DISTANCE_TO_PARKING_TEXT"
+            >
+              NaNkm
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "marginVertical": 24,
+              "paddingHorizontal": 16,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E8E8E8",
+                "borderRadius": 28,
+                "borderWidth": 1,
+                "flex": 1,
+                "height": 48,
+                "justifyContent": "center",
+                "marginRight": 4,
+                "opacity": 1,
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#595959",
+                      "fontFamily": "SFProDisplay-Semibold",
+                      "fontSize": 14,
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Hủy
+              </Text>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#00979D",
+                "borderRadius": 28,
+                "borderWidth": 0,
+                "flex": 1,
+                "height": 48,
+                "justifyContent": "center",
+                "marginLeft": 4,
+                "opacity": 1,
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#FFFFFF",
+                      "fontFamily": "SFProDisplay-Semibold",
+                      "fontSize": 14,
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                      "textDecorationLine": "none",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Quét mã QR
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;
+
+exports[`Test ScanningResponsePopup render status not match 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  hideModalContentWhileAnimating={false}
+  onModalHide={[Function]}
+  onModalWillHide={[Function]}
+  onModalWillShow={[Function]}
+  onRequestClose={[MockFunction]}
+  scrollHorizontal={false}
+  scrollOffset={0}
+  scrollOffsetMax={0}
+  scrollTo={null}
+  supportedOrientations={
+    Array [
+      "portrait",
+      "landscape",
+    ]
+  }
+  swipeThreshold={100}
+  transparent={true}
+  visible={false}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    forwardedRef={[Function]}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "black",
+        "bottom": 0,
+        "height": 1334,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "width": 750,
+      }
+    }
+  />
+  <View
+    forwardedRef={[Function]}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    pointerEvents="box-none"
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+        "margin": 37.5,
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 10,
+          "left": 0,
+          "position": "absolute",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "flex": 1,
+            "flexDirection": "column",
+            "marginBottom": 20,
+          }
+        }
+      >
+        <Text
+          onPress={[MockFunction]}
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 22,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "top": 20,
+                "zIndex": 1,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "padding": 16,
+              },
+              Object {
+                "borderBottomWidth": 1,
+                "borderColor": "#E8E8E8",
+                "borderTopLeftRadius": 20,
+                "borderTopRightRadius": 20,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "antoutline",
+                  "fontSize": 42,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {
+                  "marginTop": 46,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Semibold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "marginTop": 11,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_TITLE"
+          >
+            ---
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_DESCRIPTION"
+          >
+            ---
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#595959",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 16,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_SUB_TITLE"
+          >
+            ---
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Bold",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#F08229",
+                  "fontSize": 20,
+                  "lineHeight": 28,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_DATA"
+          >
+            ---
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 14,
+                  "lineHeight": 22,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            testID="SCANNING_RESPONSE_INFO"
+          >
+            ---
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#595959",
+                  "fontSize": 12,
+                  "lineHeight": 20,
+                  "marginTop": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "marginTop": 16,
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="AVAILABLE_SPOT_NUMBER"
+            >
+              0 chỗ trống
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "antoutline",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "marginRight": 4,
+                    "marginTop": 0,
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="PARKING_PRICE_TEXT"
+            >
+              NaN đ
+              /h
+            </Text>
+            <SvgMock
+              style={
+                Object {
+                  "marginRight": 4,
+                  "marginTop": 0,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#595959",
+                    "fontFamily": "SFProDisplay-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 22,
+                    "textAlign": "left",
+                    "textDecorationLine": "none",
+                  },
+                  Object {
+                    "marginRight": 16,
+                  },
+                ]
+              }
+              testID="DISTANCE_TO_PARKING_TEXT"
+            >
+              NaNkm
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "marginVertical": 24,
+              "paddingHorizontal": 16,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+</Modal>
+`;

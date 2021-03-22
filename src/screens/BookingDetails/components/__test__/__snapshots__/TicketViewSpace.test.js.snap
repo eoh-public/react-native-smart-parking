@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test TicketViewSpace render ticket view space 1`] = `
+<RNSVGSvgView
+  align="xMidYMid"
+  bbHeight={32}
+  bbWidth={718}
+  fill="none"
+  focusable={false}
+  height={32}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      Object {
+        "flex": 0,
+        "height": 32,
+        "width": 718,
+      },
+    ]
+  }
+  vbHeight={32}
+  vbWidth={718}
+  width={718}
+>
+  <RNSVGGroup
+    fill={null}
+    propList={
+      Array [
+        "fill",
+      ]
+    }
+  >
+    <RNSVGCircle
+      cx="0"
+      cy="16"
+      propList={
+        Array [
+          "stroke",
+        ]
+      }
+      r="16"
+      stroke={4293454056}
+    />
+    <RNSVGCircle
+      cx="718"
+      cy="16"
+      propList={
+        Array [
+          "stroke",
+        ]
+      }
+      r="16"
+      stroke={4293454056}
+    />
+    <RNSVGPath
+      d="M16 16 H702"
+      propList={
+        Array [
+          "stroke",
+          "strokeDasharray",
+        ]
+      }
+      stroke={4293454056}
+      strokeDasharray={
+        Array [
+          "10",
+          "10",
+        ]
+      }
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;

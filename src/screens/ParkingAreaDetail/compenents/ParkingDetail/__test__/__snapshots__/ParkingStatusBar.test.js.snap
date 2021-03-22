@@ -1,0 +1,219 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ParkingStatusBar render ParkingStatusBar 1`] = `
+<View>
+  <View
+    style={
+      Array [
+        Object {
+          "flexDirection": "column",
+          "justifyContent": "center",
+          "marginBottom": 16,
+          "marginLeft": 16,
+          "marginRight": 16,
+        },
+        Object {
+          "backgroundColor": "#FFF1F0",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "marginLeft": 20,
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "SFProDisplay-Bold",
+              "fontSize": undefined,
+              "lineHeight": undefined,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "color": "red",
+              "fontWeight": null,
+            },
+          ]
+        }
+      >
+        FULL
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": undefined,
+              "lineHeight": undefined,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "fontSize": 14,
+              "marginLeft": 10,
+            },
+          ]
+        }
+      >
+        Bãi xe hiện tại không có chỗ trống.
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Test ParkingStatusBar render ParkingStatusBar with status null 1`] = `<View />`;
+
+exports[`Test ParkingStatusBar render ParkingStatusBar without freeFrom 1`] = `
+<View>
+  <View
+    style={
+      Array [
+        Object {
+          "flexDirection": "column",
+          "justifyContent": "center",
+          "marginBottom": 16,
+          "marginLeft": 16,
+          "marginRight": 16,
+        },
+        Object {
+          "backgroundColor": "#D9F7BE",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "marginLeft": 20,
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "SFProDisplay-Bold",
+              "fontSize": undefined,
+              "lineHeight": undefined,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "color": "green",
+              "fontWeight": null,
+            },
+          ]
+        }
+      >
+        
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": undefined,
+              "lineHeight": undefined,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "fontSize": 14,
+              "marginLeft": 10,
+            },
+          ]
+        }
+      >
+        Bãi đỗ xe luôn miễn phí
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Test ParkingStatusBar render ParkingStatusBar without preBook 1`] = `
+<View>
+  <View
+    style={
+      Array [
+        Object {
+          "flexDirection": "column",
+          "justifyContent": "center",
+          "marginBottom": 16,
+          "marginLeft": 16,
+          "marginRight": 16,
+        },
+        Object {
+          "backgroundColor": "#F5F5F5",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "marginLeft": 20,
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#595959",
+              "fontFamily": "antoutline",
+              "fontSize": 20,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {
+              "paddingRight": 16,
+            },
+          ]
+        }
+      >
+        
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": undefined,
+              "lineHeight": undefined,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "color": "#8C8C8C",
+            },
+          ]
+        }
+      >
+        Bãi đỗ xe không hỗ trợ đặt chỗ trước.
+      </Text>
+    </View>
+  </View>
+</View>
+`;

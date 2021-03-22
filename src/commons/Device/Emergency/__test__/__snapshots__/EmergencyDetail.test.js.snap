@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test EmergencyDetail create EmergencyDetail 1`] = `
+<View
+  style={
+    Object {
+      "justifyContent": "space-between",
+      "marginBottom": 158,
+      "padding": 14,
+      "paddingTop": 0,
+    }
+  }
+>
+  <View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {},
+        ]
+      }
+    >
+      Camera
+    </Text>
+    <View
+      style={
+        Object {
+          "backgroundColor": "gray",
+          "borderRadius": 10,
+          "flex": 1,
+          "justifyContent": "center",
+          "overflow": "hidden",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "bottom": 0,
+            "justifyContent": "center",
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#FFFFFF",
+            }
+          }
+        >
+          Đang tải
+        </Text>
+      </View>
+      <RCTVLCPlayer
+        autoAspectRatio={true}
+        autoplay={true}
+        onVideoBuffering={[Function]}
+        onVideoEnd={[Function]}
+        onVideoEnded={[Function]}
+        onVideoError={[Function]}
+        onVideoLoadStart={[Function]}
+        onVideoOpen={[Function]}
+        onVideoPaused={[Function]}
+        onVideoPlaying={[Function]}
+        onVideoProgress={[Function]}
+        onVideoStopped={[Function]}
+        progressUpdateInterval={250}
+        source={
+          Object {
+            "autoplay": true,
+            "initOptions": Array [
+              "--input-repeat=1000",
+            ],
+            "isNetwork": true,
+            "uri": "123",
+          }
+        }
+        src={
+          Object {
+            "isAsset": false,
+            "isNetwork": true,
+            "mainVer": 0,
+            "patchVer": 0,
+            "type": "",
+            "uri": "123",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "overflow": "hidden",
+            },
+            Array [
+              Object {
+                "borderRadius": 10,
+                "flex": 1,
+              },
+              Object {
+                "height": 357,
+              },
+            ],
+          ]
+        }
+        videoAspectRatio="21:9"
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "marginTop": 24,
+      }
+    }
+  >
+    <View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 16,
+              "lineHeight": 24,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+        Danh sách liên hệ khẩn cấp
+      </Text>
+    </View>
+  </View>
+</View>
+`;

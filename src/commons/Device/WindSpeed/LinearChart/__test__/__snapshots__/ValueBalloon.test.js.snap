@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ValueBalloon ValueBalloon render 1`] = `
+<RNSVGGroup
+  matrix={
+    Array [
+      1,
+      0,
+      0,
+      1,
+      -14,
+      -39,
+    ]
+  }
+>
+  <RNSVGRect
+    fill={4280690214}
+    height={9.03012}
+    matrix={
+      Array [
+        0.7071067811865476,
+        0.7071067811865475,
+        -0.7071067811865475,
+        0.7071067811865476,
+        27.656973894399343,
+        -8.07444147005754,
+      ]
+    }
+    propList={
+      Array [
+        "fill",
+      ]
+    }
+    rx={1.12876}
+    width={9.03012}
+    x={23.5752}
+    y={29.3477}
+  />
+  <RNSVGRect
+    fill={4280690214}
+    height={36.1205}
+    propList={
+      Array [
+        "fill",
+      ]
+    }
+    rx={3.38629}
+    width={47.1506}
+    x={0}
+    y={0}
+  />
+</RNSVGGroup>
+`;

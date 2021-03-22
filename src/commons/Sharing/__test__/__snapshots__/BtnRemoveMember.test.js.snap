@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test BtnRemoveMember render BtnRemoveMember 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "bottom": 10,
+      "justifyContent": "center",
+      "opacity": 1,
+      "paddingHorizontal": 10,
+      "position": "absolute",
+      "right": 0,
+      "top": 10,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#595959",
+          "fontFamily": "antoutline",
+          "fontSize": 20,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        undefined,
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;

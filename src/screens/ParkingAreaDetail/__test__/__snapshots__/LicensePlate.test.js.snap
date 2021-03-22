@@ -1,0 +1,922 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test LicensePlate create LicensePlate 1`] = `
+Array [
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontFamily": "SFProDisplay-Semibold",
+          "fontSize": 16,
+          "lineHeight": 24,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginLeft": 16,
+        },
+      ]
+    }
+  >
+    Biển số xe
+  </Text>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "red",
+        "borderRadius": 2,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "height": 40,
+        "marginHorizontal": 16,
+        "marginTop": 13,
+        "overflow": "hidden",
+        "paddingLeft": 12,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      maxLength={11}
+      onChangeText={[MockFunction]}
+      rejectResponderTermination={true}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+      testID="INPUT_PLATE_NUMBER"
+      underlineColorAndroid="transparent"
+    >
+      59Z - 1234
+    </TextInput>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+          "paddingHorizontal": 14,
+          "paddingVertical": "100%",
+        }
+      }
+      testID="PRESS_CAR"
+    >
+      <SvgMock
+        height={20}
+        width={20}
+      />
+    </View>
+  </View>,
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontFamily": "SFProDisplay-Regular",
+          "fontSize": undefined,
+          "lineHeight": undefined,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "color": "red",
+          "marginLeft": 20,
+          "marginTop": 5,
+        },
+      ]
+    }
+  >
+    Vui lòng nhập đúng định dạng biển số xe 
+VD: 51A-123.45
+  </Text>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <View
+      pointerEvents="none"
+    >
+      <RNCCheckbox
+        boxType="square"
+        forwardedRef={null}
+        onCheckColor="#FFFFFF"
+        onFillColor="#00979D"
+        onTintColor="#00979D"
+        onValueChange={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "height": 32,
+              "width": 32,
+            },
+            Object {
+              "height": 20,
+              "marginRight": 15,
+              "marginTop": 15,
+              "width": 20,
+            },
+          ]
+        }
+        tintColors={
+          Object {
+            "false": "#F5F5F5",
+            "true": "#00979D",
+          }
+        }
+        value={false}
+      />
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#BFBFBF",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "marginTop": 14,
+            },
+          ]
+        }
+      >
+        Lưu và đặt phương tiện mặc định
+      </Text>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "backgroundColor": "#E8E8E8",
+        "height": 1,
+        "marginVertical": 16,
+      }
+    }
+  />,
+]
+`;
+
+exports[`Test LicensePlate create LicensePlate with savedVehicle 1`] = `
+Array [
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontFamily": "SFProDisplay-Semibold",
+          "fontSize": 16,
+          "lineHeight": 24,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginLeft": 16,
+        },
+      ]
+    }
+  >
+    Biển số xe
+  </Text>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "red",
+        "borderRadius": 2,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "height": 40,
+        "marginHorizontal": 16,
+        "marginTop": 13,
+        "overflow": "hidden",
+        "paddingLeft": 12,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      maxLength={11}
+      onChangeText={[MockFunction]}
+      rejectResponderTermination={true}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+      testID="INPUT_PLATE_NUMBER"
+      underlineColorAndroid="transparent"
+    >
+      59Z - 1234
+    </TextInput>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+          "paddingHorizontal": 14,
+          "paddingVertical": "100%",
+        }
+      }
+      testID="PRESS_CAR"
+    >
+      <SvgMock
+        height={20}
+        width={20}
+      />
+    </View>
+  </View>,
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontFamily": "SFProDisplay-Regular",
+          "fontSize": undefined,
+          "lineHeight": undefined,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "color": "red",
+          "marginLeft": 20,
+          "marginTop": 5,
+        },
+      ]
+    }
+  >
+    Vui lòng nhập đúng định dạng biển số xe 
+VD: 51A-123.45
+  </Text>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <View
+      pointerEvents="none"
+    >
+      <RNCCheckbox
+        boxType="square"
+        forwardedRef={null}
+        onCheckColor="#FFFFFF"
+        onFillColor="#00979D"
+        onTintColor="#00979D"
+        onValueChange={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "height": 32,
+              "width": 32,
+            },
+            Object {
+              "height": 20,
+              "marginRight": 15,
+              "marginTop": 15,
+              "width": 20,
+            },
+          ]
+        }
+        tintColors={
+          Object {
+            "false": "#F5F5F5",
+            "true": "#00979D",
+          }
+        }
+        value={false}
+      />
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#BFBFBF",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "marginTop": 14,
+            },
+          ]
+        }
+      >
+        Lưu và đặt phương tiện mặc định
+      </Text>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "backgroundColor": "#E8E8E8",
+        "height": 1,
+        "marginVertical": 16,
+      }
+    }
+  />,
+]
+`;
+
+exports[`Test LicensePlate create LicensePlate with validCar 1`] = `
+Array [
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontFamily": "SFProDisplay-Semibold",
+          "fontSize": 16,
+          "lineHeight": 24,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginLeft": 16,
+        },
+      ]
+    }
+  >
+    Biển số xe
+  </Text>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "#D9D9D9",
+        "borderRadius": 2,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "height": 40,
+        "marginHorizontal": 16,
+        "marginTop": 13,
+        "overflow": "hidden",
+        "paddingLeft": 12,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      maxLength={11}
+      onChangeText={[MockFunction]}
+      rejectResponderTermination={true}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+      testID="INPUT_PLATE_NUMBER"
+      underlineColorAndroid="transparent"
+    >
+      59Z - 1234
+    </TextInput>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+          "paddingHorizontal": 14,
+          "paddingVertical": "100%",
+        }
+      }
+      testID="PRESS_CAR"
+    >
+      <SvgMock
+        height={20}
+        width={20}
+      />
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <View
+      pointerEvents="none"
+    >
+      <RNCCheckbox
+        boxType="square"
+        forwardedRef={null}
+        onCheckColor="#FFFFFF"
+        onFillColor="#00979D"
+        onTintColor="#00979D"
+        onValueChange={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "height": 32,
+              "width": 32,
+            },
+            Object {
+              "height": 20,
+              "marginRight": 15,
+              "marginTop": 15,
+              "width": 20,
+            },
+          ]
+        }
+        tintColors={
+          Object {
+            "false": "#F5F5F5",
+            "true": "#00979D",
+          }
+        }
+        value={false}
+      />
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#BFBFBF",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "marginTop": 14,
+            },
+          ]
+        }
+      >
+        Lưu và đặt phương tiện mặc định
+      </Text>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "backgroundColor": "#E8E8E8",
+        "height": 1,
+        "marginVertical": 16,
+      }
+    }
+  />,
+]
+`;
+
+exports[`Test LicensePlate create LicensePlate without car 1`] = `
+Array [
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontFamily": "SFProDisplay-Semibold",
+          "fontSize": 16,
+          "lineHeight": 24,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginLeft": 16,
+        },
+      ]
+    }
+  >
+    Biển số xe
+  </Text>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "red",
+        "borderRadius": 2,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "height": 40,
+        "marginHorizontal": 16,
+        "marginTop": 13,
+        "overflow": "hidden",
+        "paddingLeft": 12,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      maxLength={11}
+      onChangeText={[MockFunction]}
+      rejectResponderTermination={true}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+      testID="INPUT_PLATE_NUMBER"
+      underlineColorAndroid="transparent"
+    >
+      
+    </TextInput>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+          "paddingHorizontal": 14,
+          "paddingVertical": "100%",
+        }
+      }
+      testID="PRESS_CAR"
+    >
+      <SvgMock
+        height={20}
+        width={20}
+      />
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <View
+      pointerEvents="none"
+    >
+      <RNCCheckbox
+        boxType="square"
+        forwardedRef={null}
+        onCheckColor="#FFFFFF"
+        onFillColor="#00979D"
+        onTintColor="#00979D"
+        onValueChange={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "height": 32,
+              "width": 32,
+            },
+            Object {
+              "height": 20,
+              "marginRight": 15,
+              "marginTop": 15,
+              "width": 20,
+            },
+          ]
+        }
+        tintColors={
+          Object {
+            "false": "#F5F5F5",
+            "true": "#00979D",
+          }
+        }
+        value={false}
+      />
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#BFBFBF",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "marginTop": 14,
+            },
+          ]
+        }
+      >
+        Lưu và đặt phương tiện mặc định
+      </Text>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "backgroundColor": "#E8E8E8",
+        "height": 1,
+        "marginVertical": 16,
+      }
+    }
+  />,
+]
+`;
+
+exports[`Test LicensePlate onPressItem LicensePlate 1`] = `
+Array [
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontFamily": "SFProDisplay-Semibold",
+          "fontSize": 16,
+          "lineHeight": 24,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginLeft": 16,
+        },
+      ]
+    }
+  >
+    Biển số xe
+  </Text>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "red",
+        "borderRadius": 2,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "height": 40,
+        "marginHorizontal": 16,
+        "marginTop": 13,
+        "overflow": "hidden",
+        "paddingLeft": 12,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      maxLength={11}
+      onChangeText={[MockFunction]}
+      rejectResponderTermination={true}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+      testID="INPUT_PLATE_NUMBER"
+      underlineColorAndroid="transparent"
+    >
+      59Z - 1234
+    </TextInput>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+          "paddingHorizontal": 14,
+          "paddingVertical": "100%",
+        }
+      }
+      testID="PRESS_CAR"
+    >
+      <SvgMock
+        height={20}
+        width={20}
+      />
+    </View>
+  </View>,
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontFamily": "SFProDisplay-Regular",
+          "fontSize": undefined,
+          "lineHeight": undefined,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "color": "red",
+          "marginLeft": 20,
+          "marginTop": 5,
+        },
+      ]
+    }
+  >
+    Vui lòng nhập đúng định dạng biển số xe 
+VD: 51A-123.45
+  </Text>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <View
+      pointerEvents="none"
+    >
+      <RNCCheckbox
+        boxType="square"
+        forwardedRef={null}
+        onCheckColor="#FFFFFF"
+        onFillColor="#00979D"
+        onTintColor="#00979D"
+        onValueChange={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "height": 32,
+              "width": 32,
+            },
+            Object {
+              "height": 20,
+              "marginRight": 15,
+              "marginTop": 15,
+              "width": 20,
+            },
+          ]
+        }
+        tintColors={
+          Object {
+            "false": "#F5F5F5",
+            "true": "#00979D",
+          }
+        }
+        value={false}
+      />
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#BFBFBF",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 14,
+              "lineHeight": 22,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "marginTop": 14,
+            },
+          ]
+        }
+      >
+        Lưu và đặt phương tiện mặc định
+      </Text>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "backgroundColor": "#E8E8E8",
+        "height": 1,
+        "marginVertical": 16,
+      }
+    }
+  />,
+]
+`;

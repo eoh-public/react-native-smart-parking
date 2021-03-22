@@ -1,0 +1,162 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ItemMenuNotification create ItemMenuNotification 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "flexDirection": "row",
+      "opacity": 1,
+      "paddingHorizontal": 16,
+      "paddingTop": 16,
+      "width": "100%",
+    }
+  }
+>
+  
+  <View
+    style={
+      Object {
+        "borderBottomColor": "#E8E8E8",
+        "borderBottomWidth": 1,
+        "flex": 1,
+        "marginLeft": 26,
+        "paddingBottom": 16,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#262626",
+            "fontFamily": "SFProDisplay-Semibold",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#595959",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": 12,
+            "lineHeight": 20,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {
+            "marginTop": 8,
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "justifyContent": "flex-end",
+        "position": "absolute",
+        "right": 16,
+        "top": 16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "overflow": "visible",
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#F08229",
+              "borderColor": "white",
+              "borderRadius": 11,
+              "borderWidth": 0,
+              "height": 22,
+              "width": 24,
+            },
+            undefined,
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderWidth": 1,
+                "justifyContent": "center",
+                "position": "absolute",
+                "right": -11,
+                "top": -7,
+              },
+              Object {
+                "height": 22,
+                "marginRight": 10,
+                "position": "relative",
+                "right": 0,
+                "top": 0,
+                "width": 25,
+              },
+            ],
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#FFFFFF",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 12,
+                "lineHeight": 20,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {},
+            ]
+          }
+        >
+          1
+        </Text>
+      </View>
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "black",
+            "fontFamily": "antoutline",
+            "fontSize": 21,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          undefined,
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;

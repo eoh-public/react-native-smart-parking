@@ -1,0 +1,2244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ChartAverage render ChartAverage 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    className="VictoryContainer"
+    onMoveShouldSetResponder={[Function]}
+    onMoveShouldSetResponderCapture={[Function]}
+    onResponderEnd={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderReject={[Function]}
+    onResponderRelease={[Function]}
+    onResponderStart={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    onStartShouldSetResponderCapture={[Function]}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "position": "relative",
+      }
+    }
+  >
+    <RNSVGSvgView
+      align="xMidYMid"
+      bbHeight={135}
+      bbWidth={750}
+      focusable={false}
+      height={135}
+      meetOrSlice={0}
+      minX={0}
+      minY={0}
+      role="img"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderWidth": 0,
+          },
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+          Object {
+            "flex": 0,
+            "height": 135,
+            "width": 750,
+          },
+        ]
+      }
+      vbHeight={135}
+      vbWidth={750}
+      width={750}
+    >
+      <RNSVGGroup>
+        <RNSVGGroup>
+          <RNSVGLine
+            fill={4293454056}
+            propList={
+              Array [
+                "fill",
+                "stroke",
+                "strokeWidth",
+                "strokeLinecap",
+                "strokeLinejoin",
+              ]
+            }
+            stroke={4293454056}
+            strokeLinecap={1}
+            strokeLinejoin={1}
+            strokeWidth={2}
+            vectorEffect={1}
+            x1={36}
+            x2={714}
+            y1={105}
+            y2={105}
+          />
+          <RNSVGGroup>
+            <RNSVGLine
+              fill={0}
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                  "strokeWidth",
+                  "strokeLinecap",
+                  "strokeLinejoin",
+                ]
+              }
+              stroke={4287669422}
+              strokeLinecap={1}
+              strokeLinejoin={1}
+              strokeWidth={1}
+              vectorEffect={1}
+              x1={171.60000000000002}
+              x2={171.60000000000002}
+              y1={105}
+              y2={105}
+            />
+            <RNSVGText
+              content={null}
+              dx={
+                Array [
+                  0,
+                ]
+              }
+              dy={Array []}
+              font={Object {}}
+              name="chart-axis-0-tickLabels-0"
+              rotate={Array []}
+              x={
+                Array [
+                  171.60000000000002,
+                ]
+              }
+              y={
+                Array [
+                  128.26,
+                ]
+              }
+            >
+              <RNSVGTSpan
+                content="0.2"
+                dx={
+                  Array [
+                    0,
+                  ]
+                }
+                dy={
+                  Array [
+                    0,
+                  ]
+                }
+                fill={4284045657}
+                font={
+                  Object {
+                    "fontFamily": "Helvetica Neue",
+                    "fontSize": 12,
+                    "letterSpacing": "normal",
+                    "textAnchor": "middle",
+                  }
+                }
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                rotate={Array []}
+                x={
+                  Array [
+                    171.60000000000002,
+                  ]
+                }
+                y={Array []}
+              />
+            </RNSVGText>
+          </RNSVGGroup>
+          <RNSVGGroup>
+            <RNSVGLine
+              fill={0}
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                  "strokeWidth",
+                  "strokeLinecap",
+                  "strokeLinejoin",
+                ]
+              }
+              stroke={4287669422}
+              strokeLinecap={1}
+              strokeLinejoin={1}
+              strokeWidth={1}
+              vectorEffect={1}
+              x1={307.20000000000005}
+              x2={307.20000000000005}
+              y1={105}
+              y2={105}
+            />
+          </RNSVGGroup>
+          <RNSVGGroup>
+            <RNSVGLine
+              fill={0}
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                  "strokeWidth",
+                  "strokeLinecap",
+                  "strokeLinejoin",
+                ]
+              }
+              stroke={4287669422}
+              strokeLinecap={1}
+              strokeLinejoin={1}
+              strokeWidth={1}
+              vectorEffect={1}
+              x1={442.79999999999995}
+              x2={442.79999999999995}
+              y1={105}
+              y2={105}
+            />
+          </RNSVGGroup>
+          <RNSVGGroup>
+            <RNSVGLine
+              fill={0}
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                  "strokeWidth",
+                  "strokeLinecap",
+                  "strokeLinejoin",
+                ]
+              }
+              stroke={4287669422}
+              strokeLinecap={1}
+              strokeLinejoin={1}
+              strokeWidth={1}
+              vectorEffect={1}
+              x1={578.4000000000001}
+              x2={578.4000000000001}
+              y1={105}
+              y2={105}
+            />
+          </RNSVGGroup>
+          <RNSVGGroup>
+            <RNSVGLine
+              fill={0}
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                  "strokeWidth",
+                  "strokeLinecap",
+                  "strokeLinejoin",
+                ]
+              }
+              stroke={4287669422}
+              strokeLinecap={1}
+              strokeLinejoin={1}
+              strokeWidth={1}
+              vectorEffect={1}
+              x1={714}
+              x2={714}
+              y1={105}
+              y2={105}
+            />
+            <RNSVGText
+              content={null}
+              dx={
+                Array [
+                  0,
+                ]
+              }
+              dy={Array []}
+              font={Object {}}
+              name="chart-axis-0-tickLabels-4"
+              rotate={Array []}
+              x={
+                Array [
+                  714,
+                ]
+              }
+              y={
+                Array [
+                  128.26,
+                ]
+              }
+            >
+              <RNSVGTSpan
+                content="1"
+                dx={
+                  Array [
+                    0,
+                  ]
+                }
+                dy={
+                  Array [
+                    0,
+                  ]
+                }
+                fill={4284045657}
+                font={
+                  Object {
+                    "fontFamily": "Helvetica Neue",
+                    "fontSize": 12,
+                    "letterSpacing": "normal",
+                    "textAnchor": "middle",
+                  }
+                }
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                rotate={Array []}
+                x={
+                  Array [
+                    714,
+                  ]
+                }
+                y={Array []}
+              />
+            </RNSVGText>
+          </RNSVGGroup>
+        </RNSVGGroup>
+        <RNSVGGroup>
+          <RNSVGLine
+            fill={0}
+            propList={
+              Array [
+                "fill",
+                "stroke",
+                "strokeWidth",
+                "strokeLinecap",
+                "strokeLinejoin",
+              ]
+            }
+            stroke={4293454056}
+            strokeLinecap={1}
+            strokeLinejoin={1}
+            strokeWidth={2}
+            vectorEffect={1}
+            x1={36}
+            x2={36}
+            y1={10}
+            y2={105}
+          />
+          <RNSVGGroup>
+            <RNSVGLine
+              fill={0}
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                  "strokeWidth",
+                  "strokeLinecap",
+                  "strokeLinejoin",
+                ]
+              }
+              stroke={4287669422}
+              strokeLinecap={1}
+              strokeLinejoin={1}
+              strokeWidth={1}
+              vectorEffect={1}
+              x1={36}
+              x2={36}
+              y1={86}
+              y2={86}
+            />
+            <RNSVGText
+              content={null}
+              dx={
+                Array [
+                  0,
+                ]
+              }
+              dy={Array []}
+              font={Object {}}
+              name="chart-axis-1-tickLabels-0"
+              rotate={Array []}
+              x={
+                Array [
+                  28,
+                ]
+              }
+              y={
+                Array [
+                  86,
+                ]
+              }
+            >
+              <RNSVGTSpan
+                content="0.2"
+                dx={
+                  Array [
+                    0,
+                  ]
+                }
+                dy={
+                  Array [
+                    0,
+                  ]
+                }
+                fill={4282735204}
+                font={
+                  Object {
+                    "fontFamily": "Helvetica Neue",
+                    "fontSize": 0,
+                    "letterSpacing": "normal",
+                    "textAnchor": "end",
+                  }
+                }
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                rotate={Array []}
+                x={
+                  Array [
+                    28,
+                  ]
+                }
+                y={Array []}
+              />
+            </RNSVGText>
+          </RNSVGGroup>
+          <RNSVGGroup>
+            <RNSVGLine
+              fill={0}
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                  "strokeWidth",
+                  "strokeLinecap",
+                  "strokeLinejoin",
+                ]
+              }
+              stroke={4287669422}
+              strokeLinecap={1}
+              strokeLinejoin={1}
+              strokeWidth={1}
+              vectorEffect={1}
+              x1={36}
+              x2={36}
+              y1={67}
+              y2={67}
+            />
+            <RNSVGText
+              content={null}
+              dx={
+                Array [
+                  0,
+                ]
+              }
+              dy={Array []}
+              font={Object {}}
+              name="chart-axis-1-tickLabels-1"
+              rotate={Array []}
+              x={
+                Array [
+                  28,
+                ]
+              }
+              y={
+                Array [
+                  67,
+                ]
+              }
+            >
+              <RNSVGTSpan
+                content="0.4"
+                dx={
+                  Array [
+                    0,
+                  ]
+                }
+                dy={
+                  Array [
+                    0,
+                  ]
+                }
+                fill={4282735204}
+                font={
+                  Object {
+                    "fontFamily": "Helvetica Neue",
+                    "fontSize": 0,
+                    "letterSpacing": "normal",
+                    "textAnchor": "end",
+                  }
+                }
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                rotate={Array []}
+                x={
+                  Array [
+                    28,
+                  ]
+                }
+                y={Array []}
+              />
+            </RNSVGText>
+          </RNSVGGroup>
+          <RNSVGGroup>
+            <RNSVGLine
+              fill={0}
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                  "strokeWidth",
+                  "strokeLinecap",
+                  "strokeLinejoin",
+                ]
+              }
+              stroke={4287669422}
+              strokeLinecap={1}
+              strokeLinejoin={1}
+              strokeWidth={1}
+              vectorEffect={1}
+              x1={36}
+              x2={36}
+              y1={48}
+              y2={48}
+            />
+            <RNSVGText
+              content={null}
+              dx={
+                Array [
+                  0,
+                ]
+              }
+              dy={Array []}
+              font={Object {}}
+              name="chart-axis-1-tickLabels-2"
+              rotate={Array []}
+              x={
+                Array [
+                  28,
+                ]
+              }
+              y={
+                Array [
+                  48,
+                ]
+              }
+            >
+              <RNSVGTSpan
+                content="0.6"
+                dx={
+                  Array [
+                    0,
+                  ]
+                }
+                dy={
+                  Array [
+                    0,
+                  ]
+                }
+                fill={4282735204}
+                font={
+                  Object {
+                    "fontFamily": "Helvetica Neue",
+                    "fontSize": 0,
+                    "letterSpacing": "normal",
+                    "textAnchor": "end",
+                  }
+                }
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                rotate={Array []}
+                x={
+                  Array [
+                    28,
+                  ]
+                }
+                y={Array []}
+              />
+            </RNSVGText>
+          </RNSVGGroup>
+          <RNSVGGroup>
+            <RNSVGLine
+              fill={0}
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                  "strokeWidth",
+                  "strokeLinecap",
+                  "strokeLinejoin",
+                ]
+              }
+              stroke={4287669422}
+              strokeLinecap={1}
+              strokeLinejoin={1}
+              strokeWidth={1}
+              vectorEffect={1}
+              x1={36}
+              x2={36}
+              y1={28.999999999999996}
+              y2={28.999999999999996}
+            />
+            <RNSVGText
+              content={null}
+              dx={
+                Array [
+                  0,
+                ]
+              }
+              dy={Array []}
+              font={Object {}}
+              name="chart-axis-1-tickLabels-3"
+              rotate={Array []}
+              x={
+                Array [
+                  28,
+                ]
+              }
+              y={
+                Array [
+                  28.999999999999996,
+                ]
+              }
+            >
+              <RNSVGTSpan
+                content="0.8"
+                dx={
+                  Array [
+                    0,
+                  ]
+                }
+                dy={
+                  Array [
+                    0,
+                  ]
+                }
+                fill={4282735204}
+                font={
+                  Object {
+                    "fontFamily": "Helvetica Neue",
+                    "fontSize": 0,
+                    "letterSpacing": "normal",
+                    "textAnchor": "end",
+                  }
+                }
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                rotate={Array []}
+                x={
+                  Array [
+                    28,
+                  ]
+                }
+                y={Array []}
+              />
+            </RNSVGText>
+          </RNSVGGroup>
+          <RNSVGGroup>
+            <RNSVGLine
+              fill={0}
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                  "strokeWidth",
+                  "strokeLinecap",
+                  "strokeLinejoin",
+                ]
+              }
+              stroke={4287669422}
+              strokeLinecap={1}
+              strokeLinejoin={1}
+              strokeWidth={1}
+              vectorEffect={1}
+              x1={36}
+              x2={36}
+              y1={10}
+              y2={10}
+            />
+            <RNSVGText
+              content={null}
+              dx={
+                Array [
+                  0,
+                ]
+              }
+              dy={Array []}
+              font={Object {}}
+              name="chart-axis-1-tickLabels-4"
+              rotate={Array []}
+              x={
+                Array [
+                  28,
+                ]
+              }
+              y={
+                Array [
+                  10,
+                ]
+              }
+            >
+              <RNSVGTSpan
+                content="1.0"
+                dx={
+                  Array [
+                    0,
+                  ]
+                }
+                dy={
+                  Array [
+                    0,
+                  ]
+                }
+                fill={4282735204}
+                font={
+                  Object {
+                    "fontFamily": "Helvetica Neue",
+                    "fontSize": 0,
+                    "letterSpacing": "normal",
+                    "textAnchor": "end",
+                  }
+                }
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                rotate={Array []}
+                x={
+                  Array [
+                    28,
+                  ]
+                }
+                y={Array []}
+              />
+            </RNSVGText>
+          </RNSVGGroup>
+        </RNSVGGroup>
+        <RNSVGGroup>
+          <RNSVGGroup
+            clipPath="victory-clip-2"
+          >
+            <RNSVGGroup>
+              <RNSVGDefs>
+                <RNSVGClipPath
+                  name="victory-clip-2"
+                >
+                  <RNSVGRect
+                    height={95}
+                    vectorEffect={1}
+                    width={678}
+                    x={36}
+                    y={10}
+                  />
+                </RNSVGClipPath>
+              </RNSVGDefs>
+            </RNSVGGroup>
+            <RNSVGPath
+              d="M36,105L49.56,103.1L63.120000000000005,101.2L76.67999999999999,99.29999999999998L90.24000000000001,97.4L103.80000000000001,95.5L117.36000000000001,93.60000000000001L130.92000000000002,91.7L144.48000000000002,89.8L158.04,87.9L171.6,86L185.16,84.10000000000001L198.71999999999997,82.2L212.27999999999997,80.3L225.83999999999997,78.39999999999999L239.39999999999998,76.5L252.96,74.6L266.52000000000004,72.7L280.08000000000004,70.79999999999998L293.64000000000004,68.89999999999999L307.20000000000005,66.99999999999999L320.76000000000005,65.09999999999998L334.32000000000005,63.19999999999998L347.8800000000001,61.29999999999998L361.44000000000005,59.399999999999984L375.00000000000006,57.499999999999986L388.56000000000006,55.59999999999999L402.1200000000001,53.69999999999998L415.6800000000001,51.79999999999998L429.2400000000001,49.899999999999984L442.8000000000001,47.99999999999998L456.3600000000002,46.09999999999998L469.92000000000013,44.199999999999974L483.4800000000002,42.299999999999976L497.0400000000002,40.39999999999998L510.6000000000002,38.49999999999997L524.1600000000003,36.599999999999966L537.7200000000003,34.69999999999997L551.2800000000002,32.79999999999997L564.8400000000003,30.899999999999967L578.4000000000002,28.999999999999964L591.9600000000003,27.099999999999966L605.5200000000003,25.19999999999996L619.0800000000003,23.29999999999996L632.6400000000002,21.399999999999956L646.2000000000004,19.499999999999957L659.7600000000003,17.59999999999995L673.3200000000003,15.699999999999953L686.8800000000003,13.799999999999951L700.4400000000004,11.899999999999949L714,10"
+              fill={null}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                  "strokeWidth",
+                ]
+              }
+              stroke={4294910509}
+              strokeWidth={2}
+            />
+          </RNSVGGroup>
+          <RNSVGGroup
+            clipPath="victory-clip-3"
+          >
+            <RNSVGGroup>
+              <RNSVGDefs>
+                <RNSVGClipPath
+                  name="victory-clip-3"
+                >
+                  <RNSVGRect
+                    height={95}
+                    vectorEffect={1}
+                    width={678}
+                    x={36}
+                    y={10}
+                  />
+                </RNSVGClipPath>
+              </RNSVGDefs>
+            </RNSVGGroup>
+            <RNSVGPath
+              d="M36,105L49.56,103.1L63.120000000000005,101.2L76.67999999999999,99.29999999999998L90.24000000000001,97.4L103.80000000000001,95.5L117.36000000000001,93.60000000000001L130.92000000000002,91.7L144.48000000000002,89.8L158.04,87.9L171.6,86L185.16,84.10000000000001L198.71999999999997,82.2L212.27999999999997,80.3L225.83999999999997,78.39999999999999L239.39999999999998,76.5L252.96,74.6L266.52000000000004,72.7L280.08000000000004,70.79999999999998L293.64000000000004,68.89999999999999L307.20000000000005,66.99999999999999L320.76000000000005,65.09999999999998L334.32000000000005,63.19999999999998L347.8800000000001,61.29999999999998L361.44000000000005,59.399999999999984L375.00000000000006,57.499999999999986L388.56000000000006,55.59999999999999L402.1200000000001,53.69999999999998L415.6800000000001,51.79999999999998L429.2400000000001,49.899999999999984L442.8000000000001,47.99999999999998L456.3600000000002,46.09999999999998L469.92000000000013,44.199999999999974L483.4800000000002,42.299999999999976L497.0400000000002,40.39999999999998L510.6000000000002,38.49999999999997L524.1600000000003,36.599999999999966L537.7200000000003,34.69999999999997L551.2800000000002,32.79999999999997L564.8400000000003,30.899999999999967L578.4000000000002,28.999999999999964L591.9600000000003,27.099999999999966L605.5200000000003,25.19999999999996L619.0800000000003,23.29999999999996L632.6400000000002,21.399999999999956L646.2000000000004,19.499999999999957L659.7600000000003,17.59999999999995L673.3200000000003,15.699999999999953L686.8800000000003,13.799999999999951L700.4400000000004,11.899999999999949L714,10L714,105L700.4400000000004,105L686.8800000000003,105L673.3200000000003,105L659.7600000000003,105L646.2000000000004,105L632.6400000000002,105L619.0800000000003,105L605.5200000000003,105L591.9600000000003,105L578.4000000000002,105L564.8400000000003,105L551.2800000000002,105L537.7200000000003,105L524.1600000000003,105L510.6000000000002,105L497.0400000000002,105L483.4800000000002,105L469.92000000000013,105L456.3600000000002,105L442.8000000000001,105L429.2400000000001,105L415.6800000000001,105L402.1200000000001,105L388.56000000000006,105L375.00000000000006,105L361.44000000000005,105L347.8800000000001,105L334.32000000000005,105L320.76000000000005,105L307.20000000000005,105L293.64000000000004,105L280.08000000000004,105L266.52000000000004,105L252.96,105L239.39999999999998,105L225.83999999999997,105L212.27999999999997,105L198.71999999999997,105L185.16,105L171.6,105L158.04,105L144.48000000000002,105L130.92000000000002,105L117.36000000000001,105L103.80000000000001,105L90.24000000000001,105L76.67999999999999,105L63.120000000000005,105L49.56,105L36,105Z"
+              fill={1308566061}
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                ]
+              }
+              stroke={1308566061}
+            />
+          </RNSVGGroup>
+          <RNSVGGroup>
+            <RNSVGPath
+              d="M 36, 105
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 49.56, 103.1
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 63.120000000000005, 101.2
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 76.67999999999999, 99.29999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 90.24000000000001, 97.4
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 103.80000000000001, 95.5
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 117.36000000000001, 93.60000000000001
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 130.92000000000002, 91.7
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 144.48000000000002, 89.8
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 158.04, 87.9
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 171.6, 86
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 185.16, 84.10000000000001
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 198.71999999999997, 82.2
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 212.27999999999997, 80.3
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 225.83999999999997, 78.39999999999999
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 239.39999999999998, 76.5
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 252.96, 74.6
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 266.52000000000004, 72.7
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 280.08000000000004, 70.79999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 293.64000000000004, 68.89999999999999
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 307.20000000000005, 66.99999999999999
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 320.76000000000005, 65.09999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 334.32000000000005, 63.19999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 347.8800000000001, 61.29999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 361.44000000000005, 59.399999999999984
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 375.00000000000006, 57.499999999999986
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 388.56000000000006, 55.59999999999999
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 402.1200000000001, 53.69999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 415.6800000000001, 51.79999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 429.2400000000001, 49.899999999999984
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 442.8000000000001, 47.99999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 456.3600000000002, 46.09999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 469.92000000000013, 44.199999999999974
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 483.4800000000002, 42.299999999999976
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 497.0400000000002, 40.39999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 510.6000000000002, 38.49999999999997
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 524.1600000000003, 36.599999999999966
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 537.7200000000003, 34.69999999999997
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 551.2800000000002, 32.79999999999997
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 564.8400000000003, 30.899999999999967
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 578.4000000000002, 28.999999999999964
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 591.9600000000003, 27.099999999999966
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 605.5200000000003, 25.19999999999996
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 619.0800000000003, 23.29999999999996
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 632.6400000000002, 21.399999999999956
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 646.2000000000004, 19.499999999999957
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 659.7600000000003, 17.59999999999995
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 673.3200000000003, 15.699999999999953
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 686.8800000000003, 13.799999999999951
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 700.4400000000004, 11.899999999999949
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 714, 10
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4294910509}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+          </RNSVGGroup>
+        </RNSVGGroup>
+        <RNSVGGroup>
+          <RNSVGGroup
+            clipPath="victory-clip-4"
+          >
+            <RNSVGGroup>
+              <RNSVGDefs>
+                <RNSVGClipPath
+                  name="victory-clip-4"
+                >
+                  <RNSVGRect
+                    height={95}
+                    vectorEffect={1}
+                    width={678}
+                    x={36}
+                    y={10}
+                  />
+                </RNSVGClipPath>
+              </RNSVGDefs>
+            </RNSVGGroup>
+            <RNSVGPath
+              d="M36,105L49.56,103.1L63.120000000000005,101.2L76.67999999999999,99.29999999999998L90.24000000000001,97.4L103.80000000000001,95.5L117.36000000000001,93.60000000000001L130.92000000000002,91.7L144.48000000000002,89.8L158.04,87.9L171.6,86L185.16,84.10000000000001L198.71999999999997,82.2L212.27999999999997,80.3L225.83999999999997,78.39999999999999L239.39999999999998,76.5L252.96,74.6L266.52000000000004,72.7L280.08000000000004,70.79999999999998L293.64000000000004,68.89999999999999L307.20000000000005,66.99999999999999L320.76000000000005,65.09999999999998L334.32000000000005,63.19999999999998L347.8800000000001,61.29999999999998L361.44000000000005,59.399999999999984L375.00000000000006,57.499999999999986L388.56000000000006,55.59999999999999L402.1200000000001,53.69999999999998L415.6800000000001,51.79999999999998L429.2400000000001,49.899999999999984L442.8000000000001,47.99999999999998L456.3600000000002,46.09999999999998L469.92000000000013,44.199999999999974L483.4800000000002,42.299999999999976L497.0400000000002,40.39999999999998L510.6000000000002,38.49999999999997L524.1600000000003,36.599999999999966L537.7200000000003,34.69999999999997L551.2800000000002,32.79999999999997L564.8400000000003,30.899999999999967L578.4000000000002,28.999999999999964L591.9600000000003,27.099999999999966L605.5200000000003,25.19999999999996L619.0800000000003,23.29999999999996L632.6400000000002,21.399999999999956L646.2000000000004,19.499999999999957L659.7600000000003,17.59999999999995L673.3200000000003,15.699999999999953L686.8800000000003,13.799999999999951L700.4400000000004,11.899999999999949L714,10"
+              fill={null}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                  "strokeWidth",
+                ]
+              }
+              stroke={4279800063}
+              strokeWidth={2}
+            />
+          </RNSVGGroup>
+          <RNSVGGroup
+            clipPath="victory-clip-5"
+          >
+            <RNSVGGroup>
+              <RNSVGDefs>
+                <RNSVGClipPath
+                  name="victory-clip-5"
+                >
+                  <RNSVGRect
+                    height={95}
+                    vectorEffect={1}
+                    width={678}
+                    x={36}
+                    y={10}
+                  />
+                </RNSVGClipPath>
+              </RNSVGDefs>
+            </RNSVGGroup>
+            <RNSVGPath
+              d="M36,105L49.56,103.1L63.120000000000005,101.2L76.67999999999999,99.29999999999998L90.24000000000001,97.4L103.80000000000001,95.5L117.36000000000001,93.60000000000001L130.92000000000002,91.7L144.48000000000002,89.8L158.04,87.9L171.6,86L185.16,84.10000000000001L198.71999999999997,82.2L212.27999999999997,80.3L225.83999999999997,78.39999999999999L239.39999999999998,76.5L252.96,74.6L266.52000000000004,72.7L280.08000000000004,70.79999999999998L293.64000000000004,68.89999999999999L307.20000000000005,66.99999999999999L320.76000000000005,65.09999999999998L334.32000000000005,63.19999999999998L347.8800000000001,61.29999999999998L361.44000000000005,59.399999999999984L375.00000000000006,57.499999999999986L388.56000000000006,55.59999999999999L402.1200000000001,53.69999999999998L415.6800000000001,51.79999999999998L429.2400000000001,49.899999999999984L442.8000000000001,47.99999999999998L456.3600000000002,46.09999999999998L469.92000000000013,44.199999999999974L483.4800000000002,42.299999999999976L497.0400000000002,40.39999999999998L510.6000000000002,38.49999999999997L524.1600000000003,36.599999999999966L537.7200000000003,34.69999999999997L551.2800000000002,32.79999999999997L564.8400000000003,30.899999999999967L578.4000000000002,28.999999999999964L591.9600000000003,27.099999999999966L605.5200000000003,25.19999999999996L619.0800000000003,23.29999999999996L632.6400000000002,21.399999999999956L646.2000000000004,19.499999999999957L659.7600000000003,17.59999999999995L673.3200000000003,15.699999999999953L686.8800000000003,13.799999999999951L700.4400000000004,11.899999999999949L714,10L714,105L700.4400000000004,105L686.8800000000003,105L673.3200000000003,105L659.7600000000003,105L646.2000000000004,105L632.6400000000002,105L619.0800000000003,105L605.5200000000003,105L591.9600000000003,105L578.4000000000002,105L564.8400000000003,105L551.2800000000002,105L537.7200000000003,105L524.1600000000003,105L510.6000000000002,105L497.0400000000002,105L483.4800000000002,105L469.92000000000013,105L456.3600000000002,105L442.8000000000001,105L429.2400000000001,105L415.6800000000001,105L402.1200000000001,105L388.56000000000006,105L375.00000000000006,105L361.44000000000005,105L347.8800000000001,105L334.32000000000005,105L320.76000000000005,105L307.20000000000005,105L293.64000000000004,105L280.08000000000004,105L266.52000000000004,105L252.96,105L239.39999999999998,105L225.83999999999997,105L212.27999999999997,105L198.71999999999997,105L185.16,105L171.6,105L158.04,105L144.48000000000002,105L130.92000000000002,105L117.36000000000001,105L103.80000000000001,105L90.24000000000001,105L76.67999999999999,105L63.120000000000005,105L49.56,105L36,105Z"
+              fill={1293455615}
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                ]
+              }
+              stroke={1293455615}
+            />
+          </RNSVGGroup>
+          <RNSVGGroup>
+            <RNSVGPath
+              d="M 36, 105
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 49.56, 103.1
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 63.120000000000005, 101.2
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 76.67999999999999, 99.29999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 90.24000000000001, 97.4
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 103.80000000000001, 95.5
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 117.36000000000001, 93.60000000000001
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 130.92000000000002, 91.7
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 144.48000000000002, 89.8
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 158.04, 87.9
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 171.6, 86
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 185.16, 84.10000000000001
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 198.71999999999997, 82.2
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 212.27999999999997, 80.3
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 225.83999999999997, 78.39999999999999
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 239.39999999999998, 76.5
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 252.96, 74.6
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 266.52000000000004, 72.7
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 280.08000000000004, 70.79999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 293.64000000000004, 68.89999999999999
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 307.20000000000005, 66.99999999999999
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 320.76000000000005, 65.09999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 334.32000000000005, 63.19999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 347.8800000000001, 61.29999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 361.44000000000005, 59.399999999999984
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 375.00000000000006, 57.499999999999986
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 388.56000000000006, 55.59999999999999
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 402.1200000000001, 53.69999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 415.6800000000001, 51.79999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 429.2400000000001, 49.899999999999984
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 442.8000000000001, 47.99999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 456.3600000000002, 46.09999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 469.92000000000013, 44.199999999999974
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 483.4800000000002, 42.299999999999976
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 497.0400000000002, 40.39999999999998
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 510.6000000000002, 38.49999999999997
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 524.1600000000003, 36.599999999999966
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 537.7200000000003, 34.69999999999997
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 551.2800000000002, 32.79999999999997
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 564.8400000000003, 30.899999999999967
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 578.4000000000002, 28.999999999999964
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 591.9600000000003, 27.099999999999966
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 605.5200000000003, 25.19999999999996
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 619.0800000000003, 23.29999999999996
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 632.6400000000002, 21.399999999999956
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 646.2000000000004, 19.499999999999957
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 659.7600000000003, 17.59999999999995
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 673.3200000000003, 15.699999999999953
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 686.8800000000003, 13.799999999999951
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 700.4400000000004, 11.899999999999949
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+            <RNSVGPath
+              d="M 714, 10
+      m -5, 0
+      a 5, 5 0 1,0 10,0
+      a 5, 5 0 1,0 -10,0"
+              fill={4279800063}
+              opacity={1}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            />
+          </RNSVGGroup>
+        </RNSVGGroup>
+      </RNSVGGroup>
+    </RNSVGSvgView>
+    <View
+      pointerEvents="box-none"
+      style={
+        Object {
+          "left": 0,
+          "position": "absolute",
+          "top": 0,
+          "zIndex": 99,
+        }
+      }
+    >
+      <RNSVGSvgView
+        align="xMidYMid"
+        bbHeight={135}
+        bbWidth={750}
+        focusable={false}
+        height={135}
+        meetOrSlice={0}
+        minX={0}
+        minY={0}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderWidth": 0,
+            },
+            Object {
+              "height": "100%",
+              "overflow": "visible",
+              "width": "100%",
+            },
+            Object {
+              "flex": 0,
+              "height": 135,
+              "width": 750,
+            },
+          ]
+        }
+        vbHeight={135}
+        vbWidth={750}
+        width={750}
+      >
+        <RNSVGGroup />
+      </RNSVGSvgView>
+    </View>
+  </View>
+</View>
+`;

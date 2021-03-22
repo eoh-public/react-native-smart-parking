@@ -1,0 +1,1439 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test AddressInfo create AddressInfo 1`] = `
+Array [
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#262626",
+          "fontFamily": "SFProDisplay-Semibold",
+          "fontSize": 16,
+          "lineHeight": 24,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginBottom": 8,
+          "marginLeft": 16,
+          "marginTop": 16,
+        },
+      ]
+    }
+  >
+    
+  </Text>,
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#595959",
+          "fontFamily": "SFProDisplay-Regular",
+          "fontSize": 14,
+          "lineHeight": 22,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginBottom": 16,
+          "marginLeft": 16,
+        },
+      ]
+    }
+  >
+    
+  </Text>,
+  <View>
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "marginBottom": 16,
+            "marginLeft": 16,
+            "marginRight": 16,
+          },
+          Object {
+            "backgroundColor": "#F5F5F5",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "marginLeft": 20,
+            "paddingVertical": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 20,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {
+                "paddingRight": 16,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": undefined,
+                "lineHeight": undefined,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "color": "#8C8C8C",
+              },
+            ]
+          }
+        >
+          Bãi đỗ xe không hỗ trợ đặt chỗ trước.
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "paddingLeft": 16,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <SvgMock
+      height={16}
+      width={16}
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#262626",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {
+            "marginLeft": 18,
+            "marginTop": 0,
+          },
+        ]
+      }
+    >
+      
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": undefined,
+              "lineHeight": undefined,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+         
+        / 1 chỗ trống
+         
+      </Text>
+    </Text>
+  </View>,
+  <View>
+    <View
+      style={
+        Object {
+          "marginVertical": 8,
+          "paddingHorizontal": 16,
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              undefined,
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#262626",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 16,
+                "lineHeight": 24,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "flex": 1,
+                "marginLeft": 18,
+                "marginTop": 0,
+              },
+            ]
+          }
+        >
+          NaN đ/h
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "black",
+                "fontFamily": "antoutline",
+                "fontSize": 15,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              undefined,
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginVertical": 8,
+          "paddingHorizontal": 16,
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              undefined,
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#262626",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 16,
+                "lineHeight": 24,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "flex": 1,
+                "marginLeft": 18,
+                "marginTop": 0,
+              },
+            ]
+          }
+        >
+          12:00 - 12:00
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "black",
+                "fontFamily": "antoutline",
+                "fontSize": 15,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              undefined,
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "paddingLeft": 16,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <SvgMock
+      height={16}
+      width={16}
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {
+            "marginLeft": 18,
+            "marginTop": 0,
+          },
+        ]
+      }
+    >
+      10km
+    </Text>
+  </View>,
+  <View
+    style={
+      Object {
+        "backgroundColor": "#E8E8E8",
+        "height": 1,
+        "marginVertical": 16,
+      }
+    }
+  />,
+]
+`;
+
+exports[`Test AddressInfo create AddressInfo with expand view list price/time 1`] = `
+Array [
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#262626",
+          "fontFamily": "SFProDisplay-Semibold",
+          "fontSize": 16,
+          "lineHeight": 24,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginBottom": 8,
+          "marginLeft": 16,
+          "marginTop": 16,
+        },
+      ]
+    }
+  >
+    
+  </Text>,
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#595959",
+          "fontFamily": "SFProDisplay-Regular",
+          "fontSize": 14,
+          "lineHeight": 22,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginBottom": 16,
+          "marginLeft": 16,
+        },
+      ]
+    }
+  >
+    
+  </Text>,
+  <View>
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "marginBottom": 16,
+            "marginLeft": 16,
+            "marginRight": 16,
+          },
+          Object {
+            "backgroundColor": "#F5F5F5",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "marginLeft": 20,
+            "paddingVertical": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 20,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {
+                "paddingRight": 16,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": undefined,
+                "lineHeight": undefined,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "color": "#8C8C8C",
+              },
+            ]
+          }
+        >
+          Bãi đỗ xe không hỗ trợ đặt chỗ trước.
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "paddingLeft": 16,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <SvgMock
+      height={16}
+      width={16}
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#262626",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {
+            "marginLeft": 18,
+            "marginTop": 0,
+          },
+        ]
+      }
+    >
+      
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": undefined,
+              "lineHeight": undefined,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+         
+        / 1 chỗ trống
+         
+      </Text>
+    </Text>
+  </View>,
+  <View>
+    <View
+      style={
+        Object {
+          "marginVertical": 8,
+          "paddingHorizontal": 16,
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              undefined,
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#262626",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 16,
+                "lineHeight": 24,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "flex": 1,
+                "marginLeft": 18,
+                "marginTop": 0,
+              },
+            ]
+          }
+        >
+          NaN đ/h
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "black",
+                "fontFamily": "antoutline",
+                "fontSize": 15,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              undefined,
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginVertical": 8,
+          "paddingHorizontal": 16,
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              undefined,
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#262626",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 16,
+                "lineHeight": 24,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "flex": 1,
+                "marginLeft": 18,
+                "marginTop": 0,
+              },
+            ]
+          }
+        >
+          12:00 - 12:00
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "black",
+                "fontFamily": "antoutline",
+                "fontSize": 15,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              undefined,
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "paddingLeft": 16,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <SvgMock
+      height={16}
+      width={16}
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {
+            "marginLeft": 18,
+            "marginTop": 0,
+          },
+        ]
+      }
+    >
+      10km
+    </Text>
+  </View>,
+  <View
+    style={
+      Object {
+        "backgroundColor": "#E8E8E8",
+        "height": 1,
+        "marginVertical": 16,
+      }
+    }
+  />,
+]
+`;
+
+exports[`Test AddressInfo create AddressInfo with free case 1`] = `
+Array [
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#262626",
+          "fontFamily": "SFProDisplay-Semibold",
+          "fontSize": 16,
+          "lineHeight": 24,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginBottom": 8,
+          "marginLeft": 16,
+          "marginTop": 16,
+        },
+      ]
+    }
+  >
+    
+  </Text>,
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#595959",
+          "fontFamily": "SFProDisplay-Regular",
+          "fontSize": 14,
+          "lineHeight": 22,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginBottom": 16,
+          "marginLeft": 16,
+        },
+      ]
+    }
+  >
+    
+  </Text>,
+  <View>
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "marginBottom": 16,
+            "marginLeft": 16,
+            "marginRight": 16,
+          },
+          Object {
+            "backgroundColor": "#F5F5F5",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "marginLeft": 20,
+            "paddingVertical": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 20,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {
+                "paddingRight": 16,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": undefined,
+                "lineHeight": undefined,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "color": "#8C8C8C",
+              },
+            ]
+          }
+        >
+          Bãi đỗ xe không hỗ trợ đặt chỗ trước.
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "paddingLeft": 16,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <SvgMock
+      height={16}
+      width={16}
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#262626",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {
+            "marginLeft": 18,
+            "marginTop": 0,
+          },
+        ]
+      }
+    >
+      
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": undefined,
+              "lineHeight": undefined,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+         
+        / 1 chỗ trống
+         
+      </Text>
+    </Text>
+  </View>,
+  <View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "paddingLeft": 16,
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#595959",
+              "fontFamily": "antoutline",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            undefined,
+          ]
+        }
+      >
+        
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 16,
+              "lineHeight": 24,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "marginLeft": 18,
+              "marginTop": 0,
+            },
+          ]
+        }
+      >
+        0 đ/h
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "paddingLeft": 16,
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#595959",
+              "fontFamily": "antoutline",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            undefined,
+          ]
+        }
+      >
+        
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": 16,
+              "lineHeight": 24,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {
+              "marginLeft": 18,
+              "marginTop": 0,
+            },
+          ]
+        }
+      >
+        Free
+      </Text>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "paddingLeft": 16,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <SvgMock
+      height={16}
+      width={16}
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {
+            "marginLeft": 18,
+            "marginTop": 0,
+          },
+        ]
+      }
+    >
+      10km
+    </Text>
+  </View>,
+  <View
+    style={
+      Object {
+        "backgroundColor": "#E8E8E8",
+        "height": 1,
+        "marginVertical": 16,
+      }
+    }
+  />,
+]
+`;
+
+exports[`Test AddressInfo create AddressInfo with status full 1`] = `
+Array [
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#262626",
+          "fontFamily": "SFProDisplay-Semibold",
+          "fontSize": 16,
+          "lineHeight": 24,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginBottom": 8,
+          "marginLeft": 16,
+          "marginTop": 16,
+        },
+      ]
+    }
+  >
+    
+  </Text>,
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#595959",
+          "fontFamily": "SFProDisplay-Regular",
+          "fontSize": 14,
+          "lineHeight": 22,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "marginBottom": 16,
+          "marginLeft": 16,
+        },
+      ]
+    }
+  >
+    
+  </Text>,
+  <View>
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "marginBottom": 16,
+            "marginLeft": 16,
+            "marginRight": 16,
+          },
+          Object {
+            "backgroundColor": "#F5F5F5",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "marginLeft": 20,
+            "paddingVertical": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 20,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {
+                "paddingRight": 16,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": undefined,
+                "lineHeight": undefined,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "color": "#8C8C8C",
+              },
+            ]
+          }
+        >
+          Bãi đỗ xe không hỗ trợ đặt chỗ trước.
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "paddingLeft": 16,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <SvgMock
+      height={16}
+      width={16}
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "red",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {
+            "marginLeft": 18,
+            "marginTop": 0,
+          },
+        ]
+      }
+    >
+      
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "SFProDisplay-Regular",
+              "fontSize": undefined,
+              "lineHeight": undefined,
+              "textAlign": "left",
+              "textDecorationLine": "none",
+            },
+            Object {},
+          ]
+        }
+      >
+         
+        / 1 chỗ trống
+         
+      </Text>
+    </Text>
+  </View>,
+  <View>
+    <View
+      style={
+        Object {
+          "marginVertical": 8,
+          "paddingHorizontal": 16,
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              undefined,
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#262626",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 16,
+                "lineHeight": 24,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "flex": 1,
+                "marginLeft": 18,
+                "marginTop": 0,
+              },
+            ]
+          }
+        >
+          NaN đ/h
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "black",
+                "fontFamily": "antoutline",
+                "fontSize": 15,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              undefined,
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginVertical": 8,
+          "paddingHorizontal": 16,
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#595959",
+                "fontFamily": "antoutline",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              undefined,
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#262626",
+                "fontFamily": "SFProDisplay-Regular",
+                "fontSize": 16,
+                "lineHeight": 24,
+                "textAlign": "left",
+                "textDecorationLine": "none",
+              },
+              Object {
+                "flex": 1,
+                "marginLeft": 18,
+                "marginTop": 0,
+              },
+            ]
+          }
+        >
+          12:00 - 12:00
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "black",
+                "fontFamily": "antoutline",
+                "fontSize": 15,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              undefined,
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "paddingLeft": 16,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <SvgMock
+      height={16}
+      width={16}
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {
+            "marginLeft": 18,
+            "marginTop": 0,
+          },
+        ]
+      }
+    >
+      10km
+    </Text>
+  </View>,
+  <View
+    style={
+      Object {
+        "backgroundColor": "#E8E8E8",
+        "height": 1,
+        "marginVertical": 16,
+      }
+    }
+  />,
+]
+`;

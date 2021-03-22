@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test VehicleInfoIcon render VehicleInfoIcon showRemove false 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+      },
+      Object {
+        "position": "absolute",
+        "right": 16,
+        "top": 16,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#00979D",
+            "fontFamily": "antoutline",
+            "fontSize": 21,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          undefined,
+        ]
+      }
+    >
+      
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": undefined,
+            "lineHeight": undefined,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {
+            "fontSize": 10,
+            "lineHeight": 20,
+            "marginTop": 1.5,
+          },
+        ]
+      }
+    >
+      MẶC ĐỊNH
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Test VehicleInfoIcon render VehicleInfoIcon showRemove true 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+      },
+      Object {
+        "position": "absolute",
+        "right": 16,
+        "top": 16,
+      },
+    ]
+  }
+>
+  <Text
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "color": "#595959",
+          "fontFamily": "antoutline",
+          "fontSize": 21,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        undefined,
+      ]
+    }
+  >
+    
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "white",
+          "borderColor": "#D9D9D9",
+          "borderRadius": 10.5,
+          "borderWidth": 1,
+          "height": 21,
+          "width": 21,
+        },
+        undefined,
+        undefined,
+      ]
+    }
+  />
+</View>
+`;

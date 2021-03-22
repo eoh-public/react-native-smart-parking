@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test CheckBox create CheckBox 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "flexDirection": "row",
+      "opacity": 1,
+      "overflow": "hidden",
+      "paddingVertical": 12,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "borderColor": "#00979D",
+        "borderRadius": 8,
+        "borderWidth": 1,
+        "height": 16,
+        "justifyContent": "center",
+        "width": 16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#00979D",
+          "borderRadius": 4,
+          "height": 8,
+          "width": 8,
+        }
+      }
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#262626",
+          "fontFamily": "SFProDisplay-Regular",
+          "fontSize": 16,
+          "lineHeight": 16,
+          "textAlign": "left",
+          "textDecorationLine": "none",
+        },
+        Object {
+          "flex": 1,
+          "marginLeft": 8,
+        },
+      ]
+    }
+  >
+    ABC
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#595959",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": 14,
+            "lineHeight": 14,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {},
+        ]
+      }
+    >
+      {
+}description
+    </Text>
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        Object {
+          "height": 24,
+          "width": 24,
+        },
+      ]
+    }
+  >
+    <FastImageView
+      resizeMode="cover"
+      source={null}
+      style={
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#E8E8E8",
+        "bottom": 0,
+        "height": 1,
+        "marginLeft": 24,
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+  />
+</View>
+`;
