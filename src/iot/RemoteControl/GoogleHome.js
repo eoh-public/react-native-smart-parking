@@ -49,7 +49,7 @@ async function fetchConnectionEntities(connection) {
   setConfigGlobalState('configValues', { ...configValues });
 }
 
-async function connect(options) {
+export const googleHomeConnect = async (options) => {
   for (let i = 0; i < options.length; i++) {
     const option = options[i];
 
@@ -70,7 +70,7 @@ async function connect(options) {
     await connection.subscribeEvents(stateChangeCallback, 'state_changed');
 
     connection.addEventListener('disconnected', () => {
-      ToastBottomHelper.success(t('command_googlehome_lost'));
+      ToastBottomHelper.error(t('command_googlehome_lost'));
     });
 
     connection.addEventListener('ready', async (conn, eventData) => {
@@ -82,9 +82,20 @@ async function connect(options) {
     await fetchConnectionEntities(connection);
     ToastBottomHelper.success(t('command_googlehome_ready'));
   }
-}
+};
 
-export const googleHomeConnect = connect;
+export const googleHomeDisconnect = async (options) => {
+  for (let i = 0; i < options.length; i++) {
+    const option = options[i];
+
+    if (!(option.chip_id in connections)) {
+      return;
+    }
+
+    await connections[option.chip_id].close();
+    delete connections[option.chip_id];
+  }
+};
 
 function getSensorConnection(sensor) {
   return connections[sensor.chip_id];

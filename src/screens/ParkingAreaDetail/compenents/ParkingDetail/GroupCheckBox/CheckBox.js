@@ -33,7 +33,7 @@ const CheckBox = memo(
           <Text type="H4" color={Colors.Gray9} style={styles.text}>
             {title}
             {!!description && (
-              <Text type="Body" color={Colors.Gray8}>
+              <Text type="Body" color={Colors.Gray8} style={styles.description}>
                 {`${'\n\n'}${description}`}
               </Text>
             )}
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
   text: {
     flex: 1,
     marginLeft: 8,
+    lineHeight: 0,
   },
   line: {
     height: 1,
@@ -73,5 +74,8 @@ const styles = StyleSheet.create({
   image: {
     width: 30,
     height: 30,
+  },
+  description: {
+    textAlignVertical: 'center',
   },
 });

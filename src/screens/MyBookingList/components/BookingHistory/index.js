@@ -2,8 +2,8 @@ import React, { memo } from 'react';
 import { View, StyleSheet } from 'react-native';
 import t from 'i18n';
 
-import { Colors } from 'configs';
-import Text from 'components/Text';
+import { Colors } from '../../../../configs';
+import Text from '../../../../commons/Text';
 
 import BookingHistoryItem from './BookingHistoryItem';
 

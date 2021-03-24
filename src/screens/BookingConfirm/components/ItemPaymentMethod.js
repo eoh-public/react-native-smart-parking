@@ -6,7 +6,10 @@ import { t } from 'i18n-js';
 import { Colors } from 'configs';
 import Text from '../../../commons/Text';
 import { CustomCheckbox } from '../../../commons';
-import { SvgVisaCard, SvgMasterCard } from '../../../../assets/images/SmartParking';
+import {
+  SvgVisaCard,
+  SvgMasterCard,
+} from '../../../../assets/images/SmartParking';
 import { SvgWarning } from '../../../../assets/images/BookingDetail';
 
 const getNameAndIconPaymentMethod = (method) => {

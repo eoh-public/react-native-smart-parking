@@ -117,6 +117,31 @@ const ActiveSessionsItem = memo(
       }
     }, [payBefore, reloadData, taskId]);
 
+    useEffect(() => {
+      if (!start_countdown || is_paid) {
+        return;
+      }
+
+      const hourParking = moment(leave_at).hour() - moment(arrive_at).hour();
+      const totalTime = hourParking * 3600;
+      const timeLeft = time_remaining;
+      let timeHandler;
+      if (timeLeft > totalTime - 900) {
+        const timeout = timeLeft - (totalTime - 900) + 5; // +5 for sure that BE has updated status
+        timeHandler = setTimeout(() => {
+          reloadData();
+        }, timeout * 1000);
+      }
+      return () => clearTimeout(timeHandler);
+    }, [
+      arrive_at,
+      is_paid,
+      leave_at,
+      reloadData,
+      start_countdown,
+      time_remaining,
+    ]);
+
     const {
       title,
       rightTitle,
@@ -198,7 +223,7 @@ const ActiveSessionsItem = memo(
         </View>
         <ButtonTextBottomView
           title={title}
-          leftTitle={t('direction')}
+          leftTitle={t('directions')}
           rightTitle={rightTitle}
           rightRoute={rightRoute}
           rightData={rightData}

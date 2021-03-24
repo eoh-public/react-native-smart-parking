@@ -5,11 +5,11 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
+import Routes from '../../utils/Route';
 import { IconFill, IconOutline } from '@ant-design/icons-react-native';
 import { useNavigation } from '@react-navigation/native';
-import ItemQuickAction from '../Action/ItemQuickAction';
-import Text from '../Text';
-import Routes from '../../utils/Route';
+import ItemQuickAction from '../../commons/Action/ItemQuickAction';
+import Text from '../../commons/Text';
 
 import { Colors, Constants } from '../../configs';
 import { TESTID } from '../../configs/Constants';

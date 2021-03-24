@@ -11,11 +11,20 @@ jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useDispatch: jest.fn(),
 }));
+const mockNavigate = jest.fn();
+jest.mock('@react-navigation/native', () => {
+  return {
+    ...jest.requireActual('@react-navigation/native'),
+    useNavigation: () => ({
+      navigate: mockNavigate,
+    }),
+  };
+});
 
 jest.mock('axios');
-jest.mock('utils/CountryUtils', () => {
+jest.mock('../../../utils/CountryUtils', () => {
   return {
-    ...jest.requireActual('utils/CountryUtils'),
+    ...jest.requireActual('../../../utils/CountryUtils'),
     getCurrentLatLng: () => ({ lat: 10, lng: 10 }),
   };
 });
@@ -56,13 +65,6 @@ describe('Test ParkingAreaDetail', () => {
 
   let wrapper;
 
-  test('create', () => {
-    act(() => {
-      wrapper = create(<ParkingAreaDetail route={route} />);
-    });
-    expect(wrapper.toJSON()).toMatchSnapshot();
-  });
-
   test('onChange TextInput with valid text', async () => {
     parkingResponse = {
       parkingInfo: {
@@ -78,13 +80,12 @@ describe('Test ParkingAreaDetail', () => {
     act(() => {
       textInput.props.onChangeText('HU1');
     });
-    expect(axios.get).toHaveBeenCalledTimes(3);
+    expect(axios.get).toHaveBeenCalledTimes(2);
     expect(axios.get).toHaveBeenCalledWith(API.PARKING.PARKING_INFO, {
       params: {
         spot_name: 'HU1',
       },
     });
-    expect(wrapper.toJSON()).toMatchSnapshot();
   });
 
   test('onChange TextInput with invalid text', async () => {
@@ -101,7 +102,6 @@ describe('Test ParkingAreaDetail', () => {
         spot_name: 'HU',
       },
     });
-    expect(wrapper.toJSON()).toMatchSnapshot();
   });
 
   test('onFocus TextInput', async () => {
@@ -115,7 +115,6 @@ describe('Test ParkingAreaDetail', () => {
     });
     // TODO make getCurrentLatLng to make loading 'false'
     // const textSpotInput0 = instance.find((el) => el.props.testID === TESTID.SPOT_INPUT_0 && el.type === Text);
-    expect(wrapper.toJSON()).toMatchSnapshot();
   });
 
   test('onBlur TextInput', async () => {
@@ -127,7 +126,6 @@ describe('Test ParkingAreaDetail', () => {
     act(() => {
       textInput.props.onBlur();
     });
-    expect(wrapper.toJSON()).toMatchSnapshot();
   });
 
   test('onBookNow', async () => {
@@ -144,7 +142,7 @@ describe('Test ParkingAreaDetail', () => {
     act(() => {
       button.props.onPress();
     });
-    expect(wrapper.toJSON()).toMatchSnapshot();
+    expect(mockNavigate).toHaveBeenCalled();
   });
 
   test('onChangeCar', async () => {
@@ -158,10 +156,11 @@ describe('Test ParkingAreaDetail', () => {
       (el) =>
         el.props.testID === TESTID.INPUT_PLATE_NUMBER && el.type === TextInput
     );
+    expect(textInputOnChangeCar.props.children).toEqual('59Z - 1234');
     act(() => {
-      textInputOnChangeCar.props.onChangeText('59Z-1234');
+      textInputOnChangeCar.props.onChangeText('59Z-0000');
     });
-    expect(wrapper.toJSON()).toMatchSnapshot();
+    expect(textInputOnChangeCar.props.children).toEqual('59Z-0000');
   });
 
   // TODO: onChangeCar with same defaultCar. precondition: mock getCurrentLatLng
@@ -187,7 +186,6 @@ describe('Test ParkingAreaDetail', () => {
     act(() => {
       button.props.onPress();
     });
-    expect(wrapper.toJSON()).toMatchSnapshot();
   };
 
   test('onCheckSpotNumber success', async () => {
@@ -213,7 +211,6 @@ describe('Test ParkingAreaDetail', () => {
     await act(async () => {
       wrapper = create(<ParkingAreaDetail route={route} />);
     });
-    expect(wrapper.toJSON()).toMatchSnapshot();
   });
 
   test('without carItem', async () => {
@@ -221,7 +218,6 @@ describe('Test ParkingAreaDetail', () => {
     await act(async () => {
       wrapper = create(<ParkingAreaDetail route={route} />);
     });
-    expect(wrapper.toJSON()).toMatchSnapshot();
   });
 
   test('without carItem and have default car', async () => {
@@ -239,6 +235,5 @@ describe('Test ParkingAreaDetail', () => {
     await act(async () => {
       wrapper = create(<ParkingAreaDetail route={route} />);
     });
-    expect(wrapper.toJSON()).toMatchSnapshot();
   });
 });

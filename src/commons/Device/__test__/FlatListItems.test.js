@@ -1,8 +1,8 @@
+import FlatListItems from '../FlatListItems';
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { TouchableOpacity } from 'react-native';
 import { TESTID } from '../../../configs/Constants';
-import FlatListItems from '../FlatListItems';
 
 describe('Test FlatListItems', () => {
   let tree;

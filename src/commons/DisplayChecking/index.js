@@ -6,11 +6,12 @@ import Modal from 'react-native-modal';
 import { Colors, Device } from '../../configs';
 import Loading from '../../commons/Explore/ActivityIndicator';
 import Text from '../../commons/Text';
+import { TESTID } from '../../configs/Constants';
 
 const LoadingMessage = memo(({ visible, onClose, message }) => {
   return (
     visible && (
-      <View style={styles.maskOutter}>
+      <View testID={TESTID.LOADING_MESSAGE} style={styles.maskOutter}>
         <TouchableOpacity
           style={[styles.viewVerifing, styles.buttonShadow]}
           onPress={onClose}
@@ -30,6 +31,7 @@ const LoadingMessage = memo(({ visible, onClose, message }) => {
 const LoadingMessageWithModal = memo(({ visible, onClose, message }) => {
   return (
     <Modal
+      testID={TESTID.LOADING_MESSAGE_WITH_MODAL}
       isVisible={visible}
       onBackButtonPress={onClose}
       onBackdropPress={onClose}

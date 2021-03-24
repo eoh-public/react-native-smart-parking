@@ -33,14 +33,14 @@ describe('test RunningDevices', () => {
         ],
       };
 
-      act(() => {
-        tree = create(
+      await act(async () => {
+        tree = await create(
           <RunningDevices unit={unit} summaryDetail={summaryDetail} />
         );
       });
       const instance = tree.root;
       const texts = instance.findAllByType(ItemDevice);
-      expect(texts.length).toEqual(0);
+      expect(texts.length).toEqual(1);
 
       const button = instance.findAllByType(TouchableOpacity);
       act(() => {

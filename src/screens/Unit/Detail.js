@@ -1,7 +1,3 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { AppState, RefreshControl, View } from 'react-native';
-import { connect, useDispatch, useSelector } from 'react-redux';
-
 import { useIsFocused, useNavigation } from '@react-navigation/native';
 import { setLoading } from '../../redux/Actions/ui';
 import MenuActionAddnew from '../../commons/MenuActionAddnew';
@@ -13,6 +9,7 @@ import UnitSummary from '../UnitSummary/components';
 import WrapParallaxScrollView from '../../commons/WrapParallaxScrollView';
 
 import { API } from '../../configs';
+import { TESTID } from '../../configs/Constants';
 import {
   useAndroidTranslucentStatusBar,
   useBoolean,
@@ -72,20 +69,9 @@ const UnitDetail = ({ account, route }) => {
     return success;
   }, [dispatch, setUnit, unitId]);
 
-  const fetchQuickAction = useCallback(
-    (sensorId) => {
-      return axiosGet(API.SENSOR.QUICK_ACTION(sensorId), {
-        headers: {
-          Authorization: `Token ${account.token}`,
-        },
-      });
-    },
-    [account.token]
-  );
-
-  const hideAddModal = () => {
+  const hideAddModal = useCallback(() => {
     setHideAdd(false);
-  };
+  }, [setHideAdd]);
 
   const onRefresh = useCallback(() => {
     fetchDetails();
@@ -111,14 +97,16 @@ const UnitDetail = ({ account, route }) => {
     [navigation, unit]
   );
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const handleAppStateChange = (nextAppState) => {
-    if (appState.match(/inactive|background/) && nextAppState === 'active') {
-      fetchDetails();
-      fetchUnitSummary();
-    }
-    setAppState(nextAppState);
-  };
+  const handleAppStateChange = useCallback(
+    (nextAppState) => {
+      if (appState.match(/inactive|background/) && nextAppState === 'active') {
+        fetchDetails();
+        fetchUnitSummary();
+      }
+      setAppState(nextAppState);
+    },
+    [appState, fetchDetails, fetchUnitSummary]
+  );
 
   useEffect(() => {
     AppState.addEventListener('change', handleAppStateChange);
@@ -227,6 +215,13 @@ const UnitDetail = ({ account, route }) => {
         image: <AddMemberIcon width={43} height={43} />,
         data: { screen: Routes.SharingSelectPermission, params: { unit } },
       },
+      {
+        id: 4,
+        route: Routes.AddGatewayStack,
+        text: t('gateway'),
+        image: <AddDeviceIcon width={43} height={43} />, // TODO change icon
+        data: { screen: Routes.AddNewGateway, params: { unit_id: unit.id } },
+      },
     ];
   }, [unit]);
 
@@ -252,7 +247,6 @@ const UnitDetail = ({ account, route }) => {
       <ShortDetailSubUnit
         unit={unit}
         station={station}
-        fetchQuickAction={fetchQuickAction}
         key={`station-${station.id}`}
       />
     );
@@ -273,13 +267,18 @@ const UnitDetail = ({ account, route }) => {
     >
       <View style={styles.container}>
         {!unitSummaries || !unitSummaries.length ? null : (
-          <View style={styles.unitSummary}>{generateSummaries()}</View>
+          <View
+            style={styles.unitSummary}
+            testID={TESTID.UNIT_DETAIL_UNIT_SUMMARY_VIEW}
+          >
+            {generateSummaries()}
+          </View>
         )}
         <View style={styles.subUnitsHeading}>
           <Text style={styles.subUnitTitle}>{t('sub_unit')}</Text>
         </View>
         {!!unit.stations && unit.stations.length > 0 && (
-          <View>
+          <View testID={TESTID.UNIT_DETAIL_STATION_LIST}>
             {unit.stations.map((station) => renderShortDetailSubUnit(station))}
           </View>
         )}

@@ -2,6 +2,7 @@ import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { TESTID } from '../../../../../configs/Constants';
 import { Colors } from '../../../../../configs';
+import ListQualityIndicator from '../../../../../commons/Device/WaterQualitySensor/ListQualityIndicator';
 import axios from 'axios';
 import PowerConsumption from '../index';
 
@@ -58,7 +59,7 @@ describe('Test PowerConsumption', () => {
     expect(listIndicator.props.data).toEqual(resultList);
   });
 
-  test('render PowerConsumption listConfigs.total_power', () => {
+  test('render PowerConsumption listConfigs.total_power', async () => {
     const summaryDetail = {
       voltValue: 200,
       currentValue: 20,
@@ -80,11 +81,63 @@ describe('Test PowerConsumption', () => {
     };
     axios.get.mockImplementation(async (url) => response);
 
-    act(async () => {
+    await act(async () => {
       tree = await renderer.create(
         <PowerConsumption summaryDetail={summaryDetail} />
       );
     });
     expect(axios.get).toHaveBeenCalled();
+  });
+
+  test('render with unsuccess fetch', async () => {
+    const summaryDetail = {
+      voltValue: 200,
+      currentValue: 20,
+      activePowerValue: 10,
+      powerFactorValue: 30,
+      totalPowerValue: 20,
+      listConfigs: {
+        active_power: 208,
+        current: 210,
+        freq: null,
+        power_factor: 229,
+        total_power: 207,
+        volt: 209,
+      },
+    };
+
+    const response = {
+      data: {},
+    };
+    axios.get.mockImplementation(async (url) => response);
+
+    await act(async () => {
+      tree = await renderer.create(
+        <PowerConsumption summaryDetail={summaryDetail} />
+      );
+    });
+    expect(axios.get).toHaveBeenCalled();
+  });
+
+  test('render without value', async () => {
+    const summaryDetail = {
+      listConfigs: {
+        active_power: 208,
+        current: 210,
+        freq: null,
+        power_factor: 229,
+        total_power: 207,
+        volt: 209,
+      },
+    };
+
+    await act(async () => {
+      tree = await renderer.create(
+        <PowerConsumption summaryDetail={summaryDetail} />
+      );
+    });
+    const instance = tree.root;
+    const listQualityIndicator = instance.findByType(ListQualityIndicator);
+    expect(listQualityIndicator.props.data).toEqual([]);
   });
 });

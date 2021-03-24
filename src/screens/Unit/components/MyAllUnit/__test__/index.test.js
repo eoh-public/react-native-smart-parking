@@ -1,8 +1,8 @@
-import { TESTID } from 'configs/Constants';
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { act, create } from 'react-test-renderer';
-import MyAllUnit from '../index';
+import MyAllUnit from '..';
+import { TESTID } from '../../../../../configs/Constants';
 
 describe('Test MyAllUnit', () => {
   let data;

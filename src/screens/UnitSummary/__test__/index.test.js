@@ -7,6 +7,13 @@ import { API } from '../../../configs';
 import { RefreshControl } from 'react-native';
 import { TESTID } from '../../../configs/Constants';
 import { TouchableOpacity } from 'react-native';
+import AirQuality from '../components/AirQuality';
+import PowerConsumption from '../components/PowerConsumption';
+import ThreePhasePowerConsumption from '../components/3PPowerConsumption';
+import RunningDevices from '../components/RunningDevices';
+import Temperature from '../components/Temperature';
+import UvIndex from '../components/UvIndex';
+import WaterQuality from '../components/WaterQuality';
 
 jest.mock('axios');
 
@@ -55,7 +62,6 @@ describe('Test UnitSummary', () => {
       API.UNIT.UNIT_SUMMARY_DETAIL(1, 1),
       {}
     );
-    expect(tree.toJSON()).toMatchSnapshot();
   });
 
   test('render fetchSummaryDetail failed', async () => {
@@ -75,7 +81,6 @@ describe('Test UnitSummary', () => {
       API.UNIT.UNIT_SUMMARY_DETAIL(1, 1),
       {}
     );
-    expect(tree.toJSON()).toMatchSnapshot();
   });
 
   test('render fetchSummaryDetail success', async () => {
@@ -99,60 +104,68 @@ describe('Test UnitSummary', () => {
       API.UNIT.UNIT_SUMMARY_DETAIL(1, 1),
       {}
     );
-    expect(tree.toJSON()).toMatchSnapshot();
   });
 
-  test('touch navigate AirQuality', () => {
-    route.params.summary.screen = Routes.AirQuality;
-    act(() => {
-      tree = create(<UnitSummary route={route} />);
-    });
-    const instance = tree.root;
-    const button = instance.find(
-      (el) =>
-        el.props.testID === TESTID.UNIT_SUMMARY_GUIDE_TOUCH &&
-        el.type === TouchableOpacity
-    );
-    act(() => {
-      button.props.onPress();
-    });
-    expect(mockedNavigate).toHaveBeenLastCalledWith(Routes.AQIGuide);
-    expect(tree.toJSON()).toMatchSnapshot();
-  });
+  let list_value = [
+    Routes.AirQuality,
+    Routes.PowerConsumption,
+    Routes.RunningDevices,
+    Routes.Temperature,
+    Routes.UvIndex,
+    Routes.WaterQuality,
+    Routes.ThreePhasePowerConsumption,
+  ];
+  let list_result = [
+    {
+      guideName: Routes.AQIGuide,
+      componentName: AirQuality,
+    },
+    {
+      guideName: null,
+      componentName: PowerConsumption,
+    },
+    {
+      guideName: null,
+      componentName: RunningDevices,
+    },
+    {
+      guideName: null,
+      componentName: Temperature,
+    },
+    {
+      guideName: Routes.UVIndexGuide,
+      componentName: UvIndex,
+    },
+    {
+      guideName: null,
+      componentName: WaterQuality,
+    },
+    {
+      componentName: ThreePhasePowerConsumption,
+    },
+  ];
 
-  test('render UnitSummary AirQuality', () => {
-    route.params.summary.screen = Routes.AirQuality;
-    act(() => {
-      tree = create(<UnitSummary route={route} />);
+  list_value.forEach((value, index) => {
+    test(`create Unit Summarty Detail ${value}`, async () => {
+      route.params.summary.screen = value;
+      await act(async () => {
+        tree = await create(<UnitSummary route={route} />);
+      });
+      const instance = tree.root;
+      const UnitSummaryDetail = list_result[index];
+      if (list_result[index].guideName) {
+        const touch = instance.find(
+          (el) =>
+            el.props.testID === TESTID.UNIT_SUMMARY_GUIDE_TOUCH &&
+            el.type === TouchableOpacity
+        );
+        await act(async () => {
+          await touch.props.onPress();
+        });
+        expect(mockedNavigate).toHaveBeenLastCalledWith(
+          UnitSummaryDetail.guideName
+        );
+      }
     });
-    expect(tree.toJSON()).toMatchSnapshot();
-  });
-  test('render UnitSummary RunningDevices', () => {
-    route.params.summary.screen = Routes.RunningDevices;
-    act(() => {
-      tree = create(<UnitSummary route={route} />);
-    });
-    expect(tree.toJSON()).toMatchSnapshot();
-  });
-  test('render UnitSummary Temperature', () => {
-    route.params.summary.screen = Routes.Temperature;
-    act(() => {
-      tree = create(<UnitSummary route={route} />);
-    });
-    expect(tree.toJSON()).toMatchSnapshot();
-  });
-  test('render UnitSummary UvIndex', () => {
-    route.params.summary.screen = Routes.UvIndex;
-    act(() => {
-      tree = create(<UnitSummary route={route} />);
-    });
-    expect(tree.toJSON()).toMatchSnapshot();
-  });
-  test('render UnitSummary WaterQuality', () => {
-    route.params.summary.screen = Routes.WaterQuality;
-    act(() => {
-      tree = create(<UnitSummary route={route} />);
-    });
-    expect(tree.toJSON()).toMatchSnapshot();
   });
 });

@@ -14,10 +14,6 @@ describe('test EmergencyContactsSelectContacts', () => {
   });
 
   test('onPressContact remove from list', async () => {
-    jest.mock('react', () => {
-      return { ...jest.requireActual('react'), memo: (x) => x };
-    });
-
     act(() => {
       tree = create(<EmergencyContactsSelectContacts />);
     });
@@ -36,10 +32,6 @@ describe('test EmergencyContactsSelectContacts', () => {
   });
 
   test('onPressContact remove and add again from list', async () => {
-    jest.mock('react', () => {
-      return { ...jest.requireActual('react'), memo: (x) => x };
-    });
-
     act(() => {
       tree = create(<EmergencyContactsSelectContacts />);
     });

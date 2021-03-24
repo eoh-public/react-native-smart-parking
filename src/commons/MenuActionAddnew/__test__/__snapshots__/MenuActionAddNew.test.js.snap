@@ -1,0 +1,772 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test MenuActionAddNew create MenuActionAddNew 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  hideModalContentWhileAnimating={false}
+  onModalHide={[Function]}
+  onModalWillHide={[Function]}
+  onModalWillShow={[Function]}
+  onRequestClose={[Function]}
+  scrollHorizontal={false}
+  scrollOffset={0}
+  scrollOffsetMax={0}
+  scrollTo={null}
+  supportedOrientations={
+    Array [
+      "portrait",
+      "landscape",
+    ]
+  }
+  swipeThreshold={100}
+  transparent={true}
+  visible={false}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    forwardedRef={[Function]}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "black",
+        "bottom": 0,
+        "height": 1334,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "width": 750,
+      }
+    }
+  />
+  <View
+    forwardedRef={[Function]}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    pointerEvents="box-none"
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+        "margin": 0,
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 10,
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "flex": 1,
+            "flexDirection": "column",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
+              "borderBottomWidth": 1,
+              "borderColor": "#E8E8E8",
+              "borderTopLeftRadius": 20,
+              "borderTopRightRadius": 20,
+              "justifyContent": "center",
+              "padding": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                },
+              ]
+            }
+          >
+            Thêm
+          </Text>
+        </View>
+        <RCTScrollView
+          bounces={false}
+          contentContainerStyle={
+            Object {
+              "flex": 1,
+              "padding": 16,
+            }
+          }
+          data={
+            Array [
+              Object {
+                "id": 1,
+                "image": "",
+                "text": "",
+              },
+              Object {
+                "id": 2,
+                "image": "",
+                "text": "",
+              },
+            ]
+          }
+          disableVirtualization={false}
+          getItem={[Function]}
+          getItemCount={[Function]}
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          onContentSizeChange={[Function]}
+          onEndReachedThreshold={2}
+          onLayout={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          stickyHeaderIndices={Array []}
+          updateCellsBatchingPeriod={50}
+          viewabilityConfigCallbackPairs={Array []}
+          windowSize={21}
+        >
+          <View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <View
+                style={
+                  Object {
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexBasis": "50%",
+                      "justifyContent": "center",
+                      "marginBottom": 25,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "flex": 1,
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          undefined,
+                          undefined,
+                          undefined,
+                        ]
+                      }
+                    >
+                      
+                    </View>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "marginTop": 14,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#000",
+                            "fontFamily": "SFProDisplay-Regular",
+                            "fontSize": undefined,
+                            "lineHeight": undefined,
+                            "textAlign": "left",
+                            "textDecorationLine": "none",
+                          },
+                          Object {},
+                        ]
+                      }
+                      styles={
+                        Object {
+                          "color": "#595959",
+                          "fontSize": 14,
+                          "lineHeight": 30,
+                        }
+                      }
+                    >
+                      
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexBasis": "50%",
+                      "justifyContent": "center",
+                      "marginBottom": 25,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "flex": 1,
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          undefined,
+                          undefined,
+                          undefined,
+                        ]
+                      }
+                    >
+                      
+                    </View>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "marginTop": 14,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#000",
+                            "fontFamily": "SFProDisplay-Regular",
+                            "fontSize": undefined,
+                            "lineHeight": undefined,
+                            "textAlign": "left",
+                            "textDecorationLine": "none",
+                          },
+                          Object {},
+                        ]
+                      }
+                      styles={
+                        Object {
+                          "color": "#595959",
+                          "fontSize": 14,
+                          "lineHeight": 30,
+                        }
+                      }
+                    >
+                      
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </RCTScrollView>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;
+
+exports[`Test MenuActionAddNew create MenuActionAddNew list data > 3 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  hideModalContentWhileAnimating={false}
+  onModalHide={[Function]}
+  onModalWillHide={[Function]}
+  onModalWillShow={[Function]}
+  onRequestClose={[Function]}
+  scrollHorizontal={false}
+  scrollOffset={0}
+  scrollOffsetMax={0}
+  scrollTo={null}
+  supportedOrientations={
+    Array [
+      "portrait",
+      "landscape",
+    ]
+  }
+  swipeThreshold={100}
+  transparent={true}
+  visible={false}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    forwardedRef={[Function]}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "black",
+        "bottom": 0,
+        "height": 1334,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "width": 750,
+      }
+    }
+  />
+  <View
+    forwardedRef={[Function]}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    pointerEvents="box-none"
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+        "margin": 0,
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 10,
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "flex": 1,
+            "flexDirection": "column",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
+              "borderBottomWidth": 1,
+              "borderColor": "#E8E8E8",
+              "borderTopLeftRadius": 20,
+              "borderTopRightRadius": 20,
+              "justifyContent": "center",
+              "padding": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "SFProDisplay-Regular",
+                  "fontSize": undefined,
+                  "lineHeight": undefined,
+                  "textAlign": "left",
+                  "textDecorationLine": "none",
+                },
+                Object {
+                  "color": "#262626",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                },
+              ]
+            }
+          >
+            Thêm
+          </Text>
+        </View>
+        <RCTScrollView
+          bounces={false}
+          contentContainerStyle={
+            Object {
+              "flex": 1,
+              "padding": 16,
+            }
+          }
+          data={
+            Array [
+              Object {
+                "id": 1,
+                "image": "",
+                "text": "",
+              },
+              Object {
+                "id": 2,
+                "image": "",
+                "text": "",
+              },
+              Object {
+                "id": 3,
+                "image": "",
+                "text": "",
+              },
+            ]
+          }
+          disableVirtualization={false}
+          getItem={[Function]}
+          getItemCount={[Function]}
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          onContentSizeChange={[Function]}
+          onEndReachedThreshold={2}
+          onLayout={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          stickyHeaderIndices={Array []}
+          updateCellsBatchingPeriod={50}
+          viewabilityConfigCallbackPairs={Array []}
+          windowSize={21}
+        >
+          <View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <View
+                style={
+                  Object {
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexBasis": "33.333333333333336%",
+                      "justifyContent": "center",
+                      "marginBottom": 25,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "flex": 1,
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          undefined,
+                          undefined,
+                          undefined,
+                        ]
+                      }
+                    >
+                      
+                    </View>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "marginTop": 14,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#000",
+                            "fontFamily": "SFProDisplay-Regular",
+                            "fontSize": undefined,
+                            "lineHeight": undefined,
+                            "textAlign": "left",
+                            "textDecorationLine": "none",
+                          },
+                          Object {},
+                        ]
+                      }
+                      styles={
+                        Object {
+                          "color": "#595959",
+                          "fontSize": 14,
+                          "lineHeight": 30,
+                        }
+                      }
+                    >
+                      
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexBasis": "33.333333333333336%",
+                      "justifyContent": "center",
+                      "marginBottom": 25,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "flex": 1,
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          undefined,
+                          undefined,
+                          undefined,
+                        ]
+                      }
+                    >
+                      
+                    </View>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "marginTop": 14,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#000",
+                            "fontFamily": "SFProDisplay-Regular",
+                            "fontSize": undefined,
+                            "lineHeight": undefined,
+                            "textAlign": "left",
+                            "textDecorationLine": "none",
+                          },
+                          Object {},
+                        ]
+                      }
+                      styles={
+                        Object {
+                          "color": "#595959",
+                          "fontSize": 14,
+                          "lineHeight": 30,
+                        }
+                      }
+                    >
+                      
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexBasis": "33.333333333333336%",
+                      "justifyContent": "center",
+                      "marginBottom": 25,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "flex": 1,
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          undefined,
+                          undefined,
+                          undefined,
+                        ]
+                      }
+                    >
+                      
+                    </View>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "marginTop": 14,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#000",
+                            "fontFamily": "SFProDisplay-Regular",
+                            "fontSize": undefined,
+                            "lineHeight": undefined,
+                            "textAlign": "left",
+                            "textDecorationLine": "none",
+                          },
+                          Object {},
+                        ]
+                      }
+                      styles={
+                        Object {
+                          "color": "#595959",
+                          "fontSize": 14,
+                          "lineHeight": 30,
+                        }
+                      }
+                    >
+                      
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </RCTScrollView>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;

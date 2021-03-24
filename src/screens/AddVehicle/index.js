@@ -22,10 +22,14 @@ import { axiosDelete } from '../../utils/Apis/axios';
 import { useStateAlertRemove } from '../../hooks/SmartParking/VehicleManagement';
 import { useTitleHeader } from '../../hooks/Common';
 
-import { AlertAction, CustomCheckbox, Button, ImagePicker } from '../../commons';
-
-import ItemInput from './components/ItemInput';
-import ItemDropDown from './components/ItemDropDown';
+import {
+  AlertAction,
+  CustomCheckbox,
+  Button,
+  ImagePicker,
+} from '../../commons';
+import ItemInput from '../AddVehicle/components/ItemInput';
+import ItemDropDown from '../AddVehicle/components/ItemDropDown';
 
 const dataSeats = [
   {
@@ -129,6 +133,7 @@ const AddVehicle = memo(({ route }) => {
     if (!isEdit) {
       const formData = createFormData(vehicle, ['background']);
       const { success } = await axiosPost(API.CAR.MY_CARS, formData, header);
+
       if (success) {
         updateData();
         setLoadingSaveCar(false);
@@ -198,7 +203,6 @@ const AddVehicle = memo(({ route }) => {
           isShowMissingIcon={isMissingPlateAndBackground}
           isValid={validCar}
           maxLength={11}
-          testID={TESTID.INPUT_PLATE_NUMBER}
           errorText={errorText}
         />
 
@@ -207,6 +211,7 @@ const AddVehicle = memo(({ route }) => {
             style={styles.btnTakePhoto}
             activeOpacity={0.4}
             onPress={onTakePhoto}
+            testID={TESTID.ADD_VEHICLE_TAKE_PHOTO}
           >
             <Image source={{ uri: background }} style={styles.img} />
           </TouchableOpacity>
@@ -227,6 +232,7 @@ const AddVehicle = memo(({ route }) => {
           showImagePicker={showImagePicker}
           setShowImagePicker={setShowImagePicker}
           setImageUrl={setImageUrl}
+          testID={TESTID.ADD_VEHICLE_IMAGE_PICKER}
         />
         <ItemInput
           title={t('text_name')}
@@ -237,17 +243,19 @@ const AddVehicle = memo(({ route }) => {
         />
         <View style={styles.line16} />
         <ItemDropDown
-          title={t('seats')}
+          title={t('text_seats')}
           placeholder={'4'}
           data={dataSeats}
           onChangeData={onChangeSeat}
           initIndex={initSeatIndex}
+          testID={TESTID.ADD_VEHICLE_SEATS_DROPDOWN}
         />
         <CustomCheckbox
           style={styles.checkboxContainer}
           value={defaultCar}
           onPress={() => setDefaultCar(!defaultCar)}
           onValueChange={(newValue) => setDefaultCar(newValue)}
+          testID={TESTID.ADD_VEHICLE_DEFAULT_CAR}
         >
           <Text style={Platform.OS === 'ios' && styles.labelCheckbox}>
             {t('set_as_default_vehicle')}
@@ -267,6 +275,7 @@ const AddVehicle = memo(({ route }) => {
             title={t('save')}
             onPress={onSave}
             style={styles.removeFlex}
+            testID={TESTID.ADD_VEHICLE_BUTTON_SAVE}
           />
           {isEdit && (
             <Button
@@ -275,6 +284,7 @@ const AddVehicle = memo(({ route }) => {
               onPress={onShowRemoveAlert(car)}
               style={styles.editButton}
               height={24}
+              testID={TESTID.ADD_VEHICLE_BUTTON_DELETE}
             />
           )}
         </View>
@@ -288,6 +298,8 @@ const AddVehicle = memo(({ route }) => {
         leftButtonClick={hideAlertAction}
         rightButtonTitle={stateAlertRemove.rightButton}
         rightButtonClick={onPressRemoveVehicle}
+        testID={TESTID.ADD_VEHICLE_MODAL_DELETE}
+        testIDPrefix={TESTID.PREFIX.ADD_VEHICLE}
       />
     </View>
   );

@@ -11,10 +11,14 @@ import { formatMoney } from '../../../../utils/Utils';
 import { axiosGet } from '../../../../utils/Apis/axios';
 import { getCurrentLatLng } from '../../../../utils/CountryUtils';
 import Routes from '../../../../utils/Route';
-import { ParkingStatusBar, RowItem } from '../ParkingDetail';
+import {
+  ParkingStatusBar,
+  RowItem,
+} from '../ParkingDetail';
 import { ExpandView } from '../../../../commons';
-import { IconOutline } from '@ant-design/icons-react-native';
 import { SvgParking, SvgNavigate } from '../../../../../assets/images/SmartParking';
+import { IconOutline } from '@ant-design/icons-react-native';
+import { TESTID } from '../../../../configs/Constants';
 
 const AddressInfo = memo(
   ({
@@ -101,6 +105,7 @@ const AddressInfo = memo(
         </Text>
 
         <ParkingStatusBar
+          testID={TESTID.PARKING_DETAIL_STATUS_BAR}
           status={status}
           freeFrom={freeFrom}
           freeTo={freeTo}
@@ -108,6 +113,7 @@ const AddressInfo = memo(
         />
 
         <RowItem
+          testID={TESTID.PARKING_DETAIL_SPOTS_AVAILABLE}
           source={<SvgParking width={16} height={16} />}
           title={`${available_spots_count}`}
           titleColor={titleColor}
@@ -198,6 +204,7 @@ const AddressInfo = memo(
         )}
 
         <RowItem
+          testID={TESTID.PARKING_DETAIL_DISTANCE}
           source={<SvgNavigate width={16} height={16} />}
           title={distance}
         />

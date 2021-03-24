@@ -25,56 +25,56 @@ const ListMyAllUnit = ({ unitItems }) => {
         )}
       >
         {typeof unitItems !== 'undefined' &&
-          unitItems.map((item, index) => {
-            return (
-              <View key={index.toString()} style={styles.unitItemContainer}>
-                <View style={styles.unitImageContainer}>
-                  <View style={styles.overlay} />
-                  <Image
-                    style={styles.bgMyUnit}
-                    source={{ uri: item.background }}
-                    defaultSource={Images.BgUnit}
-                    resizeMode="cover"
-                  />
-                  <Text style={styles.title}>{item.name}</Text>
-                </View>
-                {item.stations.map((station) =>
-                  station.sensors.map((sensor, indexSensor) => (
-                    <View key={indexSensor} style={styles.sensorContainer}>
-                      <View style={styles.rowCenter}>
-                        <View style={styles.paddingRight10}>
-                          <Image
-                            style={styles.sensorImage}
-                            source={Images.mainDoor}
-                          />
-                        </View>
-                        <View>
-                          <Text style={styles.nameDevice}>{sensor.name}</Text>
-                          <Text style={styles.roomDevice}>
-                            {station.name} - Locked
-                          </Text>
-                        </View>
+        unitItems.map((item, index) => {
+          return (
+            <View key={index.toString()} style={styles.unitItemContainer}>
+              <View style={styles.unitImageContainer}>
+                <View style={styles.overlay} />
+                <Image
+                  style={styles.bgMyUnit}
+                  source={{ uri: item.background }}
+                  defaultSource={Images.BgUnit}
+                  resizeMode="cover"
+                />
+                <Text style={styles.title}>{item.name}</Text>
+              </View>
+              {item.stations.map((station) =>
+                station.sensors.map((sensor, indexSensor) => (
+                  <View key={indexSensor} style={styles.sensorContainer}>
+                    <View style={styles.rowCenter}>
+                      <View style={styles.paddingRight10}>
+                        <Image
+                          style={styles.sensorImage}
+                          source={Images.mainDoor}
+                        />
                       </View>
-                      <DoorLockIcon width={30} height={30} />
+                      <View>
+                        <Text style={styles.nameDevice}>{sensor.name}</Text>
+                        <Text style={styles.roomDevice}>
+                          {station.name} - Locked
+                        </Text>
+                      </View>
                     </View>
-                  ))
-                )}
+                    <DoorLockIcon width={30} height={30} />
+                  </View>
+                ))
+              )}
 
-                <View style={styles.paddingTop10}>
-                  <View style={styles.rowCenter}>
-                    <IconOutline name="alert" style={styles.paddingRight10} />
-                    <Text>{t('recommendations')}:</Text>
-                  </View>
-                  <View style={[styles.rowCenter, styles.paddingLeft5]}>
-                    <Image source={Images.activeDot} />
-                    <Text style={styles.paddingLeft10}>
-                      {t('Open windows for more fresh air')}.
-                    </Text>
-                  </View>
+              <View style={styles.paddingTop10}>
+                <View style={styles.rowCenter}>
+                  <IconOutline name="alert" style={styles.paddingRight10} />
+                  <Text>{t('recommendations')}:</Text>
+                </View>
+                <View style={[styles.rowCenter, styles.paddingLeft5]}>
+                  <Image source={Images.activeDot} />
+                  <Text style={styles.paddingLeft10}>
+                    {t('Open windows for more fresh air')}.
+                  </Text>
                 </View>
               </View>
-            );
-          })}
+            </View>
+          );
+        })}
       </AnimatedScrollView>
     </View>
   );

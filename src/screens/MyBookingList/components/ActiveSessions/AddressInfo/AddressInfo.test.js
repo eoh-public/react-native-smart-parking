@@ -11,7 +11,7 @@ factory.define('AddressInfoObject', AddressInfoObject, {
   grand_total: factory.chance('integer', { min: 1, max: 10 })(),
 });
 
-describe('Test AddressInfo ', () => {
+describe('Test AddressInfo', () => {
   let tree;
   test('render address info', async () => {
     const addressInfo = await factory.build('AddressInfoObject');

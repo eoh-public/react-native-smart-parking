@@ -94,6 +94,7 @@ const SmartParkingDrawer = memo(() => {
                   <Icon name={'export'} size={24} color={Colors.Gray8} />
                 }
                 name={t('exit_smart_parking')}
+                testID={TESTID.ROW_EXIT_SMARTPARKING_DRAWER}
               />
             </View>
           </View>

@@ -11,6 +11,7 @@ import { useNavigation } from '@react-navigation/native';
 import t from 'i18n';
 
 import { Colors, Images } from '../../../../configs';
+import { TESTID } from '../../../../configs/Constants';
 import Text from '../../../../commons/Text';
 import MyUnitDevice from '../MyUnitDevice';
 import Routes from '../../../../utils/Route';
@@ -48,6 +49,7 @@ const MyUnit = ({ myUnits }) => {
             onPress={() => goToDetail(item)}
             style={styles.btnItem}
             activeOpacity={0.75}
+            testID={TESTID.MY_UNIT_GO_TO_DETAIL}
           >
             <View style={styles.overlay} />
             <Image
@@ -80,7 +82,7 @@ const MyUnit = ({ myUnits }) => {
         />
       ) : (
         <View>
-          <Text>{t('text_no_units')}</Text>
+          <Text testID={TESTID.MY_UNIT_NO_UNIT}>{t('text_no_units')}</Text>
         </View>
       )}
     </View>

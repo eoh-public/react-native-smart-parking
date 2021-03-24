@@ -34,7 +34,7 @@ describe('Test ItemPaymentMethod', () => {
     });
     expect(wrapper.toJSON()).toMatchSnapshot();
   });
-  test('create ItemPaymentMethod is_default: false ', () => {
+  test('create ItemPaymentMethod is_default: false', () => {
     const mockFunc = jest.fn();
     const onPressAgree = jest.fn();
     const onValueCheckBoxTncChange = jest.fn();
@@ -64,7 +64,7 @@ describe('Test ItemPaymentMethod', () => {
     expect(wrapper.toJSON()).toMatchSnapshot();
   });
 
-  test('create ItemPaymentMethod is_default: true brand other ', () => {
+  test('create ItemPaymentMethod is_default: true brand other', () => {
     const mockFunc = jest.fn();
     const onPressAgree = jest.fn();
     const onValueCheckBoxTncChange = jest.fn();

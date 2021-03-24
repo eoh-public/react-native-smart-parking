@@ -2,7 +2,10 @@ import { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useIsFocused } from '@react-navigation/native';
 
-import { setNewSavedParking, setNewNotification } from '../../../redux/Actions/notifications';
+import {
+  setNewSavedParking,
+  setNewNotification,
+} from '../../../redux/Actions/notifications';
 import { API } from '../../../configs';
 import { axiosGet, axiosPost } from '../../../utils/Apis/axios';
 

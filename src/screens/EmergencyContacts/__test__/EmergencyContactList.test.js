@@ -2,9 +2,9 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { act, create } from 'react-test-renderer';
 import { t } from 'i18n-js';
-import { EmergencyContactsList } from '../EmergencyContactsList';
 import Routes from '../../../utils/Route';
 import { AlertAction } from '../../../commons';
+import { EmergencyContactsList } from '../EmergencyContactsList';
 import { TESTID } from '../../../configs/Constants';
 
 const mockedNavigate = jest.fn();
@@ -59,10 +59,6 @@ describe('test EmergencyContactList', () => {
   });
 
   test('onAddNew', async () => {
-    jest.mock('react', () => {
-      return { ...jest.requireActual('react'), memo: (x) => x };
-    });
-
     act(() => {
       tree = create(<EmergencyContactsList route={route} />);
     });

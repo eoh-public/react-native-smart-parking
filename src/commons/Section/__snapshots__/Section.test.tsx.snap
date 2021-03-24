@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Section  Shoud match empty snapshot when type is border 1`] = `
+exports[`Section Shoud match empty snapshot when type is border 1`] = `
 <View
   style={
     Array [
@@ -24,7 +24,7 @@ exports[`Section  Shoud match empty snapshot when type is border 1`] = `
 </View>
 `;
 
-exports[`Section  Shoud match empty snapshot when type is shadow 1`] = `
+exports[`Section Shoud match empty snapshot when type is shadow 1`] = `
 <View
   style={
     Array [

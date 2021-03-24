@@ -4,7 +4,10 @@ import { StyleSheet, View } from 'react-native';
 import { Colors } from '../../configs';
 import Text from '../../commons/Text';
 import PaymentIconInfo from './components/PaymentIconInfo';
-import { SvgVisaCard, SvgMasterCard } from '../../../assets/images/SmartParking';
+import {
+  SvgVisaCard,
+  SvgMasterCard,
+} from '../../../assets/images/SmartParking';
 
 const CardItem = memo((props) => {
   const { card } = props;

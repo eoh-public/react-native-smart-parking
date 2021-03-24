@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test RowTimeParking  render RowTimeParking 1`] = `
+exports[`Test RowTimeParking render RowTimeParking 1`] = `
 <View
   style={
     Object {
@@ -50,7 +50,7 @@ exports[`Test RowTimeParking  render RowTimeParking 1`] = `
 </View>
 `;
 
-exports[`Test RowTimeParking  render RowTimeParking without timeLeft 1`] = `
+exports[`Test RowTimeParking render RowTimeParking without timeLeft 1`] = `
 <View
   style={
     Object {

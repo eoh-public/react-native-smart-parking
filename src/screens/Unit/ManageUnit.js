@@ -20,8 +20,12 @@ import { navigate } from '../../navigations/utils';
 import useBoolean from '../../hooks/Common/useBoolean';
 import useKeyboardAnimated from '../../hooks/Explore/useKeyboardAnimated';
 
-import { AlertAction, Section, ViewButtonBottom, ImagePicker } from '../../commons';
-
+import {
+  AlertAction,
+  Section,
+  ViewButtonBottom,
+  ImagePicker,
+} from '../../commons';
 import Text from '../../commons/Text';
 import _TextInput from '../../commons/Form/TextInput';
 import WrapHeaderScrollable from '../../commons/Sharing/WrapHeaderScrollable';
@@ -47,6 +51,7 @@ const ManageUnit = ({ route }) => {
         formData,
         headers
       );
+
       if (success) {
         dispatch(manageUnitSuccess(unit.id, data));
         ToastBottomHelper.success(t('unit_updated_successfully'));
@@ -106,20 +111,24 @@ const ManageUnit = ({ route }) => {
             <Section type={'border'}>
               <TouchableOpacity
                 onPress={setshowEdit}
-                testID={TESTID.TOUCH_UNIT_IN_MANAGE_UNIT}
+                testID={TESTID.MANAGE_UNIT_CHANGE_NAME}
               >
                 <Text style={[styles.textWraper, styles.unitName]}>
                   {unit.name}
                 </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={[styles.textWraper]}>
+              <TouchableOpacity
+                style={[styles.textWraper]}
+                testID={TESTID.MANAGE_UNIT_CHANGE_LOCATION}
+              >
                 <Text style={styles.unitName}>{t('geolocation')}</Text>
                 <Text style={styles.unitGeolocation}>{unit.address}</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={[styles.backgroundContainer]}
                 onPress={handleChoosePhoto}
+                testID={TESTID.MANAGE_UNIT_CHANGE_PHOTO}
               >
                 <Text style={[styles.unitName, styles.textBackground]}>
                   {t('background')}
@@ -136,12 +145,17 @@ const ManageUnit = ({ route }) => {
                 setShowImagePicker={setShowImagePicker}
                 setImageUrl={setImageUrl}
                 optionsCapture={options}
+                testID={TESTID.MANAGE_UNIT_IMAGE_PICKER}
               />
             </Section>
           )}
         </View>
       </WrapHeaderScrollable>
-      <TouchableOpacity style={styles.removeButton} onPress={setshowRemove}>
+      <TouchableOpacity
+        style={styles.removeButton}
+        onPress={setshowRemove}
+        testID={TESTID.MANAGE_UNIT_SHOW_REMOVE}
+      >
         <Text type={'H4'} semibold color={Colors.Gray6}>
           {t('remove_unit')}
         </Text>
@@ -151,6 +165,7 @@ const ManageUnit = ({ route }) => {
         onBackButtonPress={setHideEdit}
         onBackdropPress={setHideEdit}
         style={styles.modalContainer}
+        testID={TESTID.MANAGE_UNIT_MODAL_RENAME}
       >
         <Animated.View style={[styles.popoverStyle, animatedStyle]}>
           <View style={styles.modalWrapper}>
@@ -165,6 +180,7 @@ const ManageUnit = ({ route }) => {
               textInputStyle={styles.textInputStyle}
               wrapStyle={styles.textInputWrapStyle}
               selectionColor={Colors.Primary}
+              testID={TESTID.MANAGE_UNIT_MODAL_RENAME_INPUT_NAME}
             />
 
             <ViewButtonBottom
@@ -172,6 +188,7 @@ const ManageUnit = ({ route }) => {
               onLeftClick={setHideEdit}
               rightTitle={t('rename')}
               onRightClick={goRename}
+              testIDPrefix={TESTID.PREFIX.MANAGE_UNIT}
             />
           </View>
         </Animated.View>
@@ -185,6 +202,7 @@ const ManageUnit = ({ route }) => {
         leftButtonClick={setHideRemove}
         rightButtonTitle={t('remove')}
         rightButtonClick={goRemove}
+        testIDPrefix={TESTID.PREFIX.MANAGE_UNIT_ALERT}
       />
     </>
   );

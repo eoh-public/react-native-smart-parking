@@ -32,11 +32,11 @@ describe('Test Parking Area Detail', () => {
   });
   let wrapper;
 
-  test('onChangeText LicensePlate', () => {
+  test('onChangeText LicensePlate', async () => {
     useState.mockImplementationOnce((init) => [false, jest.fn()]); // for loading
     const setCar = jest.fn();
     useState.mockImplementation((init) => [init, setCar]); // for normal
-    act(() => {
+    await act(async () => {
       wrapper = create(<ParkingAreaDetail {...data} />);
     });
 
@@ -51,7 +51,7 @@ describe('Test Parking Area Detail', () => {
 
     const plateNumber = '77XX-3438';
 
-    act(() => {
+    await act(async () => {
       inputPlate.props.onChangeText(plateNumber);
     });
 

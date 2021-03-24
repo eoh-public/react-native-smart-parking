@@ -1,12 +1,12 @@
 import React from 'react';
 import { act, create } from 'react-test-renderer';
-import AddressInfo from '../AddressInfo';
+import AddressInfo from '../compenents/AddressInfo';
 
 const mockGetCurrentLatLng = jest.fn();
 
-jest.mock('utils/CountryUtils', () => {
+jest.mock('../../../utils/CountryUtils', () => {
   return {
-    ...jest.requireActual('utils/CountryUtils'),
+    ...jest.requireActual('../../../utils/CountryUtils'),
     getCurrentLatLng: mockGetCurrentLatLng,
   };
 });

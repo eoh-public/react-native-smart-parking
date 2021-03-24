@@ -1,14 +1,10 @@
 import React from 'react';
 import { act, create } from 'react-test-renderer';
 
-import Text from 'components/Text';
+import Text from '../../../commons/Text';
 import EWalletItem from '../EWalletItem';
-import PaymentIconInfo from 'components/SmartParking/Payment/PaymentIconInfo';
+import PaymentIconInfo from '../components/PaymentIconInfo';
 import t from 'i18n';
-
-jest.mock('react', () => {
-  return { ...jest.requireActual('react'), memo: (x) => x };
-});
 
 describe('test EWalletItem', () => {
   let tree;

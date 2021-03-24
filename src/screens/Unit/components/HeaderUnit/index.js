@@ -6,6 +6,7 @@ import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 
 import { Colors, Device } from '../../../../configs';
 import Text from '../../../../commons/Text';
+import { TESTID } from '../../../../configs/Constants';
 
 const HeaderUnit = memo(
   ({
@@ -40,7 +41,11 @@ const HeaderUnit = memo(
 
     return (
       <View style={[styles.container, bottomBorder && styles.bottomBorder]}>
-        <TouchableOpacity style={styles.btnLeft} onPress={onPressBack}>
+        <TouchableOpacity
+          testID={TESTID.HEADER_UNIT_BUTTON_BACK}
+          style={styles.btnLeft}
+          onPress={onPressBack}
+        >
           <Icon
             name={'left'}
             size={27}
@@ -58,7 +63,11 @@ const HeaderUnit = memo(
         {!hideRight && (
           <View style={styles.boxRight}>
             {!hideRightPlus && (
-              <TouchableOpacity style={styles.btnAdd} onPress={onPressAdd}>
+              <TouchableOpacity
+                testID={TESTID.HEADER_UNIT_BUTTON_ADD}
+                style={styles.btnAdd}
+                onPress={onPressAdd}
+              >
                 <Icon
                   name={'plus'}
                   size={27}
@@ -67,6 +76,7 @@ const HeaderUnit = memo(
               </TouchableOpacity>
             )}
             <TouchableOpacity
+              testID={TESTID.HEADER_UNIT_BUTTON_MORE}
               style={styles.btnMore}
               onPress={onPressMore}
               ref={buttonMoreRef}

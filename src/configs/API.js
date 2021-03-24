@@ -54,6 +54,11 @@ const API = {
       API_ROOT + `/property_manager/${unitId}/sub_units/${id}/`,
     SENSOR_SCAN: (id) =>
       API_ROOT + `/property_manager/stations/${id}/sensor_scan/`,
+    CHIP_SCAN: (id) => API_ROOT + `/property_manager/stations/${id}/chip_scan/`,
+  },
+  CHIP: {
+    CHECK_FINALIZED:
+      API_ROOT + '/property_manager/stations/check_chip_finalized/',
   },
   SENSOR: {
     DISPLAY: (id) => API_ROOT + `/property_manager/sensors/${id}/display/`,
@@ -169,6 +174,8 @@ const API = {
     LIST_ALL_NOTIFICATIONS: (page, type) =>
       API_ROOT + `/notifications/notifications/?page=${page}&type=${type}`,
     SET_READ: (id) => API_ROOT + `/notifications/notifications/${id}/set_read/`,
+    SET_LAST_SEEN: (id) =>
+      API_ROOT + '/notifications/notifications/set_last_seen/',
     NUMBER: API_ROOT + '/notifications/notifications/number/',
   },
   EMERGENCY_BUTTON: {
@@ -176,9 +183,6 @@ const API = {
     CONTACTS: API_ROOT + '/emergency_button/contacts/',
     REMOVE_CONTACTS: (id) => API_ROOT + `/emergency_button/contacts/${id}/`,
     SEND_ALERT: API_ROOT + '/emergency_button/events/',
-    NOTIFY_SMS: (id) => API_ROOT + `/emergency_button/events/${id}/notify_sms/`,
-    FASLE_ALARM: (id) =>
-      API_ROOT + `/emergency_button/events/${id}/false_alarm/`,
     RESOLVE: (id) => API_ROOT + `/emergency_button/events/${id}/resolve/`,
   },
   IOT: {

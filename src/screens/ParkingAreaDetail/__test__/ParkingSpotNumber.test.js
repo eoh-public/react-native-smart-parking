@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { act, create } from 'react-test-renderer';
-import ParkingSpotNumber from '../ParkingSpotNumber';
+import ParkingSpotNumber from '../compenents/ParkingSpotNumber';
 
 jest.mock('react', () => ({
   ...jest.requireActual('react'),

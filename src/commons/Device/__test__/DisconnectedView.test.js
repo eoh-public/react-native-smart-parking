@@ -1,6 +1,6 @@
+import { DisconnectedView } from '../DisconnectedView';
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import { DisconnectedView } from '../DisconnectedView';
 
 describe('Test DisconnectedView', () => {
   let tree;

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Text } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
 import t from 'i18n';
 
 import BookingHistory from '../index';
+import { Text } from 'react-native';
 import { Colors } from '../../../../../configs';
 
 describe('Test booking history popup', () => {

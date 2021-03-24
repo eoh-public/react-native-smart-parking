@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test custom checkbox create custom checkbox checked 1`] = `
+<View>
+  <View
+    pointerEvents="auto"
+  >
+    <RNCCheckbox
+      boxType="square"
+      forwardedRef={null}
+      onCheckColor="#FFFFFF"
+      onFillColor="#00979D"
+      onTintColor="#00979D"
+      onValueChange={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "height": 32,
+            "width": 32,
+          },
+          Object {
+            "height": 20,
+            "marginRight": 15,
+            "marginTop": 15,
+            "width": 20,
+          },
+        ]
+      }
+      tintColors={
+        Object {
+          "false": "#F5F5F5",
+          "true": "#00979D",
+        }
+      }
+      value={true}
+    />
+  </View>
+  <View
+    accessible={true}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  />
+</View>
+`;

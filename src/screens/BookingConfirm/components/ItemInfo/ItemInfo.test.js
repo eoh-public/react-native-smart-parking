@@ -2,7 +2,7 @@ import React from 'react';
 import { create, act } from 'react-test-renderer';
 import ItemInfo from './ItemInfo';
 
-describe('Test ItemInfo ', () => {
+describe('Test ItemInfo', () => {
   let tree;
 
   test('render item info with plate number value', async () => {

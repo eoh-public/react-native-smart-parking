@@ -23,7 +23,10 @@ import Routes from '../../utils/Route';
 import { axiosGet, axiosDelete, axiosPost } from '../../utils/Apis/axios';
 import CardItem from './CardItem';
 
-import { SvgCreditCardColor, SvgCreditCardGray } from '../../../assets/images/SmartParking';
+import {
+  SvgCreditCardColor,
+  SvgCreditCardGray,
+} from '../../../assets/images/SmartParking';
 
 const Payment = memo(() => {
   const [showRemove, setShowRemove] = useState(false);

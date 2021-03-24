@@ -1,16 +1,22 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import EmergencyDetail from '../EmergencyDetail';
+import { useIsFocused } from '@react-navigation/native';
+import { VLCPlayer } from 'react-native-vlc-media-player';
 
+const mockUseIsFocused = jest.fn();
 jest.mock('@react-navigation/core', () => {
   return {
     ...jest.requireActual('@react-navigation/core'),
-    useIsFocused: jest.fn(),
+    useIsFocused: mockUseIsFocused,
   };
 });
 
 describe('Test EmergencyDetail', () => {
   let tree;
+  afterEach(() => {
+    useIsFocused.mockClear();
+  });
   test('create EmergencyDetail', () => {
     const item = {
       configuration: {
@@ -23,10 +29,12 @@ describe('Test EmergencyDetail', () => {
         },
       },
     };
-
+    useIsFocused.mockImplementation(() => true);
     act(() => {
       tree = renderer.create(<EmergencyDetail item={item} />);
     });
-    expect(tree.toJSON()).toMatchSnapshot();
+    const instance = tree.root;
+    const button = instance.findAllByType(VLCPlayer);
+    expect(button.length).toEqual(1);
   });
 });

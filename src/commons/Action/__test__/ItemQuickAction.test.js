@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { act, create } from 'react-test-renderer';
 import ItemQuickAction from '../ItemQuickAction';
@@ -10,34 +10,30 @@ import { sendRemoteCommand } from '../../../iot/RemoteControl';
 class Sensor {}
 
 factory.define('Sensor', Sensor, {});
-
-jest.mock('iot/RemoteControl');
-
 const mockSetState = jest.fn();
+
 jest.mock('react', () => {
   return {
     ...jest.requireActual('react'),
-    useState: (init) => [init, mockSetState],
+    useState: jest.fn(),
   };
 });
 
-jest.mock('iot/states', () => ({
+useState.mockImplementation((init) => [init, mockSetState]);
+
+jest.mock('../../../iot/RemoteControl');
+
+jest.mock('../../../iot/states', () => ({
   useConfigGlobalState: () => [{}, null],
 }));
 
 describe('Test ItemQuickAction', () => {
   let tree;
-  test('render sensor quick action with no action', async () => {
-    const sensor = await factory.build('Sensor');
-    act(() => {
-      tree = create(<ItemQuickAction sensor={sensor} />);
-    });
-    expect(tree.toJSON()).toMatchSnapshot();
-  });
   beforeEach(() => {
     jest.useFakeTimers();
     mockSetState.mockClear();
   });
+
   const sensor = {
     action: {
       color: '#00979D',
@@ -87,7 +83,21 @@ describe('Test ItemQuickAction', () => {
     alignItems: 'center',
   };
 
-  test('render sensor quick action with full action data case on', () => {
+  test('render with no action', async () => {
+    const sensor = await factory.build('Sensor');
+    act(() => {
+      tree = create(<ItemQuickAction sensor={sensor} />);
+    });
+    const instance = tree.root;
+    const buttonOnActionPress = instance.findAll(
+      (el) =>
+        el.props.testID === TESTID.ITEM_QUICK_ACTION_PRESS &&
+        el.type === TouchableOpacity
+    );
+    expect(buttonOnActionPress).toHaveLength(0);
+  });
+
+  test('render with full action data case on', () => {
     const mockSetStatus = jest.fn();
 
     act(() => {
@@ -120,7 +130,121 @@ describe('Test ItemQuickAction', () => {
     expect(mockSetState).toBeCalledWith(sensor.quick_action.off_action);
   });
 
-  test('render sensor quick action with full action data case off', () => {
+  test('render case old version config', () => {
+    const oldSensor = {
+      action: {
+        color: '#00979D',
+        command_prefer_over_bluetooth: true,
+        command_prefer_over_googlehome: false,
+        command_prefer_over_internet: false,
+        id: 9,
+        icon: 'caret-up',
+      },
+      action2: {
+        color: '#00979D',
+        command_prefer_over_bluetooth: true,
+        command_prefer_over_googlehome: false,
+        command_prefer_over_internet: false,
+        id: 10,
+      },
+      status: 'OFF',
+      status2: 'ON',
+    };
+    act(() => {
+      tree = create(
+        <ItemQuickAction sensor={oldSensor} wrapperStyle={style} />
+      );
+    });
+
+    const instance = tree.root;
+    const buttonOnActionPress = instance.find(
+      (el) =>
+        el.props.testID === TESTID.ITEM_QUICK_ACTION_PRESS &&
+        el.type === TouchableOpacity
+    );
+
+    mockSetState.mockClear();
+    act(() => {
+      buttonOnActionPress.props.onPress();
+    });
+    expect(mockSetState).toBeCalledTimes(1);
+
+    jest.runAllTimers();
+    expect(mockSetState).toBeCalledTimes(3);
+  });
+
+  test('when sending command, button is disabled', () => {
+    useState.mockImplementationOnce((init) => [true, mockSetState]);
+    act(() => {
+      tree = create(<ItemQuickAction sensor={sensor} wrapperStyle={style} />);
+    });
+
+    const instance = tree.root;
+    const buttonOnActionPress = instance.find(
+      (el) =>
+        el.props.testID === TESTID.ITEM_QUICK_ACTION_PRESS &&
+        el.type === TouchableOpacity
+    );
+    expect(buttonOnActionPress).toBeDefined();
+  });
+
+  test('trigger action with quick action no auto update', () => {
+    const noAutoUpdateSensor = {
+      action: {
+        color: '#00979D',
+        command_prefer_over_bluetooth: true,
+        command_prefer_over_googlehome: false,
+        command_prefer_over_internet: false,
+        id: 9,
+        icon: 'caret-up',
+      },
+      quick_action: {
+        config_id: 51,
+        interval: 5000,
+        off_action: {
+          color: '#00979D',
+          command_prefer_over_bluetooth: true,
+          command_prefer_over_googlehome: false,
+          command_prefer_over_internet: false,
+          id: 10,
+        },
+        on_action: {
+          color: '#00979D',
+          command_prefer_over_bluetooth: true,
+          command_prefer_over_googlehome: false,
+          command_prefer_over_internet: false,
+          id: 9,
+        },
+        off_status: 'OFF',
+        on_status: 'ON',
+        will_auto_update_status: true,
+      },
+    };
+
+    act(() => {
+      tree = create(
+        <ItemQuickAction sensor={noAutoUpdateSensor} wrapperStyle={style} />
+      );
+    });
+
+    const instance = tree.root;
+    const buttonOnActionPress = instance.find(
+      (el) =>
+        el.props.testID === TESTID.ITEM_QUICK_ACTION_PRESS &&
+        el.type === TouchableOpacity
+    );
+
+    mockSetState.mockClear();
+    act(() => {
+      buttonOnActionPress.props.onPress();
+    });
+    expect(mockSetState).toBeCalledTimes(1);
+
+    jest.runAllTimers();
+    expect(mockSetState).toBeCalledTimes(1);
+  });
+
+  test('render with full action data case off', () => {
     sensor.action.id = 10; // off action
     const mockSetStatus = jest.fn();
 

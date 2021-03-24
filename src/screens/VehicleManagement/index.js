@@ -4,17 +4,17 @@ import { useNavigation } from '@react-navigation/native';
 import { Icon } from '@ant-design/react-native';
 import { t } from 'i18n-js';
 
-import { API, Colors } from 'configs';
-import Text from 'components/Text';
-import { AlertAction, MenuActionMore } from 'components/Common';
-import WrapHeaderScrollable from 'components/Sharing/WrapHeaderScrollable';
-import { useControllList, usePopover } from 'hooks/Common';
-import { useStateAlertRemove } from 'hooks/SmartParking/VehicleManagement';
-import Routes from 'utils/Route';
-import { axiosGet } from 'utils/Apis/axios';
-import { axiosPut, axiosDelete } from 'utils/Apis/axios';
-import { SvgVehicleEmpty } from 'images/SmartParking';
-import { TESTID } from 'configs/Constants';
+import { API, Colors } from '../../configs';
+import Text from '../../commons/Text';
+import { AlertAction, MenuActionMore } from '../../commons';
+import WrapHeaderScrollable from '../../commons/Sharing/WrapHeaderScrollable';
+import { useControllList, usePopover } from '../../hooks/Common';
+import { useStateAlertRemove } from '../../hooks/SmartParking/VehicleManagement';
+import Routes from '../../utils/Route';
+import { axiosGet } from '../../utils/Apis/axios';
+import { axiosPut, axiosDelete } from '../../utils/Apis/axios';
+import { SvgVehicleEmpty } from '../../../assets/images/SmartParking';
+import { TESTID } from '../../configs/Constants';
 
 import ItemVehicle from '../SavedVehicle/ItemVehicle';
 

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test circle view create circle view 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "white",
+        "borderRadius": 2.5,
+        "borderWidth": 0,
+        "height": 5,
+        "width": 5,
+      },
+      undefined,
+      undefined,
+    ]
+  }
+/>
+`;

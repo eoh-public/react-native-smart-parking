@@ -1,12 +1,8 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { act, create } from 'react-test-renderer';
-import PaymentOption from '../PaymentOption';
+import PaymentOption from '../compenents/PaymentOption';
 import CheckBox from '../compenents/ParkingDetail/GroupCheckBox/CheckBox';
-
-jest.mock('react', () => {
-  return { ...jest.requireActual('react'), memo: (x) => x };
-});
 
 describe('Test PaymentOption', () => {
   let data;
@@ -24,31 +20,21 @@ describe('Test PaymentOption', () => {
     };
   });
 
-  test('create', () => {
-    let wrapper = create(<PaymentOption {...data} />);
-    expect(wrapper.toJSON()).toMatchSnapshot();
-  });
-
   test('create with display pay-now option', async () => {
     Date.now = jest.fn(() => new Date(twoHourLater));
-    let wrapper;
 
     await act(async () => {
-      wrapper = create(<PaymentOption {...data} />);
+      create(<PaymentOption {...data} />);
     });
     expect(mockSetIsPayNow).toHaveBeenCalledTimes(1);
-    expect(wrapper.toJSON()).toMatchSnapshot();
   });
 
   test('create with display pay-now / pay-later option', async () => {
     Date.now = jest.fn(() => new Date(twoHourAgo));
-    let wrapper;
-
     await act(async () => {
-      wrapper = create(<PaymentOption {...data} />);
+      create(<PaymentOption {...data} />);
     });
     expect(mockSetIsPayNow).not.toHaveBeenCalled();
-    expect(wrapper.toJSON()).toMatchSnapshot();
   });
 
   test('onSelect pay-now / pay-later option', async () => {
@@ -70,6 +56,5 @@ describe('Test PaymentOption', () => {
     });
 
     expect(mockSetIsPayNow).toHaveBeenCalledTimes(1);
-    expect(wrapper.toJSON()).toMatchSnapshot();
   });
 });

@@ -1,10 +1,10 @@
 import React from 'react';
 import { RNCamera } from 'react-native-camera';
 import { act, create } from 'react-test-renderer';
-import Routes from '../../../utils/Route';
 import axios from 'axios';
-import { API } from '../../../configs';
+import Routes from '../../../utils/Route';
 import SMScanQR from '..';
+import { API } from '../../../configs';
 
 const mockedGoBack = jest.fn();
 const mockedNavigate = jest.fn();
@@ -33,7 +33,7 @@ describe('Test Scan QR', () => {
 
   test('render Scan QR', async () => {
     let tree;
-    await act(() => {
+    act(() => {
       tree = create(<SMScanQR />);
     });
     const instance = tree.root;

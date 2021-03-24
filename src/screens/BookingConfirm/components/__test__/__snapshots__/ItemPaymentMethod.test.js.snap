@@ -213,7 +213,7 @@ exports[`Test ItemPaymentMethod create ItemPaymentMethod 1`] = `
 </View>
 `;
 
-exports[`Test ItemPaymentMethod create ItemPaymentMethod is_default: false  1`] = `
+exports[`Test ItemPaymentMethod create ItemPaymentMethod is_default: false 1`] = `
 <View
   style={
     Object {

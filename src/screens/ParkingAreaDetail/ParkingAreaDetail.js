@@ -11,15 +11,19 @@ import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 import { Button, ButtonPopup, FullLoading } from '../../commons';
-import ParkingSpotInput from './compenents/ParkingInputManually/ParkingSpotInput';
-import WrapParallaxScrollView from './compenents/WrapParallaxScrollView';
+import ParkingSpotInput from '../ParkingInputManually/components/ParkingSpotInput';
+import WrapParallaxScrollView from '../../commons/WrapParallaxScrollView';
 
 import { API, AppRNConfig, Colors } from '../../configs';
 import { TESTID } from '../../configs/Constants';
 import { useBoolean, useControllList } from '../../hooks/Common';
 import { useKeyboardShowTranslation } from '../../hooks/Common/useKeyboardShowTranslation';
 import { t } from 'i18n-js';
-
+import {
+  SvgBookmarkGreen,
+  SvgBookmarkGreenFill,
+  SvgDirectionPrimary,
+} from '../../../assets/images/SmartParking';
 import moment from 'moment';
 import Animated from 'react-native-reanimated';
 import { axiosGet } from '../../utils/Apis/axios';
@@ -38,12 +42,6 @@ import LicensePlate from './compenents/LicensePlate';
 import ParkingSession from './compenents/ParkingSession';
 import PaymentOption from './compenents/PaymentOption';
 import styles from './styles';
-
-import {
-  SvgBookmarkGreen,
-  SvgBookmarkGreenFill,
-  SvgDirectionPrimary,
-} from '../../../assets/images/SmartParking';
 
 const ParkingAreaDetail = memo(({ route }) => {
   const { params } = route;
@@ -304,6 +302,7 @@ const ParkingAreaDetail = memo(({ route }) => {
         contentBackground={
           <View style={styles.boxButton}>
             <TouchableOpacity
+              testID={TESTID.PARKING_DETAIL_TOUCH_DIRECTION}
               style={styles.btnDirection}
               activeOpacity={0.4}
               onPress={openMapDirection(parkingDetailData)}
@@ -311,6 +310,7 @@ const ParkingAreaDetail = memo(({ route }) => {
               <SvgDirectionPrimary />
             </TouchableOpacity>
             <TouchableOpacity
+              testID={TESTID.PARKING_DETAIL_TOUCH_BOOKMARK}
               style={styles.btnBookmark}
               activeOpacity={0.4}
               onPress={onPressBookmark}

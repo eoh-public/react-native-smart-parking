@@ -6,7 +6,10 @@ import t from 'i18n';
 import { Colors } from '../../../../configs';
 import { TESTID } from '../../../../configs/Constants';
 import Text from '../../../../commons/Text';
-import { SvgParking, SvgNavigate } from '../../../../../assets/images/SmartParking';
+import {
+  SvgParking,
+  SvgNavigate,
+} from '../../../../../assets/images/SmartParking';
 import { calcDistance } from '../../../../utils/Converter/distance';
 import { formatMoney } from '../../../../utils/Utils';
 

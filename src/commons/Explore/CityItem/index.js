@@ -9,7 +9,10 @@ import { API } from '../../../configs';
 import Pin from '../../../../assets/images/Explore/Pin.svg';
 import Follower from '../../../../assets/images/Explore/Follower.svg';
 import PinOutline from '../../../../assets/images/Explore/PinOutline.svg';
-import { pinPublicUnitSuccess, unpinPublicUnitSuccess } from '../../../redux/Actions/unit';
+import {
+  pinPublicUnitSuccess,
+  unpinPublicUnitSuccess,
+} from '../../../redux/Actions/unit';
 import { formatNumberCompact } from '../../../utils/Utils';
 import { axiosPost } from '../../../utils/Apis/axios';
 

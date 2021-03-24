@@ -74,21 +74,10 @@ const unwatchConfig = (configId) => {
 };
 
 export const watchMultiConfigs = async (configIds) => {
-  const newConfigIds = [];
-  configIds.map((id) => {
-    if (!watchingConfigs[id]) {
-      newConfigIds.push(id);
-    }
-  });
-
-  if (!newConfigIds.length) {
-    return;
-  }
-
   const { success, data } = await axiosPost(
     API.IOT.CHIP_MANAGER.WATCH_CONFIGS,
     {
-      configs: newConfigIds,
+      configs: configIds,
     }
   );
 

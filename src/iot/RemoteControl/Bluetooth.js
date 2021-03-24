@@ -2,7 +2,6 @@ import { BLE } from '../../configs';
 import t from 'i18n';
 import base64 from 'react-native-base64';
 import { BleManager } from 'react-native-ble-plx';
-import Toast from 'react-native-toast-message';
 import { ToastBottomHelper } from '../../utils/Utils';
 
 const bluetoothDevices = {};
@@ -24,9 +23,7 @@ export const clearFoundDevices = () => {
 
 bleManager.onStateChange((state) => {
   if (state === 'PoweredOn') {
-    if (Toast._ref) {
-      ToastBottomHelper.success(t('text_ble_is_powered_on'));
-    }
+    ToastBottomHelper.success(t('text_ble_is_powered_on'));
     realScanBluetoothDevices();
   }
 }, true);
@@ -51,38 +48,36 @@ const realScanBluetoothDevices = () => {
       return;
     }
 
-    let foundDevice = false;
     let name = null;
     if (
       needToScanDevices.includes(device.name) &&
       !bluetoothDevices[device.name]
     ) {
-      foundDevice = true;
       name = device.name;
     } else if (
       needToScanDevices.includes(device.localName) &&
       !bluetoothDevices[device.localName]
     ) {
-      foundDevice = true;
       name = device.localName;
+    } else {
+      return;
     }
-    if (foundDevice) {
-      const index = needToScanDevices.indexOf(name);
-      needToScanDevices.splice(index, 1);
 
-      ToastBottomHelper.success(
-        t('Found bluetooth %{name} for remote control', {
-          name,
-        })
-      );
+    const index = needToScanDevices.indexOf(name);
+    needToScanDevices.splice(index, 1);
 
-      bluetoothDevices[name] = device;
-      if (!needToScanDevices.length) {
-        try {
-          bleManager.stopDeviceScan();
-          // eslint-disable-next-line no-empty
-        } catch {}
-      }
+    ToastBottomHelper.success(
+      t('Found bluetooth %{name} for remote control', {
+        name,
+      })
+    );
+
+    bluetoothDevices[name] = device;
+    if (!needToScanDevices.length) {
+      try {
+        bleManager.stopDeviceScan();
+        // eslint-disable-next-line no-empty
+      } catch {}
     }
   });
 

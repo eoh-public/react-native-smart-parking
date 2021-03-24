@@ -7,7 +7,7 @@ import { TESTID } from '../../../../../configs/Constants';
 import { Colors } from '../../../../../configs';
 import { useCountDown } from '../../../../../hooks/SmartParking';
 
-jest.mock('hooks/SmartParking', () => {
+jest.mock('../../../../../hooks/SmartParking', () => {
   return {
     useCountDown: jest.fn(),
   };

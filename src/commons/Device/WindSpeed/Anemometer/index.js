@@ -67,6 +67,7 @@ const Anemometer = memo(
               y={textPosition.y}
               textAnchor="middle"
               fontFamily={Fonts.Regular}
+              key={i.toString()}
             >
               {(i / numberOfSection) * maxValue}
             </Text>

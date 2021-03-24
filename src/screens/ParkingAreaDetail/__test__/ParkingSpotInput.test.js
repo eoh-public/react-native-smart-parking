@@ -1,6 +1,6 @@
 import React from 'react';
 import { create, act } from 'react-test-renderer';
-import ParkingSpotInput from '../ParkingSpotInput';
+import ParkingSpotInput from '../compenents/ParkingSpotInput';
 
 describe('Test ParkingSpotInput', () => {
   let data;

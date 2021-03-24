@@ -2,8 +2,8 @@ import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { TextInput } from 'react-native';
 
-import { TESTID } from 'configs/Constants';
-import SearchLocation from 'containers/SmartParking/SearchLocation';
+import { TESTID } from '../../configs/Constants';
+import SearchLocation from './index';
 
 jest.mock('@react-navigation/native', () => {
   return {

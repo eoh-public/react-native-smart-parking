@@ -89,6 +89,7 @@ const LicensePlate = memo(
           </Text>
         )}
         <ButtonSaveVehicle
+          testID={TESTID.PARKING_DETAIL_BUTTON_SAVE_VEHICLE}
           initSave={saveVehicle}
           onChangeSave={setSaveVehicle}
           disabled={!validCar || car.id}

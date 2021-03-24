@@ -7,7 +7,7 @@ import { setNewNotification } from '../../redux/Actions/notifications';
 import { Colors, API } from '../../configs';
 import Text from '../../commons/Text';
 import { SvgPhoneNotification } from '../../../assets/images/SmartParking';
-import { axiosGet } from '../../utils/Apis/axios';
+import { axiosGet, axiosPost } from '../../utils/Apis/axios';
 
 import ItemNotification from './ItemNotification';
 
@@ -33,7 +33,13 @@ const NotificationCentre = memo(() => {
   }, []);
 
   useEffect(() => {
-    dispatch(setNewNotification(false));
+    async function updateLastSeen() {
+      const { success } = await axiosPost(API.NOTIFICATION.SET_LAST_SEEN);
+      return { success };
+    }
+    const { success } = updateLastSeen();
+
+    success && dispatch(setNewNotification(false));
   }, [dispatch]);
 
   useEffect(() => {

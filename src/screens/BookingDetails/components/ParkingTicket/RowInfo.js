@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { View, StyleSheet } from 'react-native';
-import InfoField from 'components/SmartParking/BookingDetails/InfoField';
+import InfoField from '../InfoField';
 
 const RowInfo = memo(
   ({ leftValue, rightValue, leftTitle, rightTitle, body = true }) => {

@@ -1,6 +1,7 @@
 import React, { memo, useCallback, useEffect, useState } from 'react';
 
 import CheckBox from './CheckBox';
+import { TESTID } from '../../../../../configs/Constants';
 
 const GroupCheckBox = memo(
   ({ data, disabled, onSelect, multiple, defaultIndex = 0 }) => {
@@ -48,6 +49,7 @@ const GroupCheckBox = memo(
               source={item.source || item.icon}
               description={item.description}
               noLine={item.noLine}
+              testID={TESTID.GROUP_CHECK_BOX_PARKING_DETAIL}
             />
           );
         })}

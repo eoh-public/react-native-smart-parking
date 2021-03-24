@@ -16,10 +16,6 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
-jest.mock('react', () => {
-  return { ...jest.requireActual('react'), memo: (x) => x };
-});
-
 describe('MyBookingList', () => {
   afterEach(() => {
     useIsFocused.mockClear();

@@ -1,8 +1,8 @@
+import DeviceAlertStatus from '../DeviceAlertStatus';
 import React from 'react';
 import { t } from 'i18n-js';
 import renderer, { act } from 'react-test-renderer';
 import { TESTID } from '../../../configs/Constants';
-import DeviceAlertStatus from '../DeviceAlertStatus';
 
 describe('Test Device Alert Status', () => {
   let tree;

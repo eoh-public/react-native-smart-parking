@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Colors } from '../../../configs';
 
-const UnitConfigValue = ({ summary, goToSummary, index, len }) => {
+const UnitSummary = ({ summary, goToSummary, index, len }) => {
   let RadiusProps = {};
   if (index === 0) {
     RadiusProps = StyleSheet.create({
@@ -102,4 +102,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UnitConfigValue;
+export default UnitSummary;

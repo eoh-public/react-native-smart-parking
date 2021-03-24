@@ -28,7 +28,7 @@ import ParkingAreaList from './components/ParkingAreaList';
 import ThanksForParkingPopup from './components/Popup/ThanksForParking';
 import ScanningResponsePopup from './components/ScanningResponsePopup';
 import SearchBar from './components/SearchBar';
-import ActiveSessionsItem from './components/MyBookingList/ActiveSessions/ActiveSessionsItem';
+import ActiveSessionsItem from '../MyBookingList/components/ActiveSessions/ActiveSessionsItem';
 import Text from '../../commons/Text';
 import { API, AppRNConfig, Colors, Device } from '../../configs';
 import { TESTID } from '../../configs/Constants';
@@ -36,6 +36,11 @@ import {
   useAndroidTranslucentStatusBar,
   useBlockBackAndroid,
 } from '../../hooks/Common';
+import { useCountDown } from '../../hooks/SmartParking';
+import { SvgWarningBell } from '../../../assets/images/SmartParking';
+import SvgLocate from '../../../assets/images/SmartParking/locate.svg';
+import SvgMarkerCurrentLocation from '../../../assets/images/SmartParking/marker-current.svg';
+import SvgParkingWhite from '../../../assets/images/SmartParking/parkingWhite.svg';
 import { axiosGet } from '../../utils/Apis/axios';
 import { getCurrentLatLng } from '../../utils/CountryUtils';
 import Routes from '../../utils/Route';
@@ -43,15 +48,10 @@ import { deleteData, getData, storeData } from '../../utils/Storage';
 import { isObjectEmpty } from '../../utils/Utils';
 
 import { useNearbyParkings, useNotifications } from './hooks';
-
-import { useCountDown } from '../../hooks/SmartParking';
-import { SvgWarningBell } from '../../../assets/images/SmartParking';
-import SvgLocate from '../../../assets/images/SmartParking/locate.svg';
-import SvgMarkerCurrentLocation from '../../../assets/images/SmartParking/marker-current.svg';
-import SvgParkingWhite from '../../../assets/images/SmartParking/parkingWhite.svg';
-import selectedParkingIcon from '../../../assets/images/Map/marker_parking_selected.png';
-import parkingIcon from '../../../assets/images/Map/marker_parking.png';
 import styles from './styles';
+
+const selectedParkingIcon = require('../../../assets/images/Map/marker_parking_selected.png');
+const parkingIcon = require('../../../assets/images/Map/marker_parking.png');
 
 const MapDashboard = memo(({ route }) => {
   useAndroidTranslucentStatusBar();
@@ -127,6 +127,10 @@ const MapDashboard = memo(({ route }) => {
   }, [navigate]);
 
   const animateToRegion = useCallback((lat, lng) => {
+    if (!mapRef || !mapRef.current) {
+      return;
+    }
+
     mapRef.current.animateToRegion(
       {
         latitude: lat,
@@ -139,6 +143,8 @@ const MapDashboard = memo(({ route }) => {
 
   const onPressCurrentLocation = useCallback(async () => {
     const location = await getCurrentLatLng();
+    animateToRegion(location.lat, location.lng);
+
     setCurrentLocation({ latitude: location.lat, longitude: location.lng });
     if (!activeSessions) {
       await getNearbyParkings({ lat: location.lat, lng: location.lng });
@@ -150,7 +156,6 @@ const MapDashboard = memo(({ route }) => {
         lng: location.lng,
       },
     });
-    animateToRegion(location.lat, location.lng);
   }, [activeSessions, animateToRegion, getNearbyParkings]);
 
   const onPressNearby = useCallback(
@@ -318,6 +323,7 @@ const MapDashboard = memo(({ route }) => {
   }, []);
 
   const onParkingCompleted = useCallback(() => {
+    setDirections({});
     onShowThanks();
     (async () => {
       await getActiveSession();
@@ -499,6 +505,7 @@ const MapDashboard = memo(({ route }) => {
               style={[styles.button, styles.center]}
               activeOpacity={0.4}
               onPress={onPressNearby}
+              testID={TESTID.BUTTON_SEE_NEARBY_PARKING}
             >
               <Text semibold type={'Label'} color={Colors.Primary}>
                 {t('see_nearby_parking')}

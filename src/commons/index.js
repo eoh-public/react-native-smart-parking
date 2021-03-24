@@ -15,6 +15,8 @@ import MenuActionList from './MenuActionList';
 import Button from './Button';
 import Alert from './Alert';
 import MenuActionMore from './MenuActionMore';
+import ImageButton from './ImageButton';
+import MenuActionAddnew from './MenuActionAddnew';
 
 export {
   CircleButton,
@@ -34,4 +36,6 @@ export {
   Button,
   Alert,
   MenuActionMore,
+  ImageButton,
+  MenuActionAddnew
 };

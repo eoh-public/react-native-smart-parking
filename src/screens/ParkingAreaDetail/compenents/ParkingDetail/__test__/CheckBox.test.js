@@ -1,12 +1,14 @@
-import CheckBox from 'components/GroupCheckBox/CheckBox.js';
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
-
+import FastImage from 'react-native-fast-image';
 import renderer, { act } from 'react-test-renderer';
+
+import CheckBox from '../GroupCheckBox/CheckBox.js';
+import Text from '../../../../../commons/Text';
 
 describe('Test CheckBox', () => {
   let wrapper;
-  test('create CheckBox', () => {
+  test('render CheckBox', async () => {
     const mockFunc = jest.fn();
     act(() => {
       wrapper = renderer.create(
@@ -24,9 +26,15 @@ describe('Test CheckBox', () => {
 
     const testInstance = wrapper.root;
     const button = testInstance.findByType(TouchableOpacity);
-    renderer.act(() => {
+    await renderer.act(async () => {
       button.props.onPress();
     });
-    expect(wrapper.toJSON()).toMatchSnapshot();
+    expect(mockFunc).toHaveBeenCalled();
+
+    const image = testInstance.findByType(FastImage);
+    expect(image).toBeDefined();
+
+    const texts = testInstance.findAllByType(Text);
+    expect(texts[1].props.children).toEqual('{\n}description');
   });
 });

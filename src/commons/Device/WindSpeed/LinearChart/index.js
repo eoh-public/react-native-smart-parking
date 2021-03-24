@@ -9,8 +9,8 @@ import {
 import t from 'i18n';
 
 import { Colors } from '../../../../configs';
-import ChartLoading from '../../../../commons/ChartLoading';
-import ValueBalloon from './ValueBalloon';
+import ChartLoading from '../../../ChartLoading';
+import ValueBalloon from '../../../Device/WindSpeed/LinearChart/ValueBalloon';
 import { getMaxValueIndex } from '../../../../utils/chartHelper/getMaxValueIndex';
 import getTickValues from '../../../../utils/dateHelper/getTickValues';
 
@@ -58,7 +58,7 @@ const LinearChart = memo(
             const maxValueLine = getMaxValueIndex(item.data);
 
             return (
-              <G>
+              <G key={index.toString()}>
                 <VictoryLine
                   data={item.data}
                   domain={{

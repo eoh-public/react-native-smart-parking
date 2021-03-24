@@ -9,21 +9,22 @@ import {
   Platform,
 } from 'react-native';
 import Text from '../../commons/Text';
+import SvgParkingSpot from '../../../assets/images/SmartParking/parkingSpot.svg';
 import { t } from 'i18n-js';
 import { useBoolean } from '../../hooks/Common';
 import Routes from '../../utils/Route';
 import { Colors, Theme, API } from '../../configs';
 import { axiosGet } from '../../utils/Apis/axios';
 import ParkingSpotInput from './components/ParkingSpotInput';
-import { CircleButton, ButtonPopup } from '../../commons';
+import { IconOutline } from '@ant-design/icons-react-native';
+import { CircleButton } from '../../commons';
 import { getBottomSpace } from 'react-native-iphone-x-helper';
 import { useNavigation } from '@react-navigation/native';
+import { ButtonPopup } from '../../commons';
 import WrapHeaderScrollable from '../../commons/Sharing/WrapHeaderScrollable';
 import { heightHeader } from '../../commons/HeaderAni';
 import Modal from 'react-native-modal';
 import { TESTID } from '../../configs/Constants';
-import { IconOutline } from '@ant-design/icons-react-native';
-import SvgParkingSpot from '../../../assets/images/SmartParking/parkingSpot.svg';
 
 const ParkingInputManually = memo(() => {
   const [parkingSpot, setParkingSpot] = useState('');
@@ -39,6 +40,7 @@ const ParkingInputManually = memo(() => {
   const onTextInputFocus = useCallback(() => {
     inputRef.current.focus(1);
   }, [inputRef]);
+
   const onChangeText = useCallback(
     (text) => {
       const _parkingSpot = text.substring(0, 3);
@@ -137,7 +139,10 @@ const ParkingInputManually = memo(() => {
             onLayout={onLayout}
           >
             {t('enter_parking_spot_number')}
-            <TouchableOpacity onPress={setShowInfo}>
+            <TouchableOpacity
+              onPress={setShowInfo}
+              testID={TESTID.PARKING_SPOT_INFO_BUTTON}
+            >
               <IconOutline
                 name={'question-circle'}
                 size={20}
@@ -174,6 +179,7 @@ const ParkingInputManually = memo(() => {
             style={parkingSpot && styles.buttonShadow}
             onPress={onPressConfirmSpot}
             disabled={!parkingSpot}
+            testID={TESTID.PARKING_SPOT_CONFIRM_SPOT}
           >
             <IconOutline name={'arrow-right'} size={24} color={Colors.White} />
           </CircleButton>
@@ -203,8 +209,13 @@ const ParkingInputManually = memo(() => {
         secondaryTitle={'OK'}
         onPressSecondary={setHideModal}
         onClose={setHideModal}
+        testID={TESTID.PARKING_SPOT_BUTTON_POPUP}
       >
-        <Text type="H4" style={styles.title}>
+        <Text
+          type="H4"
+          style={styles.title}
+          testID={TESTID.PARKING_SPOT_TEXT_RESULT}
+        >
           {resultCheckCar}
         </Text>
       </ButtonPopup>
@@ -217,6 +228,7 @@ const ParkingInputManually = memo(() => {
         animationIn={'zoomIn'}
         animationOut={'zoomOut'}
         style={_styles.modalInfoContainer}
+        testID={TESTID.PARKING_SPOT_MODAL_INFO}
       >
         <View style={[styles.popoverStyle, styles.buttonShadow]}>
           <Text

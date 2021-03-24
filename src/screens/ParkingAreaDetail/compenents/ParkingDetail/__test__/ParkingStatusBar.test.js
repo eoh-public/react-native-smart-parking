@@ -1,7 +1,7 @@
+import ParkingStatusBar from '../ParkingStatusBar';
 import React from 'react';
 import { create, act } from 'react-test-renderer';
 import moment from 'moment';
-import ParkingStatusBar from '../ParkingStatusBar';
 
 describe('Test ParkingStatusBar', () => {
   let tree;

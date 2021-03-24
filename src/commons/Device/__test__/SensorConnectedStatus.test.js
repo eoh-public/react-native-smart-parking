@@ -1,7 +1,7 @@
+import SensorConnectedStatus from '../SensorConnectedStatus';
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { TESTID } from '../../../configs/Constants';
-import SensorConnectedStatus from '../SensorConnectedStatus';
 
 describe('Test Sensor Connected Status', () => {
   let tree;

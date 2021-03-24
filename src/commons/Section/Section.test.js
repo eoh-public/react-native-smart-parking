@@ -4,7 +4,7 @@ import renderer, { act } from 'react-test-renderer';
 
 import { Section } from './Section';
 
-describe('Section ', () => {
+describe('Section', () => {
   test('Shoud match empty snapshot when type is border', () => {
     const component = (
       <Section type={'border'}>

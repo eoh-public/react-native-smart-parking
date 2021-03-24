@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test chart loading create chart loading 1`] = `
+<RNSVGSvgView
+  bbHeight={300}
+  bbWidth="100%"
+  focusable={false}
+  height={300}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      Object {
+        "flex": 0,
+        "height": 300,
+        "width": "100%",
+      },
+    ]
+  }
+  width="100%"
+>
+  <RNSVGGroup>
+    <RNSVGText
+      content={null}
+      dx={Array []}
+      dy={Array []}
+      fill={4278190080}
+      font={
+        Object {
+          "fontSize": "20",
+          "fontWeight": "bold",
+          "textAnchor": "middle",
+        }
+      }
+      propList={
+        Array [
+          "fill",
+        ]
+      }
+      rotate={Array []}
+      x={
+        Array [
+          "50%",
+        ]
+      }
+      y={
+        Array [
+          "47%",
+        ]
+      }
+    >
+      <RNSVGTSpan
+        content="loading"
+        dx={Array []}
+        dy={Array []}
+        font={Object {}}
+        rotate={Array []}
+        x={Array []}
+        y={Array []}
+      />
+    </RNSVGText>
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;

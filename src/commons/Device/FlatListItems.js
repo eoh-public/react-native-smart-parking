@@ -48,8 +48,9 @@ const FlatListItems = memo(({ data, style, title, styleTitle }) => {
       )}
       <View style={styles.listBox}>
         {data &&
-          data.map((item) => (
+          data.map((item, index) => (
             <QualityIndicatorItem
+              key={index.toString()}
               standard={item.standard}
               value={item.value}
               measure={item.measure}

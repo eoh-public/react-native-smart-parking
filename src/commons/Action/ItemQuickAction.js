@@ -12,25 +12,35 @@ const ItemQuickAction = memo(({ sensor, wrapperStyle, setStatus }) => {
   // eslint-disable-next-line no-unused-vars
   const [configValues, _] = useConfigGlobalState('configValues');
 
-  const statusCallback = useCallback(
-    (value) => {
+  const revertActionUpdate = useCallback(
+    (value, on_action, on_status, off_action, off_status) => {
       setIsSendingCommand(false);
       if (value) {
-        setAction(sensor.quick_action.off_action);
-        setStatus && setStatus(sensor.quick_action.on_status);
+        setAction(off_action);
+        setStatus && setStatus(on_status);
       } else {
-        setAction(sensor.quick_action.on_action);
-        setStatus && setStatus(sensor.quick_action.off_status);
+        setAction(on_action);
+        setStatus && setStatus(off_status);
       }
     },
-    [sensor, setStatus]
+    [setStatus]
+  );
+
+  const statusCallback = useCallback(
+    (value) => {
+      revertActionUpdate(
+        value,
+        sensor.quick_action.on_action,
+        sensor.quick_action.on_status,
+        sensor.quick_action.off_action,
+        sensor.quick_action.off_status
+      );
+    },
+    [sensor, revertActionUpdate]
   );
 
   useEffect(() => {
-    if (!sensor.quick_action) {
-      return;
-    }
-    watchMultiConfigs([sensor.quick_action.config_id]);
+    sensor.quick_action && watchMultiConfigs([sensor.quick_action.config_id]);
   }, [sensor.quick_action]);
 
   useEffect(() => {
@@ -46,25 +56,26 @@ const ItemQuickAction = memo(({ sensor, wrapperStyle, setStatus }) => {
 
   const onActionPress = useCallback(() => {
     sendRemoteCommand(sensor, action);
+    sensor.quick_action && watchMultiConfigs([sensor.quick_action.config_id]);
     setIsSendingCommand(true);
+
     if (!sensor.quick_action) {
       // old version
       setTimeout(() => {
-        setIsSendingCommand(false);
-        if (action.id === sensor.action.id) {
-          setAction(sensor.action2);
-          setStatus && setStatus(sensor.status);
-        } else {
-          setAction(sensor.action);
-          setStatus && setStatus(sensor.status2);
-        }
+        revertActionUpdate(
+          action.id === sensor.action.id,
+          sensor.action,
+          sensor.status,
+          sensor.action2,
+          sensor.status2
+        );
       }, 5000);
     } else if (!sensor.quick_action.will_auto_update_status) {
       setTimeout(() => {
         statusCallback(action.id === sensor.quick_action.on_action.id);
       }, sensor.quick_action.interval);
     }
-  }, [action, sensor, setStatus, statusCallback]);
+  }, [action, sensor, revertActionUpdate, statusCallback]);
 
   if (!action) {
     return <View />;
@@ -78,7 +89,7 @@ const ItemQuickAction = memo(({ sensor, wrapperStyle, setStatus }) => {
       <View style={wrapperStyle}>
         <IconFill
           name={action.icon}
-          color={isSendingCommand ? 'gray' : '#00979D'}
+          color={isSendingCommand ? 'gray' : '#00979d'}
           size={24}
         />
       </View>

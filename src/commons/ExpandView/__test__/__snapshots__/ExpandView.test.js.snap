@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ExpandView create ExpandView 1`] = `
+<View
+  style={
+    Object {
+      "marginVertical": 8,
+      "paddingHorizontal": 16,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#262626",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {
+            "flex": 1,
+            "marginLeft": 18,
+            "marginTop": 0,
+          },
+        ]
+      }
+    >
+      Title
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "black",
+            "fontFamily": "antoutline",
+            "fontSize": 15,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          undefined,
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Test ExpandView expand ExpandView 1`] = `
+<View
+  style={
+    Object {
+      "marginVertical": 8,
+      "paddingHorizontal": 16,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#262626",
+            "fontFamily": "SFProDisplay-Regular",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "textAlign": "left",
+            "textDecorationLine": "none",
+          },
+          Object {
+            "flex": 1,
+            "marginLeft": 18,
+            "marginTop": 0,
+          },
+        ]
+      }
+    >
+      Title
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "black",
+            "fontFamily": "antoutline",
+            "fontSize": 15,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          undefined,
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View>
+    <Text
+      type="H4"
+    >
+      1
+    </Text>
+    <Text
+      type="H4"
+    >
+      2
+    </Text>
+    <Text
+      type="H4"
+    >
+      3
+    </Text>
+  </View>
+</View>
+`;

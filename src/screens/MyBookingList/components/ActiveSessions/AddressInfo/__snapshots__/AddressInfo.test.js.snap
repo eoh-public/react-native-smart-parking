@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test AddressInfo  render address info 1`] = `
+exports[`Test AddressInfo render address info 1`] = `
 <View
   style={
     Object {

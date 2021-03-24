@@ -8,7 +8,7 @@ import { Colors, Device } from '../../../configs';
 import { RowUser } from '../../RowUser';
 import { IconFill, IconOutline } from '@ant-design/icons-react-native';
 import { useEmeragencyContacts } from '../../../screens/EmergencyContacts/hook';
-import { useIsFocused } from '@react-navigation/core';
+import { useIsFocused } from '@react-navigation/native';
 import _ from 'lodash';
 
 const { standardizeHeight } = standardizeCameraScreenSize(

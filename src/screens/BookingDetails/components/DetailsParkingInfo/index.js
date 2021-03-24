@@ -5,11 +5,13 @@ import t from 'i18n';
 import Text from '../../../../commons/Text';
 import { Colors } from '../../../../configs';
 import { formatMoney } from '../../../../utils/Utils';
+import { TESTID } from '../../../../configs/Constants';
 
 import RowDetails from './RowDetails';
 
 const DetailsParkingInfo = memo(
   ({
+    id,
     extend_at,
     book_at,
     pay_at,
@@ -19,7 +21,6 @@ const DetailsParkingInfo = memo(
     service_fee,
     discount,
     total,
-    parking_id,
     payment_method,
   }) => {
     const timeFormat = 'LT - DD/MM/YYYY';
@@ -37,6 +38,7 @@ const DetailsParkingInfo = memo(
             {t('details')}
           </Text>
           <RowDetails
+            testID={TESTID.NUMBER_OF_HOUR_PARKING}
             title={`${num_of_hour_parking} ${hourUnit}`}
             value={[`${formatMoney(total)}`]}
           />
@@ -59,9 +61,13 @@ const DetailsParkingInfo = memo(
           />
         </View>
         <View style={styles.bottomContent}>
-          <RowDetails title={t('parking_id')} value={[`#${parking_id}`]} />
+          <RowDetails title={t('booking_id')} value={[`#${id}`]} />
           <RowDetails title={t('book_at')} value={[book_at_str]} />
-          <RowDetails title={t('pay_at')} value={[pay_at_str || 'Not paid']} />
+          <RowDetails
+            testID={TESTID.PAY_AT}
+            title={t('pay_at')}
+            value={[pay_at_str || t('not_paid')]}
+          />
           {extend_at.length > 0 && (
             <RowDetails title={t('extend_at')} value={extend_at_formated} />
           )}

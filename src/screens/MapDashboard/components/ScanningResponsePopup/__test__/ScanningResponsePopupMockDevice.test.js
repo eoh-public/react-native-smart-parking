@@ -18,9 +18,9 @@ jest.mock('react-native/Libraries/Linking/Linking', () => ({
   openURL: mockedLinkingOpenUrl,
 }));
 
-jest.mock('configs/Device', () => {
+jest.mock('../../../../../configs/Device', () => {
   return {
-    ...jest.mock('configs/Device'),
+    ...jest.mock('../../../../../configs/Device'),
     isIphoneX: false,
   };
 });

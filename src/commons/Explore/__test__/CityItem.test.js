@@ -3,7 +3,7 @@ import renderer, { act } from 'react-test-renderer';
 import CityItem from '../CityItem';
 import { TouchableOpacity } from 'react-native';
 import axios from 'axios';
-import { API } from 'configs';
+import { API } from '../../../configs';
 import Pin from '../../../../assets/images/Explore/Pin.svg';
 import PinOutline from '../../../../assets/images/Explore/PinOutline.svg';
 

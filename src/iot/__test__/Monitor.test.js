@@ -54,16 +54,16 @@ describe('Test Monitor IoT Config', () => {
     expect(channel.bind).not.toBeCalled();
   });
 
-  it('Seconds watch will not call anything', async () => {
+  it('Seconds watch will not call subscribe', async () => {
     await watchMultiConfigs([1]);
 
-    axios.post.mockClear();
+    pusher.subscribe.mockClear();
     await watchMultiConfigs([1]);
-    expect(axios.post).toBeCalledTimes(0);
+    expect(pusher.subscribe).toBeCalledTimes(0);
 
-    axios.post.mockClear();
+    pusher.subscribe.mockClear();
     await watchMultiConfigs([1, 2]);
-    expect(axios.post).toBeCalledTimes(1);
+    expect(pusher.subscribe).toBeCalledTimes(1);
   });
 
   it('Update global config when new value come', async () => {

@@ -17,7 +17,7 @@ const { standardizeWidth, standardizeHeight } = standardizeCameraScreenSize(
   Device.screenWidth - 32
 );
 
-const ShortDetailSubUnit = ({ unit, station, fetchQuickAction }) => {
+const ShortDetailSubUnit = ({ unit, station }) => {
   const navigation = useNavigation();
 
   const goToDetail = () => {
@@ -67,7 +67,7 @@ const ShortDetailSubUnit = ({ unit, station, fetchQuickAction }) => {
         testID={TESTID.SUB_UNIT_GO_TO_DETAIL}
       >
         <View style={styles.boxTitle}>
-          <Text semibold style={styles.nameSubUnit}>
+          <Text type="H4" semibold style={styles.nameSubUnit}>
             {station.name}&nbsp;&nbsp;
             <Text regular style={styles.numberDevices}>
               {station.sensors ? station.sensors.length : 0} {t('devices')}
@@ -92,7 +92,6 @@ const ShortDetailSubUnit = ({ unit, station, fetchQuickAction }) => {
               title={sensor.name}
               index={index}
               sensor={sensor}
-              fetchQuickAction={fetchQuickAction}
               unit={unit}
               station={station}
             />
@@ -107,7 +106,8 @@ const styles = StyleSheet.create({
     fontStyle: 'normal',
     fontWeight: '600',
     fontSize: 20,
-    lineHeight: 28,
+    lineHeight: 30,
+    padding: 5,
   },
   numberDevices: {
     fontStyle: 'normal',

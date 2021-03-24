@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test ItemInfo  render item info with plate number value 1`] = `
+exports[`Test ItemInfo render item info with plate number value 1`] = `
 <View
   style={
     Object {

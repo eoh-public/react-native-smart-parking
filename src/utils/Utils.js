@@ -82,6 +82,10 @@ export const openMapDirection = (item) => () => {
 
 export const ToastBottomHelper = {
   success: (msg) => {
+    if (!Toast._ref) {
+      return;
+    }
+
     Toast.show({
       type: 'success',
       position: 'bottom',
@@ -90,6 +94,10 @@ export const ToastBottomHelper = {
     });
   },
   error: (msg) => {
+    if (!Toast._ref) {
+      return;
+    }
+
     Toast.show({
       type: 'error',
       position: 'bottom',

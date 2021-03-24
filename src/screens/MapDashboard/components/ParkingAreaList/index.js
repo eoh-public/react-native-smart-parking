@@ -9,24 +9,22 @@ import t from 'i18n';
 import { Colors, Device } from '../../../../configs';
 import Text from '../../../../commons/Text';
 import ParkingInfo from '../ParkingInfo';
-
+import SvgDirection from '../../../../../assets/images/SmartParking/direction.svg';
+import SvgBookmarkGreen from '../../../../../assets/images/SmartParking/bookmark-green.svg';
+import SvgBookmarkGreenFill from '../../../../../assets/images/SmartParking/bookmark-green-fill.svg';
 import Routes from '../../../../utils/Route';
 import { openMapDirection } from '../../../../utils/Utils';
 import { Button } from '../../../../commons';
 import { TESTID } from '../../../../configs/Constants';
 
-import SvgDirection from '../../../../../assets/images/SmartParking/direction.svg';
-import SvgBookmarkGreen from '../../../../../assets/images/SmartParking/bookmark-green.svg';
-import SvgBookmarkGreenFill from '../../../../../assets/images/SmartParking/bookmark-green-fill.svg';
-
 let screenWidth = Device.screenWidth;
 
 const ParkingAreaList = ({
-  parkingAreas,
-  onSaveParking,
-  onUnsaveParking,
-  indexParking,
-  onSnapToIndex,
+ parkingAreas,
+ onSaveParking,
+ onUnsaveParking,
+ indexParking,
+ onSnapToIndex,
 }) => {
   const carousel = useRef();
   const debounce = useRef();
@@ -47,7 +45,6 @@ const ParkingAreaList = ({
       }
     }
   }, [indexParking, parkingAreas]);
-
   const { navigate } = useNavigation();
   const renderItem = useCallback(
     ({ item, index }) => {

@@ -6,6 +6,7 @@ import {
   NativeModules,
 } from 'react-native';
 import t from 'i18n';
+import { useNavigation } from '@react-navigation/native';
 
 import { Theme, Colors, Constants } from '../../../../configs';
 import { TESTID } from '../../../../configs/Constants';
@@ -13,7 +14,6 @@ import Text from '../../../../commons/Text';
 import { openMapDirection } from '../../../../utils/Utils';
 
 import { bookingStatus } from '../BookingHistory/BookingHistoryItem';
-import { useNavigation } from '@react-navigation/native';
 
 const ButtonTextBottomView = memo(
   ({

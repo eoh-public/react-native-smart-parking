@@ -149,12 +149,11 @@ const BookingDetails = memo(({ route }) => {
 
   const navigateBookingSuccess = useCallback(
     (bookingId, from) => {
-      ToastBottomHelper.success(t('extend_success'));
-      // if (from === 'extend') {
-      //   ToastBottomHelper.success(t('extend_success'));
-      // } else {
-      //   setshowButtonPopup(true);
-      // }
+      if (from === 'extend') {
+        ToastBottomHelper.success(t('extend_success'));
+      } else {
+        setshowButtonPopup(true);
+      }
       navigate(Routes.SmartParkingBookingDetails, { id: bookingId });
     },
     [navigate]

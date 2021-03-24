@@ -41,7 +41,7 @@ describe('Test saved parking', () => {
     });
     expect(mockFunc).toHaveBeenCalled();
   });
-  test('create render saved parking list is_saved: false ', () => {
+  test('create render saved parking list is_saved: false', () => {
     const notSaveList = [
       {
         address:

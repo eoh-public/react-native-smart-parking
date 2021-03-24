@@ -1,5 +1,6 @@
 import { BleManager } from 'react-native-ble-plx';
 import Toast from 'react-native-toast-message';
+import '../Bluetooth';
 import {
   scanBluetoothDevices,
   clearNeedToScanDevices,
@@ -7,6 +8,7 @@ import {
   SEND_COMMAND_OVER_BLUETOOTH_FAIL,
   clearFoundDevices,
 } from '../Bluetooth';
+import { t } from 'i18n-js';
 
 const bleManager = new BleManager();
 
@@ -23,10 +25,32 @@ describe('Test IOT Bluetooth', () => {
     clearFoundDevices();
     clearNeedToScanDevices();
   });
+
   test('When bluetooth is powered on, user get notification', async () => {
     const onStateChangeFn = bleManager.onStateChangeFn;
     onStateChangeFn('PoweredOn');
-    expect(Toast.show).toBeCalled();
+    expect(Toast.show).toBeCalledWith({
+      type: 'success',
+      position: 'bottom',
+      text1: t('text_ble_is_powered_on'),
+      visibilityTime: 1000,
+    });
+  });
+
+  test('When bluetooth is powered on but Toast not ready, user does not get notification', async () => {
+    const onStateChangeFn = bleManager.onStateChangeFn;
+    Toast._ref = null;
+
+    onStateChangeFn('PoweredOn');
+    expect(Toast.show).not.toBeCalled();
+
+    Toast._ref = true;
+  });
+
+  test('When bluetooth is powered off, user does not get notification', async () => {
+    const onStateChangeFn = bleManager.onStateChangeFn;
+    onStateChangeFn('PoweredOff');
+    expect(Toast.show).not.toBeCalled();
   });
 
   test('Scan bluetooth device will init hardware scan', async () => {
@@ -52,6 +76,71 @@ describe('Test IOT Bluetooth', () => {
     jest.runAllTimers();
     expect(bleManager.stopDeviceScan).toBeCalled();
   });
+
+  test('When search bluetooth then hardware also search for local name', async () => {
+    const device = {
+      localName: '123456',
+    };
+    bleManager.startDeviceScan.mockImplementation(
+      (uuids, options, listener) => {
+        listener(null, device);
+      }
+    );
+
+    scanBluetoothDevices([device.localName]);
+    expect(Toast.show).toBeCalledWith({
+      type: 'success',
+      position: 'bottom',
+      text1: t('Found bluetooth %{name} for remote control', {
+        name: device.localName,
+      }),
+      visibilityTime: 1000,
+    });
+  });
+
+  test('When search bluetooth has error then program does nothing', async () => {
+    const device = {
+      name: '123456',
+    };
+
+    bleManager.startDeviceScan.mockImplementation(
+      (uuids, options, listener) => {
+        listener('Something wrong', null);
+      }
+    );
+
+    scanBluetoothDevices([device.name]);
+    expect(Toast.show).not.toBeCalled();
+  });
+
+  test('When search bluetooth but found another device then program does nothing', async () => {
+    const device = {
+      name: '123456',
+    };
+
+    bleManager.startDeviceScan.mockImplementation(
+      (uuids, options, listener) => {
+        listener(null, device);
+      }
+    );
+
+    scanBluetoothDevices([device.name + 'x']);
+    expect(Toast.show).not.toBeCalled();
+  });
+
+  test('When not found all bluetooth then hardware will continue scan', async () => {
+    const device = {
+      name: '123456',
+    };
+    bleManager.startDeviceScan.mockImplementation(
+      (uuids, options, listener) => {
+        listener(null, device);
+      }
+    );
+    scanBluetoothDevices([device.name, device.name + 'x']);
+    expect(bleManager.stopDeviceScan).not.toBeCalled();
+  });
+
   test('When found all bluetooth then hardware will be stop', async () => {
     const device = {
       name: '123456',
@@ -120,7 +209,9 @@ describe('Test IOT Bluetooth', () => {
 
     await sendCommandBluetoothFail({
       remote_control_options: {
-        bluetooth: device.name,
+        bluetooth: {
+          address: device.name,
+        },
       },
     });
   });

@@ -3,7 +3,7 @@ import renderer, { act } from 'react-test-renderer';
 import RowTimeParking from './RowTimeParking';
 import { Colors } from '../../../../../configs';
 
-describe('Test RowTimeParking ', () => {
+describe('Test RowTimeParking', () => {
   const leftText = 'left text';
   const rightText = 'right text';
   let tree;

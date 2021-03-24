@@ -2,7 +2,7 @@ import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import ItemParkingSession from './ItemParkingSession';
 
-describe('Test ItemParkingSession ', () => {
+describe('Test ItemParkingSession', () => {
   const parking_hours = 'parking_hours';
 
   let tree;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test ItemParkingSession  render item parking session 1`] = `
+exports[`Test ItemParkingSession render item parking session 1`] = `
 <View
   style={
     Object {
@@ -47,7 +47,7 @@ exports[`Test ItemParkingSession  render item parking session 1`] = `
 </View>
 `;
 
-exports[`Test ItemParkingSession  render item parking session with isPrimary 1`] = `
+exports[`Test ItemParkingSession render item parking session with isPrimary 1`] = `
 <View
   style={
     Object {
