@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import Modal from 'react-native-modal';
 import { useNavigation } from '@react-navigation/native';
 import { Icon } from '@ant-design/react-native';
-import {t} from 'i18n-js';;
+import { t } from 'i18n-js';
 
 import { Colors, Device } from '../../../../configs';
 import Text from '../../../../commons/Text';

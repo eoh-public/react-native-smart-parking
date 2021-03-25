@@ -5,7 +5,7 @@ import {
   StyleSheet,
   NativeModules,
 } from 'react-native';
-import {t} from 'i18n-js';;
+import { t } from 'i18n-js';
 import { useNavigation } from '@react-navigation/native';
 
 import { Theme, Colors, Constants } from '../../../../configs';

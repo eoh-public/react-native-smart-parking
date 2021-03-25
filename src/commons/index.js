@@ -37,5 +37,5 @@ export {
   Alert,
   MenuActionMore,
   ImageButton,
-  MenuActionAddnew
+  MenuActionAddnew,
 };

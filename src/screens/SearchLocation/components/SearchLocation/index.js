@@ -2,7 +2,7 @@ import React, { memo, useCallback, useRef, useState, useEffect } from 'react';
 import { StyleSheet, View, TouchableOpacity, TextInput } from 'react-native';
 import { IconOutline } from '@ant-design/icons-react-native';
 import { useNavigation } from '@react-navigation/native';
-import {t} from 'i18n-js';;
+import { t } from 'i18n-js';
 
 import { Colors, Fonts } from '../../../../configs';
 import { TESTID } from '../../../../configs/Constants';

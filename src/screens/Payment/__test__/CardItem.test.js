@@ -4,7 +4,10 @@ import { act, create } from 'react-test-renderer';
 import Text from '../../../commons/Text';
 import CardItem from '../CardItem';
 import PaymentIconInfo from '../components/PaymentIconInfo';
-import { SvgMasterCard, SvgVisaCard } from '../../../../assets/images/SmartParking';
+import {
+  SvgMasterCard,
+  SvgVisaCard,
+} from '../../../../assets/images/SmartParking';
 
 describe('test CardItem', () => {
   let tree;

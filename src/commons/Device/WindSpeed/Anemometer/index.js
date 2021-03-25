@@ -6,7 +6,7 @@ import Animated from 'react-native-reanimated';
 import {
   drawArc,
   polarToCartesian,
-} from '../../../../screens/UnitSummary/components/AirQuality/SegmentedRoundDisplay/helper';
+} from '../../../UnitSummary/AirQuality/SegmentedRoundDisplay/helper';
 import { Colors, Fonts } from '../../../../configs';
 
 const { PI } = Math;

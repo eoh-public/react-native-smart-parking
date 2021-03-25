@@ -3,7 +3,7 @@ import { ScrollView, View, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useIsFocused } from '@react-navigation/native';
 import { Icon } from '@ant-design/react-native';
-import {t} from 'i18n-js';;
+import { t } from 'i18n-js';
 
 import { Colors, API } from '../../configs';
 import { getStatusBarHeight, TESTID } from '../../configs/Constants';

@@ -5,7 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 import { Colors, Device, Images } from '../../configs';
 import Text from '../Text';
-import HeaderUnit from '../../screens/Unit/components/HeaderUnit';
+import HeaderUnit from '../Unit/HeaderUnit';
 
 const stickyHeaderHeight =
   Device.TopbarHeight + (Device.isIOS ? 0 : StatusBar.currentHeight);

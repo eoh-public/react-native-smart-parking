@@ -1,7 +1,7 @@
 import React, { memo, useCallback, useEffect, useState } from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import { Icon } from '@ant-design/react-native';
-import {t} from 'i18n-js';;
+import { t } from 'i18n-js';
 
 import { Colors } from '../../../../configs';
 import Text from '../../../../commons/Text';

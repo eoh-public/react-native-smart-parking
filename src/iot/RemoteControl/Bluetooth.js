@@ -1,5 +1,5 @@
 import { BLE } from '../../configs';
-import {t} from 'i18n-js';;
+import { t } from 'i18n-js';
 import base64 from 'react-native-base64';
 import { BleManager } from 'react-native-ble-plx';
 import { ToastBottomHelper } from '../../utils/Utils';

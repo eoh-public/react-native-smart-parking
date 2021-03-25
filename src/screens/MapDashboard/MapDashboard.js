@@ -21,7 +21,7 @@ import {
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import { useIsFocused, useNavigation } from '@react-navigation/native';
-import {t} from 'i18n-js';;
+import { t } from 'i18n-js';
 
 import { ButtonPopup, CircleButton, FullLoading } from '../../commons';
 import ParkingAreaList from './components/ParkingAreaList';

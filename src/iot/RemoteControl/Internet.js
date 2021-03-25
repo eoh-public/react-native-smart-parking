@@ -1,4 +1,4 @@
-import {t} from 'i18n-js';;
+import { t } from 'i18n-js';
 
 import { ToastBottomHelper } from '../../utils/Utils';
 import { axiosPost } from '../../utils/Apis/axios';

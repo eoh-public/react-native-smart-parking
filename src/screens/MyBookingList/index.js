@@ -2,7 +2,7 @@ import React, { memo, useState, useCallback, useEffect, useMemo } from 'react';
 import { View, StyleSheet, AppState } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 import { getBottomSpace } from 'react-native-iphone-x-helper';
-import {t} from 'i18n-js';;
+import { t } from 'i18n-js';
 
 import { Colors } from '../../configs';
 import { heightHeader } from '../../commons/HeaderAni';

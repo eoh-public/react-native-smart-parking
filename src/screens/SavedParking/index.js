@@ -1,7 +1,7 @@
 import React, { memo, useCallback, useEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useDispatch } from 'react-redux';
-import {t} from 'i18n-js';;
+import { t } from 'i18n-js';
 
 import { setNewSavedParking } from '../../redux/Actions/notifications';
 import { Colors } from '../../configs';

@@ -2,7 +2,7 @@ import React, { memo, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import moment from 'moment';
-import {t} from 'i18n-js';;
+import { t } from 'i18n-js';
 
 import Text from '../../../../commons/Text';
 import { Colors, API } from '../../../../configs';
@@ -11,12 +11,12 @@ import { formatMoney } from '../../../../utils/Utils';
 import { axiosGet } from '../../../../utils/Apis/axios';
 import { getCurrentLatLng } from '../../../../utils/CountryUtils';
 import Routes from '../../../../utils/Route';
-import {
-  ParkingStatusBar,
-  RowItem,
-} from '../ParkingDetail';
+import { ParkingStatusBar, RowItem } from '../ParkingDetail';
 import { ExpandView } from '../../../../commons';
-import { SvgParking, SvgNavigate } from '../../../../../assets/images/SmartParking';
+import {
+  SvgParking,
+  SvgNavigate,
+} from '../../../../../assets/images/SmartParking';
 import { IconOutline } from '@ant-design/icons-react-native';
 import { TESTID } from '../../../../configs/Constants';
 

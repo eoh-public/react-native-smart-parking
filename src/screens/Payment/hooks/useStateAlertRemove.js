@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import {t} from 'i18n-js';;
+import { t } from 'i18n-js';
 
 export const useStateAlertRemove = () => {
   const [stateAlertRemove, setStateAlertRemove] = useState({

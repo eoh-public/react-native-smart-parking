@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { StyleSheet, View } from 'react-native';
-import {t} from 'i18n-js';;
+import { t } from 'i18n-js';
 import { IconOutline } from '@ant-design/icons-react-native';
 
 import Text from '../../../../commons/Text';

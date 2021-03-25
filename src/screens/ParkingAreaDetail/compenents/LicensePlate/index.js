@@ -6,7 +6,10 @@ import { t } from 'i18n-js';
 import { Colors } from '../../../../configs';
 import Text from '../../../../commons/Text';
 import { ButtonSaveVehicle } from '../ParkingDetail';
-import { SvgCar, SvgCarDisable } from '../../../../../assets/images/SmartParking';
+import {
+  SvgCar,
+  SvgCarDisable,
+} from '../../../../../assets/images/SmartParking';
 
 import Routes from '../../../../utils/Route';
 import { TESTID } from '../../../../configs/Constants';

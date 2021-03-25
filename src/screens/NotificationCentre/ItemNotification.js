@@ -4,7 +4,7 @@ import FastImage from 'react-native-fast-image';
 import { IconOutline } from '@ant-design/icons-react-native';
 import { useNavigation } from '@react-navigation/native';
 import moment from 'moment';
-import {t} from 'i18n-js';;
+import { t } from 'i18n-js';
 
 import Text from '../../commons/Text';
 import Routes from '../../utils/Route';

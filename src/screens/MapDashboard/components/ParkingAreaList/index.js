@@ -4,7 +4,7 @@ import FastImage from 'react-native-fast-image';
 import Carousel from 'react-native-snap-carousel';
 import { useNavigation } from '@react-navigation/native';
 import { IconOutline } from '@ant-design/icons-react-native';
-import {t} from 'i18n-js';;
+import { t } from 'i18n-js';
 
 import { Colors, Device } from '../../../../configs';
 import Text from '../../../../commons/Text';
@@ -20,11 +20,11 @@ import { TESTID } from '../../../../configs/Constants';
 let screenWidth = Device.screenWidth;
 
 const ParkingAreaList = ({
- parkingAreas,
- onSaveParking,
- onUnsaveParking,
- indexParking,
- onSnapToIndex,
+  parkingAreas,
+  onSaveParking,
+  onUnsaveParking,
+  indexParking,
+  onSnapToIndex,
 }) => {
   const carousel = useRef();
   const debounce = useRef();

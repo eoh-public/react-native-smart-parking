@@ -1,5 +1,5 @@
 import moment from 'moment';
-import {t} from 'i18n-js';;
+import { t } from 'i18n-js';
 
 const { transformDatetime, timeDifference } = require('../time');
 

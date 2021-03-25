@@ -3,7 +3,7 @@ import { act, create } from 'react-test-renderer';
 import { useIsFocused } from '@react-navigation/native';
 import axios from 'axios';
 import Toast from 'react-native-toast-message';
-import {t} from 'i18n-js';;
+import { t } from 'i18n-js';
 import stripe from '@agaweb/react-native-stripe';
 
 import { API } from '../../../../configs';
