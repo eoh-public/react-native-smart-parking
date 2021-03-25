@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Image, StyleSheet, Animated, ScrollView } from 'react-native';
 import { IconOutline } from '@ant-design/icons-react-native';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 
 import { Colors, Images } from '../../../../configs';
 import Text from '../../../../commons/Text';

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, memo, useCallback } from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 
 import Text from '../../commons/Text';
 import { Colors } from '../../configs';

@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import moment from 'moment';
 import axios from 'axios';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 import Config from 'react-native-config';
 import { useNavigation } from '@react-navigation/native';
 

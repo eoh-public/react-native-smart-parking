@@ -2,7 +2,7 @@ import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useCountDown } from '../../../../hooks/SmartParking';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 import moment from 'moment';
 
 import { Colors, AppRNConfig } from '../../../../configs';

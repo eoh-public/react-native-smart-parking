@@ -1,7 +1,7 @@
 import React, { memo, useCallback, useState } from 'react';
 import { StyleSheet, View, Dimensions } from 'react-native';
 import moment from 'moment';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 
 import { Colors } from '../../configs';
 import Text from '../../commons/Text';

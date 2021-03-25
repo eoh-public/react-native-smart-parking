@@ -1,7 +1,7 @@
 import React, { memo, useCallback, useMemo, useState } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { IconOutline } from '@ant-design/icons-react-native';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 
 import { Colors } from '../../../../configs';
 import { Section } from '../../../../commons';

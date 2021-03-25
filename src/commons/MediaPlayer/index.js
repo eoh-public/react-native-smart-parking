@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { VLCPlayer } from 'react-native-vlc-media-player';
-import t from 'i18n';
+import { t } from 'i18n-js';
 import { Colors } from '../../configs';
 
 const MediaPlayer = memo(({ uri, previewUri, style }) => {

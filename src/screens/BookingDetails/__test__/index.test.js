@@ -7,7 +7,7 @@ import BookingDetails from '../index';
 import { API } from '../../../configs';
 import { useIsFocused } from '@react-navigation/native';
 import moment from 'moment';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 import { TESTID } from '../../../configs/Constants';
 
 let mockGoBackGlobal;

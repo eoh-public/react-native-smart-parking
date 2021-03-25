@@ -2,7 +2,7 @@ import React, { memo, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import moment from 'moment';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 
 import Text from '../../../../commons/Text';
 import { Colors, API } from '../../../../configs';

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import Svg, { G, Text, Path } from 'react-native-svg';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 
 import { Colors } from '../../../../../configs';
 import TextCustom from '../../../../../commons/Text';

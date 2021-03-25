@@ -3,7 +3,7 @@ import React, { memo } from 'react';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { t } from 'i18n-js';
 
-import { Colors } from 'configs';
+import { Colors } from '../../../configs';
 import Text from '../../../commons/Text';
 import { CustomCheckbox } from '../../../commons';
 import {

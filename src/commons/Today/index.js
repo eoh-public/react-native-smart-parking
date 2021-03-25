@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import moment from 'moment';
-import t from 'i18n';
+import { t } from 'i18n-js';
 import i18n from 'i18n-js';
 
 import { Colors } from '../../configs';

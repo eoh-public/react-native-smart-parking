@@ -1,6 +1,6 @@
 import React from 'react';
 import Svg, { Text } from 'react-native-svg';
-import t from 'i18n';
+import { t } from 'i18n-js';
 
 const ChartLoading = ({ message }) => {
   return (

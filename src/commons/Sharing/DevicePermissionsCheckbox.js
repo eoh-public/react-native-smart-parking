@@ -1,6 +1,6 @@
 import React, { memo, useState, useCallback } from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
-import t from 'i18n';
+import { t } from 'i18n-js';
 import RadioCircle from '../RadioCircle';
 import Text from '../Text';
 import { Colors } from '../../configs';

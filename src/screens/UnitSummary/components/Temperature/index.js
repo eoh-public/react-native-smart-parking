@@ -1,6 +1,6 @@
 import React, { memo, useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 
 import { Colors } from '../../../../configs';
 import { Section, Today } from '../../../../commons';

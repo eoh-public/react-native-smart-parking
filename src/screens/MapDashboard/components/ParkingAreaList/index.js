@@ -4,7 +4,7 @@ import FastImage from 'react-native-fast-image';
 import Carousel from 'react-native-snap-carousel';
 import { useNavigation } from '@react-navigation/native';
 import { IconOutline } from '@ant-design/icons-react-native';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 
 import { Colors, Device } from '../../../../configs';
 import Text from '../../../../commons/Text';

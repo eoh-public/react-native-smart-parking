@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon } from '@ant-design/react-native';
 import { Image, StyleSheet, View, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import t from 'i18n';
+import { t } from 'i18n-js';
 
 import { Colors, Images, Device } from '../../configs';
 import { TESTID } from '../../configs/Constants';

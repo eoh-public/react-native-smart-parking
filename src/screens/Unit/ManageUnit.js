@@ -9,7 +9,7 @@ import {
 import { useDispatch } from 'react-redux';
 import Modal from 'react-native-modal';
 import Animated from 'react-native-reanimated';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 
 import { Colors, API, Device } from '../../configs';
 import { deleteUnitSuccess, manageUnitSuccess } from '../../redux/Actions/dashboard';

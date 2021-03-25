@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 
 import BookingHistory from '../index';
 import { Text } from 'react-native';

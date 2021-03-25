@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { Image, StatusBar, View, StyleSheet } from 'react-native';
-import ParallaxScrollView from '@libs/react-native-parallax-scroll-view';
+import ParallaxScrollView from '../../libs/react-native-parallax-scroll-view';
 import LinearGradient from 'react-native-linear-gradient';
 
 import { Colors, Device, Images } from '../../configs';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { act, create } from 'react-test-renderer';
 import moment from 'moment';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 
 import DetailsParkingInfo from '../index';
 import { TESTID } from '../../../../../configs/Constants';

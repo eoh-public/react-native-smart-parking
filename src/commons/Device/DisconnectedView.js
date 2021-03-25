@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { IconOutline } from '@ant-design/icons-react-native';
-import t from 'i18n';
+import { t } from 'i18n-js';
 
 import { Colors } from '../../configs';
 import { CircleView } from '../../commons';

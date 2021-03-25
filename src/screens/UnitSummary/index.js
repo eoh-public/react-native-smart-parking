@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native';
 import { IconOutline } from '@ant-design/icons-react-native';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 
 import { API, Colors } from '../../configs';
 import Routes from '../../utils/Route';

@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import Modal from 'react-native-modal';
-import t from 'i18n';
+import { t } from 'i18n-js';
 
 import { Colors } from '../../configs';
 import Text from '../Text';

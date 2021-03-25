@@ -7,7 +7,7 @@ import { Section, Today } from '../../../../commons';
 import ListQualityIndicator from '../../../../commons/Device/WaterQualitySensor/ListQualityIndicator';
 import PMSensorIndicatior from '../../../../commons/Device/PMSensor/PMSensorIndicatior';
 import ConfigHistoryChart from '../ConfigHistoryChart';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 import HistoryChart from '../../../../commons/Device/HistoryChart';
 import { axiosGet } from '../../../../utils/Apis/axios';
 import { TESTID } from '../../../../configs/Constants';

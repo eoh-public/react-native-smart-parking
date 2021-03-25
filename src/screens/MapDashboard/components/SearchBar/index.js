@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { IconOutline, IconFill } from '@ant-design/icons-react-native';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 import { useSelector } from 'react-redux';
 
 import { Colors, Device } from '../../../../configs';

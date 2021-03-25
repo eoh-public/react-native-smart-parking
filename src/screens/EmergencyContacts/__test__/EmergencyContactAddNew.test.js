@@ -2,7 +2,7 @@ import React from 'react';
 import { TextInput } from 'react-native';
 import { act, create } from 'react-test-renderer';
 import { EmergencyContactsAddNew } from '../EmergencyContactsAddNew';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 import axios from 'axios';
 import Toast from 'react-native-toast-message';
 import { ViewButtonBottom } from '../../../commons';

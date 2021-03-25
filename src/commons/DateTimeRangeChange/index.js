@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import t from 'i18n';
+import { t } from 'i18n-js';
 import { StyleSheet, View } from 'react-native';
 
 import { Colors } from '../../configs';

@@ -16,7 +16,7 @@ import {
   useIsOwnerOfUnit,
   usePopover,
 } from '../../hooks/Common';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 import AddDeviceIcon from '../../../assets/images/Popover/Dashboard/AddDevice.svg';
 import AddMemberIcon from '../../../assets/images/Popover/Dashboard/AddMember.svg';
 import AddSubUnitIcon from '../../../assets/images/Popover/Dashboard/AddSubUnit.svg';

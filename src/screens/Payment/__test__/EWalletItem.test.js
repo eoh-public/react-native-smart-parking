@@ -4,7 +4,7 @@ import { act, create } from 'react-test-renderer';
 import Text from '../../../commons/Text';
 import EWalletItem from '../EWalletItem';
 import PaymentIconInfo from '../components/PaymentIconInfo';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 
 describe('test EWalletItem', () => {
   let tree;

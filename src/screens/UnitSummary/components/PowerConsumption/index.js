@@ -1,6 +1,6 @@
 import React, { memo, useMemo, useEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 import moment from 'moment';
 import { API, Colors } from '../../../../configs';
 import Text from '../../../../commons/Text';

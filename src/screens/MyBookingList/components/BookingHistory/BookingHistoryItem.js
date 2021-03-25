@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 
 import { Colors } from '../../../../configs';
 import AddressInfo from '../ActiveSessions/AddressInfo/AddressInfo';

@@ -6,7 +6,7 @@ import { SCANNING_STATUS, TESTID } from '../../../../../configs/Constants';
 import { act, create } from 'react-test-renderer';
 import ScanningResponsePopup from '..';
 import Text from '../../../../../commons/Text';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 import { Colors } from '../../../../../configs';
 import Routes from '../../../../../utils/Route';
 

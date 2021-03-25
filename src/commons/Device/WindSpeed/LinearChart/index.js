@@ -6,7 +6,7 @@ import {
   VictoryScatter,
   VictoryTooltip,
 } from 'victory-native';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 
 import { Colors } from '../../../../configs';
 import ChartLoading from '../../../ChartLoading';

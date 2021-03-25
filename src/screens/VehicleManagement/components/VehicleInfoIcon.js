@@ -2,7 +2,7 @@ import React, { memo, useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { IconFill } from '@ant-design/icons-react-native';
 import { Icon } from '@ant-design/react-native';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 
 import { Colors } from '../../../configs';
 import Text from '../../../commons/Text';

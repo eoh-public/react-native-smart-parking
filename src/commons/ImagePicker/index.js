@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from 'react';
 import { Platform, PermissionsAndroid } from 'react-native';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
-import t from 'i18n';
+import { t } from 'i18n-js';
 
 import ButtonPopup from '../ButtonPopup';
 

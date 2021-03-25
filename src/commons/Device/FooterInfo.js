@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import Text from '../Text';
 import { Colors } from '../../configs';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 
 const FooterInfo = memo(({ data }) => {
   return (

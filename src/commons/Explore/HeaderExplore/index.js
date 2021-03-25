@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
-import t from 'i18n';
+import { t } from 'i18n-js';
 import Theme from '../../../configs/Theme';
 
 import { Colors } from '../../../configs';

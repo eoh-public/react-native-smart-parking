@@ -1,6 +1,6 @@
 import React, { Fragment, useCallback } from 'react';
 import { View, Image, TouchableOpacity } from 'react-native';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 import { IconOutline, IconFill } from '@ant-design/icons-react-native';
 
 import { API, Colors, Images } from '../../../../configs';

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, memo } from 'react';
 import { View, Animated, StyleSheet, Easing } from 'react-native';
 import Svg, { G, Path, Defs, ClipPath, Rect } from 'react-native-svg';
-import t from 'i18n';
+import { t } from 'i18n-js';
 
 import Text from '../../../Text';
 import { Colors } from '../../../../configs';

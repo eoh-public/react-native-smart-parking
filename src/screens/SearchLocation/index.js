@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { StyleSheet, FlatList, SafeAreaView } from 'react-native';
 import Config from 'react-native-config';
 import { useNavigation } from '@react-navigation/native';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 
 import { Colors, API } from '../../configs';
 import SearchBarLocation from './components/SearchLocation';

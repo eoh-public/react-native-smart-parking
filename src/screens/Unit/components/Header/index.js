@@ -3,7 +3,7 @@ import { Dimensions, View, TouchableOpacity, StyleSheet } from 'react-native';
 import Popover from 'react-native-popover-view';
 import Modal from 'react-native-modal';
 import { IconOutline } from '@ant-design/icons-react-native';
-import t from 'i18n';
+import {t} from 'i18n-js';;
 
 import { Colors } from '../../../../configs';
 import Text from '../../../../commons/Text';
