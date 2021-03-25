@@ -9,6 +9,7 @@
     "android",
     "index.js",
     "ios",
+    "src",
     "react-native-smart-parking.podspec"
   ],
   "scripts": {
@@ -20,9 +21,11 @@
     "baseUrl": "https://github.com/eohjsc/react-native-smart-parking"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "smart-parking",
+    "eoh"
   ],
-  "author": "Your Name <yourname@email.com>",
+  "author": "EoH JSC <system@eoh.io>",
   "license": "MIT",
   "licenseFilename": "LICENSE",
   "peerDependencies": {

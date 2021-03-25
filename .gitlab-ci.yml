@@ -1,0 +1,27 @@
+image: node:14.16.0
+
+stages:
+  - publish
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+    - vendor/
+
+publish-npm:
+  stage: publish
+  only:
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /Merge branch 'release\/bumpversion-\d+\.\d+\.\d+' into 'master'/
+  script:
+    - git fetch origin master
+    - apt list openssh-client -a
+    - eval $(ssh-agent -s)
+    - chmod 600 $GITHUB_DEPLOY_KEY
+    - ssh-add $GITHUB_DEPLOY_KEY
+    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > ~/.npmrc
+    - git remote add github git@github.com:eohjsc/react-native-smart-parking.git
+    - ssh -o StrictHostKeyChecking=no git@github.com || echo "Good"
+    - git push -f github origin/master:master
+    - npm publish
