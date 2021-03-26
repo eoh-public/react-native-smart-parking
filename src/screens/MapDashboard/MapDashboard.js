@@ -290,8 +290,8 @@ const MapDashboard = memo(({ route }) => {
       } else {
         return (
           <Marker
-            testID={TESTID.PARKING_MARKER}
-            key={index}
+            testID={`${TESTID.PARKING_MARKER}-${item.id}`}
+            key={item.id.toString()}
             onPress={() => onChoosingIndexParking(index)}
             coordinate={{ latitude: item.lat, longitude: item.lng }}
             anchor={{ x: 0.45, y: 0.5 }}

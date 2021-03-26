@@ -10,6 +10,7 @@
     "index.js",
     "ios",
     "src",
+    "assets",
     "react-native-smart-parking.podspec"
   ],
   "scripts": {
