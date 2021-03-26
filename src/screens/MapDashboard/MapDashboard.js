@@ -417,6 +417,7 @@ const MapDashboard = memo(({ route }) => {
       {loading && <FullLoading />}
       {enableMapview && !!currentLocation && (
         <MapView
+          testID={TESTID.MAP_VIEW}
           ref={mapRef}
           provider={PROVIDER_GOOGLE}
           initialRegion={{
@@ -429,6 +430,7 @@ const MapDashboard = memo(({ route }) => {
           {!activeSessions && renderMarkers(nearbyParkings)}
           {!!currentLocation && (
             <Marker
+              testID={TESTID.MARKER_CURRENT_LOCATION}
               coordinate={currentLocation}
               anchor={{ x: 0.45, y: 0.5 }}
               tracksViewChanges={false}
