@@ -46,7 +46,7 @@ const SearchBar = memo(
     }, [onClearDataParking]);
 
     return (
-      <View style={styles.container}>
+      <View style={styles.container} testID={TESTID.MAP_DASHBOARD_SEARCH_BAR}>
         <TouchableOpacity
           style={styles.buttonLeft}
           onPress={onPressMenu}

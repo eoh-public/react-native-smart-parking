@@ -5,6 +5,7 @@ import { Colors } from '../../configs';
 
 const CircleButton = memo(
   ({
+    testID,
     children,
     size,
     backgroundColor,
@@ -15,6 +16,7 @@ const CircleButton = memo(
     disabled,
   }) => (
     <TouchableOpacity
+      testID={testID}
       style={[
         {
           width: size,

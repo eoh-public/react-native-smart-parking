@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-native-modal';
 import { View, StyleSheet } from 'react-native';
 
+import { TESTID } from '../../configs/Constants';
 import Text from '../Text';
 
 import { Colors } from '../../configs';
@@ -73,6 +74,7 @@ class Alert extends React.Component {
         {this.state.buttons.map((item, index) => {
           return (
             <TextButton
+              testID={`${TESTID.TEXT_BUTTON}_${index}`}
               key={`item_${index}`}
               primary={item.primary}
               title={item.label}
