@@ -11,6 +11,7 @@ import { Colors } from '../../configs';
 import { colorOpacity } from '../../utils/Converter/color';
 
 const TextButton = ({
+  testID,
   onPress,
   title,
   primary,
@@ -21,6 +22,7 @@ const TextButton = ({
 }) => {
   return (
     <TouchableOpacity
+      testID={testID}
       disabled={loading}
       onPress={onPress}
       style={[styles.wrap, wrapStyle, primary && styles.primaryWrap]}

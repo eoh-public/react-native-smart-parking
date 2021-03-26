@@ -476,6 +476,7 @@ const MapDashboard = memo(({ route }) => {
       />
       <View style={styles.viewBottom} pointerEvents={'box-none'}>
         <CircleButton
+          testID={TESTID.BUTTON_PRESS_LOCATE}
           onPress={onPressCurrentLocation}
           size={56}
           backgroundColor={Colors.White}
