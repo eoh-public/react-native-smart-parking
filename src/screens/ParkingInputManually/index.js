@@ -127,6 +127,7 @@ const ParkingInputManually = memo(() => {
         contentContainerStyle={styles.contentContainerStyle}
         headerAniStyle={styles.scrollView}
         styleScrollView={styles.scrollView}
+        testID={TESTID.PARKING_INPUT_MANUALLY_PARKING_SPOT}
       >
         <View style={styles.content}>
           <SvgParkingSpot style={styles.svg} />
@@ -137,6 +138,7 @@ const ParkingInputManually = memo(() => {
             center
             style={styles.wrap}
             onLayout={onLayout}
+            testID={TESTID.PARKING_INPUT_MANUALLY_ENTER_PARKING_SPOT}
           >
             {t('enter_parking_spot_number')}
             <TouchableOpacity
@@ -148,6 +150,7 @@ const ParkingInputManually = memo(() => {
                 size={20}
                 color={Colors.Gray8}
                 style={styles.iconInfo}
+                testID={TESTID.PARKING_INPUT_MANUALLY_QUESTION_ICON}
               />
             </TouchableOpacity>
           </Text>
@@ -164,11 +167,20 @@ const ParkingInputManually = memo(() => {
               size={20}
               style={styles.icon}
             />
-            <Text type="H4" color={Colors.Gray8}>
+            <Text
+              testID={TESTID.PARKING_INPUT_MANUALLY_PARKING_AREA_TEXT}
+              type="H4"
+              color={Colors.Gray8}
+            >
               {t('parking_area')}
             </Text>
           </View>
-          <Text type={'Body'} color={Colors.Primary} numberOfLines={1}>
+          <Text
+            testID={TESTID.PARKING_INPUT_MANUALLY_PARKING_ADDRESS}
+            type={'Body'}
+            color={Colors.Primary}
+            numberOfLines={1}
+          >
             {parkingInfo.address}
           </Text>
         </View>
@@ -181,14 +193,33 @@ const ParkingInputManually = memo(() => {
             disabled={!parkingSpot}
             testID={TESTID.PARKING_SPOT_CONFIRM_SPOT}
           >
-            <IconOutline name={'arrow-right'} size={24} color={Colors.White} />
+            <IconOutline
+              testID={TESTID.PARKING_INPUT_MANUALLY_GO_NEXT_ICON}
+              name={'arrow-right'}
+              size={24}
+              color={Colors.White}
+            />
           </CircleButton>
         </View>
-        <Text center type="Body" color={Colors.Gray9}>
+        <Text
+          testID={TESTID.PARKING_INPUT_MANUALLY_SCAN_QR_CODE_NOTE}
+          center
+          type="Body"
+          color={Colors.Gray9}
+        >
           {t('or_scan_qr_code_to_confirm')}
         </Text>
-        <TouchableOpacity style={styles.scanButton} onPress={onPressScan}>
-          <Text type="H4" color={Colors.Orange} bold>
+        <TouchableOpacity
+          testID={TESTID.PARKING_INPUT_MANUALLY_SCAN_QR_CODE_BUTTON}
+          style={styles.scanButton}
+          onPress={onPressScan}
+        >
+          <Text
+            testID={TESTID.PARKING_INPUT_MANUALLY_SCAN_QR_CODE_TEXT}
+            type="H4"
+            color={Colors.Orange}
+            bold
+          >
             {t('scan_qr_code')}
           </Text>
         </TouchableOpacity>
@@ -232,6 +263,7 @@ const ParkingInputManually = memo(() => {
       >
         <View style={[styles.popoverStyle, styles.buttonShadow]}>
           <Text
+            testID={TESTID.PARKING_INPUT_MANUALLY_QUESTION_TEXT}
             type="Label"
             style={styles.textDescription}
             color={Colors.Gray8}
