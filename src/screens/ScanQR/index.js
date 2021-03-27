@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { ToastBottomHelper } from '../../utils/Utils';
 import { t } from 'i18n-js';
 import QRScan from './components/QRScan';
+import { TESTID } from '../../configs/Constants';
 
 const SMScanQR = memo(() => {
   const { goBack } = useNavigation();
@@ -52,7 +53,12 @@ const SMScanQR = memo(() => {
 
   return (
     <View style={styles.container}>
-      <QRScan onScan={onScan} loading={loading} setLoading={setLoading} />
+      <QRScan
+        testID={TESTID.SCAN_QR_CODE_SPOT}
+        onScan={onScan}
+        loading={loading}
+        setLoading={setLoading}
+      />
     </View>
   );
 });
