@@ -40,7 +40,7 @@ const VerifingQRCode = memo(() => {
   );
 });
 
-const QRScan = memo(({ onScan, loading, setLoading }) => {
+const QRScan = memo(({ testID, onScan, loading, setLoading }) => {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
   const onBarCodeRead = useCallback(
@@ -62,6 +62,7 @@ const QRScan = memo(({ onScan, loading, setLoading }) => {
       style={styles.preview}
       type={RNCamera.Constants.Type.back}
       onBarCodeRead={onBarCodeRead}
+      testID={testID}
     >
       {({ camera, status, recordAudioPermissionStatus }) => {
         if (status !== 'READY') {
