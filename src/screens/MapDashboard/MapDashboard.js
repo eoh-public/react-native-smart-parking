@@ -413,7 +413,7 @@ const MapDashboard = memo(({ route }) => {
   }, [onPressCurrentLocation]);
 
   return (
-    <View style={styles.wrap}>
+    <View style={styles.wrap} testID={TESTID.MAP_DASHBOARD_VIEW}>
       {loading && <FullLoading />}
       {enableMapview && !!currentLocation && (
         <MapView

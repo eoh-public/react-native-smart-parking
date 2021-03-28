@@ -30,8 +30,12 @@ const SearchBarLocation = memo(({ onTextInput }) => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.buttonLeft} onPress={goBack}>
-        <IconOutline name="left" size={24} />
+      <TouchableOpacity
+        style={styles.buttonLeft}
+        onPress={goBack}
+        testID={TESTID.SEARCH_BAR_BUTTON_LEFT}
+      >
+        <IconOutline name="left" size={24} accessibilityLabel="icon-left" />
       </TouchableOpacity>
       <TextInput
         style={styles.textInput}
@@ -46,11 +50,13 @@ const SearchBarLocation = memo(({ onTextInput }) => {
         disabled={!input}
         style={styles.buttonRight}
         onPress={onPressRight}
+        testID={TESTID.SEARCH_BAR_BUTTON_RIGHT}
       >
         <IconOutline
           name={input ? 'close' : 'search'}
           size={24}
           color={input ? Colors.Black : Colors.Gray6}
+          accessibilityLabel={input ? 'icon-close' : 'icon-search'}
         />
       </TouchableOpacity>
     </View>

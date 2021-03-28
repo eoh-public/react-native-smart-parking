@@ -5,6 +5,7 @@ import { IconOutline } from '@ant-design/icons-react-native';
 import { Colors } from '../../../../configs';
 import Text from '../../../../commons/Text';
 import { CircleView } from '../../../../commons';
+import { TESTID } from '../../../../configs/Constants';
 import { roundDecimal } from '../../../../utils/Number';
 
 const RowLocation = memo(({ item, fromApi, onPress }) => {
@@ -12,7 +13,10 @@ const RowLocation = memo(({ item, fromApi, onPress }) => {
     onPress && onPress(item);
   }, [item, onPress]);
   return (
-    <TouchableOpacity onPress={onPressItem}>
+    <TouchableOpacity
+      onPress={onPressItem}
+      testID={TESTID.SEARCH_LOCATION_ROW_ITEM}
+    >
       <View style={[styles.rowContainer, styles.paddingHorizontal]}>
         <CircleView
           size={32}
@@ -42,6 +46,7 @@ const RowLocation = memo(({ item, fromApi, onPress }) => {
             color={Colors.Gray8}
             style={styles.textDistance}
             numberOfLines={1}
+            testID={TESTID.SEARCH_BAR_KM_TEXT}
           >
             {item.distance_meters &&
               roundDecimal(item.distance_meters / 1000, 1, 'km')}
@@ -51,6 +56,7 @@ const RowLocation = memo(({ item, fromApi, onPress }) => {
             color={Colors.Gray8}
             style={styles.textAddress}
             numberOfLines={2}
+            testID={TESTID.SEARCH_BAR_FORMAT_ADDRESS}
           >
             {item.formatted_address}
           </Text>
