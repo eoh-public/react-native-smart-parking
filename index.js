@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Text } from 'react-native';
+import React from 'react';
 import { Provider } from 'react-redux';
-import { sagaMiddleware, store } from './src/redux/store';
-import sagas from './src/redux/Sagas';
 import App from './src/navigations';
+import sagas from './src/redux/Sagas';
+import { sagaMiddleware, store } from './src/redux/store';
+import 'src/utils/I18n/index';
 
 const SmartParking = (props) => {
   return (

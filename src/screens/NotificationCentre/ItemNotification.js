@@ -1,15 +1,15 @@
-import React, { memo, useCallback, useState } from 'react';
-import { View, StyleSheet, Platform, TouchableOpacity } from 'react-native';
-import FastImage from 'react-native-fast-image';
 import { IconOutline } from '@ant-design/icons-react-native';
 import { useNavigation } from '@react-navigation/native';
-import moment from 'moment';
 import { t } from 'i18n-js';
+import moment from 'moment';
+import React, { memo, useCallback, useMemo, useState } from 'react';
+import { Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
+import FastImage from 'react-native-fast-image';
 
 import Text from '../../commons/Text';
-import Routes from '../../utils/Route';
+import { API, Colors } from '../../configs';
 import { axiosPost } from '../../utils/Apis/axios';
-import { Colors, API } from '../../configs';
+import Routes from '../../utils/Route';
 
 const customColorText = (text, params, color) => {
   return text.split('**').map((str, i) =>
@@ -28,16 +28,20 @@ const customColorText = (text, params, color) => {
 const ItemNotification = memo(({ item, index }) => {
   const { id, content_code, is_read, params, created_at, icon } = item;
   const [isRead, setIsRead] = useState(is_read);
-  let arrParams = [];
-  const paramsJSON = JSON.parse(params.replace(/'/g, '"'));
-  Object.entries(paramsJSON).forEach(([key, value]) => {
-    arrParams.push(value);
-  });
+  let arrParams = useMemo(() => {
+    const values = [];
+    const paramsJSON = JSON.parse(params.replace(/'/g, '"'));
+    Object.entries(paramsJSON).forEach(([key, value]) => {
+      values.push(value);
+    });
+    return values;
+  }, [params]);
   const timeFormat = moment(created_at).format('LT DD/MM/YYYY');
 
   const navigation = useNavigation();
 
   const renderItem = useCallback(() => {
+    const paramsJSON = JSON.parse(params.replace(/'/g, '"'));
     const booking_id = paramsJSON.booking_id;
     switch (content_code) {
       case 'REMIND_TO_MAKE_PAYMENT':
@@ -124,7 +128,7 @@ const ItemNotification = memo(({ item, index }) => {
           redirect: () => navigation.navigate(Routes.MyBookingList),
         };
     }
-  }, [arrParams, content_code, navigation, paramsJSON.booking_id]);
+  }, [arrParams, content_code, navigation, params]);
 
   const { title, content, redirect } = renderItem();
 

@@ -20,7 +20,7 @@ Array [
       ]
     }
   >
-    [missing "en.parking_spot_number" translation]
+    Vị trí đỗ xe
   </Text>,
   <Text
     style={
@@ -40,7 +40,7 @@ Array [
       ]
     }
   >
-    [missing "en.sub_text_parking_spot_number" translation]
+    Vui lòng nhập chính xác số thứ tự tại vị trí đỗ xe của bạn để tiến hành đặt chỗ
   </Text>,
   <View
     style={

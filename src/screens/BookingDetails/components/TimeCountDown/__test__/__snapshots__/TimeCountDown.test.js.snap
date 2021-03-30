@@ -181,7 +181,7 @@ exports[`Test TimeCountDown render TimeCountDown 1`] = `
         ]
       }
     >
-      [missing "en.hour" translation]
+      giờ
     </Text>
   </View>
   <Text
@@ -370,7 +370,7 @@ exports[`Test TimeCountDown render TimeCountDown 1`] = `
         ]
       }
     >
-      [missing "en.minute" translation]
+      phút
     </Text>
   </View>
   <Text
@@ -559,7 +559,7 @@ exports[`Test TimeCountDown render TimeCountDown 1`] = `
         ]
       }
     >
-      [missing "en.second" translation]
+      giây
     </Text>
   </View>
 </View>
@@ -746,7 +746,7 @@ exports[`Test TimeCountDown render TimeCountDown timeLeft < 15 1`] = `
         ]
       }
     >
-      [missing "en.hour" translation]
+      giờ
     </Text>
   </View>
   <Text
@@ -935,7 +935,7 @@ exports[`Test TimeCountDown render TimeCountDown timeLeft < 15 1`] = `
         ]
       }
     >
-      [missing "en.minute" translation]
+      phút
     </Text>
   </View>
   <Text
@@ -1124,7 +1124,7 @@ exports[`Test TimeCountDown render TimeCountDown timeLeft < 15 1`] = `
         ]
       }
     >
-      [missing "en.second" translation]
+      giây
     </Text>
   </View>
 </View>

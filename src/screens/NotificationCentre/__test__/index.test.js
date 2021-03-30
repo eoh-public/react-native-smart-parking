@@ -29,9 +29,11 @@ jest.mock('../hooks', () => {
   };
 });
 
+const mockSetState = jest.fn();
+
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
-  useState: jest.fn(),
+  useState: jest.fn((init) => [init, mockSetState]),
 }));
 
 describe('Test NotificationCentre', () => {
@@ -47,21 +49,16 @@ describe('Test NotificationCentre', () => {
     });
   });
 
-  const mockSetStates = (notifications) => {
+  const mockSetStates = (notifications = []) => {
     const setNotifications = jest.fn();
-    const setState = jest.fn();
 
     useState.mockImplementationOnce((init) => [
       notifications,
       setNotifications,
     ]);
-    useState.mockImplementationOnce((init) => [init, setState]); // setMaxPageNotification
-    useState.mockImplementationOnce((init) => [init, setState]); // setOnEndReached
-    useState.mockImplementationOnce((init) => [init, setState]); // setIsRead
-    useState.mockImplementationOnce((init) => [init, setState]); // setIsRead
   };
 
-  test('did mount fetchNotifications', async () => {
+  test('did mount fetchNotifications fail', async () => {
     mockSetStates();
     await act(async () => {
       tree = create(

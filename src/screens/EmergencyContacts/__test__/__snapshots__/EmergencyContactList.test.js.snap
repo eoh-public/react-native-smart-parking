@@ -334,8 +334,11 @@ exports[`test EmergencyContactList handleRemove 1`] = `
   </RCTSafeAreaView>
   <Modal
     animationType="none"
+    deviceHeight={null}
+    deviceWidth={null}
     hardwareAccelerated={false}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={[Function]}
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}
@@ -380,8 +383,11 @@ exports[`test EmergencyContactList handleRemove 1`] = `
       }
     />
     <View
+      deviceHeight={null}
+      deviceWidth={null}
       forwardedRef={[Function]}
       hideModalContentWhileAnimating={false}
+      onBackdropPress={[Function]}
       onModalHide={[Function]}
       onModalWillHide={[Function]}
       onModalWillShow={[Function]}
@@ -524,8 +530,11 @@ exports[`test EmergencyContactList handleRemove 1`] = `
   </Modal>
   <Modal
     animationType="none"
+    deviceHeight={null}
+    deviceWidth={null}
     hardwareAccelerated={false}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={[Function]}
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}
@@ -570,8 +579,11 @@ exports[`test EmergencyContactList handleRemove 1`] = `
       }
     />
     <View
+      deviceHeight={null}
+      deviceWidth={null}
       forwardedRef={[Function]}
       hideModalContentWhileAnimating={false}
+      onBackdropPress={[Function]}
       onModalHide={[Function]}
       onModalWillHide={[Function]}
       onModalWillShow={[Function]}
@@ -1173,8 +1185,11 @@ exports[`test EmergencyContactList onAddNew 1`] = `
   </RCTSafeAreaView>
   <Modal
     animationType="none"
+    deviceHeight={null}
+    deviceWidth={null}
     hardwareAccelerated={false}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={[Function]}
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}
@@ -1219,8 +1234,11 @@ exports[`test EmergencyContactList onAddNew 1`] = `
       }
     />
     <View
+      deviceHeight={null}
+      deviceWidth={null}
       forwardedRef={[Function]}
       hideModalContentWhileAnimating={false}
+      onBackdropPress={[Function]}
       onModalHide={[Function]}
       onModalWillHide={[Function]}
       onModalWillShow={[Function]}
@@ -1363,8 +1381,11 @@ exports[`test EmergencyContactList onAddNew 1`] = `
   </Modal>
   <Modal
     animationType="none"
+    deviceHeight={null}
+    deviceWidth={null}
     hardwareAccelerated={false}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={[Function]}
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}
@@ -1400,29 +1421,7 @@ exports[`test EmergencyContactList onAddNew 1`] = `
           "bottom": 0,
           "height": 1334,
           "left": 0,
-          "opacity": Object {
-            "_children": Array [],
-            "_config": Object {
-              "inputRange": Array [
-                0,
-                1,
-              ],
-              "outputRange": Array [
-                0,
-                0.7,
-              ],
-            },
-            "_interpolation": [Function],
-            "_listeners": Object {},
-            "_parent": Object {
-              "_animation": null,
-              "_children": Array [],
-              "_listeners": Object {},
-              "_offset": 0,
-              "_startingValue": 0,
-              "_value": 0,
-            },
-          },
+          "opacity": 0,
           "position": "absolute",
           "right": 0,
           "top": 0,
@@ -1431,8 +1430,11 @@ exports[`test EmergencyContactList onAddNew 1`] = `
       }
     />
     <View
+      deviceHeight={null}
+      deviceWidth={null}
       forwardedRef={[Function]}
       hideModalContentWhileAnimating={false}
+      onBackdropPress={[Function]}
       onModalHide={[Function]}
       onModalWillHide={[Function]}
       onModalWillShow={[Function]}
@@ -2034,8 +2036,11 @@ exports[`test EmergencyContactList onItemAddClick create contact 1`] = `
   </RCTSafeAreaView>
   <Modal
     animationType="none"
+    deviceHeight={null}
+    deviceWidth={null}
     hardwareAccelerated={false}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={[Function]}
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}
@@ -2080,8 +2085,11 @@ exports[`test EmergencyContactList onItemAddClick create contact 1`] = `
       }
     />
     <View
+      deviceHeight={null}
+      deviceWidth={null}
       forwardedRef={[Function]}
       hideModalContentWhileAnimating={false}
+      onBackdropPress={[Function]}
       onModalHide={[Function]}
       onModalWillHide={[Function]}
       onModalWillShow={[Function]}
@@ -2224,8 +2232,11 @@ exports[`test EmergencyContactList onItemAddClick create contact 1`] = `
   </Modal>
   <Modal
     animationType="none"
+    deviceHeight={null}
+    deviceWidth={null}
     hardwareAccelerated={false}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={[Function]}
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}
@@ -2270,8 +2281,11 @@ exports[`test EmergencyContactList onItemAddClick create contact 1`] = `
       }
     />
     <View
+      deviceHeight={null}
+      deviceWidth={null}
       forwardedRef={[Function]}
       hideModalContentWhileAnimating={false}
+      onBackdropPress={[Function]}
       onModalHide={[Function]}
       onModalWillHide={[Function]}
       onModalWillShow={[Function]}
@@ -2873,8 +2887,11 @@ exports[`test EmergencyContactList onItemAddClick select unit members 1`] = `
   </RCTSafeAreaView>
   <Modal
     animationType="none"
+    deviceHeight={null}
+    deviceWidth={null}
     hardwareAccelerated={false}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={[Function]}
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}
@@ -2919,8 +2936,11 @@ exports[`test EmergencyContactList onItemAddClick select unit members 1`] = `
       }
     />
     <View
+      deviceHeight={null}
+      deviceWidth={null}
       forwardedRef={[Function]}
       hideModalContentWhileAnimating={false}
+      onBackdropPress={[Function]}
       onModalHide={[Function]}
       onModalWillHide={[Function]}
       onModalWillShow={[Function]}
@@ -3063,8 +3083,11 @@ exports[`test EmergencyContactList onItemAddClick select unit members 1`] = `
   </Modal>
   <Modal
     animationType="none"
+    deviceHeight={null}
+    deviceWidth={null}
     hardwareAccelerated={false}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={[Function]}
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}
@@ -3109,8 +3132,11 @@ exports[`test EmergencyContactList onItemAddClick select unit members 1`] = `
       }
     />
     <View
+      deviceHeight={null}
+      deviceWidth={null}
       forwardedRef={[Function]}
       hideModalContentWhileAnimating={false}
+      onBackdropPress={[Function]}
       onModalHide={[Function]}
       onModalWillHide={[Function]}
       onModalWillShow={[Function]}
@@ -3712,8 +3738,11 @@ exports[`test EmergencyContactList render 1`] = `
   </RCTSafeAreaView>
   <Modal
     animationType="none"
+    deviceHeight={null}
+    deviceWidth={null}
     hardwareAccelerated={false}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={[Function]}
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}
@@ -3758,8 +3787,11 @@ exports[`test EmergencyContactList render 1`] = `
       }
     />
     <View
+      deviceHeight={null}
+      deviceWidth={null}
       forwardedRef={[Function]}
       hideModalContentWhileAnimating={false}
+      onBackdropPress={[Function]}
       onModalHide={[Function]}
       onModalWillHide={[Function]}
       onModalWillShow={[Function]}
@@ -3902,8 +3934,11 @@ exports[`test EmergencyContactList render 1`] = `
   </Modal>
   <Modal
     animationType="none"
+    deviceHeight={null}
+    deviceWidth={null}
     hardwareAccelerated={false}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={[Function]}
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}
@@ -3948,8 +3983,11 @@ exports[`test EmergencyContactList render 1`] = `
       }
     />
     <View
+      deviceHeight={null}
+      deviceWidth={null}
       forwardedRef={[Function]}
       hideModalContentWhileAnimating={false}
+      onBackdropPress={[Function]}
       onModalHide={[Function]}
       onModalWillHide={[Function]}
       onModalWillShow={[Function]}

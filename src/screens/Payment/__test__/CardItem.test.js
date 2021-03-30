@@ -9,6 +9,11 @@ import {
   SvgVisaCard,
 } from '../../../../assets/images/SmartParking';
 
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  memo: (x) => x,
+}));
+
 describe('test CardItem', () => {
   let tree;
   let card;

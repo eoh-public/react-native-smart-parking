@@ -55,7 +55,7 @@ const BookingConfirm = memo(({ route }) => {
       body.payment_card_id = data.id;
       setPaymentMethod(data);
     }
-  }, [item.payment_method, body]);
+  }, [item, body]);
 
   const getBookingPrice = useCallback(
     async (id) => {
@@ -95,7 +95,7 @@ const BookingConfirm = memo(({ route }) => {
       }
       setPaymentMethod(methodItem);
     }
-  }, [body, item.payment_method, methodItem]);
+  }, [body, item, methodItem]);
 
   const {
     street,

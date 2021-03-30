@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { act, create } from 'react-test-renderer';
+import { TESTID } from '../../../../../configs/Constants';
 
 import GroupCheckBox from '../GroupCheckBox/index';
-import { TESTID } from '../../../../../configs/Constants';
+
+const mockSetState = jest.fn();
 
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
-  useState: jest.fn(),
+  memo: (x) => x,
+  useState: jest.fn((init) => [init, mockSetState]),
 }));
 
 describe('Test Group CheckBox Parking Detail', () => {
   let tree;
 
-  const mockSetState = () => {
-    const setState = jest.fn();
-    useState.mockImplementation((init) => [init, setState]);
-    return setState;
-  };
-
   const findGroupCheckBoxItem = (instance) => {
-    const item = instance.find(
+    return instance.find(
       (el) => el.props.testID === TESTID.GROUP_CHECK_BOX_PARKING_DETAIL
     );
-    return item;
   };
+
+  beforeEach(async () => {
+    mockSetState.mockClear();
+  });
 
   test('render Group CheckBox Parking Detail', () => {
     const data = [
@@ -31,7 +31,6 @@ describe('Test Group CheckBox Parking Detail', () => {
         title: 'testItem',
       },
     ];
-    mockSetState();
     act(() => {
       tree = create(<GroupCheckBox data={data} />);
     });
@@ -48,7 +47,6 @@ describe('Test Group CheckBox Parking Detail', () => {
       },
     ];
     const mockFunc = jest.fn();
-    const setState = mockSetState();
 
     await act(async () => {
       tree = create(<GroupCheckBox data={data} onSelect={mockFunc} multiple />);
@@ -58,8 +56,8 @@ describe('Test Group CheckBox Parking Detail', () => {
     await act(async () => {
       item.props.onSelect(0);
     });
-    expect(setState).toHaveBeenCalledTimes(1);
-    expect(setState).toHaveBeenCalledWith([0]);
+    expect(mockSetState).toHaveBeenCalledTimes(1);
+    expect(mockSetState).toHaveBeenCalledWith([0]);
     expect(mockFunc).toHaveBeenCalledWith([
       { description: 'description', source: 'source', title: 'testItem' },
     ]);
@@ -73,7 +71,6 @@ describe('Test Group CheckBox Parking Detail', () => {
       },
     ];
     const mockFunc = jest.fn();
-    const setState = mockSetState();
     await act(async () => {
       tree = create(<GroupCheckBox data={data} onSelect={mockFunc} />);
     });
@@ -82,7 +79,7 @@ describe('Test Group CheckBox Parking Detail', () => {
     await act(async () => {
       item.props.onSelect(0);
     });
-    expect(setState).toHaveBeenCalledWith([0]);
+    expect(mockSetState).toHaveBeenCalledWith([0]);
     expect(mockFunc).toHaveBeenCalledWith({
       description: 'description 1',
       title: 'title 1',
@@ -100,12 +97,11 @@ describe('Test Group CheckBox Parking Detail', () => {
         description: 'description 2',
       },
     ];
-    const setState = mockSetState();
     await act(async () => {
       tree = create(<GroupCheckBox data={data} defaultIndex={1} />);
     });
     const instance = tree.root;
     expect(instance.props.defaultIndex).toBe(1);
-    expect(setState).toHaveBeenCalledWith([0]);
+    expect(mockSetState).toHaveBeenCalledWith([0]);
   });
 });

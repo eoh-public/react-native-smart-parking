@@ -1,16 +1,16 @@
-import React, { memo, useEffect, useState } from 'react';
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { navigationRef } from './utils';
-import { Alert } from '../commons';
-import Toast from 'react-native-toast-message';
-import { Colors } from '../configs';
-import Routes from '../utils/Route';
-import { SmartParkingStack } from './SmartParkingStack';
 import { createStackNavigator } from '@react-navigation/stack';
+import React, { useEffect, useState } from 'react';
+import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import Toast from 'react-native-toast-message';
 import { useDispatch, useSelector } from 'react-redux';
+import { Alert } from '../commons';
+import { Colors } from '../configs';
 import { initAuth } from '../redux/Actions/auth';
 import { exitApp as resetExitApp } from '../redux/Actions/ui';
+import Routes from '../utils/Route';
+import { SmartParkingStack } from './SmartParkingStack';
+import { navigationRef } from './utils';
 
 const Stack = createStackNavigator();
 
@@ -61,6 +61,7 @@ const App = (props) => {
   useEffect(() => {
     dispatch(initAuth(props.auth?.account));
     setLoading(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -70,6 +71,7 @@ const App = (props) => {
 
       dispatch(resetExitApp());
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [exitApp]);
 
   if (loading) {
