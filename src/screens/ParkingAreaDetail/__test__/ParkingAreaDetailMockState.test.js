@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { TextInput } from 'react-native';
 import { act, create } from 'react-test-renderer';
-import ParkingAreaDetail from '../ParkingAreaDetail';
 import { TESTID } from '../../../configs/Constants';
 
 jest.mock('react-redux', () => ({
@@ -9,14 +8,19 @@ jest.mock('react-redux', () => ({
   useDispatch: () => jest.fn(),
 }));
 
+const mockSetState = jest.fn();
+
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
-  useState: jest.fn(),
+  useState: jest.fn((init) => [init, mockSetState]),
+  memo: (x) => x,
 }));
 
 jest.mock('react-native/Libraries/Core/ExceptionsManager', () => ({
   handleException: jest.fn(),
 }));
+
+import ParkingAreaDetail from '../ParkingAreaDetail';
 
 describe('Test Parking Area Detail', () => {
   let data;
@@ -33,11 +37,11 @@ describe('Test Parking Area Detail', () => {
   let wrapper;
 
   test('onChangeText LicensePlate', async () => {
-    useState.mockImplementationOnce((init) => [false, jest.fn()]); // for loading
     const setCar = jest.fn();
     useState.mockImplementation((init) => [init, setCar]); // for normal
+    useState.mockImplementationOnce((init) => [false, mockSetState]); // for loading
     await act(async () => {
-      wrapper = create(<ParkingAreaDetail {...data} />);
+      wrapper = await create(<ParkingAreaDetail {...data} />);
     });
 
     const instance = wrapper.root;

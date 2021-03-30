@@ -1,10 +1,10 @@
-import React, { memo, useCallback, useEffect, useState } from 'react';
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import { Icon } from '@ant-design/react-native';
 import { t } from 'i18n-js';
+import React, { memo, useCallback, useEffect, useState } from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import Text from '../../../../commons/Text';
 
 import { Colors } from '../../../../configs';
-import Text from '../../../../commons/Text';
 import { TESTID } from '../../../../configs/Constants';
 
 const ControllHour = memo((props) => {

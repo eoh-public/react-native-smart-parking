@@ -18,11 +18,6 @@ exports[`Test HeaderDrawer create HeaderDrawer 1`] = `
   }
 >
   <Image
-    source={
-      Object {
-        "testUri": "../../../App/Images/logo.png",
-      }
-    }
     style={
       Object {
         "height": 16,

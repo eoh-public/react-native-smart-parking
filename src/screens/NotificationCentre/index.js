@@ -1,12 +1,12 @@
-import React, { memo, useCallback, useState, useEffect } from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
 import { t } from 'i18n-js';
+import React, { memo, useCallback, useEffect, useState } from 'react';
+import { FlatList, StyleSheet, View } from 'react-native';
 import { useDispatch } from 'react-redux';
+import { SvgPhoneNotification } from '../../../assets/images/SmartParking';
+import Text from '../../commons/Text';
+import { API, Colors } from '../../configs';
 
 import { setNewNotification } from '../../redux/Actions/notifications';
-import { Colors, API } from '../../configs';
-import Text from '../../commons/Text';
-import { SvgPhoneNotification } from '../../../assets/images/SmartParking';
 import { axiosGet, axiosPost } from '../../utils/Apis/axios';
 
 import ItemNotification from './ItemNotification';
@@ -37,6 +37,7 @@ const NotificationCentre = memo(() => {
       const { success } = await axiosPost(API.NOTIFICATION.SET_LAST_SEEN);
       return { success };
     }
+
     const { success } = updateLastSeen();
 
     success && dispatch(setNewNotification(false));
@@ -63,7 +64,7 @@ const NotificationCentre = memo(() => {
   return (
     <View style={styles.container}>
       <View style={styles.notification}>
-        {notifications ? (
+        {notifications.length ? (
           <View style={styles.notificationData}>
             <FlatList
               ListHeaderComponent={() => (

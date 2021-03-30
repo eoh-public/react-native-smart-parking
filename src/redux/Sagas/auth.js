@@ -1,4 +1,4 @@
-import { takeEvery, put, delay } from 'redux-saga/effects';
+import { put, takeEvery } from 'redux-saga/effects';
 import { INIT_AUTH } from '../Actions/auth';
 
 function* initAuth(obj) {

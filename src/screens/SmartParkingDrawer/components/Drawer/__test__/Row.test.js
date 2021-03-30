@@ -11,10 +11,14 @@ jest.mock('@react-navigation/native', () => {
     ...jest.requireActual('@react-navigation/native'),
     useNavigation: () => ({
       navigate: mockedNavigate,
-      dispatch: mockedDispatch,
     }),
   };
 });
+
+jest.mock('react-redux', () => ({
+  ...jest.requireActual('react-redux'),
+  useDispatch: () => mockedDispatch,
+}));
 
 describe('Test RowSmartParkingDrawer', () => {
   let wrapper;

@@ -3,8 +3,11 @@
 exports[`Test ScanningResponsePopup render 1`] = `
 <Modal
   animationType="none"
+  deviceHeight={null}
+  deviceWidth={null}
   hardwareAccelerated={false}
   hideModalContentWhileAnimating={false}
+  onBackdropPress={[MockFunction]}
   onModalHide={[Function]}
   onModalWillHide={[Function]}
   onModalWillShow={[Function]}
@@ -49,8 +52,11 @@ exports[`Test ScanningResponsePopup render 1`] = `
     }
   />
   <View
+    deviceHeight={null}
+    deviceWidth={null}
     forwardedRef={[Function]}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={[MockFunction]}
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}
@@ -437,8 +443,28 @@ exports[`Test ScanningResponsePopup render 1`] = `
 exports[`Test ScanningResponsePopup render status AVAILABLE_SPOTS 1`] = `
 <Modal
   animationType="none"
+  deviceHeight={null}
+  deviceWidth={null}
   hardwareAccelerated={false}
   hideModalContentWhileAnimating={false}
+  onBackdropPress={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
   onModalHide={[Function]}
   onModalWillHide={[Function]}
   onModalWillShow={[Function]}
@@ -500,8 +526,28 @@ exports[`Test ScanningResponsePopup render status AVAILABLE_SPOTS 1`] = `
     }
   />
   <View
+    deviceHeight={null}
+    deviceWidth={null}
     forwardedRef={[Function]}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}
@@ -1015,8 +1061,11 @@ exports[`Test ScanningResponsePopup render status AVAILABLE_SPOTS 1`] = `
 exports[`Test ScanningResponsePopup render status AVAILABLE_SPOTS but null 1`] = `
 <Modal
   animationType="none"
+  deviceHeight={null}
+  deviceWidth={null}
   hardwareAccelerated={false}
   hideModalContentWhileAnimating={false}
+  onBackdropPress={[MockFunction]}
   onModalHide={[Function]}
   onModalWillHide={[Function]}
   onModalWillShow={[Function]}
@@ -1061,8 +1110,11 @@ exports[`Test ScanningResponsePopup render status AVAILABLE_SPOTS but null 1`] =
     }
   />
   <View
+    deviceHeight={null}
+    deviceWidth={null}
     forwardedRef={[Function]}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={[MockFunction]}
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}
@@ -1536,8 +1588,23 @@ exports[`Test ScanningResponsePopup render status AVAILABLE_SPOTS but null 1`] =
 exports[`Test ScanningResponsePopup render status BOOKING_ACTIVATED 1`] = `
 <Modal
   animationType="none"
+  deviceHeight={null}
+  deviceWidth={null}
   hardwareAccelerated={false}
   hideModalContentWhileAnimating={false}
+  onBackdropPress={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
   onModalHide={[Function]}
   onModalWillHide={[Function]}
   onModalWillShow={[Function]}
@@ -1594,8 +1661,23 @@ exports[`Test ScanningResponsePopup render status BOOKING_ACTIVATED 1`] = `
     }
   />
   <View
+    deviceHeight={null}
+    deviceWidth={null}
     forwardedRef={[Function]}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}
@@ -1971,8 +2053,23 @@ exports[`Test ScanningResponsePopup render status BOOKING_ACTIVATED 1`] = `
 exports[`Test ScanningResponsePopup render status NOT_WORKING_FOR_SENSOR_ONLY 1`] = `
 <Modal
   animationType="none"
+  deviceHeight={null}
+  deviceWidth={null}
   hardwareAccelerated={false}
   hideModalContentWhileAnimating={false}
+  onBackdropPress={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
   onModalHide={[Function]}
   onModalWillHide={[Function]}
   onModalWillShow={[Function]}
@@ -2029,8 +2126,23 @@ exports[`Test ScanningResponsePopup render status NOT_WORKING_FOR_SENSOR_ONLY 1`
     }
   />
   <View
+    deviceHeight={null}
+    deviceWidth={null}
     forwardedRef={[Function]}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}
@@ -2460,8 +2572,23 @@ exports[`Test ScanningResponsePopup render status NOT_WORKING_FOR_SENSOR_ONLY 1`
 exports[`Test ScanningResponsePopup render status PARKING_NEAREST 1`] = `
 <Modal
   animationType="none"
+  deviceHeight={null}
+  deviceWidth={null}
   hardwareAccelerated={false}
   hideModalContentWhileAnimating={false}
+  onBackdropPress={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
   onModalHide={[Function]}
   onModalWillHide={[Function]}
   onModalWillShow={[Function]}
@@ -2518,8 +2645,23 @@ exports[`Test ScanningResponsePopup render status PARKING_NEAREST 1`] = `
     }
   />
   <View
+    deviceHeight={null}
+    deviceWidth={null}
     forwardedRef={[Function]}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}
@@ -3006,8 +3148,28 @@ exports[`Test ScanningResponsePopup render status PARKING_NEAREST 1`] = `
 exports[`Test ScanningResponsePopup render status SPOT_DOES_NOT_EXIST 1`] = `
 <Modal
   animationType="none"
+  deviceHeight={null}
+  deviceWidth={null}
   hardwareAccelerated={false}
   hideModalContentWhileAnimating={false}
+  onBackdropPress={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
   onModalHide={[Function]}
   onModalWillHide={[Function]}
   onModalWillShow={[Function]}
@@ -3069,8 +3231,28 @@ exports[`Test ScanningResponsePopup render status SPOT_DOES_NOT_EXIST 1`] = `
     }
   />
   <View
+    deviceHeight={null}
+    deviceWidth={null}
     forwardedRef={[Function]}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}
@@ -3560,8 +3742,28 @@ exports[`Test ScanningResponsePopup render status SPOT_DOES_NOT_EXIST 1`] = `
 exports[`Test ScanningResponsePopup render status WRONG_SPOT 1`] = `
 <Modal
   animationType="none"
+  deviceHeight={null}
+  deviceWidth={null}
   hardwareAccelerated={false}
   hideModalContentWhileAnimating={false}
+  onBackdropPress={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
   onModalHide={[Function]}
   onModalWillHide={[Function]}
   onModalWillShow={[Function]}
@@ -3623,8 +3825,28 @@ exports[`Test ScanningResponsePopup render status WRONG_SPOT 1`] = `
     }
   />
   <View
+    deviceHeight={null}
+    deviceWidth={null}
     forwardedRef={[Function]}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}
@@ -4138,8 +4360,11 @@ exports[`Test ScanningResponsePopup render status WRONG_SPOT 1`] = `
 exports[`Test ScanningResponsePopup render status not match 1`] = `
 <Modal
   animationType="none"
+  deviceHeight={null}
+  deviceWidth={null}
   hardwareAccelerated={false}
   hideModalContentWhileAnimating={false}
+  onBackdropPress={[MockFunction]}
   onModalHide={[Function]}
   onModalWillHide={[Function]}
   onModalWillShow={[Function]}
@@ -4184,8 +4409,11 @@ exports[`Test ScanningResponsePopup render status not match 1`] = `
     }
   />
   <View
+    deviceHeight={null}
+    deviceWidth={null}
     forwardedRef={[Function]}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={[MockFunction]}
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}

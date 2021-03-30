@@ -43,6 +43,7 @@ const realScanBluetoothDevices = () => {
     return;
   }
 
+  // eslint-disable-next-line promise/prefer-await-to-callbacks
   bleManager.startDeviceScan(null, null, (error, device) => {
     if (error) {
       return;

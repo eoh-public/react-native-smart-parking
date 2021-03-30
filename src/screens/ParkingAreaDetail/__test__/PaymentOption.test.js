@@ -4,6 +4,11 @@ import { act, create } from 'react-test-renderer';
 import PaymentOption from '../compenents/PaymentOption';
 import CheckBox from '../compenents/ParkingDetail/GroupCheckBox/CheckBox';
 
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  memo: (x) => x,
+}));
+
 describe('Test PaymentOption', () => {
   let data;
   let mockSetIsPayNow;

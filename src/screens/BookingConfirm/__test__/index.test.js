@@ -1,13 +1,13 @@
-import React from 'react';
-import { create, act } from 'react-test-renderer';
-import moment from 'moment';
-import BookingConfirm from '../index';
+import CheckBox from '@react-native-community/checkbox';
 import axios from 'axios';
+import moment from 'moment';
+import React from 'react';
+import { act, create } from 'react-test-renderer';
+import { Button } from '../../../commons';
 import { API } from '../../../configs';
 import { TESTID } from '../../../configs/Constants';
 import Routes from '../../../utils/Route';
-import CheckBox from '@react-native-community/checkbox';
-import { Button } from '../../../commons';
+import BookingConfirm from '../index';
 
 jest.mock('axios');
 
@@ -70,6 +70,7 @@ describe('test BookingConfirm container', () => {
 
   afterEach(() => {
     mockedNavigate.mockClear();
+    axios.get.mockReset();
   });
 
   test('getDefaultPaymentMethod', async () => {
@@ -157,6 +158,14 @@ describe('test BookingConfirm container', () => {
   });
 
   test('onPressChangePaymentMethod', async () => {
+    const response = {
+      status: 200,
+      data: { id: 1, code: 'vnpay' },
+    };
+    axios.get.mockImplementation(async () => {
+      return response;
+    });
+
     let tree;
     await act(async () => {
       tree = await create(<BookingConfirm route={route} />);
@@ -232,6 +241,26 @@ describe('test BookingConfirm container', () => {
   test('onConfirmBooking pay later', async () => {
     route.params.body.is_pay_now = false;
 
+    const responseDefaultPayment = {
+      status: 200,
+      data: { id: 1, code: 'vnpay' },
+    };
+
+    const responseBookingPrice = {
+      status: 200,
+      data: {
+        price: 3000,
+      },
+    };
+
+    axios.get.mockImplementation(async (url) => {
+      if (url === API.BILLING.DEFAULT_PAYMENT_METHODS) {
+        return responseDefaultPayment;
+      } else {
+        return responseBookingPrice;
+      }
+    });
+
     const response = {
       status: 200,
       data: {
@@ -243,6 +272,7 @@ describe('test BookingConfirm container', () => {
         payment_url: '',
       },
     };
+
     axios.post.mockImplementation(async () => {
       return response;
     });
@@ -273,6 +303,26 @@ describe('test BookingConfirm container', () => {
 
   test('onConfirmBooking pay now with stripe', async () => {
     route.params.body.is_pay_now = true;
+
+    const responseDefaultPayment = {
+      status: 200,
+      data: { id: 1, code: 'vnpay' },
+    };
+
+    const responseBookingPrice = {
+      status: 200,
+      data: {
+        price: 3000,
+      },
+    };
+
+    axios.get.mockImplementation(async (url) => {
+      if (url === API.BILLING.DEFAULT_PAYMENT_METHODS) {
+        return responseDefaultPayment;
+      } else {
+        return responseBookingPrice;
+      }
+    });
 
     const response = {
       status: 200,
@@ -333,6 +383,26 @@ describe('test BookingConfirm container', () => {
 
   test('onConfirmBooking pay now without any case', async () => {
     route.params.body.is_pay_now = true;
+
+    const responseDefaultPayment = {
+      status: 200,
+      data: { id: 1, code: 'vnpay' },
+    };
+
+    const responseBookingPrice = {
+      status: 200,
+      data: {
+        price: 3000,
+      },
+    };
+
+    axios.get.mockImplementation(async (url) => {
+      if (url === API.BILLING.DEFAULT_PAYMENT_METHODS) {
+        return responseDefaultPayment;
+      } else {
+        return responseBookingPrice;
+      }
+    });
 
     const response = {
       status: 200,

@@ -43,8 +43,10 @@ exports[`test SearchLocation container render SearchLocation container 1`] = `
           "paddingRight": 10,
         }
       }
+      testID="SEARCH_BAR_BUTTON_LEFT"
     >
       <Text
+        accessibilityLabel="icon-left"
         style={
           Array [
             Object {
@@ -100,8 +102,10 @@ exports[`test SearchLocation container render SearchLocation container 1`] = `
           "paddingRight": 16,
         }
       }
+      testID="SEARCH_BAR_BUTTON_RIGHT"
     >
       <Text
+        accessibilityLabel="icon-search"
         style={
           Array [
             Object {

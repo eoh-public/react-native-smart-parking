@@ -6,6 +6,11 @@ import EWalletItem from '../EWalletItem';
 import PaymentIconInfo from '../components/PaymentIconInfo';
 import { t } from 'i18n-js';
 
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  memo: (x) => x,
+}));
+
 describe('test EWalletItem', () => {
   let tree;
 

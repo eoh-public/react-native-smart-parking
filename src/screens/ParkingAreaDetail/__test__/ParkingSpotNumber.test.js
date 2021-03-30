@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { act, create } from 'react-test-renderer';
+import { create, act } from 'react-test-renderer';
+
 import ParkingSpotNumber from '../compenents/ParkingSpotNumber';
 
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
+  memo: (x) => x,
   useState: jest.fn(),
 }));
 
@@ -13,11 +15,11 @@ describe('Test ParkingSpotNumber', () => {
   const mockSetSpotNumber = jest.fn();
   const setState = jest.fn();
 
+  useState.mockImplementation((init) => [initialState, setState]);
   beforeEach(() => {
     data = {
       setSpotNumber: mockSetSpotNumber,
     };
-    useState.mockImplementation((init) => [initialState, setState]);
   });
 
   test('create', () => {

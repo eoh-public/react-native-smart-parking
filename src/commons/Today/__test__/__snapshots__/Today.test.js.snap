@@ -20,7 +20,7 @@ exports[`Test Today create Today 1`] = `
       ]
     }
   >
-    Hôm nay, 24th January
+    Hôm nay, 24 tháng 1
   </Text>
 </View>
 `;

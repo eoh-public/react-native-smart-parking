@@ -1,13 +1,13 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { memo, useCallback } from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
-import { CommonActions, useNavigation } from '@react-navigation/native';
-import { exitApp } from '../../../../redux/Actions/ui';
-import { Colors } from '../../../../configs';
-import Text from '../../../../commons/Text';
-import Route from '../../../../utils/Route';
-import ExclamationCircle from '../../../../../assets/images/SmartParking/exclamation-circle.svg';
-import Basic from '../../../../../assets/images/SmartParking/basic.svg';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useDispatch } from 'react-redux';
+import Basic from '../../../../../assets/images/SmartParking/basic.svg';
+import ExclamationCircle from '../../../../../assets/images/SmartParking/exclamation-circle.svg';
+import Text from '../../../../commons/Text';
+import { Colors } from '../../../../configs';
+import { exitApp } from '../../../../redux/Actions/ui';
+import Route from '../../../../utils/Route';
 
 const RowSmartParkingDrawer = memo(
   ({ name, leftImage, borderBottom, vehicle, saved, route }) => {

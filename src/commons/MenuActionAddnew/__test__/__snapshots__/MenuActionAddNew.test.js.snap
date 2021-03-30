@@ -3,8 +3,11 @@
 exports[`Test MenuActionAddNew create MenuActionAddNew 1`] = `
 <Modal
   animationType="none"
+  deviceHeight={null}
+  deviceWidth={null}
   hardwareAccelerated={false}
   hideModalContentWhileAnimating={false}
+  onBackdropPress={[Function]}
   onModalHide={[Function]}
   onModalWillHide={[Function]}
   onModalWillShow={[Function]}
@@ -49,8 +52,11 @@ exports[`Test MenuActionAddNew create MenuActionAddNew 1`] = `
     }
   />
   <View
+    deviceHeight={null}
+    deviceWidth={null}
     forwardedRef={[Function]}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={[Function]}
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}
@@ -350,8 +356,11 @@ exports[`Test MenuActionAddNew create MenuActionAddNew 1`] = `
 exports[`Test MenuActionAddNew create MenuActionAddNew list data > 3 1`] = `
 <Modal
   animationType="none"
+  deviceHeight={null}
+  deviceWidth={null}
   hardwareAccelerated={false}
   hideModalContentWhileAnimating={false}
+  onBackdropPress={[Function]}
   onModalHide={[Function]}
   onModalWillHide={[Function]}
   onModalWillShow={[Function]}
@@ -396,8 +405,11 @@ exports[`Test MenuActionAddNew create MenuActionAddNew list data > 3 1`] = `
     }
   />
   <View
+    deviceHeight={null}
+    deviceWidth={null}
     forwardedRef={[Function]}
     hideModalContentWhileAnimating={false}
+    onBackdropPress={[Function]}
     onModalHide={[Function]}
     onModalWillHide={[Function]}
     onModalWillShow={[Function]}

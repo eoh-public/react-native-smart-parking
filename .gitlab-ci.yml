@@ -1,6 +1,8 @@
 image: node:14.16.0
 
 stages:
+  - check
+  - test
   - release
   - publish
 
@@ -9,6 +11,34 @@ cache:
   paths:
     - node_modules/
     - vendor/
+
+
+check-basic-rule:
+  stage: check
+  except:
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /skip-check/
+      - $CI_COMMIT_REF_SLUG =~ /bumpversion/
+      - $E2E_PATH
+  script:
+    - git fetch origin master
+    - if [[ $CI_COMMIT_REF_SLUG != *e2e* ]]; then yarn run check_coverage_config; fi
+    - yarn run check_translation_file_change
+    - yarn run check_create_within_act
+
+test_mr:
+  stage: test
+  except:
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /skip-test/
+      - $E2E_PATH
+  script:
+    - if [ -e package-lock.json ]; then echo 'Please use yarn for package management.' && exit 1; else echo 'ok'; fi
+    - yarn
+    - yarn run lint
+    - yarn run jest
+    - yarn run check_coverage_result
+  coverage: /^All files\s+\|\s+([0-9]*[.]?[0-9]{1,2})\s+\|\s+[0-9]*[.]?[0-9]{1,2}\s+\|\s+[0-9]*[.]?[0-9]{1,2}\s+\|\s+[0-9]*[.]?[0-9]{1,2}\s+\|/
 
 release-patch:
   stage: release
