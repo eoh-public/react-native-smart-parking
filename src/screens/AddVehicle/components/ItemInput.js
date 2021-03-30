@@ -14,7 +14,6 @@ const ItemInput = memo(
     onChangeText,
     errorText,
     required,
-    isShowMissingIcon,
     isValid = true,
     maxLength,
   }) => {
@@ -30,13 +29,6 @@ const ItemInput = memo(
           <Text type={'Body'} color={Colors.Gray8} style={styles.txtTitle}>
             {title} {required && <Text color={Colors.Red6}>*</Text>}
           </Text>
-          {isShowMissingIcon && (
-            <IconFill
-              name={'exclamation-circle'}
-              color={Colors.Orange}
-              size={16}
-            />
-          )}
         </View>
         <View style={isValid ? styles.boxInput : styles.boxInvalidInput}>
           <TextInput

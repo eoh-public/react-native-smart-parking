@@ -200,7 +200,6 @@ const AddVehicle = memo(({ route }) => {
           placeholder={'59Z - 123.45'}
           onChangeText={onEndPlateNumber}
           value={vehicle.plate_number}
-          isShowMissingIcon={isMissingPlateAndBackground}
           isValid={validCar}
           maxLength={11}
           errorText={errorText}
@@ -239,7 +238,6 @@ const AddVehicle = memo(({ route }) => {
           placeholder={t('my_car')}
           onChangeText={onEndName}
           value={vehicle.name}
-          isShowMissingIcon={isMissingName}
         />
         <View style={styles.line16} />
         <ItemDropDown
