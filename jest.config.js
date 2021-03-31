@@ -7,12 +7,13 @@ module.exports = {
   collectCoverage: true,
   coverageThreshold: {
     global: {
-      statements: 72.54,
-      branches: 66.08,
-      functions: 62.48,
-      lines: 73.02,
+      statements: 72.14,
+      branches: 66,
+      functions: 62.25,
+      lines: 72.64,
     },
   },
+  modulePathIgnorePatterns: ['SampleProject'],
   coveragePathIgnorePatterns: ['/Images/', '/\\.json/'],
   collectCoverageFrom: [
     'src/**/*.{js,jsx}',

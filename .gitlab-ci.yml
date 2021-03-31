@@ -19,6 +19,7 @@ check-basic-rule:
     variables:
       - $CI_COMMIT_MESSAGE =~ /skip-check/
       - $CI_COMMIT_REF_SLUG =~ /bumpversion/
+      - $CI_COMMIT_REF_SLUG =~ /chore/
       - $E2E_PATH
   script:
     - git fetch origin master

@@ -50,7 +50,11 @@
     "smart-parking",
     "eoh"
   ],
-  "author": "EoH JSC <system@eoh.io>",
+  "author": {
+    "username": "eohjsc",
+    "name": "EoH JSC",
+    "email": "system@eoh.io"
+  },
   "license": "MIT",
   "licenseFilename": "LICENSE",
   "peerDependencies": {
@@ -138,7 +142,6 @@
     "react-native-toast-message": "^1.3.2",
     "react-native-unimodules": "^0.11.0",
     "react-native-version-check": "^3.4.2",
-    "react-native-vlc-media-player": "^1.0.29",
     "react-native-webview": "^10.9.3",
     "react-navigation": "^2.2.0",
     "react-redux": "^7.2.1",
@@ -271,7 +274,6 @@
     "react-native-toast-message": "^1.3.2",
     "react-native-unimodules": "^0.11.0",
     "react-native-version-check": "^3.4.2",
-    "react-native-vlc-media-player": "^1.0.29",
     "react-native-webview": "^10.9.3",
     "react-navigation": "^2.2.0",
     "react-redux": "^7.2.1",
