@@ -78,7 +78,7 @@ const MapDashboard = memo(({ route }) => {
 
   const [searchedLocation, setSearchedLocation] = useState(null);
   const [currentLocation, setCurrentLocation] = useState(null);
-  const [directions, setDirections] = useState({});
+  const [directions, setDirections] = useState({null});
   const [appState, setAppState] = useState(AppState.currentState);
 
   const mapRef = useRef(null);
@@ -360,7 +360,7 @@ const MapDashboard = memo(({ route }) => {
   useEffect(() => {
     if (isFocused) {
       setLoading(true);
-      if (!indexParking) {
+      if (indexParking === null || indexParking === undefined) {
         setDirections({});
       }
       setLoading(false);
