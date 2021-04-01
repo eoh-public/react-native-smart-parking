@@ -647,5 +647,11 @@
   "add_new_gateway": "Add new gateway",
   "chip_name": "Chip name",
   "connecting_your_gateway": "Connecting your gateway",
+  "i_will_arrive_at": "I will arrive at:",
+  "you_can_only_book_max_1_hour_in_advance": "You can only book maximum 1 hour in advance.",
+  "i_will_park_in": "I will park in:",
+  "i_will_leave_at": "I will leave at:",
+  "i_already_arrived": "I already arrived.",
+  "i_already_arrive_at_spot": "I already arrive at spot ",
   "error_please_try_later": "Error! Please try later"
 }

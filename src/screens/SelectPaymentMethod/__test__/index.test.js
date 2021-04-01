@@ -1,7 +1,31 @@
+import { useIsFocused } from '@react-navigation/native';
+import axios from 'axios';
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
+import { ExpandView, FullLoading } from '../../../commons';
+import { API } from '../../../configs';
+import ItemPayment from '../components/ItemPayment';
 
 import { SelectPaymentMethod } from '../index';
+
+jest.mock('axios');
+
+const mockedNavigate = jest.fn();
+
+jest.mock('@react-navigation/native', () => {
+  return {
+    ...jest.requireActual('@react-navigation/native'),
+    useNavigation: () => ({
+      navigate: mockedNavigate,
+    }),
+    useIsFocused: jest.fn(),
+  };
+});
+
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  memo: (x) => x,
+}));
 
 describe('test SelectPaymentMethod container', () => {
   let tree;
@@ -41,10 +65,115 @@ describe('test SelectPaymentMethod container', () => {
     },
   };
 
-  test('render SelectPaymentMethod container', () => {
-    act(() => {
+  afterEach(() => {
+    axios.get.mockClear();
+    useIsFocused.mockClear();
+  });
+
+  test('render loading', async () => {
+    await act(() => {
       tree = renderer.create(<SelectPaymentMethod route={route} />);
     });
-    expect(tree.toJSON()).toMatchSnapshot();
+    const instance = tree.root;
+    const fullLoading = instance.findAllByType(FullLoading);
+    expect(fullLoading).toHaveLength(1);
+  });
+
+  test('render vnpay', async () => {
+    const response = {
+      status: 200,
+      data: [
+        {
+          id: 1,
+          code: 'vnpay',
+          icon: '',
+          name: 'VnPay',
+          description: 'description',
+        },
+      ],
+    };
+    axios.get.mockImplementation(async () => {
+      return response;
+    });
+
+    await act(async () => {
+      tree = await renderer.create(<SelectPaymentMethod route={route} />);
+    });
+    const instance = tree.root;
+    const itemPayment = instance.findAllByType(ItemPayment);
+    expect(itemPayment).toHaveLength(1);
+    expect(axios.get).toHaveBeenCalledWith(
+      API.BILLING.LIST_PAYMENT_METHODS_BY_COUNTRY('vn'),
+      {}
+    );
+    expect(axios.get).toHaveBeenCalledTimes(1);
+  });
+
+  test('render expandview', async () => {
+    const response = {
+      status: 200,
+      data: [
+        {
+          id: 1,
+          code: 'stripe',
+          name: 'Visa/Master',
+          items: [
+            {
+              brand: 'Visa',
+              last4: '1234',
+            },
+          ],
+        },
+      ],
+    };
+    axios.get.mockImplementation(async () => {
+      return response;
+    });
+
+    await act(async () => {
+      tree = await renderer.create(<SelectPaymentMethod route={route} />);
+    });
+    const instance = tree.root;
+    const expandView = instance.findAllByType(ExpandView);
+
+    expect(expandView).toHaveLength(1);
+    expect(expandView[0].props.title).toEqual('Visa/Master');
+    expect(axios.get).toHaveBeenCalledWith(
+      API.BILLING.LIST_PAYMENT_METHODS_BY_COUNTRY('vn'),
+      {}
+    );
+    expect(axios.get).toHaveBeenCalledTimes(1);
+  });
+
+  test('onRefresh', async () => {
+    const response = {
+      status: 200,
+      data: [
+        {
+          id: 1,
+          code: 'stripe',
+          name: 'Visa/Master',
+          items: [
+            {
+              brand: 'Visa',
+              last4: '1234',
+            },
+          ],
+        },
+      ],
+    };
+    axios.get.mockImplementation(async () => {
+      return response;
+    });
+
+    useIsFocused.mockImplementation(() => true);
+    await act(async () => {
+      tree = await renderer.create(<SelectPaymentMethod route={route} />);
+    });
+    expect(axios.get).toHaveBeenCalledWith(
+      API.BILLING.LIST_PAYMENT_METHODS_BY_COUNTRY('vn'),
+      {}
+    );
+    expect(axios.get).toHaveBeenCalledTimes(2);
   });
 });
