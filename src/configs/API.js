@@ -174,8 +174,7 @@ const API = {
     LIST_ALL_NOTIFICATIONS: (page, type) =>
       API_ROOT + `/notifications/notifications/?page=${page}&type=${type}`,
     SET_READ: (id) => API_ROOT + `/notifications/notifications/${id}/set_read/`,
-    SET_LAST_SEEN: (id) =>
-      API_ROOT + '/notifications/notifications/set_last_seen/',
+    SET_LAST_SEEN: API_ROOT + '/notifications/notifications/set_last_seen/',
     NUMBER: API_ROOT + '/notifications/notifications/number/',
   },
   EMERGENCY_BUTTON: {

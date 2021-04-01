@@ -9,6 +9,7 @@ import { useIsFocused } from '@react-navigation/native';
 import moment from 'moment';
 import { t } from 'i18n-js';
 import { TESTID } from '../../../configs/Constants';
+import { ButtonPopup } from '../../../commons';
 
 let mockGoBackGlobal;
 jest.mock('react', () => ({
@@ -341,5 +342,20 @@ describe('Test BookingDetails', () => {
     });
 
     expect(axios.post).toHaveBeenCalledWith(API.BOOKING.CANCEL(1));
+  });
+
+  test('press close popup payment success', async () => {
+    mockApiDetail();
+    await act(async () => {
+      wrapper = await create(<BookingDetails route={route} />);
+    });
+    const instance = wrapper.root;
+
+    const buttonPopups = instance.findAllByType(ButtonPopup);
+    expect(buttonPopups[1].props.visible).toBeFalsy();
+    await act(async () => {
+      buttonPopups[1].props.onPressMain();
+    });
+    expect(buttonPopups[1].props.visible).toBeFalsy();
   });
 });

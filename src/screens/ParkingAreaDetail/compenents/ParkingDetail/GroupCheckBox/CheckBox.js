@@ -4,6 +4,7 @@ import { TouchableOpacity, StyleSheet, View, Image } from 'react-native';
 import { Colors } from '../../../../../configs';
 import Text from '../../../../../commons/Text';
 import { RadioCircle } from '../../../../../commons';
+import { TESTID } from '../../../../../configs/Constants';
 
 const CheckBox = memo(
   ({
@@ -23,6 +24,7 @@ const CheckBox = memo(
     const opacity = disabled ? 0.5 : 1;
     return (
       <TouchableOpacity
+        testID={TESTID.TOUCHABLE_CHECK_BOX}
         style={[styles.container, { opacity: opacity }]}
         onPress={onPress}
         activeOpacity={0.4}

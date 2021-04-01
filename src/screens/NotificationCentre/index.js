@@ -32,16 +32,14 @@ const NotificationCentre = memo(() => {
     }
   }, []);
 
-  useEffect(() => {
-    async function updateLastSeen() {
-      const { success } = await axiosPost(API.NOTIFICATION.SET_LAST_SEEN);
-      return { success };
-    }
-
-    const { success } = updateLastSeen();
-
+  const updateLastSeen = useCallback(async () => {
+    const { success } = await axiosPost(API.NOTIFICATION.SET_LAST_SEEN);
     success && dispatch(setNewNotification(false));
   }, [dispatch]);
+
+  useEffect(() => {
+    updateLastSeen();
+  }, [updateLastSeen]);
 
   useEffect(() => {
     fetchNotifications(1);
