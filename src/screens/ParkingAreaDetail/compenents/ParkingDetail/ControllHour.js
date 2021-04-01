@@ -72,8 +72,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   btn: {
-    width: 48,
-    height: 48,
+    width: 38,
+    height: 38,
     borderWidth: 1,
     borderColor: Colors.Gray4,
     borderRadius: 2,

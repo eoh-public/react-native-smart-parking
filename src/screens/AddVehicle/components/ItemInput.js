@@ -1,4 +1,3 @@
-import { IconFill } from '@ant-design/icons-react-native';
 import React, { memo, useCallback } from 'react';
 import { StyleSheet, View, TextInput } from 'react-native';
 

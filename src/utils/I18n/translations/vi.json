@@ -651,5 +651,11 @@
   "add_new_gateway": "Thêm gateway",
   "chip_name": "Tên chip",
   "connecting_your_gateway": "Đang kết nối gateway...",
+  "i_will_arrive_at": "Tôi sẽ đến lúc:",
+  "you_can_only_book_max_1_hour_in_advance": "Bạn chỉ có thể đặt chỗ trước tối đa 1 tiếng.",
+  "i_will_park_in": "Tôi sẽ đỗ trong:",
+  "i_will_leave_at": "Tôi sẽ rời đi lúc:",
+  "i_already_arrived": "Tôi đã đến vị trí đỗ xe.",
+  "i_already_arrive_at_spot": "Tôi đã đến vị trí đỗ xe ",
   "error_please_try_later": "Lỗi! Vui lòng thử lại sau"
 }

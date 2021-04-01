@@ -1,12 +1,14 @@
 import React, { memo, useCallback, useMemo, useState } from 'react';
-import Text from '../../../../commons/Text';
-import { Colors, Theme } from '../../../../configs';
 import { StyleSheet, View, TextInput } from 'react-native';
+import moment from 'moment';
 import { t } from 'i18n-js';
 
-import { ArriveItem, ControllHour } from '../ParkingDetail';
+import Text from '../../../../commons/Text';
+import { Colors, Theme } from '../../../../configs';
+import ArriveItem from '../ParkingDetail/ArriveItem';
+import ControllHour from '../ParkingDetail/ControllHour';
+import { CustomCheckbox } from '../../../../commons';
 import { calcTime } from '../../../../utils/Converter/time';
-import { SvgWarning } from '../../../../../assets/images/SmartParking';
 
 const ParkingSession = memo(
   ({ bookTime, setBookTime, parkingSessionData, preBook, spotNumber }) => {
@@ -18,6 +20,8 @@ const ParkingSession = memo(
     }
     const [indexArrive, setIndexArrive] = useState(0);
     const [hour, setHour] = useState(bookTime.numBookHour);
+    const [isSave, setSave] = useState(false);
+
     const onChooseArrive = useCallback(
       (item, index) => {
         setBookTime({ ...bookTime, arriveAt: item.time });
@@ -25,6 +29,7 @@ const ParkingSession = memo(
       },
       [bookTime, setBookTime]
     );
+
     const onChangeHour = useCallback(
       (prevHour) => {
         setBookTime({ ...bookTime, numBookHour: prevHour });
@@ -40,6 +45,17 @@ const ParkingSession = memo(
         'LT - DD/MM/YYYY'
       );
     }, [bookTime.arriveAt, hour]);
+
+    const onAlreadyArrived = useCallback(() => {
+      const newStateSave = !isSave;
+      if (newStateSave) {
+        setBookTime({ ...bookTime, arriveAt: moment() });
+      } else {
+        const { id, time } = parkingSessionData[0];
+        onChooseArrive({ id, time }, 0);
+      }
+      setSave(newStateSave);
+    }, [bookTime, isSave, onChooseArrive, parkingSessionData, setBookTime]);
 
     return (
       <>
@@ -73,50 +89,70 @@ const ParkingSession = memo(
           semibold
           style={styles.textParkingSession}
           color={Colors.Black}
-          type="H4"
+          type="H3"
         >
           {t('parking_session')}
         </Text>
-        {preBook && (
+        <View style={styles.marginLeft}>
           <>
-            <Text type="Body" style={styles.address} color={Colors.Gray8}>
-              {t('arrive_at')}
+            <Text type="H4" bold style={styles.address} color={Colors.Gray9}>
+              {t('i_will_arrive_at')}
             </Text>
-            <View style={styles.boxArrive}>
-              {parkingSessionData.map((item, index) => {
-                let selected = indexArrive === index;
-                return (
-                  <ArriveItem
-                    time={item.time}
-                    price={item.price}
-                    key={index}
-                    index={index}
-                    id={item.id}
-                    onPress={onChooseArrive}
-                    selected={selected}
-                  />
-                );
-              })}
-            </View>
+            {spotNumber ? (
+              <Text type="H4" style={styles.address} color={Colors.Gray9}>
+                {t('i_already_arrive_at_spot')}
+                <Text type="H4" color={Colors.Primary}>
+                  {spotNumber}
+                </Text>
+              </Text>
+            ) : (
+              <>
+                <View style={styles.boxArrive}>
+                  {parkingSessionData.map((item, index) => {
+                    let selected = indexArrive === index;
+                    return (
+                      <ArriveItem
+                        isDisabled={isSave}
+                        time={item.time}
+                        key={index}
+                        index={index}
+                        id={item.id}
+                        onPress={onChooseArrive}
+                        selected={selected}
+                      />
+                    );
+                  })}
+                </View>
+                <Text
+                  type="Label"
+                  style={styles.youCanOnly}
+                  color={Colors.Gray6}
+                >
+                  {t('you_can_only_book_max_1_hour_in_advance')}
+                </Text>
+                <CustomCheckbox
+                  style={styles.buttonAlreadyArrived}
+                  onPress={onAlreadyArrived}
+                  value={isSave}
+                >
+                  <Text type="Body">{t('i_already_arrived')}</Text>
+                </CustomCheckbox>
+              </>
+            )}
           </>
-        )}
-        <Text type="Body" style={styles.address} color={Colors.Gray8}>
-          {t('stay_in')}
-        </Text>
+          <Text type="H4" bold style={styles.marginBottom} color={Colors.Gray9}>
+            {t('i_will_park_in')}
+          </Text>
 
-        <ControllHour hour={hour} onChangeHour={onChangeHour} />
+          <ControllHour hour={hour} onChangeHour={onChangeHour} />
 
-        <Text type="Label" style={styles.textNote} color={Colors.Gray8}>
-          {`${t('leave_at')} ${leaveTime}`}
-        </Text>
-        {preBook && (
-          <View style={styles.boxWarning}>
-            <SvgWarning />
-            <Text type="Label" style={styles.textWaring} color={Colors.Gray7}>
-              {t('you_can_book_maximum_1h')}
-            </Text>
-          </View>
-        )}
+          <Text type="H4" bold style={styles.willLeaveAt} color={Colors.Gray9}>
+            {t('i_will_leave_at')}
+          </Text>
+          <Text type="H4" style={styles.leaveTime} color={Colors.Gray9}>
+            {leaveTime}
+          </Text>
+        </View>
         <View style={styles.line} />
       </>
     );
@@ -128,7 +164,7 @@ export default ParkingSession;
 const styles = StyleSheet.create({
   textParkingSession: {
     marginLeft: 16,
-    marginBottom: 8,
+    marginBottom: 16,
   },
   line: {
     height: 1,
@@ -139,10 +175,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginBottom: 16,
+    marginBottom: 8,
   },
   textNote: {
-    alignSelf: 'center',
+    marginLeft: 16,
     marginTop: 8,
     marginBottom: 16,
   },
@@ -172,5 +208,30 @@ const styles = StyleSheet.create({
   spotNumber: {
     flex: 1,
     flexDirection: 'row',
+  },
+  youCanOnly: {
+    marginLeft: 16,
+  },
+  marginBottom: {
+    marginLeft: 16,
+    marginBottom: 16,
+  },
+  leaveTime: {
+    marginBottom: 8,
+    marginLeft: 16,
+  },
+  willLeaveAt: {
+    marginTop: 24,
+    marginLeft: 16,
+    marginBottom: 16,
+  },
+  buttonAlreadyArrived: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 8,
+    marginBottom: 16,
+  },
+  marginLeft: {
+    marginLeft: 0,
   },
 });

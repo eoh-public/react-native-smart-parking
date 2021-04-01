@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import moment from 'moment';
-import renderer, { act } from 'react-test-renderer';
+import renderer from 'react-test-renderer';
 import axios from 'axios';
 
 import { API } from '../../../../configs';
@@ -19,13 +19,6 @@ describe('Test extend popup', () => {
     jest.useFakeTimers();
   });
   let tree;
-  test('create extend popup', () => {
-    const extendInfo = { last_leave_at: moment('2021-01-20T05:00:00.629Z') };
-    act(() => {
-      tree = renderer.create(<ExtendPopup extendInfo={extendInfo} />);
-    });
-    expect(tree.toJSON()).toMatchSnapshot();
-  });
 
   test('test click confirmed', async () => {
     const extendInfo = { last_leave_at: moment('2021-01-20T05:00:00.629Z') };
@@ -58,7 +51,6 @@ describe('Test extend popup', () => {
       API.PARKING.GET_BOOKING_PRICE(1),
       params
     );
-    expect(tree.toJSON()).toMatchSnapshot();
   });
 
   test('test click confirmed get price success', async () => {
@@ -202,7 +194,5 @@ describe('Test extend popup', () => {
     setImmediate(() => {
       expect(buttonSecondary.title).toEqual('Hủy');
     });
-
-    expect(tree.toJSON()).toMatchSnapshot();
   });
 });

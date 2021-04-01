@@ -24,7 +24,7 @@ const SearchBarLocation = memo(({ onTextInput }) => {
       () => {
         onTextInput && onTextInput(input);
       },
-      input ? 300 : 0
+      input ? 125 : 0
     );
   }, [input, timeOutTextChange, onTextInput]);
 

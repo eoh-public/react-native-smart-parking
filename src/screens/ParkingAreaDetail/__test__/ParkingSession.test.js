@@ -5,27 +5,35 @@ import moment from 'moment';
 import { Text, TouchableOpacity } from 'react-native';
 import { TESTID } from '../../../configs/Constants';
 import { Colors } from '../../../configs';
+import { CustomCheckbox } from '../../../commons';
+
+const mockedDateTime = jest.fn();
+
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  memo: (x) => x,
+}));
 
 describe('Test ParkingSession', () => {
+  let wrapper;
   let data;
   const mockSetBookTime = jest.fn();
 
   beforeEach(() => {
-    Date.now = jest.fn(() => new Date('2021-01-24T12:00:00.000Z'));
     data = {
       bookTime: {
-        arriveAt: moment(),
+        arriveAt: moment('2021-01-24T12:00:00.000Z'),
         numBookHour: 1,
       },
       setBookTime: mockSetBookTime,
       parkingSessionData: [
         {
-          time: moment(),
+          time: moment('2021-01-24T12:00:00.000Z'),
           price: 1000,
           id: 1,
         },
         {
-          time: moment(),
+          time: moment('2021-01-24T13:00:00.000Z'),
           price: 1000,
           id: 2,
         },
@@ -34,35 +42,31 @@ describe('Test ParkingSession', () => {
       spotNumber: 'HU1',
     };
   });
-  let wrapper;
 
-  test('create', () => {
-    act(() => {
-      wrapper = create(<ParkingSession {...data} />);
-    });
-    expect(wrapper.toJSON()).toMatchSnapshot();
-  });
-
-  test('create without spotNumber', () => {
-    data.spotNumber = '';
-    act(() => {
-      wrapper = create(<ParkingSession {...data} />);
-    });
-    expect(wrapper.toJSON()).toMatchSnapshot();
+  afterEach(() => {
+    mockSetBookTime.mockClear();
   });
 
   test('onPress ArriveItem, with preBook', () => {
     data.preBook = true;
+    data.spotNumber = undefined;
     const styleContainer = {
-      width: 80,
+      width: 59,
+      height: 38,
       borderWidth: 1,
       borderColor: '#E8E8E8',
       paddingVertical: 8,
       alignItems: 'center',
       marginRight: 16,
     };
-    const styleSelected = [styleContainer, { borderColor: Colors.Primary }];
-    const styleNotSelected = [styleContainer, { borderColor: Colors.Gray4 }];
+    const styleSelected = [
+      styleContainer,
+      { borderColor: Colors.Primary, backgroundColor: Colors.Primary },
+    ];
+    const styleNotSelected = [
+      styleContainer,
+      { borderColor: Colors.Gray4, backgroundColor: Colors.White },
+    ];
 
     act(() => {
       wrapper = create(<ParkingSession {...data} />);
@@ -84,10 +88,9 @@ describe('Test ParkingSession', () => {
 
     expect(buttonsArriveItem[1].props.style).toEqual(styleSelected);
     expect(mockSetBookTime).toHaveBeenCalledWith({
-      arriveAt: moment(),
+      arriveAt: moment('2021-01-24T13:00:00.000Z'),
       numBookHour: 1,
     });
-    expect(wrapper.toJSON()).toMatchSnapshot();
   });
 
   test('onPress plus onChangeHour, with preBook', () => {
@@ -113,9 +116,53 @@ describe('Test ParkingSession', () => {
     expect(textHour.instance.props.children).toEqual('2 giờ');
 
     expect(mockSetBookTime).toHaveBeenCalledWith({
-      arriveAt: moment(),
+      arriveAt: moment('2021-01-24T12:00:00.000Z'),
       numBookHour: 2,
     });
-    expect(wrapper.toJSON()).toMatchSnapshot();
+  });
+
+  test('onAlreadyArrived with state true', async () => {
+    Date.now = mockedDateTime;
+    mockedDateTime.mockImplementation(
+      () => new Date('2021-01-24T13:15:00.000Z')
+    );
+    data.spotNumber = undefined;
+
+    act(() => {
+      wrapper = create(<ParkingSession {...data} />);
+    });
+    const instance = wrapper.root;
+    const checkBoxAlready = instance.findByType(CustomCheckbox);
+    await act(() => {
+      checkBoxAlready.props.onPress();
+    });
+    expect(mockSetBookTime).toHaveBeenCalledWith({
+      arriveAt: moment(),
+      numBookHour: 1,
+    });
+  });
+
+  test('onAlreadyArrived with state false', async () => {
+    Date.now = mockedDateTime;
+    mockedDateTime.mockImplementation(
+      () => new Date('2021-01-24T13:15:00.000Z')
+    );
+    data.spotNumber = undefined;
+
+    act(() => {
+      wrapper = create(<ParkingSession {...data} />);
+    });
+    const instance = wrapper.root;
+    const checkBoxAlready = instance.findByType(CustomCheckbox);
+    await act(() => {
+      checkBoxAlready.props.onPress();
+    });
+    await act(() => {
+      checkBoxAlready.props.onPress();
+    });
+    expect(mockSetBookTime).toHaveBeenCalledWith({
+      arriveAt: moment('2021-01-24T12:00:00.000Z'),
+      numBookHour: 1,
+    });
   });
 });

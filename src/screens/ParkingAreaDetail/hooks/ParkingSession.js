@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
-import { API } from '../../../configs';
-import { axiosGet } from '../../../utils/Apis/axios';
 import moment from 'moment';
+import { axiosGet } from '../../../utils/Apis/axios';
+import { API } from '../../../configs';
 
 const useParkingSession = (id, preBook, numBookHour) => {
   const [parkingSessionData, setParkingSessionData] = useState([]);

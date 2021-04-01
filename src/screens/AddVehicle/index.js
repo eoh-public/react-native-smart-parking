@@ -173,6 +173,7 @@ const AddVehicle = memo(({ route }) => {
 
   const background = vehicle.background.uri || vehicle.background;
 
+  // eslint-disable-next-line no-unused-vars
   const [isMissingName, isMissingPlateAndBackground] = useMemo(() => {
     const missName = !vehicle.name;
     const missPlateAndBackground = !vehicle.plate_number || !background;

@@ -78,7 +78,7 @@ const MapDashboard = memo(({ route }) => {
 
   const [searchedLocation, setSearchedLocation] = useState(null);
   const [currentLocation, setCurrentLocation] = useState(null);
-  const [directions, setDirections] = useState({null});
+  const [directions, setDirections] = useState({});
   const [appState, setAppState] = useState(AppState.currentState);
 
   const mapRef = useRef(null);
@@ -149,13 +149,7 @@ const MapDashboard = memo(({ route }) => {
     if (!activeSessions) {
       await getNearbyParkings({ lat: location.lat, lng: location.lng });
     }
-    setSelectedLocation({
-      ...selectedLocation,
-      location: {
-        lat: location.lat,
-        lng: location.lng,
-      },
-    });
+    animateToRegion(location.lat, location.lng);
   }, [activeSessions, animateToRegion, getNearbyParkings]);
 
   const onPressNearby = useCallback(

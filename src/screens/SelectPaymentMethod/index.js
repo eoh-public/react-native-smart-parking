@@ -27,6 +27,7 @@ export const SelectPaymentMethod = memo(({ route }) => {
   const isFocused = useIsFocused();
   const { navigate } = useNavigation();
   const [loading, setLoading] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [cards, setCards] = useState([]);
 
   const getData = useCallback(() => {
@@ -60,11 +61,10 @@ export const SelectPaymentMethod = memo(({ route }) => {
   }, []);
 
   useEffect(() => {
-    fetchCard();
     if (isFocused) {
       onRefresh();
     }
-  }, [fetchCard, isFocused, onRefresh]);
+  }, [isFocused, onRefresh]);
 
   const navigateAddCard = useCallback(() => {
     navigate(Routes.SmartParkingAddCard, { fetchCard: fetchCard });
@@ -76,7 +76,6 @@ export const SelectPaymentMethod = memo(({ route }) => {
         <ExpandView
           key={index.toString()}
           title={item.name}
-          listItem={cards}
           leftIcon={<SvgCreditCardColor />}
           expandedView={
             <>
@@ -116,7 +115,7 @@ export const SelectPaymentMethod = memo(({ route }) => {
         />
       );
     },
-    [cards, onChoose, navigateAddCard]
+    [onChoose, navigateAddCard]
   );
 
   return (
