@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { act, create } from 'react-test-renderer';
-import { TESTID } from '../../../../../configs/Constants';
+import { TESTID } from '../../../../../../configs/Constants';
 
-import GroupCheckBox from '../GroupCheckBox/index';
+import GroupCheckBox from '../index';
 
 const mockSetState = jest.fn();
 
@@ -38,7 +38,30 @@ describe('Test Group CheckBox Parking Detail', () => {
     expect(item).not.toBeUndefined();
   });
 
-  test('press Group CheckBox Parking Detail', async () => {
+  test('render Group CheckBox Parking Detail with multiple false', async () => {
+    const data = [
+      {
+        title: 'title 1',
+        description: 'description 1',
+      },
+    ];
+    const mockFunc = jest.fn();
+    await act(async () => {
+      tree = create(<GroupCheckBox data={data} onSelect={mockFunc} />);
+    });
+    const item = findGroupCheckBoxItem(tree.root);
+
+    await act(async () => {
+      item.props.onSelect(0);
+    });
+    expect(mockSetState).toHaveBeenCalledWith([0]);
+    expect(mockFunc).toHaveBeenCalledWith({
+      description: 'description 1',
+      title: 'title 1',
+    });
+  });
+
+  test('press Group CheckBox Parking Detail multiple foundIndex = -1', async () => {
     const data = [
       {
         title: 'testItem',
@@ -63,45 +86,41 @@ describe('Test Group CheckBox Parking Detail', () => {
     ]);
   });
 
-  test('render Group CheckBox Parking Detail with foundIndex === -1 multiple false', async () => {
-    const data = [
-      {
-        title: 'title 1',
-        description: 'description 1',
-      },
-    ];
-    const mockFunc = jest.fn();
-    await act(async () => {
-      tree = create(<GroupCheckBox data={data} onSelect={mockFunc} />);
-    });
-    const item = findGroupCheckBoxItem(tree.root);
-
-    await act(async () => {
-      item.props.onSelect(0);
-    });
-    expect(mockSetState).toHaveBeenCalledWith([0]);
-    expect(mockFunc).toHaveBeenCalledWith({
-      description: 'description 1',
-      title: 'title 1',
-    });
-  });
-
-  test('render Group CheckBox Parking Detail with foundIndex !== -1', async () => {
+  test('render Group CheckBox Parking Detail with foundIndex !== -1 multiple', async () => {
     const data = [
       {
         title: 'title 1',
         description: 'description 1',
       },
       {
-        title: 'title 2',
+        name: 'title 2',
         description: 'description 2',
       },
     ];
+    const mockFunc = jest.fn();
+    useState.mockImplementation((init) => [[0], mockSetState]);
+
     await act(async () => {
-      tree = create(<GroupCheckBox data={data} defaultIndex={1} />);
+      tree = create(
+        <GroupCheckBox
+          data={data}
+          defaultIndex={1}
+          onSelect={mockFunc}
+          multiple
+        />
+      );
     });
     const instance = tree.root;
     expect(instance.props.defaultIndex).toBe(1);
     expect(mockSetState).toHaveBeenCalledWith([0]);
+    const items = instance.findAll(
+      (el) => el.props.testID === TESTID.GROUP_CHECK_BOX_PARKING_DETAIL
+    );
+
+    await act(async () => {
+      items[0].props.onSelect(0);
+    });
+    expect(mockSetState).toHaveBeenCalledWith([0]);
+    expect(mockFunc).toHaveBeenCalledWith([]);
   });
 });
