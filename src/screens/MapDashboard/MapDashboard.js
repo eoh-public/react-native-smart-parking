@@ -434,6 +434,7 @@ const MapDashboard = memo(({ route }) => {
           )}
           {!isObjectEmpty(directions) && (
             <MapViewDirections
+              testID={TESTID.GUIDE_LINE}
               origin={getDirectionFrom}
               destination={directions}
               apikey={AppRNConfig.GOOGLE_MAP_API_KEY}
@@ -444,6 +445,7 @@ const MapDashboard = memo(({ route }) => {
           )}
           {searchedLocation && (
             <Marker
+              testID={TESTID.MARKER_SEARCHED}
               coordinate={{
                 latitude: searchedLocation.latitude,
                 longitude: searchedLocation.longitude,
@@ -453,6 +455,7 @@ const MapDashboard = memo(({ route }) => {
           )}
           {activeSessions && (
             <Marker
+              testID={TESTID.MARKER_ACTIVE_SESSIONS}
               coordinate={{
                 latitude: activeSessions.parking.lat,
                 longitude: activeSessions.parking.lng,
