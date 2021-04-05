@@ -171,6 +171,7 @@ const ParkingAreaList = ({
     <View style={styles.container}>
       {!!parkingAreas.length && (
         <Carousel
+          testID={TESTID.PARKING_AREA_POPUP}
           ref={carousel}
           layout={'default'}
           data={parkingAreas}
