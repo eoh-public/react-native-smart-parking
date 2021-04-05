@@ -21,6 +21,8 @@ check-basic-rule:
       - $CI_COMMIT_REF_SLUG =~ /bumpversion/
       - $CI_COMMIT_REF_SLUG =~ /chore/
       - $E2E_PATH
+    refs:
+      - master
   script:
     - git fetch origin master
     - if [[ $CI_COMMIT_REF_SLUG != *e2e* ]]; then yarn run check_coverage_config; fi
