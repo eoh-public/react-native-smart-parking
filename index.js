@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import App from './src/navigations';
 import sagas from './src/redux/Sagas';
 import { sagaMiddleware, store } from './src/redux/store';
-import 'src/utils/I18n/index';
+import './src/utils/I18n/index';
 
 const SmartParking = (props) => {
   return (
