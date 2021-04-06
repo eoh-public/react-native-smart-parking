@@ -7,10 +7,10 @@ module.exports = {
   collectCoverage: true,
   coverageThreshold: {
     global: {
-      statements: 71.64,
-      branches: 66.16,
-      functions: 61.93,
-      lines: 72.19,
+      statements: 70.04,
+      branches: 64.91,
+      functions: 60.05,
+      lines: 70.68,
     },
   },
   modulePathIgnorePatterns: ['SampleProject'],
@@ -25,8 +25,6 @@ module.exports = {
   setupFiles: [
     'dotenv/config',
     './jest/setup.js',
-    './jest/google_signin.setup.js',
-    './jest/fbsdk.setup.js',
     './jest/react-native-reanimated.setup.js',
     './jest/react-native-stripe.setup.js',
     './node_modules/react-native-gesture-handler/jestSetup.js',
