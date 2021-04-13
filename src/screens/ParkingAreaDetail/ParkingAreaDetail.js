@@ -6,19 +6,17 @@ import React, {
   useRef,
   useState,
 } from 'react';
-
+import { t } from 'i18n-js';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 import { Button, ButtonPopup, FullLoading } from '../../commons';
 import ParkingSpotInput from '../ParkingInputManually/components/ParkingSpotInput';
 import WrapParallaxScrollView from '../../commons/WrapParallaxScrollView';
-
 import { API, AppRNConfig, Colors } from '../../configs';
 import { TESTID } from '../../configs/Constants';
 import { useBoolean, useControllList } from '../../hooks/Common';
 import { useKeyboardShowTranslation } from '../../hooks/Common/useKeyboardShowTranslation';
-import { t } from 'i18n-js';
 import {
   SvgBookmarkGreen,
   SvgBookmarkGreenFill,
@@ -169,7 +167,7 @@ const ParkingAreaDetail = memo(({ route }) => {
     bookTime,
   ]);
 
-  const arrive_hour = preBook ? bookTime.arriveAt.hour() : bookTime.arriveAt;
+  const arriveAt = preBook ? bookTime.arriveAt : bookTime.arriveAt;
   const bookingDetailData = useMemo(() => {
     const item = {
       spot_name: spot_name || spotNumber,
@@ -177,7 +175,7 @@ const ParkingAreaDetail = memo(({ route }) => {
       address: parkingDetailData.address,
       background: parkingDetailData.background,
       plate_number: car.plate_number,
-      arrive_at: calcTime(arrive_hour, 'HH:mm', 'LT, DD/MM/YYYY'),
+      arrive_at: calcTime(arriveAt, 'HH:mm', 'LT, DD/MM/YYYY'),
       leave_at: calcTime(
         bookTime.arriveAt.clone().add({ hours: bookTime.numBookHour }),
         'HH:mm',
@@ -221,7 +219,7 @@ const ParkingAreaDetail = memo(({ route }) => {
     parkingDetailData.address,
     parkingDetailData.background,
     car,
-    arrive_hour,
+    arriveAt,
     bookTime.numBookHour,
     bookTime.arriveAt,
     isPayNow,
