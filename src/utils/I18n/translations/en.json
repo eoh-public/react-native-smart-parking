@@ -641,7 +641,7 @@
   "payment_success": "Payment Success",
   "transaction_is_unsuccessful_%{message}": "Transaction is unsuccessful. %{message}",
   "emergency_resolved": "Your emergency situation has been resolved. Other members in this unit will be notified as well.",
-  "text_notification_payment_success": "You arrive at your parking spot. Please don't forget to move your vehicle when your parking session ends or extend parking hours in case you need more time.",
+  "text_notification_payment_success": "To confirm and activate your booking, please scan the QR code on the post at your parking spot when you arrive.",
   "notify_sms_success": "Notify sms success!",
   "gateway": "Gateway",
   "add_new_gateway": "Add new gateway",
