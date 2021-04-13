@@ -1,12 +1,15 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 import { View, StyleSheet, Platform, TouchableOpacity } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import { useNavigation } from '@react-navigation/native';
 
 import { Colors } from '../../../configs';
 import Text from '../../../commons/Text';
 import { IconOutline } from '@ant-design/icons-react-native';
 import { calcDistance } from '../../../utils/Converter/distance';
 import { formatMoney } from '../../../utils/Utils';
+import Routes from '../../../utils/Route';
+import { TESTID } from '../../../configs/Constants';
 
 import SvgNavigate from '../../../../assets/images/SmartParking/navigate.svg';
 import SvgBookmarkGreen from '../../../../assets/images/SmartParking/bookmark-green.svg';
@@ -25,10 +28,20 @@ const SavedParkingItem = memo(
     onUnsaveParking,
   }) => {
     const distanceWithUnit = calcDistance(distance);
+    const { navigate } = useNavigation();
+    const onPress = useCallback(() => {
+      navigate(Routes.SmartParkingParkingAreaDetail, {
+        id: id,
+      });
+    }, [navigate, id]);
 
     return (
       <View style={styles.container1}>
-        <View style={styles.container}>
+        <TouchableOpacity
+          style={styles.container}
+          onPress={onPress}
+          testID={TESTID.TOUCH_SAVED_PARKING}
+        >
           <View style={styles.image}>
             <FastImage source={{ uri: background }} style={styles.image} />
           </View>
@@ -75,7 +88,7 @@ const SavedParkingItem = memo(
               </Text>
             </View>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
     );
   }

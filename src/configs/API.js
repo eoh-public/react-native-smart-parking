@@ -3,22 +3,7 @@ import Config from 'react-native-config';
 const API_ROOT = Config.API_ROOT;
 
 const API = {
-  AUTH: {
-    LOGIN_PHONE: API_ROOT + '/accounts/login/',
-    LOGIN_FACEBOOK: API_ROOT + '/accounts/login/facebook/',
-    REGISTER_PHONE: API_ROOT + '/accounts/register/phone/',
-    RESEND_OTP: API_ROOT + '/accounts/register/resend_otp/',
-    VERIFY_OTP: API_ROOT + '/accounts/register/verify_otp/',
-    LOGIN_SOCIAL_FB: API_ROOT + '/accounts/login/facebook/',
-    LOGIN_SOCIAL_GG: API_ROOT + '/accounts/login/google/',
-    LOGIN_SOCIAL_AP: API_ROOT + '/accounts/login/apple/',
-    FORGOT_PASSWORD: API_ROOT + '/accounts/forgot_password/',
-    FORGOT_PASSWORD_VERIFY_OTP:
-      API_ROOT + '/accounts/forgot_password/verify_otp/',
-    RESET_PASSWORD: API_ROOT + '/accounts/forgot_password/set_password/',
-  },
   ACCOUNTS: {
-    FEATURES: API_ROOT + '/accounts/features/',
     ADD_CARD: API_ROOT + '/billing/payments/stripe/add_card/',
     REMOVE_CARD: (id) =>
       API_ROOT + `/billing/payments/stripe/remove_cards/${id}/`,
@@ -59,43 +44,6 @@ const API = {
   CHIP: {
     CHECK_FINALIZED:
       API_ROOT + '/property_manager/stations/check_chip_finalized/',
-  },
-  SENSOR: {
-    DISPLAY: (id) => API_ROOT + `/property_manager/sensors/${id}/display/`,
-    DISPLAY_VALUES: (id) =>
-      API_ROOT + `/property_manager/sensors/${id}/display_values/`,
-    DISPLAY_VALUES_V2: (id) =>
-      API_ROOT + `/property_manager/sensors/${id}/display_values_v2/`,
-    DISPLAY_HISTORY: (id, hId) =>
-      API_ROOT + `/property_manager/sensors/${id}/display_history/`,
-    CAMERA_DISPLAY: (id) =>
-      API_ROOT + `/property_manager/sensors/${id}/cameras/`,
-    REMOTE_CONTROL_OPTIONS: (id) =>
-      API_ROOT + `/property_manager/sensors/${id}/remote_control_options/`,
-    QUICK_ACTION: (id) =>
-      API_ROOT + `/property_manager/sensors/${id}/quick_action/`,
-    CHECK_CONNECTION: (id) =>
-      API_ROOT + `/property_manager/sensors/${id}/check_connection/`,
-    UPDATE_SENSOR: (unit_id, station_id, id) =>
-      API_ROOT +
-      `/property_manager/${unit_id}/sub_units/${station_id}/devices/${id}/`,
-  },
-  CONFIG: {
-    DISPLAY_HISTORY: API_ROOT + '/property_manager/configs/display_history/',
-  },
-  POWER_CONSUME: {
-    DISPLAY_HISTORY:
-      API_ROOT + '/property_manager/power_consume/display_history/',
-  },
-  SHARE: {
-    UNITS: API_ROOT + '/property_manager/sharing/units/',
-    UNIT_PERMISSIONS: (id) =>
-      API_ROOT + `/property_manager/sharing/units/${id}/permissions/`,
-    UNITS_MEMBERS: (id) =>
-      API_ROOT + `/property_manager/sharing/units/${id}/members/`,
-    UNITS_MEMBER_DETAIL: (id, shareId) =>
-      API_ROOT + `/property_manager/sharing/units/${id}/members/${shareId}/`,
-    SHARE: API_ROOT + '/property_manager/sharing/share/',
   },
   EXTERNAL: {
     WEATHER: (location, weatherMapId) =>
