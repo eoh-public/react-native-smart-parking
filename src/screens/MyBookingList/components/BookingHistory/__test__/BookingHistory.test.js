@@ -5,7 +5,17 @@ import { t } from 'i18n-js';
 import BookingHistory from '../index';
 import { Text } from 'react-native';
 import { Colors } from '../../../../../configs';
+import { TouchableOpacity } from 'react-native';
 
+const mockNavigateReact = jest.fn();
+jest.mock('@react-navigation/native', () => {
+  return {
+    ...jest.requireActual('@react-navigation/native'),
+    useNavigation: () => ({
+      navigate: mockNavigateReact,
+    }),
+  };
+});
 describe('Test booking history popup', () => {
   let bookingsHistory = [
     {
@@ -40,6 +50,12 @@ describe('Test booking history popup', () => {
     expect(texts[1].props.children).toEqual('Thảo cầm viên parking street');
     expect(texts[4].props.children).toEqual(t('completed'));
     expect(texts[4].props.style[0].color).toEqual(Colors.Green6);
+
+    const buttons = instance.findAllByType(TouchableOpacity);
+    act(() => {
+      buttons[0].props.onPress();
+    });
+    expect(mockNavigateReact).toBeCalledTimes(1);
   });
 
   test('create render Booking item cancelled', () => {

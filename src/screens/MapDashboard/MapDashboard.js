@@ -248,10 +248,12 @@ const MapDashboard = memo(({ route }) => {
         return;
       }
       setShowNearbyParking(true);
-      setSelectedLocation({
-        ...selectedLocation,
-        description: nearbyParkings[index].address,
-      });
+      if (!searchedLocation) {
+        setSelectedLocation({
+          ...selectedLocation,
+          description: nearbyParkings[index].address,
+        });
+      }
       setIndexParking(index);
       if (nearbyParkings[index]) {
         setDirections({
@@ -260,7 +262,7 @@ const MapDashboard = memo(({ route }) => {
         });
       }
     },
-    [activeSessions, nearbyParkings, selectedLocation]
+    [activeSessions, nearbyParkings, searchedLocation, selectedLocation]
   );
 
   const hideScanResponse = useCallback(() => {
