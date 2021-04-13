@@ -76,14 +76,13 @@ const ParkingInputManually = memo(() => {
       },
     });
     if (!success) {
-      if (data.spot_name[0].includes('does not exist')) {
-        setResultCheckCar(t('notify_spot_not_exist'));
-      }
-      if (data.spot_name[0] === 'No car parked') {
+      if (data.spot_name[0] === 'Move your car to spot and then retry') {
         setResultCheckCar(t('notify_no_car_parked'));
       }
       if (data.spot_name[0] === 'This spot has been booked before') {
         setResultCheckCar(t('notify_spot_has_been_booked'));
+      } else {
+        setResultCheckCar(t('notify_spot_not_exist'));
       }
       setShowModal();
     } else {
