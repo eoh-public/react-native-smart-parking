@@ -2,6 +2,17 @@ import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { TouchableOpacity } from 'react-native';
 import SavedParkingItem from '../SavedParkingList';
+import { TESTID } from '../../../../configs/Constants';
+
+const mockedNavigate = jest.fn();
+jest.mock('@react-navigation/native', () => {
+  return {
+    ...jest.requireActual('@react-navigation/native'),
+    useNavigation: () => ({
+      navigate: mockedNavigate,
+    }),
+  };
+});
 
 describe('Test saved parking', () => {
   const savedList = [
@@ -35,11 +46,22 @@ describe('Test saved parking', () => {
       );
     });
     const testInstance = wrapper.root;
-    const button = testInstance.findByType(TouchableOpacity);
+    const button = testInstance.find(
+      (el) =>
+        el.props.testID !== TESTID.TOUCH_SAVED_PARKING &&
+        el.type === TouchableOpacity
+    );
+    const buttonGoToDetail = testInstance.find(
+      (el) =>
+        el.props.testID === TESTID.TOUCH_SAVED_PARKING &&
+        el.type === TouchableOpacity
+    );
     renderer.act(() => {
       button.props.onPress();
+      buttonGoToDetail.props.onPress();
     });
     expect(mockFunc).toHaveBeenCalled();
+    expect(mockedNavigate).toBeCalled();
   });
   test('create render saved parking list is_saved: false', () => {
     const notSaveList = [
@@ -70,7 +92,11 @@ describe('Test saved parking', () => {
       );
     });
     const testInstance = wrapper.root;
-    const button = testInstance.findByType(TouchableOpacity);
+    const button = testInstance.find(
+      (el) =>
+        el.props.testID !== TESTID.TOUCH_SAVED_PARKING &&
+        el.type === TouchableOpacity
+    );
     renderer.act(() => {
       button.props.onPress();
     });
