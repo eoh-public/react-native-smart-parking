@@ -9,3 +9,9 @@ export const setNewNotification = (boolean) => ({
   type: SET_NEW_NOTIFICATION,
   boolean,
 });
+
+export const SET_INCOMPLETED_CARS_INFO = 'SET_INCOMPLETED_CARS_INFO';
+export const setInconpletedCarsInfo = (boolean) => ({
+  type: SET_INCOMPLETED_CARS_INFO,
+  boolean,
+});

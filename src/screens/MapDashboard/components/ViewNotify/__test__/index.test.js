@@ -10,7 +10,7 @@ describe('Test ViewNotify', () => {
   test('render ViewNotify', () => {
     const notiNumber = 10;
     act(() => {
-      tree = create(<ViewNotify hasNoti notiNumber={notiNumber} />);
+      tree = create(<ViewNotify notiNumber={notiNumber} />);
     });
     const instance = tree.root;
     const text = instance.findByType(Text);

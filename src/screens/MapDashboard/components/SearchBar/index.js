@@ -21,8 +21,13 @@ const SearchBar = memo(
     notificationNumber,
   }) => {
     const navigation = useNavigation();
-    const { newNotification } = useSelector((state) => state.notifications);
-
+    const {
+      incompletedCarsInfo,
+      newSavedParking,
+      newNotification,
+    } = useSelector((state) => state.notifications);
+    const hasNotiOnMenu =
+      !selectedLocation.description && (incompletedCarsInfo || newSavedParking);
     const onPressMenu = useCallback(() => {
       if (selectedLocation.description) {
         onClearDataParking && onClearDataParking();
@@ -52,7 +57,7 @@ const SearchBar = memo(
           onPress={onPressMenu}
           testID={TESTID.BUTTON_MENU_SMARTPARKING}
         >
-          <ViewNotify hasNoti={!selectedLocation.description}>
+          <ViewNotify smallDot={hasNotiOnMenu}>
             <IconOutline
               name={selectedLocation.description ? 'left' : 'menu'}
               size={24}
@@ -89,7 +94,7 @@ const SearchBar = memo(
             onPress={onPressNotify}
             testID={TESTID.BUTTON_NOTI_PARKING}
           >
-            <ViewNotify hasNoti notiNumber={notificationNumber}>
+            <ViewNotify notiNumber={notificationNumber}>
               <IconFill name="bell" size={24} />
             </ViewNotify>
           </TouchableOpacity>

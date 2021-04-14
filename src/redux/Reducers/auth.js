@@ -9,28 +9,6 @@ const initialState = {
     token: '',
     user: {},
   },
-  isLoggingIn: false,
-
-  // login FB
-  isSocialLoggedIn: true,
-  isSocialLoggingIn: false,
-
-  // verifyOtp
-  isVerifiedOTP: false,
-  isVerifyingOTP: false,
-  otpErrorMsg: '',
-
-  //forgotPassword
-  isForgotingPassword: false,
-  successForgotPassword: false,
-  errorMsgForgotPassword: '',
-
-  isFPVerifingOTP: false,
-  isFPVerifiedOTP: false,
-
-  isResettingPassword: false,
-  successResetPassword: false,
-  errorResetPassword: '',
 };
 
 export default (state = initialState, action) => {
