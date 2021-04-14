@@ -1,9 +1,10 @@
-import React, { memo, useMemo, useState, useEffect } from 'react';
+import React, { memo, useMemo, useEffect } from 'react';
 import { ScrollView, View, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useIsFocused } from '@react-navigation/native';
 import { Icon } from '@ant-design/react-native';
 import { t } from 'i18n-js';
+import { useDispatch } from 'react-redux';
 
 import { Colors, API } from '../../configs';
 import { getStatusBarHeight, TESTID } from '../../configs/Constants';
@@ -18,19 +19,21 @@ import SvgCarDrawer from '../../../assets/images/SmartParking/car_drawer.svg';
 import BookMarkGray from '../../../assets/images/SmartParking/bookmark-gray.svg';
 import CreditCard from '../../../assets/images/SmartParking/credit-card.svg';
 import Tags from '../../../assets/images/SmartParking/tags.svg';
+import { setInconpletedCarsInfo } from '../../redux/Actions/notifications';
 
 const SmartParkingDrawer = memo(() => {
   const isFocused = useIsFocused();
-  const [vehicle, setVehicle] = useState();
-
-  const { newSavedParking } = useSelector((state) => state.notifications);
+  const dispatch = useDispatch();
+  const { newSavedParking, incompletedCarsInfo } = useSelector(
+    (state) => state.notifications
+  );
 
   useEffect(() => {
     if (isFocused) {
       (async () => {
         const { data, success } = await axiosGet(API.CAR.CHECK_CARS_INFO);
         if (success) {
-          setVehicle(data.incomplete);
+          dispatch(setInconpletedCarsInfo(data.incomplete));
         }
       })();
     }
@@ -49,7 +52,7 @@ const SmartParkingDrawer = memo(() => {
         route: Routes.VehicleManagement,
         leftImage: <SvgCarDrawer />,
         name: t('vehicle_management'),
-        vehicle: vehicle,
+        vehicle: incompletedCarsInfo,
       },
       {
         id: '2',
@@ -71,7 +74,7 @@ const SmartParkingDrawer = memo(() => {
         name: t('violations_and_tickets'),
       },
     ],
-    [vehicle, newSavedParking]
+    [incompletedCarsInfo, newSavedParking]
   );
 
   return (

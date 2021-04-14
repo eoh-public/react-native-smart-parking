@@ -7,7 +7,6 @@ import useTitleHeader from './useTitleHeader';
 import useControllList from './useControllList';
 import useToggle from './useToggle';
 import { useBlockBackAndroid } from './useBlockBackAndroid';
-import { useIsOwnerOfUnit } from './useIsOwnerOfUnit';
 
 export {
   useAndroidTranslucentStatusBar,
@@ -19,5 +18,4 @@ export {
   useControllList,
   useToggle,
   useBlockBackAndroid,
-  useIsOwnerOfUnit,
 };

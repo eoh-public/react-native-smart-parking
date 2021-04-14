@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { TESTID } from '../../../configs/Constants';
 import configureStore from 'redux-mock-store';
@@ -26,6 +26,15 @@ jest.mock('@react-navigation/native', () => {
     }),
   };
 });
+
+const mockDispatch = jest.fn();
+jest.mock('react-redux', () => ({
+  ...jest.requireActual('react-redux'),
+  useDispatch: () => {
+    return mockDispatch;
+  },
+}));
+
 const setState = jest.fn();
 describe('Test Smart Parking Drawer', () => {
   let tree;
@@ -51,7 +60,6 @@ describe('Test Smart Parking Drawer', () => {
       },
     });
   });
-  useState.mockImplementation((init) => [init, setState]);
   test('render Smart Parking Drawer', async () => {
     useIsFocused.mockImplementation(() => true);
     const response = {
@@ -77,7 +85,7 @@ describe('Test Smart Parking Drawer', () => {
     );
     expect(items).not.toBeUndefined();
     expect(axios.get).toHaveBeenCalledWith(API.CAR.CHECK_CARS_INFO, {});
-    expect(setState).toBeCalledTimes(1);
+    expect(mockDispatch).toBeCalledTimes(1);
   });
 
   test('render Smart Parking Drawer useIsFocused false', async () => {

@@ -1,10 +1,8 @@
 import { all, call, spawn } from 'redux-saga/effects';
 import watchAuth from './auth';
-import watchUnit from './unit';
-import watchDashboard from './dashboard';
 
 export default function* sagas() {
-  const watches = [watchAuth, watchUnit, watchDashboard];
+  const watches = [watchAuth];
 
   yield all(
     watches.map((saga) =>

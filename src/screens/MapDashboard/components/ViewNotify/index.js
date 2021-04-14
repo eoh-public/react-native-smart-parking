@@ -6,30 +6,36 @@ import { CircleView } from '../../../../commons';
 import Text from '../../../../commons/Text';
 
 const ViewNotify = memo(
-  ({ children, hasNoti, notiNumber, styleNotifyNumber }) => {
+  ({ children, smallDot, notiNumber, styleNotifyNumber }) => {
     if (notiNumber > 9) {
       notiNumber = '9+';
     }
     return (
       <View style={styles.viewNotify}>
         {children}
-        {hasNoti && (
+        {notiNumber ? (
           <CircleView
-            size={!notiNumber && 8}
             width={24}
             height={22}
-            style={[
-              notiNumber ? styles.notifyHasNumber : styles.notifyNoNumber,
-              styleNotifyNumber,
-            ]}
-            backgroundColor={notiNumber ? Colors.Orange : Colors.Transparent}
+            style={[styles.notifyHasNumber, styleNotifyNumber]}
+            backgroundColor={Colors.Orange}
           >
-            {!!notiNumber && (
-              <Text type="Label" color={Colors.White}>
-                {notiNumber}
-              </Text>
-            )}
+            <Text type="Label" color={Colors.White}>
+              {notiNumber}
+            </Text>
           </CircleView>
+        ) : smallDot ? (
+          <CircleView
+            size={8}
+            style={[styles.notifyNoNumber, styleNotifyNumber]}
+            backgroundColor={Colors.Orange}
+          />
+        ) : (
+          <CircleView
+            size={8}
+            style={[styles.notifyNoNumber, styleNotifyNumber]}
+            backgroundColor={Colors.Transparent}
+          />
         )}
       </View>
     );

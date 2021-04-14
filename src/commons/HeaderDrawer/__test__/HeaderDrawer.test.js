@@ -2,13 +2,15 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import renderer, { act } from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
+import FastImage from 'react-native-fast-image';
+
 import HeaderDrawer from '../index';
 
 const mockStore = configureStore([]);
 
 describe('Test HeaderDrawer', () => {
   let store;
-  let component;
+  let tree;
 
   beforeEach(() => {
     store = mockStore({
@@ -24,7 +26,7 @@ describe('Test HeaderDrawer', () => {
     });
 
     act(() => {
-      component = renderer.create(
+      tree = renderer.create(
         <Provider store={store}>
           <HeaderDrawer />
         </Provider>
@@ -33,6 +35,7 @@ describe('Test HeaderDrawer', () => {
   });
 
   test('create HeaderDrawer', () => {
-    expect(component.toJSON()).toMatchSnapshot();
+    const image = tree.root.findByType(FastImage);
+    expect(image).toBeDefined();
   });
 });
