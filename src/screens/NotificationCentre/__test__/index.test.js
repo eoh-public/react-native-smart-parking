@@ -15,20 +15,6 @@ const mockStore = configureStore([]);
 
 jest.mock('axios');
 
-jest.mock('../hooks', () => {
-  return {
-    useNotificationsDetail: () => ({
-      notificationNumber: {
-        promotions: 69,
-        news: 96,
-        system: 9,
-        unseen: 2,
-        unread: 73,
-      },
-    }),
-  };
-});
-
 const mockSetState = jest.fn();
 
 jest.mock('react', () => ({
@@ -50,6 +36,7 @@ describe('Test NotificationCentre', () => {
 
   beforeEach(() => {
     axios.post.mockClear();
+    axios.get.mockClear();
     store = mockStore({
       notifications: {
         newNotification: true,
@@ -60,14 +47,16 @@ describe('Test NotificationCentre', () => {
 
   const mockSetStates = (notifications = []) => {
     const setNotifications = jest.fn();
+    const setIsLoaded = jest.fn();
 
     useState.mockImplementationOnce((init) => [
       notifications,
       setNotifications,
     ]);
+    useState.mockImplementationOnce((init) => [true, setIsLoaded]);
   };
 
-  test('did mount fetchNotifications fail', async () => {
+  test('did mount no notification', async () => {
     mockSetStates();
     await act(async () => {
       tree = create(
@@ -84,6 +73,52 @@ describe('Test NotificationCentre', () => {
     instance.find((el) => el.type === SvgPhoneNotification); // found, no notifications
     const texts = instance.findAllByType(Text); // no notifications
     expect(texts[0].props.children).toEqual(t('no_notifications_yet'));
+  });
+
+  test('did mount fetch notification failed', async () => {
+    mockSetStates();
+    axios.get.mockImplementation(async () => ({ status: 400 }));
+    await act(async () => {
+      tree = create(
+        <Provider store={store}>
+          <NotificationCentre />
+        </Provider>
+      );
+    });
+    expect(axios.get).toHaveBeenCalledWith(
+      API.NOTIFICATION.LIST_ALL_NOTIFICATIONS(1, ''),
+      {}
+    );
+    const instance = tree.root;
+    instance.find((el) => el.type === SvgPhoneNotification); // found, no notifications
+    const texts = instance.findAllByType(Text); // no notifications
+    expect(texts[0].props.children).toEqual(t('no_notifications_yet'));
+  });
+
+  test('did mount waiting for fetchNotifications', async () => {
+    const response = {
+      status: 200,
+      data: {
+        count: 5,
+        next: null,
+        previous: null,
+        results: [],
+      },
+    };
+    axios.get.mockImplementation(async () => response);
+
+    await act(async () => {
+      tree = create(
+        <Provider store={store}>
+          <NotificationCentre />
+        </Provider>
+      );
+    });
+    const instance = tree.root;
+    const texts = instance.findAllByType(Text); // no notifications
+    expect(texts).toHaveLength(0);
+    const list = instance.findAll((el) => el.type === FlatList); // list notifications
+    expect(list).toHaveLength(0);
   });
 
   test('did set last seen failed', async () => {
@@ -113,7 +148,7 @@ describe('Test NotificationCentre', () => {
     expect(mockDispatch).not.toHaveBeenCalled();
   });
 
-  test('did mount fetchNotifications success', async () => {
+  const mockFetchNotifications = () => {
     const notifications = [
       {
         content_code: 'PARKING_COMPLETED',
@@ -138,7 +173,12 @@ describe('Test NotificationCentre', () => {
     axios.post.mockImplementationOnce(async () => {
       return { status: 200, success: true };
     });
+
     mockSetStates(notifications);
+  };
+
+  test('did mount fetchNotifications success', async () => {
+    mockFetchNotifications();
 
     await act(async () => {
       tree = await create(
@@ -152,11 +192,103 @@ describe('Test NotificationCentre', () => {
       {}
     );
     const instance = tree.root;
-    instance.find((el) => el.type === FlatList); // list notifications
+    const flatLists = instance.findAll((el) => el.type === FlatList); // list notifications
+    expect(flatLists).toHaveLength(1);
     expect(axios.post).toHaveBeenCalledWith(API.NOTIFICATION.SET_LAST_SEEN);
     expect(mockDispatch).toHaveBeenCalledWith({
       boolean: false,
       type: 'SET_NEW_NOTIFICATION',
     });
+  });
+
+  test('load new notification when reach end', async () => {
+    const setState = jest.fn();
+    useState.mockImplementation((init) => {
+      if (init === 1) {
+        // max page notification
+        return [2, setState];
+      }
+      return [false, setState]; // is reach end
+    });
+    mockFetchNotifications();
+
+    await act(async () => {
+      tree = await create(
+        <Provider store={store}>
+          <NotificationCentre />
+        </Provider>
+      );
+    });
+    const instance = tree.root;
+    const flatList = instance.find((el) => el.type === FlatList); // list notifications
+
+    expect(axios.get).toBeCalledTimes(1);
+    act(() => {
+      flatList.props.onMomentumScrollBegin();
+    });
+    expect(setState).toBeCalledWith(false);
+
+    act(() => {
+      flatList.props.onEndReached();
+    });
+    expect(axios.get).toBeCalledTimes(2);
+  });
+
+  test('not load new notification when has no more notification', async () => {
+    const setState = jest.fn();
+    useState.mockImplementation((init) => {
+      if (init === 1) {
+        // max page notification
+        return [1, setState];
+      }
+      return [false, setState]; // is reach end
+    });
+    mockFetchNotifications();
+
+    await act(async () => {
+      tree = await create(
+        <Provider store={store}>
+          <NotificationCentre />
+        </Provider>
+      );
+    });
+    const instance = tree.root;
+    const flatList = instance.find((el) => el.type === FlatList); // list notifications
+
+    expect(axios.get).toBeCalledTimes(1);
+
+    act(() => {
+      flatList.props.onEndReached();
+    });
+    expect(axios.get).toBeCalledTimes(1);
+  });
+
+  test('not load new notification when already end', async () => {
+    const setState = jest.fn();
+    useState.mockImplementation((init) => {
+      if (init === 1) {
+        // max page notification
+        return [1, setState];
+      }
+      return [true, setState]; // is reach end
+    });
+    mockFetchNotifications();
+
+    await act(async () => {
+      tree = await create(
+        <Provider store={store}>
+          <NotificationCentre />
+        </Provider>
+      );
+    });
+    const instance = tree.root;
+    const flatList = instance.find((el) => el.type === FlatList); // list notifications
+
+    expect(axios.get).toBeCalledTimes(1);
+
+    act(() => {
+      flatList.props.onEndReached();
+    });
+    expect(axios.get).toBeCalledTimes(1);
   });
 });

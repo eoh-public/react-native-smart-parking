@@ -18,19 +18,26 @@ let page = 1;
 // TODO: temporary disable notification detail as design (EP-588)
 const NotificationCentre = memo(() => {
   const [notifications, setNotifications] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
   const [maxPageNotification, setMaxPageNotification] = useState(1);
   const [onEndReached, setOnEndReached] = useState(true);
   const dispatch = useDispatch();
 
-  const fetchNotifications = useCallback(async (pageParam) => {
-    const { success, data } = await axiosGet(
-      API.NOTIFICATION.LIST_ALL_NOTIFICATIONS(pageParam, '')
-    );
-    if (success) {
-      setNotifications((preState) => preState.concat(data.results));
-      setMaxPageNotification(Math.ceil(data.count / 10));
-    }
-  }, []);
+  const fetchNotifications = useCallback(
+    async (pageParam) => {
+      const { success, data } = await axiosGet(
+        API.NOTIFICATION.LIST_ALL_NOTIFICATIONS(pageParam, '')
+      );
+      if (success) {
+        setNotifications((preState) => preState.concat(data.results));
+        setMaxPageNotification(Math.ceil(data.count / 10));
+      }
+      if (!isLoaded) {
+        setIsLoaded(true);
+      }
+    },
+    [isLoaded, setIsLoaded]
+  );
 
   const updateLastSeen = useCallback(async () => {
     const { success } = await axiosPost(API.NOTIFICATION.SET_LAST_SEEN);
@@ -49,7 +56,7 @@ const NotificationCentre = memo(() => {
     return <ItemNotification item={item} index={index} />;
   }, []);
 
-  const handleEndReachNotifications = () => {
+  const handleEndReachNotifications = useCallback(() => {
     if (!onEndReached) {
       page += 1;
       if (page <= maxPageNotification) {
@@ -57,44 +64,45 @@ const NotificationCentre = memo(() => {
       }
       setOnEndReached(true);
     }
-  };
+  }, [onEndReached, maxPageNotification, fetchNotifications]);
 
   return (
     <View style={styles.container}>
       <View style={styles.notification}>
-        {notifications.length ? (
-          <View style={styles.notificationData}>
-            <FlatList
-              ListHeaderComponent={() => (
-                <View style={styles.content}>
-                  <Text type="H2" semibold>
-                    {t('notifications')}
-                  </Text>
-                </View>
-              )}
-              bounces={false}
-              contentContainerStyle={styles.wrapItem}
-              onEndReachedThreshold={0.5}
-              initialNumToRender={10}
-              data={notifications}
-              keyExtractor={keyExtractor}
-              renderItem={renderItem}
-              onMomentumScrollBegin={() => setOnEndReached(false)}
-              onEndReached={handleEndReachNotifications}
-            />
-          </View>
-        ) : (
-          <View style={styles.notificationEmpty}>
-            <SvgPhoneNotification />
-            <Text
-              label="H4"
-              color={Colors.Gray8}
-              style={styles.textNoNotificationsYet}
-            >
-              {t('no_notifications_yet')}
-            </Text>
-          </View>
-        )}
+        {isLoaded &&
+          (notifications.length ? (
+            <View style={styles.notificationData}>
+              <FlatList
+                ListHeaderComponent={() => (
+                  <View style={styles.content}>
+                    <Text type="H2" semibold>
+                      {t('notifications')}
+                    </Text>
+                  </View>
+                )}
+                bounces={false}
+                contentContainerStyle={styles.wrapItem}
+                onEndReachedThreshold={0.5}
+                initialNumToRender={10}
+                data={notifications}
+                keyExtractor={keyExtractor}
+                renderItem={renderItem}
+                onMomentumScrollBegin={() => setOnEndReached(false)}
+                onEndReached={handleEndReachNotifications}
+              />
+            </View>
+          ) : (
+            <View style={styles.notificationEmpty}>
+              <SvgPhoneNotification />
+              <Text
+                label="H4"
+                color={Colors.Gray8}
+                style={styles.textNoNotificationsYet}
+              >
+                {t('no_notifications_yet')}
+              </Text>
+            </View>
+          ))}
       </View>
     </View>
   );

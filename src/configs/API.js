@@ -11,36 +11,6 @@ const API = {
     LIST_PAYMENT_METHODS: API_ROOT + '/billing/list_payment_methods/',
     CREATE_CARD_TOKEN: 'https://api.stripe.com/v1/tokens',
   },
-  UNIT: {
-    ADD_USER: API_ROOT + '/property_manager/shared_units/add_by_phone_number/',
-    MY_UNITS: API_ROOT + '/property_manager/units/mine/',
-    SHARED_UNITS: API_ROOT + '/property_manager/shared_units/',
-    UNIT_DETAIL: (id) => API_ROOT + `/property_manager/units/${id}/`,
-    UNIT_NEAR_ME: (lat, lon, page) =>
-      API_ROOT + `/property_manager/units/near-me/${lat},${lon}/?page=${page}`,
-    UNITS_PUBLIC: API_ROOT + '/property_manager/units/public/',
-    UNIT_SUMMARY: (id) => API_ROOT + `/property_manager/units/${id}/summary/`,
-    UNIT_SUMMARY_DETAIL: (id, id2) =>
-      API_ROOT + `/property_manager/units/${id}/summary_detail/${id2}/`,
-    FILTER_SHARED_UNITS: (field) =>
-      API_ROOT + `/property_manager/shared_units/?ordering=${field}`,
-    STAR_UNIT: (id) => API_ROOT + `/property_manager/units/${id}/star/`,
-    UNSTAR_UNIT: (id) => API_ROOT + `/property_manager/units/${id}/unstar/`,
-    PIN_UNIT: (id) => API_ROOT + `/property_manager/units/${id}/pin/`,
-    UNPIN_UNIT: (id) => API_ROOT + `/property_manager/units/${id}/unpin/`,
-    MANAGE_UNIT: (id) => API_ROOT + `/property_manager/units/${id}/`,
-  },
-  SUB_UNIT: {
-    REMOVE_SUB_UNIT: (unitId, id) =>
-      API_ROOT + `/property_manager/${unitId}/sub_units/${id}/`,
-    CREATE_SUB_UNIT: (unitId) =>
-      API_ROOT + `/property_manager/${unitId}/sub_units/`,
-    MANAGE_SUB_UNIT: (unitId, id) =>
-      API_ROOT + `/property_manager/${unitId}/sub_units/${id}/`,
-    SENSOR_SCAN: (id) =>
-      API_ROOT + `/property_manager/stations/${id}/sensor_scan/`,
-    CHIP_SCAN: (id) => API_ROOT + `/property_manager/stations/${id}/chip_scan/`,
-  },
   CHIP: {
     CHECK_FINALIZED:
       API_ROOT + '/property_manager/stations/check_chip_finalized/',
