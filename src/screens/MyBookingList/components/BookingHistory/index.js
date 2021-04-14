@@ -6,10 +6,11 @@ import { Colors } from '../../../../configs';
 import Text from '../../../../commons/Text';
 
 import BookingHistoryItem from './BookingHistoryItem';
+import { TESTID } from '../../../../configs/Constants';
 
 const BookingHistory = memo(({ bookingsHistory, hasActiveSessions }) => {
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID={TESTID.BOOKING_HISTORY}>
       <Text type="Body" semibold color={Colors.Gray9}>
         {t('history')}
       </Text>

@@ -220,7 +220,7 @@ exports[`Test active session test create active session with default 1`] = `
           }
           testID="RIGHT_TEXT_ROW_TIME_PARKING"
         >
-          7:00 AM, 26/01/2021
+          2:00 PM, 26/01/2021
         </Text>
       </View>
       <View
@@ -267,7 +267,7 @@ exports[`Test active session test create active session with default 1`] = `
           }
           testID="RIGHT_TEXT_ROW_TIME_PARKING"
         >
-          8:00 AM, 26/01/2021
+          3:00 PM, 26/01/2021
         </Text>
       </View>
       <View
@@ -345,7 +345,7 @@ exports[`Test active session test create active session with default 1`] = `
           ]
         }
       >
-        Thanh toán trước 07:15
+        Thanh toán trước 14:15
       </Text>
       <View
         style={
@@ -675,7 +675,7 @@ exports[`Test active session test rerender active session with confirm arrival a
           }
           testID="RIGHT_TEXT_ROW_TIME_PARKING"
         >
-          7:00 AM, 26/01/2021
+          2:00 PM, 26/01/2021
         </Text>
       </View>
       <View
@@ -722,7 +722,7 @@ exports[`Test active session test rerender active session with confirm arrival a
           }
           testID="RIGHT_TEXT_ROW_TIME_PARKING"
         >
-          8:00 AM, 26/01/2021
+          3:00 PM, 26/01/2021
         </Text>
       </View>
       <View
@@ -800,7 +800,7 @@ exports[`Test active session test rerender active session with confirm arrival a
           ]
         }
       >
-        Thanh toán trước 07:15
+        Thanh toán trước 14:15
       </Text>
       <View
         style={
@@ -1130,7 +1130,7 @@ exports[`Test active session test rerender active session with paid but not arri
           }
           testID="RIGHT_TEXT_ROW_TIME_PARKING"
         >
-          7:00 AM, 26/01/2021
+          2:00 PM, 26/01/2021
         </Text>
       </View>
       <View
@@ -1177,7 +1177,7 @@ exports[`Test active session test rerender active session with paid but not arri
           }
           testID="RIGHT_TEXT_ROW_TIME_PARKING"
         >
-          8:00 AM, 26/01/2021
+          3:00 PM, 26/01/2021
         </Text>
       </View>
       <View
@@ -1255,7 +1255,7 @@ exports[`Test active session test rerender active session with paid but not arri
           ]
         }
       >
-        Thanh toán trước 07:15
+        Thanh toán trước 14:15
       </Text>
       <View
         style={

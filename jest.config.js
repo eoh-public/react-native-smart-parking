@@ -7,10 +7,10 @@ module.exports = {
   collectCoverage: true,
   coverageThreshold: {
     global: {
-      statements: 71.72,
-      branches: 66.38,
-      functions: 61.96,
-      lines: 72.33,
+      statements: 71.75,
+      branches: 67.16,
+      functions: 62.73,
+      lines: 72.44,
     },
   },
   modulePathIgnorePatterns: ['SampleProject'],
@@ -27,6 +27,7 @@ module.exports = {
     './jest/setup.js',
     './jest/react-native-reanimated.setup.js',
     './jest/react-native-stripe.setup.js',
+    './jest/react-native-vnpay-merchant.setup.js',
     './node_modules/react-native-gesture-handler/jestSetup.js',
   ],
   setupFilesAfterEnv: ['./jest/test-setup.js'],

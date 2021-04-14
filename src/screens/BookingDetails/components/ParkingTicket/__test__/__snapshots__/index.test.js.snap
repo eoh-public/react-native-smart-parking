@@ -658,7 +658,7 @@ exports[`Test ParkingTicket render 1`] = `
               ]
             }
           >
-            12:00 PM - 24/01/2021
+            7:00 PM - 24/01/2021
                 
           </Text>
         </View>
@@ -710,7 +710,7 @@ exports[`Test ParkingTicket render 1`] = `
               ]
             }
           >
-            12:00 PM - 24/01/2021
+            7:00 PM - 24/01/2021
                 
           </Text>
         </View>
@@ -1124,7 +1124,7 @@ exports[`Test ParkingTicket render 1`] = `
             ]
           }
         >
-          Thanh toán trước 12:00 PM - 24/01/2021
+          Thanh toán trước 7:00 PM - 24/01/2021
         </Text>
       </View>
     </View>

@@ -90,7 +90,7 @@ describe('Test active session item component', () => {
 
     const { leftText, rightText, bottomButton } = getRowText(instance);
 
-    expect(bottomButton.props.title).toBe('Thanh toán trước 07:15');
+    expect(bottomButton.props.title).toBe('Thanh toán trước 14:15');
     expect(leftText).toHaveLength(3);
     expect(rightText).toHaveLength(3);
     expect(leftText[2].props.children).toEqual('Thời gian còn lại:');
@@ -132,7 +132,7 @@ describe('Test active session item component', () => {
 
     const { leftText, rightText, bottomButton } = getRowText(instance);
 
-    expect(bottomButton.props.title).toBe('Dời xe trước 08:15');
+    expect(bottomButton.props.title).toBe('Dời xe trước 15:15');
     expect(leftText).toHaveLength(3);
     expect(rightText).toHaveLength(3);
   });
