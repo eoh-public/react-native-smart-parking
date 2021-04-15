@@ -87,7 +87,7 @@ publish-npm:
     - chmod 600 $GITHUB_DEPLOY_KEY
     - ssh-add $GITHUB_DEPLOY_KEY
     - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > ~/.npmrc
-    - git remote add github git@github.com:eohjsc/react-native-smart-parking.git
+    - git remote add github git@github.com:eohjsc/react-native-smart-parking.git || echo "Good"
     - ssh -o StrictHostKeyChecking=no git@github.com || echo "Good"
     - git push -f github origin/master:master
     - npm publish
