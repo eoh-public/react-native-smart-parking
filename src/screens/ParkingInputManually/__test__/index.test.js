@@ -58,11 +58,11 @@ describe('Test ParkingInputManually container', () => {
       buttonPopup,
       modalInfo,
     } = getElement(instance);
-    expect(circleInfoButton[0]).toBeDefined();
-    expect(textInputSpot[0]).toBeDefined();
-    expect(buttonConfirm[0]).toBeDefined();
-    expect(buttonPopup[0]).toBeDefined();
-    expect(modalInfo[0]).toBeDefined();
+    expect(circleInfoButton.length).toBeGreaterThanOrEqual(1);
+    expect(textInputSpot.length).toBeGreaterThanOrEqual(1);
+    expect(buttonConfirm.length).toBeGreaterThanOrEqual(1);
+    expect(buttonPopup.length).toBeGreaterThanOrEqual(1);
+    expect(modalInfo.length).toBeGreaterThanOrEqual(1);
   });
 
   test('test input spot', async () => {
