@@ -175,6 +175,14 @@ const MapDashboard = memo(({ route }) => {
         lng: currentLocation.longitude,
       },
     });
+
+    setSearchedLocation(null);
+    await deleteData('@CACHE_SELECT_LOCATION');
+
+    setShowNearbyParking(false);
+    setIndexParking(null);
+    animateToRegion(currentLocation.latitude, currentLocation.longitude);
+
     if (activeSessions) {
       setDirections({
         latitude: activeSessions.parking.lat,
@@ -192,12 +200,6 @@ const MapDashboard = memo(({ route }) => {
         lng: currentLocation.longitude,
       });
     }
-    setSearchedLocation(null);
-    await deleteData('@CACHE_SELECT_LOCATION');
-
-    setShowNearbyParking(false);
-    setIndexParking(null);
-    animateToRegion(currentLocation.latitude, currentLocation.longitude);
   }, [animateToRegion, currentLocation, activeSessions, selectedLocation]);
 
   const onSelectLocation = useCallback(
@@ -269,36 +271,38 @@ const MapDashboard = memo(({ route }) => {
     setShowScanResponse(false);
   }, []);
 
-  const renderMarkers = (dataParking) => {
-    const markers = dataParking.map((item, index) => {
-      if (
-        activeSessions &&
-        !selectedLocation.description &&
-        activeSessions.parking.lng === item.lng &&
-        activeSessions.parking.lat === item.lat
-      ) {
-        setTimeout(() => {
-          setDirections({
-            latitude: activeSessions.parking.lat,
-            longitude: activeSessions.parking.lng,
-          });
-        }, 1000);
-      } else {
-        return (
-          <Marker
-            testID={`${TESTID.PARKING_MARKER}-${item.id}`}
-            key={item.id.toString()}
-            onPress={() => onChoosingIndexParking(index)}
-            coordinate={{ latitude: item.lat, longitude: item.lng }}
-            anchor={{ x: 0.45, y: 0.5 }}
-            tracksViewChanges={false}
-            icon={indexParking === index ? selectedParkingIcon : parkingIcon}
-          />
-        );
-      }
-    });
-    return markers;
-  };
+  const renderMarkers = useCallback(
+    (dataParking) => {
+      return dataParking.map((item, index) => {
+        if (
+          activeSessions &&
+          !selectedLocation.description &&
+          activeSessions.parking.lng === item.lng &&
+          activeSessions.parking.lat === item.lat
+        ) {
+          setTimeout(() => {
+            setDirections({
+              latitude: activeSessions.parking.lat,
+              longitude: activeSessions.parking.lng,
+            });
+          }, 1000);
+        } else {
+          return (
+            <Marker
+              testID={`${TESTID.PARKING_MARKER}-${item.id}`}
+              key={item.id.toString()}
+              onPress={() => onChoosingIndexParking(index)}
+              coordinate={{ latitude: item.lat, longitude: item.lng }}
+              anchor={{ x: 0.45, y: 0.5 }}
+              tracksViewChanges={false}
+              icon={indexParking === index ? selectedParkingIcon : parkingIcon}
+            />
+          );
+        }
+      });
+    },
+    [indexParking, onChoosingIndexParking]
+  );
 
   const onDirectionReady = useCallback((result) => {
     mapRef.current.fitToCoordinates(
