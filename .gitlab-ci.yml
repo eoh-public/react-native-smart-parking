@@ -57,7 +57,7 @@ release-patch:
   before_script:
     - git config --global user.email "bang@eoh.io"
     - git config --global user.name "Bang Dao"
-    - git remote add repo https://react-native-smart-parking:$PROJECT_ACCESS_TOKEN@gitlab.com/eohio/react-native-smart-parking.git
+    - git remote add repo https://react-native-smart-parking:$PROJECT_ACCESS_TOKEN@gitlab.com/eohio/react-native-smart-parking.git || echo "Done"
 
 
 release-minor:
