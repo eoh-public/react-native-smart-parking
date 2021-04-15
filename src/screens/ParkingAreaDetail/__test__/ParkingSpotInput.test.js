@@ -1,33 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { TextInput } from 'react-native';
 import { create, act } from 'react-test-renderer';
-import ParkingSpotInput from '../compenents/ParkingSpotInput';
+import ParkingSpotList from '../compenents/ParkingSpotInput';
 
-describe('Test ParkingSpotInput', () => {
-  let data;
-  const mockOnTextInputFocus = jest.fn();
+const mockSetState = jest.fn();
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useState: jest.fn((init) => [init, mockSetState]),
+}));
 
-  beforeEach(() => {
-    data = {
-      onTextInputFocus: mockOnTextInputFocus,
-      input: '',
-      style: {},
-      isFocus: false,
-      sizeInput: {},
-    };
-  });
+describe('Test ParkingSpotList', () => {
+  const mockFunc = jest.fn();
   let wrapper;
 
-  test('create', () => {
-    act(() => {
-      wrapper = create(<ParkingSpotInput {...data} />);
-    });
-    expect(wrapper.toJSON()).toMatchSnapshot();
+  afterEach(() => {
+    useState.mockClear();
   });
-  test('create with isFocus', () => {
-    data.isFocus = true;
-    act(() => {
-      wrapper = create(<ParkingSpotInput {...data} />);
+
+  test('create ParkingSpotList', async () => {
+    useState.mockImplementationOnce((init) => [['2', '4', ''], mockSetState]);
+    await act(async () => {
+      wrapper = await create(<ParkingSpotList onfinishInputCode={mockFunc} />);
     });
-    expect(wrapper.toJSON()).toMatchSnapshot();
+
+    const instance = wrapper.root;
+    const texts = instance.findAllByType(TextInput);
+    expect(texts.length).toEqual(3);
+    await act(async () => {
+      await texts[0].props.onFocus();
+      await texts[0].props.onChangeText('2');
+      await texts[1].props.onFocus();
+      await texts[1].props.onChangeText('1');
+      await texts[2].props.onFocus();
+      await texts[2].props.onChangeText('2');
+    });
+    expect(mockSetState).toHaveBeenCalledTimes(6);
+    expect(mockFunc).toHaveBeenCalledTimes(0);
   });
 });

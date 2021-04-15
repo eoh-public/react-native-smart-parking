@@ -13,7 +13,6 @@ const ParkingSpotList = ({ onfinishInputCode, style }) => {
     '',
     '',
   ]);
-
   const inputFocusHandler = (index) => {
     verificationCodeArray.splice(index, 1, ''); // replace 1 element with empty string at [index] of array
     setVerificationCodeArray((prev) => [...verificationCodeArray]);
@@ -81,7 +80,6 @@ const ParkingSpotList = ({ onfinishInputCode, style }) => {
         fullVerificationCode += code;
       }
     });
-
     if (finishInputCode && typeof onfinishInputCode === 'function') {
       onfinishInputCode(fullVerificationCode);
     }

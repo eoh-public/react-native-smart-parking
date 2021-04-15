@@ -139,6 +139,7 @@ const styles = StyleSheet.create({
   },
   textButton: {
     minWidth: 60,
+    height: 32,
     textAlign: 'center',
   },
   widthText: {
