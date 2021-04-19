@@ -325,9 +325,7 @@ const MapDashboard = memo(({ route }) => {
   const onParkingCompleted = useCallback(() => {
     setDirections({});
     onShowThanks();
-    (async () => {
-      await getActiveSession();
-    })();
+    getActiveSession();
   }, []);
 
   const getDirectionFrom = searchedLocation
@@ -349,7 +347,7 @@ const MapDashboard = memo(({ route }) => {
         isShowExtendNow: true,
       });
     setShowWarningBell(false);
-  }, [activeSessions, activeSessions, navigate]);
+  }, [activeSessions, navigate]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -364,9 +362,7 @@ const MapDashboard = memo(({ route }) => {
         setDirections({});
       }
       setLoading(false);
-      (async () => {
-        await getActiveSession();
-      })();
+      getActiveSession();
     }
   }, [isFocused]);
 
@@ -374,7 +370,7 @@ const MapDashboard = memo(({ route }) => {
     const cacheSelectLocation = JSON.parse(
       await getData('@CACHE_SELECT_LOCATION')
     );
-    if (cacheSelectLocation.latitude) {
+    if (cacheSelectLocation.latitude !== null) {
       setSearchedLocation(cacheSelectLocation);
     }
   }, []);
@@ -391,7 +387,7 @@ const MapDashboard = memo(({ route }) => {
 
   useEffect(() => {
     if (timeLeft !== 0 && timeLeft < AppRNConfig.MAX_SECONDS) {
-      if (onShowWarning && is_paid && showWarningBell === undefined) {
+      if (is_paid && showWarningBell === undefined) {
         onShowWarning();
       }
     }
@@ -400,16 +396,12 @@ const MapDashboard = memo(({ route }) => {
   useEffect(() => {
     if (scanDataResponse) {
       setShowScanResponse(true);
-      (async () => {
-        await getActiveSession();
-      })();
+      getActiveSession();
     }
   }, [scanDataResponse]);
 
   useEffect(() => {
-    (async () => {
-      await onPressCurrentLocation();
-    })();
+    onPressCurrentLocation();
   }, [onPressCurrentLocation]);
 
   return (
