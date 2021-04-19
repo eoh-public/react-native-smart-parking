@@ -15,7 +15,6 @@ import { axiosGet } from '../../utils/Apis/axios';
 import { axiosPut, axiosDelete } from '../../utils/Apis/axios';
 import { SvgVehicleEmpty } from '../../../assets/images/SmartParking';
 import { TESTID } from '../../configs/Constants';
-
 import ItemVehicle from '../SavedVehicle/ItemVehicle';
 
 const VehicleManagement = memo(() => {
@@ -140,7 +139,11 @@ const VehicleManagement = memo(() => {
         {loading ? null : data.length === 0 ? (
           <View style={styles.content}>
             <SvgVehicleEmpty style={styles.svgVehicleEmpty} />
-            <Text color={Colors.Gray7} style={styles.txtEmpty}>
+            <Text
+              color={Colors.Gray7}
+              style={styles.txtEmpty}
+              testID={TESTID.NOTE_EMPTY_VEHICLE}
+            >
               {t('note_empty_vehicle')}
             </Text>
           </View>

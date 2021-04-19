@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useEffect } from 'react';
+import React, { memo, useMemo, useEffect, useCallback } from 'react';
 import { ScrollView, View, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useIsFocused } from '@react-navigation/native';
@@ -28,16 +28,19 @@ const SmartParkingDrawer = memo(() => {
     (state) => state.notifications
   );
 
+  const checkCarsInformation = useCallback(async () => {
+    const { data, success } = await axiosGet(API.CAR.CHECK_CARS_INFO);
+    if (success) {
+      dispatch(setInconpletedCarsInfo(data.incomplete));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useEffect(() => {
     if (isFocused) {
-      (async () => {
-        const { data, success } = await axiosGet(API.CAR.CHECK_CARS_INFO);
-        if (success) {
-          dispatch(setInconpletedCarsInfo(data.incomplete));
-        }
-      })();
+      checkCarsInformation();
     }
-  });
+  }, [checkCarsInformation, isFocused]);
 
   const data = useMemo(
     () => [
