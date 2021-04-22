@@ -99,7 +99,7 @@ const ButtonTextBottomView = memo(
             >
               <Text
                 semibold
-                type={'Lebel'}
+                type={'Label'}
                 color={Colors.White}
                 style={styles.textButton}
               >
@@ -121,8 +121,8 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   button: {
-    paddingVertical: 6,
-    paddingHorizontal: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 4,
     ...Theme.center,
     borderRadius: 30,
     marginLeft: 8,
