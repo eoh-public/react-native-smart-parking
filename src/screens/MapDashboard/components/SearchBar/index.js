@@ -72,8 +72,9 @@ const SearchBar = memo(
         >
           <Text
             type="H4"
-            color={selectedLocation.description ? Colors.Gray9 : Colors.Gray6}
             numberOfLines={1}
+            testID={TESTID.TEXT_SEARCH_DESCRIPTION}
+            color={selectedLocation.description ? Colors.Gray9 : Colors.Gray6}
           >
             {selectedLocation.description || t('smart_parking_add_destination')}
           </Text>

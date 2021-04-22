@@ -127,6 +127,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     marginLeft: 8,
     borderWidth: 1,
+    height: 32,
     borderColor: Colors.White,
   },
   buttonLeft: {
@@ -139,7 +140,6 @@ const styles = StyleSheet.create({
   },
   textButton: {
     minWidth: 60,
-    height: 32,
     textAlign: 'center',
   },
   widthText: {
