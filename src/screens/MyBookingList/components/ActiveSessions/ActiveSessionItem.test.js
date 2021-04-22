@@ -19,11 +19,14 @@ jest.mock('@react-navigation/native', () => {
     }),
   };
 });
+jest.mock('axios');
 
 describe('Test active session item component', () => {
   let tree;
   let activeSessions;
   beforeEach(() => {
+    jest.resetAllMocks();
+    jest.useFakeTimers();
     activeSessions = [
       {
         arrive_at: moment('2021-01-26T07:00:00.025000Z'),
@@ -177,5 +180,81 @@ describe('Test active session item component', () => {
     });
 
     expect(mockedNavigate).toHaveBeenCalled();
+  });
+
+  test('click payment success return to dashboard', async () => {
+    Date.now = jest.fn(() => new Date('2021-01-26T07:30:00.025000Z'));
+    activeSessions[0].confirmed_arrival_at = moment(
+      '2021-01-26T07:00:00.025000Z'
+    );
+
+    await act(async () => {
+      tree = renderer.create(
+        <ActiveSessions activeSessions={activeSessions} />
+      );
+    });
+    const instance = tree.root;
+    const { bottomButton } = getRowText(instance);
+
+    expect(bottomButton.props.title).toBe('Thanh toán trước 14:15');
+
+    await act(async () => {
+      bottomButton.props.rightData.handleSuccess();
+    });
+
+    expect(mockedNavigate).toBeCalled();
+  });
+
+  test('check paybefore', async () => {
+    Date.now = jest.fn(() => new Date('2021-01-26T07:14:00.025000Z'));
+    activeSessions[0].confirmed_arrival_at = moment(
+      '2021-01-26T07:00:00.025000Z'
+    );
+
+    const mockedReloadData = jest.fn();
+    await act(async () => {
+      tree = renderer.create(
+        <ActiveSessions
+          activeSessions={activeSessions}
+          getActiveSession={mockedReloadData}
+        />
+      );
+    });
+    jest.runAllTimers();
+
+    expect(mockedReloadData).toBeCalled();
+  });
+
+  test('reload data when not paid', async () => {
+    activeSessions[0].start_countdown = true;
+    const mockedReloadData = jest.fn();
+
+    await act(async () => {
+      tree = renderer.create(
+        <ActiveSessions
+          activeSessions={activeSessions}
+          getActiveSession={mockedReloadData}
+        />
+      );
+      jest.runAllTimers();
+    });
+    expect(mockedReloadData).toBeCalled();
+  });
+
+  test('reload data when not paid but greater than 15mins', async () => {
+    activeSessions[0].start_countdown = true;
+    activeSessions[0].time_remaining = 1000;
+    const mockedReloadData = jest.fn();
+
+    await act(async () => {
+      tree = renderer.create(
+        <ActiveSessions
+          activeSessions={activeSessions}
+          getActiveSession={mockedReloadData}
+        />
+      );
+      jest.runAllTimers();
+    });
+    expect(mockedReloadData).not.toBeCalled();
   });
 });

@@ -1,14 +1,22 @@
 import React from 'react';
 import axios from 'axios';
-import { Keyboard } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
 
 import { TESTID } from '../../../configs/Constants';
 import ParkingInputManually from '../index';
+import { t } from 'i18n-js';
 
 jest.mock('axios');
 
 describe('Test ParkingInputManually container', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+  afterEach(() => {
+    jest.clearAllMocks();
+    jest.clearAllTimers();
+  });
+
   let tree;
   const getElement = (instance) => {
     const circleInfoButton = instance.findAll(
@@ -43,7 +51,11 @@ describe('Test ParkingInputManually container', () => {
     const textConfirmResult = instance.findAll(
       (item) => item.props.testID === TESTID.PARKING_SPOT_TEXT_RESULT
     );
-    return { textConfirmResult };
+    const parkingAddress = instance.findAll(
+      (item) =>
+        item.props.testID === TESTID.PARKING_INPUT_MANUALLY_PARKING_ADDRESS
+    );
+    return { textConfirmResult, parkingAddress };
   };
 
   test('create ParkingInputManually container', async () => {
@@ -65,8 +77,7 @@ describe('Test ParkingInputManually container', () => {
     expect(modalInfo.length).toBeGreaterThanOrEqual(1);
   });
 
-  test('test input spot', async () => {
-    const spyKeyboard = jest.spyOn(Keyboard, 'dismiss');
+  test('test input spot false', async () => {
     await act(async () => {
       tree = renderer.create(<ParkingInputManually />);
     });
@@ -87,6 +98,7 @@ describe('Test ParkingInputManually container', () => {
       await spotInput[0].props.onPress();
       await textInputSpot[0].props.onChangeText('123');
       await buttonConfirm[0].props.onPress();
+      await tree.update(<ParkingInputManually />);
     });
 
     const { textConfirmResult } = getResult(instance);
@@ -94,8 +106,114 @@ describe('Test ParkingInputManually container', () => {
     expect(textConfirmResult[0].props.children).toBe(
       'Vị trí này không tồn tại. Vui lòng nhập chính xác tên vị trí'
     );
-    expect(spyKeyboard).toBeCalled();
-    spyKeyboard.mockReset();
-    spyKeyboard.mockRestore();
+  });
+
+  test('test input spot false no car park', async () => {
+    await act(async () => {
+      tree = renderer.create(<ParkingInputManually />);
+    });
+
+    const instance = tree.root;
+    const { spotInput, textInputSpot, buttonConfirm } = getElement(instance);
+
+    const response = {
+      data: { spot_name: ['Move your car to spot and then retry'] },
+      success: false,
+    };
+    axios.get.mockImplementation(async () => {
+      return response;
+    });
+
+    await act(async () => {
+      await spotInput[0].props.onPress();
+      await textInputSpot[0].props.onChangeText('123');
+      await buttonConfirm[0].props.onPress();
+    });
+
+    const { textConfirmResult } = getResult(instance);
+    setImmediate(() => {
+      expect(textConfirmResult[0].props.children).toBe(
+        t('notify_no_car_parked')
+      );
+    });
+  });
+
+  test('test input spot false spot booked before', async () => {
+    await act(async () => {
+      tree = renderer.create(<ParkingInputManually />);
+    });
+
+    const instance = tree.root;
+    const { spotInput, textInputSpot, buttonConfirm } = getElement(instance);
+
+    const response = {
+      data: { spot_name: ['This spot has been booked before'] },
+      success: false,
+    };
+    axios.get.mockImplementation(async () => {
+      return response;
+    });
+
+    await act(async () => {
+      await spotInput[0].props.onPress();
+      await textInputSpot[0].props.onChangeText('123');
+      await buttonConfirm[0].props.onPress();
+      await tree.update(<ParkingInputManually />);
+    });
+
+    const { textConfirmResult } = getResult(instance);
+    expect(textConfirmResult[0].props.children).toBe(
+      t('notify_spot_has_been_booked')
+    );
+  });
+
+  test('test input spot return parking address true', async () => {
+    await act(async () => {
+      tree = renderer.create(<ParkingInputManually />);
+    });
+
+    const instance = tree.root;
+    const { textInputSpot } = getElement(instance);
+
+    const response = {
+      data: {
+        address: 'test',
+        id: 22,
+        parking_id: 11,
+      },
+      status: 200,
+      success: true,
+    };
+    axios.get.mockImplementation(async () => {
+      return response;
+    });
+
+    await act(async () => {
+      await textInputSpot[0].props.onChangeText('123');
+      jest.runAllTimers();
+      await tree.update(<ParkingInputManually />);
+    });
+
+    const { parkingAddress } = getResult(instance);
+    expect(parkingAddress[0].props.children).toBe('test');
+  });
+
+  test('test input spot not full name', async () => {
+    await act(async () => {
+      tree = renderer.create(<ParkingInputManually />);
+    });
+
+    const instance = tree.root;
+    const { spotInput, textInputSpot, buttonConfirm } = getElement(instance);
+
+    await act(async () => {
+      await spotInput[0].props.onPress();
+      await textInputSpot[0].props.onChangeText('12');
+      await buttonConfirm[0].props.onPress();
+    });
+
+    const { parkingAddress } = getResult(instance);
+
+    expect(parkingAddress[0].props.children).toBe('');
   });
 });
