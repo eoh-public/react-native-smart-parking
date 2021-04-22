@@ -1,5 +1,4 @@
-/* eslint-disable promise/prefer-await-to-callbacks */
-import React from 'react';
+import React, { useState } from 'react';
 import { create, act } from 'react-test-renderer';
 import axios from 'axios';
 import MyBookingList from '../index';
@@ -19,29 +18,37 @@ jest.mock('@react-navigation/native', () => {
     useIsFocused: jest.fn(),
   };
 });
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useState: jest.fn(),
+  memo: (x) => x,
+}));
 
 describe('MyBookingList', () => {
   afterEach(() => {
     useIsFocused.mockClear();
+    useState.mockClear();
   });
-
-  test('MyBookingList snapshot', () => {
-    const component = <MyBookingList />;
-    let tree;
-    act(() => {
-      tree = create(component);
-    });
-    expect(tree.toJSON()).toMatchSnapshot();
-  });
+  const setState = jest.fn();
+  const mockSetStates = (tabInit = 0, activeSession = []) => {
+    useState.mockImplementationOnce((init) => [init, setState]); // setAppState
+    useState.mockImplementationOnce((init) => [init, setState]); // setPage
+    useState.mockImplementationOnce((init) => [activeSession, setState]); // setActiveSessions
+    useState.mockImplementationOnce((init) => [init, setState]); // setBookingHistory
+    useState.mockImplementationOnce((init) => [init, setState]); //
+    useState.mockImplementationOnce((init) => [init, setState]); //
+    useState.mockImplementationOnce((init) => [tabInit, setState]); // setTabActiveState
+    useState.mockImplementationOnce((init) => [init, setState]);
+    useState.mockImplementationOnce((init) => [init, setState]);
+  };
 
   test('getActiveSession', () => {
-    let tree;
+    mockSetStates();
     act(() => {
-      tree = create(<MyBookingList />);
+      create(<MyBookingList />);
     });
     expect(axios.get).toHaveBeenCalledWith(API.BOOKING.ACTIVE_SESSION, {});
     expect(axios.get).toHaveBeenCalledWith(API.BOOKING.HISTORY(1), {});
-    expect(tree.toJSON()).toMatchSnapshot();
   });
 
   test('hasActiveSession', async () => {
@@ -69,7 +76,14 @@ describe('MyBookingList', () => {
         payment_method: '',
       },
     };
-    axios.get.mockImplementationOnce(() => Promise.resolve(response));
+    axios.get.mockImplementation(async () => {
+      return response;
+    });
+    mockSetStates(0, [response.data]);
+    useState.mockImplementationOnce((init) => [init, setState]); // mock for ActiveSessionsItem
+    useState.mockImplementationOnce((init) => [init, setState]);
+    useState.mockImplementationOnce((init) => [init, setState]);
+    useState.mockImplementationOnce((init) => [init, setState]);
 
     let tree;
     await act(async () => {
@@ -87,50 +101,8 @@ describe('MyBookingList', () => {
     expect(mockNavigate).toBeCalled();
   });
 
-  test('active session with vnpay', async () => {
-    const response = {
-      status: 200,
-      data: {
-        id: 1,
-        is_paid: false,
-        arrive_at: '2021-01-20T05:00:00.629Z',
-        leave_at: '2021-01-20T05:00:00.629Z',
-        time_remaining: 1000,
-        parking: {
-          name: '',
-          background: '',
-          address: '',
-          lat: 1,
-          lng: 2,
-        },
-        confirmed_arrival_at: '2021-01-20T05:00:00.629Z',
-        start_countdown: false,
-        billing_id: 1,
-        spot_name: 'A01',
-        grand_total: 1,
-        payment_url: '',
-        payment_method: 'vnpay',
-      },
-    };
-    axios.get.mockImplementationOnce(() => Promise.resolve(response));
-
-    let tree;
-    await act(async () => {
-      tree = await create(<MyBookingList />);
-    });
-    const instance = tree.root;
-
-    const button = instance.find(
-      (el) => el.props.testID === TESTID.BUTTON_TEXT_BOTTOM_RIGHT
-    );
-    act(() => {
-      button.props.onPress();
-    });
-    const { VnpayMerchant } = NativeModules;
-    expect(VnpayMerchant.show).toBeCalled();
-  });
-
   test('has booking history', async () => {
+    mockSetStates(1);
     const booking = {
       id: 1,
       is_paid: false,
@@ -164,6 +136,7 @@ describe('MyBookingList', () => {
     })); // history
 
     let tree;
+
     await act(async () => {
       tree = await create(<MyBookingList />);
     });
@@ -171,7 +144,58 @@ describe('MyBookingList', () => {
     instance.find((el) => el.props.testID === TESTID.BOOKING_HISTORY); // found 1
   });
 
+  test('active session with vnpay', async () => {
+    const response = {
+      status: 200,
+      data: {
+        id: 1,
+        is_paid: false,
+        arrive_at: '2021-01-20T05:00:00.629Z',
+        leave_at: '2021-01-20T05:00:00.629Z',
+        time_remaining: 1000,
+        parking: {
+          name: '',
+          background: '',
+          address: '',
+          lat: 1,
+          lng: 2,
+        },
+        confirmed_arrival_at: '2021-01-20T05:00:00.629Z',
+        start_countdown: false,
+        billing_id: 1,
+        spot_name: 'A01',
+        grand_total: 1,
+        payment_url: '',
+        payment_method: 'vnpay',
+      },
+    };
+    mockSetStates(0, [response.data]);
+    useState.mockImplementationOnce((init) => [init, setState]); // mock for ActiveSessionsItem
+    useState.mockImplementationOnce((init) => [init, setState]);
+    useState.mockImplementationOnce((init) => [init, setState]);
+    useState.mockImplementationOnce((init) => [init, setState]);
+    axios.get.mockImplementation(async () => {
+      return response;
+    });
+
+    let tree;
+    await act(async () => {
+      tree = await create(<MyBookingList />);
+    });
+    const instance = tree.root;
+
+    const button = instance.find(
+      (el) => el.props.testID === TESTID.BUTTON_TEXT_BOTTOM_RIGHT
+    );
+    act(() => {
+      button.props.onPress();
+    });
+    const { VnpayMerchant } = NativeModules;
+    expect(VnpayMerchant.show).toBeCalled();
+  });
+
   test('refreshControl', () => {
+    mockSetStates();
     let tree;
     act(() => {
       tree = create(<MyBookingList />);
@@ -184,18 +208,16 @@ describe('MyBookingList', () => {
     });
     expect(axios.get).toHaveBeenCalledWith(API.BOOKING.ACTIVE_SESSION, {});
     expect(axios.get).toHaveBeenCalledWith(API.BOOKING.HISTORY(1), {});
-    expect(tree.toJSON()).toMatchSnapshot();
   });
 
   test('isFocused', () => {
+    mockSetStates();
     useIsFocused.mockImplementation(() => true);
-    let tree;
     act(() => {
-      tree = create(<MyBookingList />);
+      create(<MyBookingList />);
     });
     expect(axios.get).toHaveBeenCalledWith(API.BOOKING.ACTIVE_SESSION, {});
     expect(axios.get).toHaveBeenCalledWith(API.BOOKING.HISTORY(1), {});
-    expect(tree.toJSON()).toMatchSnapshot();
   });
 
   // TODO handleAppChangeState

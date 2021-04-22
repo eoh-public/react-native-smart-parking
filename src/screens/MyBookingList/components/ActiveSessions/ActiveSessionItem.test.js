@@ -98,6 +98,11 @@ describe('Test active session item component', () => {
     expect(rightText).toHaveLength(3);
     expect(leftText[2].props.children).toEqual('Thời gian còn lại:');
     expect(rightText[2].props.color).toEqual(Colors.Red6);
+
+    act(() => {
+      bottomButton.props.rightData.handleSuccess();
+    });
+    expect(mockedNavigate).toBeCalled();
   });
 
   test('test create active session without confirm arrival at and paid', () => {

@@ -1,9 +1,5 @@
 import React, { memo } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { t } from 'i18n-js';
-
-import { Colors } from '../../../../configs';
-import Text from '../../../../commons/Text';
 
 import BookingHistoryItem from './BookingHistoryItem';
 import { TESTID } from '../../../../configs/Constants';
@@ -11,9 +7,6 @@ import { TESTID } from '../../../../configs/Constants';
 const BookingHistory = memo(({ bookingsHistory, hasActiveSessions }) => {
   return (
     <View style={styles.container} testID={TESTID.BOOKING_HISTORY}>
-      <Text type="Body" semibold color={Colors.Gray9}>
-        {t('history')}
-      </Text>
       {bookingsHistory.map((item, index) => {
         return (
           <BookingHistoryItem
@@ -30,6 +23,5 @@ export default BookingHistory;
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 16,
-    marginTop: 20,
   },
 });

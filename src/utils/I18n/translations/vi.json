@@ -95,6 +95,8 @@
   "Health advices:": "Khuyến nghị về sức khoẻ:",
   "UV Index": "Chỉ số UV",
   "Protection advices:": "Khuyến nghị về sức khoẻ:",
+  "violation": "Violation",
+  "active": "Active",
   "Today": "Hôm nay",
   "last_updated_%{minutes}_minutes_ago": "Cập nhật lần cuối %{minutes} phút trước",
   "Last %{days} ago": "%{days} ngày qua",

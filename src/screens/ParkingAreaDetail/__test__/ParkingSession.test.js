@@ -47,7 +47,7 @@ describe('Test ParkingSession', () => {
     mockSetBookTime.mockClear();
   });
 
-  test('onPress ArriveItem, with preBook', () => {
+  test('onPress ArriveItem, with preBook', async () => {
     data.preBook = true;
     data.spotNumber = undefined;
     const styleContainer = {
@@ -133,7 +133,7 @@ describe('Test ParkingSession', () => {
     });
     const instance = wrapper.root;
     const checkBoxAlready = instance.findByType(CustomCheckbox);
-    await act(() => {
+    act(() => {
       checkBoxAlready.props.onPress();
     });
     expect(mockSetBookTime).toHaveBeenCalledWith({
@@ -154,10 +154,10 @@ describe('Test ParkingSession', () => {
     });
     const instance = wrapper.root;
     const checkBoxAlready = instance.findByType(CustomCheckbox);
-    await act(() => {
+    act(() => {
       checkBoxAlready.props.onPress();
     });
-    await act(() => {
+    act(() => {
       checkBoxAlready.props.onPress();
     });
     expect(mockSetBookTime).toHaveBeenCalledWith({
