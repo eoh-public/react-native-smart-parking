@@ -25,7 +25,7 @@ import DisplayChecking from '../../commons/DisplayChecking';
 import ScanningResponsePopup from '../MapDashboard/components/ScanningResponsePopup';
 import ParkingTicket from './components/ParkingTicket';
 import DetailsParkingInfo from './components/DetailsParkingInfo';
-import BottomButtonView from '../../commons/BottomButtonView';
+import { ButtonDrawner } from './components/ButtonDrawner';
 import ThanksForParkingPopup from '../MapDashboard/components/Popup/ThanksForParking';
 import { ButtonPopup } from '../../commons';
 import { useBookingDetail, useExtendBooking } from './hooks';
@@ -36,7 +36,7 @@ import {
 import styles from './styles';
 import { Icon } from '@ant-design/react-native';
 
-const getBottomButtonView = (
+const getButtonDrawner = (
   is_paid,
   confirmed_arrival_at,
   start_countdown,
@@ -145,6 +145,7 @@ const BookingDetails = memo(({ route }) => {
     payment_method_code,
     confirmed_arrival_at,
     billing_id,
+    is_violated,
   } = bookingDetail;
 
   const navigateBookingSuccess = useCallback(
@@ -303,7 +304,7 @@ const BookingDetails = memo(({ route }) => {
     secondaryTitle,
     onPressMain,
     onPressSecondary,
-  } = getBottomButtonView(
+  } = getButtonDrawner(
     is_paid,
     confirmed_arrival_at,
     start_countdown,
@@ -381,13 +382,14 @@ const BookingDetails = memo(({ route }) => {
         <ParkingTicket {...bookingDetail} getBookingDetail={getBookingDetail} />
         <DetailsParkingInfo {...bookingDetail} />
       </ScrollView>
-      <BottomButtonView
+      <ButtonDrawner
         mainTitle={mainTitle}
         secondaryTitle={secondaryTitle}
         onPressMain={onPressMain}
         onPressSecondary={onPressSecondary}
         rowButton
         semiboldMain
+        isViolated={is_violated}
       />
       <AlertAction
         visible={stateAlertCancel.visible}

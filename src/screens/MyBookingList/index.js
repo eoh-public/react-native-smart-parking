@@ -12,6 +12,8 @@ import WrapHeaderScrollable from '../../commons/Sharing/WrapHeaderScrollable';
 
 import { useMyBookingList } from './hooks';
 import { TESTID } from '../../configs/Constants';
+import TabHeader from './components/TabHeader';
+import Violations from './components/Violations';
 
 const MyBookingList = memo(() => {
   const isFocused = useIsFocused();
@@ -72,7 +74,10 @@ const MyBookingList = memo(() => {
       getBookingHistory(page);
     }
   };
-
+  const [tab, setTabActiveState] = useState(0);
+  const ChangeTabActiveState = useCallback((index) => {
+    setTabActiveState(index);
+  }, []);
   return (
     <View style={styles.container}>
       <WrapHeaderScrollable
@@ -84,18 +89,20 @@ const MyBookingList = memo(() => {
         styleScrollView={styles.scrollView}
         onLoadMore={handleEndReachHistoryBookings}
       >
-        {hasActiveSession && (
+        <TabHeader current={tab} getCurrentTab={ChangeTabActiveState} />
+        {tab === 0 ? (
           <ActiveSessions
             testID={TESTID.ACTIVE_SESSION}
             activeSessions={activeSessions}
             getActiveSession={getActiveSession}
           />
-        )}
-        {bookingHistory.length > 0 && (
+        ) : tab === 1 ? (
           <BookingHistory
             bookingsHistory={bookingHistory}
             hasActiveSessions={hasActiveSession}
           />
+        ) : (
+          <Violations />
         )}
       </WrapHeaderScrollable>
     </View>

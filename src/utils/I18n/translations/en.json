@@ -96,6 +96,8 @@
   "text_sunny": "Sunny",
   "text_weather_rain": "Rain",
   "text_cloud": "Clouds",
+  "violation": "Violation",
+  "active": "Active",
   "Today": "Today",
   "last_updated_%{minutes}_minutes_ago": "Last updated %{minutes} minutes ago",
   "Last %{days} ago": "Last %{days} days",

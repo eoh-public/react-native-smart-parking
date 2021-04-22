@@ -47,7 +47,7 @@ const ButtonStyle = {
     borderColor: Colors.Primary,
   },
   alert: {
-    backgroundColor: Colors.Red5,
+    backgroundColor: Colors.Red6,
     borderRadius: 28,
     borderWidth: 0,
   },

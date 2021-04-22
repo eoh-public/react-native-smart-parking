@@ -1,11 +1,7 @@
-import { Platform, PixelRatio, Linking } from 'react-native';
-import DeviceInfo from 'react-native-device-info';
+import { Linking } from 'react-native';
 import Toast from 'react-native-toast-message';
-import validator from 'validator';
 import axios from 'axios';
 import { Constants } from '../configs';
-
-const getUuid = require('uuid-by-string');
 
 export const setAxiosDefaultAuthToken = (token) => {
   axios.defaults.headers.common.Accept = 'application/json';
@@ -17,35 +13,8 @@ export const setAxiosDefaultLanguage = (language) => {
     language || Constants.LANGUAGE.DEFAULT;
 };
 
-export const deleteDefaultAuthToken = () => {
-  delete axios.defaults.headers.common.Authorization;
-};
-
-export const validateEmail = (text) => {
-  return validator.isEmail(text);
-};
-
-const phoneUtil = require('google-libphonenumber').PhoneNumberUtil.getInstance();
-
-export const getCountryCodeForRegion = (regionCode) => {
-  return phoneUtil.getCountryCodeForRegion(regionCode); //ex: input: "VN" -> output: "84"
-};
-
-export const getDeviceId = () => {
-  return Platform.OS === 'ios'
-    ? DeviceInfo.getUniqueId()
-    : getUuid(DeviceInfo.getUniqueId());
-};
-
 export const isObjectEmpty = (obj) => {
   return Object.keys(obj).length === 0;
-};
-
-export const formatNumberCompact = (number) => {
-  return new Intl.NumberFormat('en-US', {
-    notation: 'compact',
-    compactDisplay: 'short',
-  }).format(number);
 };
 
 export const formatMoney = (number, fixed = 0, currency = 'đ') => {
@@ -55,23 +24,6 @@ export const formatMoney = (number, fixed = 0, currency = 'đ') => {
       .toString()
       .replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1.') + ` ${currency}`
   );
-};
-
-export const standardizeCameraScreenSize = (width) => {
-  let delta = 100;
-  let standardizeWidth = 0;
-  let standardizeHeight = 0;
-  for (let i = -3; i < 4; i++) {
-    if (((width + i) * PixelRatio.get() * 3) % 7 < delta) {
-      delta = ((width + i) * PixelRatio.get() * 3) % 7;
-      standardizeWidth = width + i;
-      standardizeHeight = ((width + i) * 3) / 7;
-    }
-  }
-  return {
-    standardizeWidth: standardizeWidth,
-    standardizeHeight: standardizeHeight,
-  };
 };
 
 export const openMapDirection = (item) => () => {
@@ -116,7 +68,6 @@ export const removeFromString = (str, index) => {
 };
 
 export default {
-  validateEmail,
   isObjectEmpty,
   insertToString,
 };
