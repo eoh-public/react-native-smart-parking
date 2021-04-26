@@ -2,6 +2,7 @@ import CheckBox from '@react-native-community/checkbox';
 import axios from 'axios';
 import moment from 'moment';
 import React from 'react';
+import { NativeModules } from 'react-native';
 import { act, create } from 'react-test-renderer';
 import { Button } from '../../../commons';
 import { API } from '../../../configs';
@@ -13,6 +14,7 @@ jest.mock('axios');
 
 const mockedNavigate = jest.fn();
 const mockedAddRoute = jest.fn();
+const mockedVnpayMerchant = jest.fn();
 
 jest.mock('@react-navigation/native', () => {
   return {
@@ -35,6 +37,7 @@ describe('test BookingConfirm container', () => {
   let route;
 
   beforeEach(() => {
+    NativeModules.TestModule = { VnpayMerchant: mockedVnpayMerchant };
     route = {
       params: {
         body: {
@@ -70,6 +73,8 @@ describe('test BookingConfirm container', () => {
 
   afterEach(() => {
     mockedNavigate.mockClear();
+    mockedAddRoute.mockClear();
+    mockedVnpayMerchant.mockClear();
     axios.get.mockReset();
   });
 
@@ -353,33 +358,57 @@ describe('test BookingConfirm container', () => {
   });
 
   // TODO: remains mock VnpayMerchant
-  // test('onConfirmBooking pay now with vnpay', async () => {
-  //   route.params.body.is_pay_now = true;
+  test('onConfirmBooking pay now with vnpay', async () => {
+    route.params.body.is_pay_now = true;
+    const responseDefaultPayment = {
+      status: 200,
+      data: { id: 1, code: 'vnpay' },
+    };
 
-  //   const response = {
-  //     status: 200,
-  //     data: {
-  //       booking: {
-  //         parking_session_start: '2021-01-24T12:00:00.000Z',
-  //         parking_session_end: '2021-01-24T12:00:00.000Z',
-  //       },
-  //       billing: { id: 1, payment_method: 'vnpay' },
-  //       payment_url: '',
-  //     },
-  //   };
-  //   axios.post.mockImplementation(async () => {
-  //     return response;
-  //   });
+    const responseBookingPrice = {
+      status: 200,
+      data: {
+        price: 3000,
+      },
+    };
 
-  //   let tree = await creatX(<BookingConfirm route={route} />);
-  //   const instance = tree.root;
-  //   const button = instance.findByType(Button);
+    axios.get.mockImplementation(async (url) => {
+      if (url === API.BILLING.DEFAULT_PAYMENT_METHODS) {
+        return responseDefaultPayment;
+      } else {
+        return responseBookingPrice;
+      }
+    });
 
-  //   await act(async () => {
-  //     await button.props.onPress();
-  //   });
-  //   expect(mockedNavigate).toHaveBeenCalledTimes(1);
-  // });
+    axios.post.mockImplementation(async () => {
+      return response;
+    });
+    const response = {
+      status: 200,
+      data: {
+        booking: {
+          parking_session_start: '2021-01-24T12:00:00.000Z',
+          parking_session_end: '2021-01-24T12:00:00.000Z',
+        },
+        billing: { id: 1, payment_method: 'vnpay' },
+        payment_url: '',
+      },
+    };
+    axios.post.mockImplementation(async () => {
+      return response;
+    });
+    let tree;
+    await act(async () => {
+      tree = await create(<BookingConfirm route={route} />);
+    });
+    const instance = tree.root;
+    const button = instance.findByType(Button);
+
+    await act(async () => {
+      await button.props.onPress();
+    });
+    expect(mockedNavigate).not.toHaveBeenCalled();
+  });
 
   test('onConfirmBooking pay now without any case', async () => {
     route.params.body.is_pay_now = true;

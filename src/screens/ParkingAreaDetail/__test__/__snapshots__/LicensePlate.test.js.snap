@@ -98,7 +98,7 @@ Array [
     }
   >
     Vui lòng nhập đúng định dạng biển số xe 
-VD: 51A-123.45
+VD: 50A-123.45
   </Text>,
   <View
     style={
@@ -291,7 +291,7 @@ Array [
     }
   >
     Vui lòng nhập đúng định dạng biển số xe 
-VD: 51A-123.45
+VD: 50A-123.45
   </Text>,
   <View
     style={
@@ -826,7 +826,7 @@ Array [
     }
   >
     Vui lòng nhập đúng định dạng biển số xe 
-VD: 51A-123.45
+VD: 50A-123.45
   </Text>,
   <View
     style={

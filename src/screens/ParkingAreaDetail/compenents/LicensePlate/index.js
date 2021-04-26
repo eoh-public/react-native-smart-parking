@@ -53,7 +53,6 @@ const LicensePlate = memo(
       onRefreshCars,
       numBookHour,
     ]);
-
     return (
       <>
         <Text
@@ -88,7 +87,7 @@ const LicensePlate = memo(
         </View>
         {car && !!car.plate_number && !validCar && (
           <Text style={styles.warning}>
-            {t('car_validate_warning', { example: '51A-123.45' })}
+            {t('car_validate_warning', { example: '50A-123.45' })}
           </Text>
         )}
         <ButtonSaveVehicle

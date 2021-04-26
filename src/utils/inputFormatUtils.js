@@ -1,4 +1,4 @@
-import { insertToString, removeFromString } from './Utils';
+import { insertToString } from './Utils';
 
 export const formatLicencePlate = (text) => {
   let customText = text.toUpperCase();
@@ -12,9 +12,6 @@ export const formatLicencePlate = (text) => {
       const index = plateNumber[0].length + 1 + plateNumber[1].length - 2;
       if (plateNumber[1].length === 5 && !customText.includes('.')) {
         customText = insertToString(customText, index, '.');
-      }
-      if (regexes[1].test(customText)) {
-        customText = removeFromString(customText, index);
       }
     }
   }

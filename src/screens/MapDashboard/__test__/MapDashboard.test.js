@@ -269,4 +269,56 @@ describe('Test MapDashboard', () => {
 
     expect(axios.get).toBeCalledWith(API.BOOKING.ACTIVE_SESSION, {});
   });
+
+  it('map dashboard renderMarkers', async () => {
+    const nearbyParkings = [
+      {
+        address:
+          '215 Điện Biên Phủ, Phường 15, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam',
+        allow_pre_book: false,
+        available_spots_count: 1,
+        background: 'https://eoh-gateway-backend.eoh.io/Hong_bang.jpg',
+        distance: 91.5766437,
+        free_time: null,
+        id: 5,
+        is_saved: true,
+        lat: 10.7998447,
+        lng: 106.7062684,
+        name: 'Trường Đại học Quốc tế Hồng Bàng',
+        parking_charges: [
+          {
+            price_per_hour: 20000,
+            time_end: '18:01:53+00:00',
+            time_start: '01:01:49+00:00',
+          },
+        ],
+        price_now: 20000,
+        status: null,
+        tip: 'Mostly available',
+        total_spot: 1,
+      },
+    ];
+    const response = {
+      status: 200,
+      data: nearbyParkings,
+    };
+    axios.get.mockImplementation(async () => {
+      return response;
+    });
+    _.range(0, 13).map(() => {
+      useState.mockImplementationOnce((init) => [init, mockSetState]);
+    });
+    useState.mockImplementationOnce((init) => [nearbyParkings, mockSetState]); // nearbyParkings
+    // useState.mockImplementationOnce((init) => [activeSessions, mockSetState]); // active session
+
+    const route = {};
+    await act(async () => {
+      tree = await renderer.create(
+        <Provider store={store}>
+          <MapDashboard route={route} />
+        </Provider>
+      );
+    });
+    expect(axios.get).toBeCalledTimes(3);
+  });
 });

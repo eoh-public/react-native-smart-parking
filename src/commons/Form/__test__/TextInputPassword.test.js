@@ -37,7 +37,7 @@ describe('Test _TextInputPassword', () => {
     act(() => {
       tree = renderer.create(
         <_TextInputPassword
-          label={false}
+          label={[]}
           secureTextEntry
           placeholder={'text_password_new'}
           onChange={mockFunc}
