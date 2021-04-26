@@ -8,18 +8,23 @@ import TimeBlock from './TimeBlock';
 import { useCountDown } from '../../../../hooks/SmartParking';
 
 const TimeCountDown = memo(
-  ({ time_remaining, start_countdown, getBookingDetail }) => {
+  ({ time_remaining, start_countdown, is_violated, getBookingDetail }) => {
     const { countDown, timeLeft } = useCountDown(
       time_remaining,
       false,
       start_countdown,
-      getBookingDetail
+      getBookingDetail,
+      !is_violated
     );
     const { hours, minutes, seconds } = countDown;
 
     let color = Colors.Black;
     if (timeLeft < AppRNConfig.MAX_SECONDS) {
       color = Colors.Red6;
+    }
+    if (is_violated) {
+      // revert color
+      color = color === Colors.Red6 ? Colors.Black : Colors.Red6;
     }
 
     return (

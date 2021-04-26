@@ -11,7 +11,8 @@ export const useCountDown = (
   until = 0,
   shoudUseDay = false,
   start_countdown,
-  onTimeFunction
+  onTimeFunction,
+  decreasing = true
 ) => {
   const [countDown, setCountDown] = useState(initialCountdown);
   const [timeLeft, setTimeLeft] = useState(until);
@@ -66,13 +67,17 @@ export const useCountDown = (
   useEffect(() => {
     if (start_countdown && timeLeft > 0) {
       const timeOut = setTimeout(() => {
-        setTimeLeft(timeLeft - 1);
+        if (decreasing) {
+          setTimeLeft(timeLeft - 1);
+        } else {
+          setTimeLeft(timeLeft + 1);
+        }
       }, 1000);
       return () => {
-        clearInterval(timeOut);
+        clearTimeout(timeOut);
       };
     }
-  }, [start_countdown, timeLeft]);
+  }, [start_countdown, decreasing, timeLeft]);
 
   return { countDown, resetCountDown, countDownString, timeLeft };
 };

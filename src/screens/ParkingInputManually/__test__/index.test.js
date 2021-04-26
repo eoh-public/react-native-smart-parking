@@ -13,7 +13,6 @@ describe('Test ParkingInputManually container', () => {
     jest.useFakeTimers();
   });
   afterEach(() => {
-    jest.clearAllMocks();
     jest.clearAllTimers();
   });
 
@@ -182,7 +181,6 @@ describe('Test ParkingInputManually container', () => {
         parking_id: 11,
       },
       status: 200,
-      success: true,
     };
     axios.get.mockImplementation(async () => {
       return response;

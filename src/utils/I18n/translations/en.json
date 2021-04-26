@@ -655,5 +655,7 @@
   "i_will_leave_at": "I will leave at:",
   "i_already_arrived": "I already arrived.",
   "i_already_arrive_at_spot": "I already arrive at spot ",
+  "violation_rate": "Violation charge rate",
+  "violation_fee": "Wheel lock fee",
   "error_please_try_later": "Error! Please try later"
 }

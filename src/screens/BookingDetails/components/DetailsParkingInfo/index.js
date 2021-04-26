@@ -22,6 +22,8 @@ const DetailsParkingInfo = memo(
     discount,
     total,
     payment_method,
+    is_violated,
+    city,
   }) => {
     const timeFormat = 'LT - DD/MM/YYYY';
     const book_at_str = book_at && book_at.format(timeFormat);
@@ -42,18 +44,38 @@ const DetailsParkingInfo = memo(
             title={`${num_of_hour_parking} ${hourUnit}`}
             value={[`${formatMoney(total)}`]}
           />
-          <RowDetails
-            title={t('extend_fee')}
-            value={[`${formatMoney(extend_fee)}`]}
-          />
-          <RowDetails
-            title={t('service_fee')}
-            value={[`${formatMoney(service_fee)}`]}
-          />
-          <RowDetails
-            title={t('discount')}
-            value={[`-${formatMoney(discount)}`]}
-          />
+          {!!is_violated && (
+            <RowDetails
+              testID={TESTID.DETAIL_PARKING_INFO_VIOLATION_RATE}
+              title={t('violation_rate')}
+              value={[`x${city.violation_charge_rate}`]}
+            />
+          )}
+          {!!is_violated && (
+            <RowDetails
+              testID={TESTID.DETAIL_PARKING_INFO_VIOLATION_FEE}
+              title={t('violation_fee')}
+              value={[`${formatMoney(city.violation_charge_fee)}`]}
+            />
+          )}
+          {!is_violated && (
+            <RowDetails
+              title={t('extend_fee')}
+              value={[`${formatMoney(extend_fee)}`]}
+            />
+          )}
+          {!is_violated && (
+            <RowDetails
+              title={t('service_fee')}
+              value={[`${formatMoney(service_fee)}`]}
+            />
+          )}
+          {!is_violated && (
+            <RowDetails
+              title={t('discount')}
+              value={[`-${formatMoney(discount)}`]}
+            />
+          )}
           <RowDetails
             title={t('text_total')}
             value={[`${grand_total ? formatMoney(grand_total) : 0}`]}
