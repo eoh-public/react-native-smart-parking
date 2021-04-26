@@ -35,13 +35,15 @@ describe('MyBookingList', () => {
     useState.mockImplementationOnce((init) => [init, setState]); // setPage
     useState.mockImplementationOnce((init) => [activeSession, setState]); // setActiveSessions
     useState.mockImplementationOnce((init) => [init, setState]); // setBookingHistory
-    useState.mockImplementationOnce((init) => [init, setState]); //
-    useState.mockImplementationOnce((init) => [init, setState]); //
+    useState.mockImplementationOnce((init) => [init, setState]);
+    useState.mockImplementationOnce((init) => [init, setState]);
+    useState.mockImplementationOnce((init) => [init, setState]);
+    useState.mockImplementationOnce((init) => [init, setState]);
     useState.mockImplementationOnce((init) => [tabInit, setState]); // setTabActiveState
     useState.mockImplementationOnce((init) => [init, setState]);
     useState.mockImplementationOnce((init) => [init, setState]);
   };
-
+  let tree;
   test('getActiveSession', () => {
     mockSetStates();
     act(() => {
@@ -85,7 +87,6 @@ describe('MyBookingList', () => {
     useState.mockImplementationOnce((init) => [init, setState]);
     useState.mockImplementationOnce((init) => [init, setState]);
 
-    let tree;
     await act(async () => {
       tree = await create(<MyBookingList />);
     });
@@ -135,8 +136,6 @@ describe('MyBookingList', () => {
       },
     })); // history
 
-    let tree;
-
     await act(async () => {
       tree = await create(<MyBookingList />);
     });
@@ -178,7 +177,6 @@ describe('MyBookingList', () => {
       return response;
     });
 
-    let tree;
     await act(async () => {
       tree = await create(<MyBookingList />);
     });
@@ -196,7 +194,6 @@ describe('MyBookingList', () => {
 
   test('refreshControl', () => {
     mockSetStates();
-    let tree;
     act(() => {
       tree = create(<MyBookingList />);
     });

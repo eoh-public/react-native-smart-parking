@@ -95,7 +95,7 @@ const ActiveSessionsItem = memo(
     const navigateDashBoard = useCallback(() => {
       navigate(Routes.SmartParkingMapDrawer);
     }, [navigate]);
-    const { name, background, address, lat, lng } = parking;
+    const { name, address, lat, lng } = parking;
     const goToDetail = useCallback(() => {
       navigate(Routes.SmartParkingBookingDetails, { id });
     }, [id, navigate]);
@@ -204,7 +204,7 @@ const ActiveSessionsItem = memo(
         activeOpacity={0.4}
         testID={TESTID.ACTIVE_SESSION_ITEM}
       >
-        <AddressInfo {...{ background, name, address, grand_total }} />
+        <AddressInfo {...{ id, name, address, grand_total }} />
         <View style={styles.timeInfo}>
           <RowTimeParking
             rightText={moment(arrive_at).format('LT, DD/MM/YYYY')}
@@ -247,7 +247,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   container: {
-    borderRadius: 5,
+    borderRadius: 10,
     borderColor: Colors.Gray4,
     borderWidth: 1,
     padding: 16,

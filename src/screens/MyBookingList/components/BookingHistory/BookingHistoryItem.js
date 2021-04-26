@@ -28,7 +28,12 @@ const BookingHistoryItem = memo(
         onPress={onPress}
         activeOpacity={0.4}
       >
-        <AddressInfo {...parking} grand_total={grand_total} />
+        <AddressInfo
+          id={id}
+          name={parking.name}
+          address={parking.address}
+          grand_total={grand_total}
+        />
         <ButtonTextBottomView
           rightTitle={!hasActiveSessions && t('rebook')}
           status={status}
@@ -47,7 +52,7 @@ export default BookingHistoryItem;
 const styles = StyleSheet.create({
   container: {
     padding: 16,
-    borderRadius: 5,
+    borderRadius: 10,
     borderColor: Colors.Gray4,
     borderWidth: 1,
     marginTop: 16,

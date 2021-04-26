@@ -24,9 +24,12 @@ const MyBookingList = memo(() => {
     loading,
     activeSessions,
     bookingHistory,
+    violationBookings,
     getActiveSession,
     getBookingHistory,
+    getViolationBookings,
     maxPageHistoryBooking,
+    maxPageViolation,
   } = useMyBookingList();
 
   useEffect(() => {
@@ -50,19 +53,22 @@ const MyBookingList = memo(() => {
   useEffect(() => {
     getActiveSession();
     getBookingHistory(1);
-  }, [getActiveSession, getBookingHistory]);
+    getViolationBookings(1);
+  }, [getActiveSession, getBookingHistory, getViolationBookings]);
 
   const onRefresh = useCallback(() => {
     getActiveSession();
     getBookingHistory(1);
-  }, [getActiveSession, getBookingHistory]);
+    getViolationBookings(1);
+  }, [getActiveSession, getBookingHistory, getViolationBookings]);
 
   useEffect(() => {
     if (isFocused) {
       getActiveSession();
       getBookingHistory(1);
+      getViolationBookings(1);
     }
-  }, [isFocused, getActiveSession, getBookingHistory]);
+  }, [isFocused, getActiveSession, getBookingHistory, getViolationBookings]);
 
   const hasActiveSession = useMemo(() => {
     return activeSessions.length > 0;
@@ -72,6 +78,9 @@ const MyBookingList = memo(() => {
     setPage(page + 1);
     if (page <= maxPageHistoryBooking) {
       getBookingHistory(page);
+    }
+    if (page <= maxPageViolation) {
+      getViolationBookings(page);
     }
   };
   const [tab, setTabActiveState] = useState(0);
@@ -102,7 +111,10 @@ const MyBookingList = memo(() => {
             hasActiveSessions={hasActiveSession}
           />
         ) : (
-          <Violations />
+          <Violations
+            violation={violationBookings}
+            getViolation={getViolationBookings}
+          />
         )}
       </WrapHeaderScrollable>
     </View>

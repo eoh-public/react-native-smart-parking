@@ -1,8 +1,6 @@
 import React, { memo } from 'react';
-import { View, StyleSheet } from 'react-native';
 
 import BottomButtonView from '../../../commons/BottomButtonView';
-import { Colors } from '../../../configs';
 
 export const ButtonDrawner = memo(
   ({
@@ -13,9 +11,9 @@ export const ButtonDrawner = memo(
     onPressMain,
     onPressSecondary,
     testIDPrefix = '',
-    isViolated = true,
+    isViolated,
   }) => (
-    <View style={[styles.sectionBorder, style && style, styles.section]}>
+    <>
       {isViolated ? (
         <BottomButtonView
           mainTitle={mainTitle}
@@ -35,12 +33,6 @@ export const ButtonDrawner = memo(
           rowButton={rowButton}
         />
       )}
-    </View>
+    </>
   )
 );
-const styles = StyleSheet.create({
-  section: {
-    backgroundColor: Colors.White,
-    borderTopColor: Colors.Gray4,
-  },
-});

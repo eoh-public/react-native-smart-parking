@@ -3,12 +3,12 @@ import { View, StyleSheet } from 'react-native';
 
 import ViolationItem from './ViolationItem';
 
-const Violations = memo(({ violations = [], getViolations }) => {
+const Violations = memo(({ violation, getViolation }) => {
   return (
     <View style={styles.container}>
-      {violations.map((item) => {
+      {violation.map((item) => {
         return (
-          <ViolationItem key={item.id} {...item} reloadData={getViolations} />
+          <ViolationItem key={item.id} {...item} reloadData={getViolation} />
         );
       })}
     </View>
@@ -18,7 +18,6 @@ const Violations = memo(({ violations = [], getViolations }) => {
 export default Violations;
 const styles = StyleSheet.create({
   container: {
-    marginTop: 24,
     paddingHorizontal: 16,
   },
 });
