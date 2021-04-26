@@ -20,6 +20,7 @@ describe('Test HeaderDrawer', () => {
             name: 'Name',
             email: 'name@gmail.com',
             avatar: 'avatar',
+            phone_number: '09012345678',
           },
         },
       },

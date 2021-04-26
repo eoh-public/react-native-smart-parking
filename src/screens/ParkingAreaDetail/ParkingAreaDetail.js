@@ -26,7 +26,6 @@ import moment from 'moment';
 import Animated from 'react-native-reanimated';
 import { axiosGet } from '../../utils/Apis/axios';
 import { calcTime } from '../../utils/Converter/time';
-import { formatLicencePlate } from '../../utils/inputFormatUtils';
 import Routes from '../../utils/Route';
 import { openMapDirection } from '../../utils/Utils';
 import { isValidateLicencePlate } from '../../utils/Validation';
@@ -40,6 +39,7 @@ import LicensePlate from './compenents/LicensePlate';
 import ParkingSession from './compenents/ParkingSession';
 import PaymentOption from './compenents/PaymentOption';
 import styles from './styles';
+import { formatLicencePlate } from '../../utils/inputFormatUtils';
 
 const ParkingAreaDetail = memo(({ route }) => {
   const { params } = route;
@@ -139,6 +139,7 @@ const ParkingAreaDetail = memo(({ route }) => {
   useEffect(() => {
     if (carItem) {
       setCar(carItem);
+      setValidCar(true);
     } else if (default_car) {
       setCar(default_car);
       setValidCar(true);

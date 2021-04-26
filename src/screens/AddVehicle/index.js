@@ -62,10 +62,9 @@ const AddVehicle = memo(({ route }) => {
     useTitleHeader(t('edit_vehicle'));
   }
   const { goBack } = useNavigation();
-  const [loadingSaveCar, setLoadingSaveCar] = useState(false);
   const [imageUrl, setImageUrl] = useState('');
+  const [loadingSaveCar, setLoadingSaveCar] = useState(false);
   const [showImagePicker, setShowImagePicker] = useState(false);
-
   const vehicleData = useMemo(() => {
     return isEdit
       ? {

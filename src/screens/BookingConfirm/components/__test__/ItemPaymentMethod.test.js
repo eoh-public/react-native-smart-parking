@@ -98,7 +98,7 @@ describe('Test ItemPaymentMethod', () => {
     });
     expect(mockFunc).toHaveBeenCalled();
   });
-  test('create ItemPaymentMethod paymentMethod not code', () => {
+  test('create ItemPaymentMethod paymentMethod code vnpay', () => {
     const mockFunc = jest.fn();
     const onPressAgree = jest.fn();
     const onValueCheckBoxTncChange = jest.fn();
@@ -107,6 +107,7 @@ describe('Test ItemPaymentMethod', () => {
       last4: 'last4',
       name: 'name',
       icon: 'icon',
+      code: 'vnpay',
       items: 'items',
     };
     act(() => {
@@ -124,6 +125,32 @@ describe('Test ItemPaymentMethod', () => {
         />
       );
     });
-    expect(wrapper.toJSON()).toMatchSnapshot();
+  });
+
+  test('create ItemPaymentMethod paymentMethod not code', () => {
+    const mockFunc = jest.fn();
+    const onPressAgree = jest.fn();
+    const onValueCheckBoxTncChange = jest.fn();
+    const paymentMethod = {
+      brand: 'brand',
+      name: 'name',
+      icon: 'icon',
+      items: 'items',
+    };
+    act(() => {
+      wrapper = renderer.create(
+        <ItemPaymentMethod
+          paymentMethod={paymentMethod}
+          onPressChange={mockFunc}
+          paymentOption={'payment_option'}
+          is_pay_now={false}
+          timeWarning={'timeWarning'}
+          onPressAgree={onPressAgree}
+          onValueCheckBoxTncChange={onValueCheckBoxTncChange}
+          isTick={true}
+          spotName={''}
+        />
+      );
+    });
   });
 });

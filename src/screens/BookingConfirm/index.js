@@ -208,7 +208,6 @@ const BookingConfirm = memo(({ route }) => {
   }, []);
 
   const hourUnit = total_hours > 1 ? t('hours') : t('hour');
-
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scroll} contentContainerStyle={styles.scroll}>

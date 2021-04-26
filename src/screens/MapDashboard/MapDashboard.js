@@ -96,7 +96,6 @@ const MapDashboard = memo(({ route }) => {
     onCloseThanks,
     onShowThanks,
   } = useNearbyParkings();
-
   const { notificationNumber } = useNotifications();
 
   const { time_remaining, is_paid, start_countdown } = useMemo(() => {
