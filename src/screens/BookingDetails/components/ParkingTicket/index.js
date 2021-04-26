@@ -27,6 +27,7 @@ const ParkingTicket = memo(
     is_paid,
     grand_total,
     getBookingDetail,
+    is_violated,
   }) => {
     const timeFormat = 'LT - DD/MM/YYYY';
     const arrive_at_str = arrive_at && arrive_at.format(timeFormat);
@@ -45,6 +46,7 @@ const ParkingTicket = memo(
                 time_remaining={time_remaining}
                 start_countdown={start_countdown}
                 getBookingDetail={getBookingDetail}
+                is_violated={is_violated}
               />
             )}
             <RowInfo

@@ -1,34 +1,25 @@
-import React, { memo, useState, useRef, useCallback } from 'react';
-import {
-  View,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-  Dimensions,
-  Keyboard,
-  Platform,
-} from 'react-native';
+import React, { memo, useMemo, useState, useRef, useCallback } from 'react';
+import { View, TextInput, TouchableOpacity, Keyboard } from 'react-native';
 import Text from '../../commons/Text';
 import SvgParkingSpot from '../../../assets/images/SmartParking/parkingSpot.svg';
 import { t } from 'i18n-js';
 import { useBoolean } from '../../hooks/Common';
 import Routes from '../../utils/Route';
-import { Colors, Theme, API } from '../../configs';
+import { Colors, API } from '../../configs';
 import { axiosGet } from '../../utils/Apis/axios';
 import ParkingSpotInput from './components/ParkingSpotInput';
 import { IconOutline } from '@ant-design/icons-react-native';
 import { CircleButton } from '../../commons';
-import { getBottomSpace } from 'react-native-iphone-x-helper';
 import { useNavigation } from '@react-navigation/native';
 import { ButtonPopup } from '../../commons';
 import WrapHeaderScrollable from '../../commons/Sharing/WrapHeaderScrollable';
-import { heightHeader } from '../../commons/HeaderAni';
 import Modal from 'react-native-modal';
 import { TESTID } from '../../configs/Constants';
+import { styles } from './styles';
 
 const ParkingInputManually = memo(() => {
   const [parkingSpot, setParkingSpot] = useState('');
-  const [parkingInfo, setParkingInfo] = useState('');
+  const [parkingInfo, setParkingInfo] = useState({});
   const [isTextFocus, setTextFocus] = useState(false);
   const inputRef = useRef(null);
   const enterTimeout = useRef(null);
@@ -62,14 +53,19 @@ const ParkingInputManually = memo(() => {
           spot_name: _parkingSpot,
         },
       });
-      if (success) {
-        setParkingInfo(data);
-      }
-    }, 300);
+      success && setParkingInfo(data);
+    }, 100);
   }, []);
 
   const onPressConfirmSpot = useCallback(async () => {
     Keyboard.dismiss();
+    if (parkingInfo.booking_id) {
+      navigate(Routes.SmartParkingBookingDetails, {
+        id: parkingInfo.booking_id,
+      });
+      return;
+    }
+
     const { success, data } = await axiosGet(API.PARKING.CHECK_CAR_PARKED, {
       params: {
         spot_name: parkingSpot,
@@ -108,16 +104,19 @@ const ParkingInputManually = memo(() => {
 
   const [elementHeight, setElementHeight] = useState(0);
 
-  const onLayout = (event) => {
-    const layout = event.nativeEvent.layout;
-    setElementHeight(layout.height);
-  };
-
-  const _styles = StyleSheet.create({
-    modalInfoContainer: {
-      top: elementHeight + 36,
+  const onLayout = useCallback(
+    (event) => {
+      const layout = event.nativeEvent.layout;
+      setElementHeight(layout.height);
     },
-  });
+    [setElementHeight]
+  );
+
+  const inlineModelInfoStyle = useMemo(() => {
+    return {
+      top: elementHeight + 36,
+    };
+  }, [elementHeight]);
 
   return (
     <View style={styles.container}>
@@ -257,7 +256,7 @@ const ParkingInputManually = memo(() => {
         backdropColor={Colors.Transparent}
         animationIn={'zoomIn'}
         animationOut={'zoomOut'}
-        style={_styles.modalInfoContainer}
+        style={inlineModelInfoStyle}
         testID={TESTID.PARKING_SPOT_MODAL_INFO}
       >
         <View style={[styles.popoverStyle, styles.buttonShadow]}>
@@ -277,77 +276,3 @@ const ParkingInputManually = memo(() => {
 });
 
 export default ParkingInputManually;
-
-const { height } = Dimensions.get('window');
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.White,
-    paddingBottom: getBottomSpace() + 8,
-  },
-  buttonShadow: {
-    shadowColor: Colors.Gray11,
-    shadowOffset: {
-      width: 0,
-      height: 5,
-    },
-    shadowOpacity: 1,
-    shadowRadius: 12,
-    elevation: 5,
-  },
-  content: {
-    alignItems: 'center',
-  },
-  svg: {
-    alignSelf: 'center',
-    marginTop: height >= 812 ? 32 : 12,
-  },
-  parkingInput: {
-    marginVertical: 24,
-  },
-  parkingArea: {
-    ...Theme.flexRow,
-    marginRight: 12,
-    marginBottom: 8,
-  },
-  icon: {
-    marginRight: 8,
-  },
-  confirmView: {
-    flex: 1,
-    ...Theme.center,
-  },
-  scanButton: {
-    ...Theme.center,
-    marginTop: 8,
-  },
-  inputText: {
-    position: 'absolute',
-    top: -200,
-  },
-  contentContainerStyle: {
-    paddingBottom: getBottomSpace() + heightHeader,
-  },
-  scrollView: {
-    backgroundColor: Colors.White,
-  },
-  wrap: {
-    marginLeft: 54,
-    marginRight: 54,
-    marginTop: height >= 812 ? 32 : 12,
-    flexDirection: 'row',
-  },
-  popoverStyle: {
-    backgroundColor: Colors.White,
-    borderRadius: 10,
-    margin: 24,
-  },
-  textDescription: {
-    padding: 16,
-  },
-  iconInfo: {
-    marginBottom: Platform.OS === 'ios' ? 0 : -2,
-    marginLeft: 12,
-  },
-});

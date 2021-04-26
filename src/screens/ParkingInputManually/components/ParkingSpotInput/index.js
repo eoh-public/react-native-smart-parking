@@ -16,12 +16,10 @@ const ParkingSpotInput = memo(
         if (numb.length === 0) {
           if (isFocus) {
             return '_';
-          }
-          if (!isFocus) {
+          } else {
             return '';
           }
-        }
-        if (numb.length !== 0) {
+        } else {
           return numb;
         }
       },
