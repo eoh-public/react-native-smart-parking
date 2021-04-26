@@ -13,7 +13,6 @@ export const styles = StyleSheet.create({
   },
   info: {
     flex: 1,
-    marginLeft: 8,
     paddingBottom: 16,
   },
   textDetail: {

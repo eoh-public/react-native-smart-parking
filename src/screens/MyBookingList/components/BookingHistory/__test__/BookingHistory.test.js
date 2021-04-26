@@ -47,9 +47,9 @@ describe('Test booking history popup', () => {
     });
     const instance = wrapper.root;
     const texts = instance.findAllByType(Text);
-    expect(texts[0].props.children).toEqual('Thảo cầm viên parking street');
-    expect(texts[3].props.children).toEqual(t('completed'));
-    expect(texts[3].props.style[0].color).toEqual(Colors.Green6);
+    expect(texts[1].props.children).toEqual('Thảo cầm viên parking street');
+    expect(texts[5].props.children).toEqual(t('completed'));
+    expect(texts[5].props.style[0].color).toEqual(Colors.Green6);
 
     const buttons = instance.findAllByType(TouchableOpacity);
     act(() => {
@@ -67,7 +67,7 @@ describe('Test booking history popup', () => {
     });
     const instance = wrapper.root;
     const texts = instance.findAllByType(Text);
-    expect(texts[3].props.children).toEqual(t('cancelled'));
-    expect(texts[3].props.style[0].color).toEqual(Colors.Gray7);
+    expect(texts[5].props.children).toEqual(t('cancelled'));
+    expect(texts[5].props.style[0].color).toEqual(Colors.Gray7);
   });
 });

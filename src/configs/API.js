@@ -11,18 +11,7 @@ const API = {
     LIST_PAYMENT_METHODS: API_ROOT + '/billing/list_payment_methods/',
     CREATE_CARD_TOKEN: 'https://api.stripe.com/v1/tokens',
   },
-  CHIP: {
-    CHECK_FINALIZED:
-      API_ROOT + '/property_manager/stations/check_chip_finalized/',
-  },
   EXTERNAL: {
-    WEATHER: (location, weatherMapId) =>
-      `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.lon}` +
-      `&appid=${weatherMapId}`,
-    UV_INDEX: (location, weatherMapId) =>
-      `https://api.openweathermap.org/data/2.5/uvi?appid=${weatherMapId}&lat=${location.lat}&lon=${location.lon}`,
-    AQI: (location, weatherMapToken) =>
-      `https://api.waqi.info/feed/geo:${location.lat};${location.lon}/?token=${weatherMapToken}`,
     GOOGLE_MAP: {
       AUTO_COMPLETE:
         'https://maps.googleapis.com/maps/api/place/autocomplete/json',
@@ -60,6 +49,8 @@ const API = {
     ACTIVE_SESSION: API_ROOT + '/smart_parking/bookings/active_session/',
     HISTORY: (page) =>
       API_ROOT + `/smart_parking/bookings/history/?page=${page}`,
+    VIOLATION: (page) =>
+      API_ROOT + `/smart_parking/bookings/violation/?page=${page}`,
     SCAN_TO_BOOK: API_ROOT + '/smart_parking/bookings/scan_to_book/',
     SCAN_TO_CONFIRM: API_ROOT + '/smart_parking/bookings/scan_to_confirm/',
     EXTEND_INFO: (id) =>
@@ -67,9 +58,6 @@ const API = {
     EXTEND: (id) => API_ROOT + `/smart_parking/bookings/${id}/extend/`,
     CANCEL: (id) => API_ROOT + `/smart_parking/bookings/${id}/cancel/`,
     STOP: (id) => API_ROOT + `/smart_parking/bookings/${id}/stop/`,
-  },
-  EMERGENCY: {
-    CONTACTS: API_ROOT + '/emergency_button/contacts/',
   },
   BILLING: {
     LIST_PAYMENT_METHODS_BY_COUNTRY: (code) =>
@@ -94,19 +82,6 @@ const API = {
     SET_READ: (id) => API_ROOT + `/notifications/notifications/${id}/set_read/`,
     SET_LAST_SEEN: API_ROOT + '/notifications/notifications/set_last_seen/',
     NUMBER: API_ROOT + '/notifications/notifications/number/',
-  },
-  EMERGENCY_BUTTON: {
-    CREATE_CONTACT: API_ROOT + '/emergency_button/contacts/',
-    CONTACTS: API_ROOT + '/emergency_button/contacts/',
-    REMOVE_CONTACTS: (id) => API_ROOT + `/emergency_button/contacts/${id}/`,
-    SEND_ALERT: API_ROOT + '/emergency_button/events/',
-    RESOLVE: (id) => API_ROOT + `/emergency_button/events/${id}/resolve/`,
-  },
-  IOT: {
-    CHIP_MANAGER: {
-      WATCH_CONFIGS: API_ROOT + '/chip_manager/watch_configs/',
-      PUSHER_AUTH: API_ROOT + '/chip_manager/pusher/auth/',
-    },
   },
 };
 

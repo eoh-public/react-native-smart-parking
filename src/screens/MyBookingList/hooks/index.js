@@ -6,6 +6,8 @@ const useMyBookingList = () => {
   const [activeSessions, setActiveSessions] = useState([]);
   const [bookingHistory, setBookingHistory] = useState([]);
   const [maxPageHistoryBooking, setMaxPageHistoryBooking] = useState(1);
+  const [violationBookings, setViolationBookings] = useState([]);
+  const [maxPageViolation, setMaxPageViolation] = useState(1);
   const [loading, setLoading] = useState(false);
 
   const getActiveSession = useCallback(async () => {
@@ -32,13 +34,33 @@ const useMyBookingList = () => {
     [setBookingHistory]
   );
 
+  const getViolationBookings = useCallback(
+    async (page) => {
+      setLoading(true);
+      const { data, success } = await axiosGet(API.BOOKING.VIOLATION(page));
+      if (success && data) {
+        if (page !== 1) {
+          setViolationBookings((preState) => preState.concat(data.results));
+        } else {
+          setViolationBookings(data.results);
+          setMaxPageViolation(Math.ceil(data.count / 10));
+        }
+      }
+      setLoading(false);
+    },
+    [setViolationBookings]
+  );
+
   return {
     loading,
     activeSessions,
     bookingHistory,
+    violationBookings,
     getActiveSession,
     getBookingHistory,
+    getViolationBookings,
     maxPageHistoryBooking,
+    maxPageViolation,
   };
 };
 
