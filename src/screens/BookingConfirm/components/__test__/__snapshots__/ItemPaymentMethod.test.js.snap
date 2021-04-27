@@ -144,6 +144,7 @@ exports[`Test ItemPaymentMethod create ItemPaymentMethod 1`] = `
             },
           ]
         }
+        testID="ITEM_PAYMENT_METHOD_CHECKBOX"
         tintColors={
           Object {
             "false": "#F5F5F5",
@@ -357,6 +358,7 @@ exports[`Test ItemPaymentMethod create ItemPaymentMethod is_default: false 1`] =
             },
           ]
         }
+        testID="ITEM_PAYMENT_METHOD_CHECKBOX"
         tintColors={
           Object {
             "false": "#F5F5F5",

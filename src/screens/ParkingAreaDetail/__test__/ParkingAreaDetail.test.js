@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextInput } from 'react-native';
 import { create, act } from 'react-test-renderer';
-import ParkingAreaDetail from '..';
+import ParkingAreaDetail from '../index';
 import axios from 'axios';
 import { API } from '../../../configs';
 import { TESTID } from '../../../configs/Constants';

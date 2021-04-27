@@ -5,10 +5,10 @@ import { ItemPaymentMethod } from '../ItemPaymentMethod';
 
 describe('Test ItemPaymentMethod', () => {
   let wrapper;
+
   test('create ItemPaymentMethod', () => {
     const mockFunc = jest.fn();
-    const onPressAgree = jest.fn();
-    const onValueCheckBoxTncChange = jest.fn();
+    const onPaymentReady = jest.fn();
     const paymentMethod = {
       brand: 'Visa',
       last4: 'last4',
@@ -25,8 +25,7 @@ describe('Test ItemPaymentMethod', () => {
           paymentOption={'payment_option'}
           is_pay_now={true}
           timeWarning={'timeWarning'}
-          onPressAgree={onPressAgree}
-          onValueCheckBoxTncChange={onValueCheckBoxTncChange}
+          onPaymentReady={onPaymentReady}
           isTick={true}
           spotName={'spot_name'}
         />
@@ -36,8 +35,7 @@ describe('Test ItemPaymentMethod', () => {
   });
   test('create ItemPaymentMethod is_default: false', () => {
     const mockFunc = jest.fn();
-    const onPressAgree = jest.fn();
-    const onValueCheckBoxTncChange = jest.fn();
+    const onPaymentReady = jest.fn();
     const paymentMethod = {
       brand: 'Visa',
       last4: 'last4',
@@ -54,8 +52,7 @@ describe('Test ItemPaymentMethod', () => {
           paymentOption={'payment_option'}
           is_pay_now={true}
           timeWarning={'timeWarning'}
-          onPressAgree={onPressAgree}
-          onValueCheckBoxTncChange={onValueCheckBoxTncChange}
+          onPaymentReady={onPaymentReady}
           isTick={true}
           spotName={'spot_name'}
         />
@@ -66,8 +63,7 @@ describe('Test ItemPaymentMethod', () => {
 
   test('create ItemPaymentMethod is_default: true brand other', () => {
     const mockFunc = jest.fn();
-    const onPressAgree = jest.fn();
-    const onValueCheckBoxTncChange = jest.fn();
+    const onPaymentReady = jest.fn();
     const paymentMethod = {
       brand: 'Visa',
       last4: 'last4',
@@ -84,8 +80,7 @@ describe('Test ItemPaymentMethod', () => {
           paymentOption={'payment_option'}
           is_pay_now={true}
           timeWarning={'timeWarning'}
-          onPressAgree={onPressAgree}
-          onValueCheckBoxTncChange={onValueCheckBoxTncChange}
+          onPaymentReady={onPaymentReady}
           isTick={true}
           spotName={'spot_name'}
         />
@@ -100,8 +95,7 @@ describe('Test ItemPaymentMethod', () => {
   });
   test('create ItemPaymentMethod paymentMethod code vnpay', () => {
     const mockFunc = jest.fn();
-    const onPressAgree = jest.fn();
-    const onValueCheckBoxTncChange = jest.fn();
+    const onPaymentReady = jest.fn();
     const paymentMethod = {
       brand: 'brand',
       last4: 'last4',
@@ -118,8 +112,7 @@ describe('Test ItemPaymentMethod', () => {
           paymentOption={'payment_option'}
           is_pay_now={true}
           timeWarning={'timeWarning'}
-          onPressAgree={onPressAgree}
-          onValueCheckBoxTncChange={onValueCheckBoxTncChange}
+          onPaymentReady={onPaymentReady}
           isTick={true}
           spotName={'spot_name'}
         />
@@ -129,8 +122,7 @@ describe('Test ItemPaymentMethod', () => {
 
   test('create ItemPaymentMethod paymentMethod not code', () => {
     const mockFunc = jest.fn();
-    const onPressAgree = jest.fn();
-    const onValueCheckBoxTncChange = jest.fn();
+    const onPaymentReady = jest.fn();
     const paymentMethod = {
       brand: 'brand',
       name: 'name',
@@ -145,8 +137,7 @@ describe('Test ItemPaymentMethod', () => {
           paymentOption={'payment_option'}
           is_pay_now={false}
           timeWarning={'timeWarning'}
-          onPressAgree={onPressAgree}
-          onValueCheckBoxTncChange={onValueCheckBoxTncChange}
+          onPaymentReady={onPaymentReady}
           isTick={true}
           spotName={''}
         />

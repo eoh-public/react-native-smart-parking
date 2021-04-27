@@ -433,7 +433,7 @@
   "status": "Status",
   "fine_paid": "Fine paid",
   "pay_a_fine": "Pay a fine",
-  "pay_an_extend": "Pay & Extend",
+  "pay_and_extend": "Pay & Extend",
   "start_time": "Start time",
   "end_time": "End time",
   "number_spots": "%{number} chỗ trống",

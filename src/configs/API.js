@@ -58,6 +58,7 @@ const API = {
     EXTEND: (id) => API_ROOT + `/smart_parking/bookings/${id}/extend/`,
     CANCEL: (id) => API_ROOT + `/smart_parking/bookings/${id}/cancel/`,
     STOP: (id) => API_ROOT + `/smart_parking/bookings/${id}/stop/`,
+    PAY_FINE: (id) => API_ROOT + `/smart_parking/bookings/${id}/pay_fine/`,
   },
   BILLING: {
     LIST_PAYMENT_METHODS_BY_COUNTRY: (code) =>

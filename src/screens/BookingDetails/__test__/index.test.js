@@ -9,12 +9,17 @@ import { useIsFocused } from '@react-navigation/native';
 import moment from 'moment';
 import { t } from 'i18n-js';
 import { TESTID } from '../../../configs/Constants';
-import { ButtonPopup } from '../../../commons';
+import { AlertAction, ButtonPopup } from '../../../commons';
+import _ from 'lodash';
+import { ButtonDrawner } from '../components/ButtonDrawner';
+import ExtendPopup from '../components/ExtendPopup';
+import DisplayChecking from '../../../commons/DisplayChecking';
 
 let mockGoBackGlobal;
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
   useState: jest.fn(),
+  memo: (x) => x,
   createRef: () => {
     const mockGoBack = jest.fn();
     const mockNavigate = jest.fn();
@@ -39,6 +44,8 @@ jest.mock('@react-navigation/native', () => {
     useIsFocused: jest.fn(),
   };
 });
+
+const mockSetState = jest.fn();
 
 describe('Test BookingDetails', () => {
   const route = {
@@ -92,11 +99,14 @@ describe('Test BookingDetails', () => {
     total: '15000.00',
   };
 
+  beforeEach(() => {
+    mockSetState.mockClear();
+  });
+
   let wrapper;
 
   const mockApiDetail = (bookingDetail = {}) => {
-    const setState = jest.fn();
-    useState.mockImplementation((init) => [init, setState]);
+    useState.mockImplementation((init) => [init, mockSetState]);
     useIsFocused.mockImplementation(() => true);
 
     let data = {
@@ -112,7 +122,6 @@ describe('Test BookingDetails', () => {
   };
 
   const mockInitBookingDetail = (bookingDetail = {}, customMethod = null) => {
-    const setState = jest.fn();
     const initBookingDetail = { ...bookingData, ...bookingDetail };
     useState.mockImplementation((init) => {
       if (customMethod) {
@@ -122,9 +131,9 @@ describe('Test BookingDetails', () => {
         }
       }
       if (typeof init === 'object' && init !== null && 'extend_at' in init) {
-        return [initBookingDetail, setState];
+        return [initBookingDetail, mockSetState];
       }
-      return [init, setState];
+      return [init, mockSetState];
     });
   };
 
@@ -210,14 +219,13 @@ describe('Test BookingDetails', () => {
     mockApiDetail();
     jest.useFakeTimers();
 
-    const setState = jest.fn();
     const setExtendState = jest.fn();
     const setExtendCheckingState = jest.fn();
 
-    useState.mockImplementationOnce((init) => [init, setState]); // scan state
-    useState.mockImplementationOnce((init) => [init, setState]); // show thank state
-    useState.mockImplementationOnce((init) => [init, setState]); // loading state
-    useState.mockImplementationOnce((init) => [init, setState]); // booking detail state
+    useState.mockImplementationOnce((init) => [init, mockSetState]); // scan state
+    useState.mockImplementationOnce((init) => [init, mockSetState]); // show thank state
+    useState.mockImplementationOnce((init) => [init, mockSetState]); // loading state
+    useState.mockImplementationOnce((init) => [init, mockSetState]); // booking detail state
     useState.mockImplementationOnce((init) => [init, setExtendState]); // extend state
     useState.mockImplementationOnce((init) => [init, setExtendCheckingState]); // extend checking state
 
@@ -235,6 +243,25 @@ describe('Test BookingDetails', () => {
       jest.runAllTimers();
     });
     expect(setExtendState).toHaveBeenCalledWith(true);
+
+    const popup = wrapper.root.findByType(ExtendPopup);
+    act(() => {
+      popup.props.onClose();
+    });
+    expect(setExtendState).toHaveBeenCalledWith(false);
+
+    axios.post.mockClear();
+    axios.post.mockImplementationOnce(async () => ({ status: 200, data: {} }));
+    act(() => {
+      popup.props.onExtend(() => {});
+    });
+    expect(axios.post).toBeCalled();
+
+    const checkinPopup = wrapper.root.findByType(DisplayChecking);
+    act(() => {
+      checkinPopup.props.onClose();
+    });
+    expect(setExtendCheckingState).toHaveBeenCalledWith(false);
   });
 
   test('render active BookingDetails will call setTimeout for fetching detail', async () => {
@@ -276,7 +303,7 @@ describe('Test BookingDetails', () => {
 
   test('on user press stop booking', async () => {
     mockApiDetail();
-    const setStateAlertStop = jest.fn();
+    const mockSetStateAlertStop = jest.fn();
     mockInitBookingDetail({}, (init) => {
       if (
         typeof init === 'object' &&
@@ -285,13 +312,14 @@ describe('Test BookingDetails', () => {
         'rightButton' in init
       ) {
         // stateAlertStop
-        return [init, setStateAlertStop];
+        return [init, mockSetStateAlertStop];
       }
     });
 
     await act(async () => {
       wrapper = await create(<BookingDetails route={route} />);
     });
+
     const instance = wrapper.root;
 
     const stopButton = instance.find(
@@ -300,16 +328,19 @@ describe('Test BookingDetails', () => {
         el.type === TouchableOpacity
     );
 
-    expect(setStateAlertStop).toHaveBeenCalledTimes(0);
+    expect(mockSetStateAlertStop).toHaveBeenCalledTimes(0);
+    mockSetStateAlertStop.mockImplementationOnce((func) => {
+      func();
+    });
     await act(async () => {
       stopButton.props.onPress();
     });
 
-    expect(setStateAlertStop).toHaveBeenCalledTimes(1);
+    expect(mockSetStateAlertStop).toHaveBeenCalledTimes(1);
   });
   test('on user press cancel booking', async () => {
     mockApiDetail();
-    const setStateAlertCancel = jest.fn();
+    const mockSetStateAlertCancel = jest.fn();
     mockInitBookingDetail({}, (init) => {
       if (
         typeof init === 'object' &&
@@ -320,7 +351,7 @@ describe('Test BookingDetails', () => {
         // stateAlertCancel
         init.rightButton = t('yes_cancel');
         init.visible = true;
-        return [init, setStateAlertCancel];
+        return [init, mockSetStateAlertCancel];
       }
     });
 
@@ -336,7 +367,7 @@ describe('Test BookingDetails', () => {
         el.type === TouchableOpacity
     );
 
-    expect(setStateAlertCancel).toHaveBeenCalledTimes(0);
+    expect(mockSetStateAlertCancel).toHaveBeenCalledTimes(0);
     await act(async () => {
       cancelButton.props.onPress();
     });
@@ -357,5 +388,95 @@ describe('Test BookingDetails', () => {
       buttonPopups[1].props.onPressMain();
     });
     expect(buttonPopups[1].props.visible).toBeFalsy();
+  });
+
+  test('press close popup booking stop', async () => {
+    mockApiDetail();
+    useState.mockImplementation((init) => [init, mockSetState]);
+    _.range(10).map(() => {
+      useState.mockImplementationOnce((init) => [init, mockSetState]);
+    });
+    useState.mockImplementationOnce((init) => [{}, mockSetState]); // hide state
+
+    await act(async () => {
+      wrapper = await create(<BookingDetails route={route} />);
+    });
+    const instance = wrapper.root;
+
+    const buttonPopups = instance.findAllByType(AlertAction);
+
+    expect(buttonPopups).toHaveLength(2);
+
+    mockSetState.mockClear();
+    await act(async () => {
+      buttonPopups[1].props.hideModal();
+    });
+    expect(mockSetState).toBeCalledWith({
+      visible: false,
+    });
+  });
+
+  test('press close popup booking cancel', async () => {
+    mockApiDetail();
+    useState.mockImplementation((init) => [init, mockSetState]);
+    _.range(9).map(() => {
+      useState.mockImplementationOnce((init) => [init, mockSetState]);
+    });
+    useState.mockImplementationOnce((init) => [{}, mockSetState]); // stateAlertCancel
+
+    await act(async () => {
+      wrapper = await create(<BookingDetails route={route} />);
+    });
+    const instance = wrapper.root;
+
+    const buttonPopups = instance.findAllByType(AlertAction);
+
+    expect(buttonPopups).toHaveLength(2);
+
+    mockSetState.mockClear();
+    await act(async () => {
+      buttonPopups[0].props.hideModal();
+    });
+    expect(mockSetState).toBeCalledWith({
+      visible: false,
+    });
+  });
+
+  test('press show popup booking cancel', async () => {
+    mockApiDetail();
+    useState.mockImplementation((init) => [init, mockSetState]);
+    _.range(3).map(() => {
+      useState.mockImplementationOnce((init) => [init, mockSetState]);
+    });
+    useState.mockImplementationOnce((init) => [
+      {
+        ...init,
+        status: '',
+      },
+      mockSetState,
+    ]); // stateAlertCancel
+    _.range(4).map(() => {
+      useState.mockImplementationOnce((init) => [init, mockSetState]);
+    });
+    useState.mockImplementationOnce((init) => [{}, mockSetState]); // stateAlertCancel
+
+    await act(async () => {
+      wrapper = await create(<BookingDetails route={route} />);
+    });
+    const instance = wrapper.root;
+
+    const buttonPopups = instance.findAllByType(ButtonDrawner);
+
+    mockSetState.mockClear();
+    let calledFunc = null;
+    mockSetState.mockImplementationOnce((func) => {
+      func();
+      calledFunc = func;
+    });
+    await act(async () => {
+      buttonPopups[0].props.onPressSecondary();
+    });
+    expect(calledFunc).not.toBeNull();
+    expect(mockSetState).toBeCalledWith(calledFunc);
   });
 });

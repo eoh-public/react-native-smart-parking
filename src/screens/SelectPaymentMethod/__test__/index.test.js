@@ -1,9 +1,9 @@
 import { useIsFocused } from '@react-navigation/native';
+import { FlatList } from 'react-native';
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { ExpandView, FullLoading } from '../../../commons';
-import { API } from '../../../configs';
 import ItemPayment from '../components/ItemPayment';
 
 import { SelectPaymentMethod } from '../index';
@@ -22,9 +22,11 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
+const mockSetState = jest.fn();
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
   memo: (x) => x,
+  useState: jest.fn((init) => [init, mockSetState]),
 }));
 
 describe('test SelectPaymentMethod container', () => {
@@ -71,6 +73,7 @@ describe('test SelectPaymentMethod container', () => {
   });
 
   test('render loading', async () => {
+    useState.mockImplementationOnce((init) => [true, mockSetState]);
     await act(() => {
       tree = renderer.create(<SelectPaymentMethod route={route} />);
     });
@@ -80,21 +83,22 @@ describe('test SelectPaymentMethod container', () => {
   });
 
   test('render vnpay', async () => {
-    const response = {
-      status: 200,
-      data: [
-        {
-          id: 1,
-          code: 'vnpay',
-          icon: '',
-          name: 'VnPay',
-          description: 'description',
-        },
-      ],
-    };
-    axios.get.mockImplementation(async () => {
-      return response;
-    });
+    const paymentMethodList = [
+      {
+        id: 1,
+        code: 'vnpay',
+        icon: '',
+        name: 'VnPay',
+        description: 'description',
+      },
+    ];
+
+    useState.mockImplementationOnce((init) => [init, mockSetState]);
+    useState.mockImplementationOnce((init) => [init, mockSetState]);
+    useState.mockImplementationOnce((init) => [
+      paymentMethodList,
+      mockSetState,
+    ]);
 
     await act(async () => {
       tree = await renderer.create(<SelectPaymentMethod route={route} />);
@@ -102,33 +106,29 @@ describe('test SelectPaymentMethod container', () => {
     const instance = tree.root;
     const itemPayment = instance.findAllByType(ItemPayment);
     expect(itemPayment).toHaveLength(1);
-    expect(axios.get).toHaveBeenCalledWith(
-      API.BILLING.LIST_PAYMENT_METHODS_BY_COUNTRY('vn'),
-      {}
-    );
-    expect(axios.get).toHaveBeenCalledTimes(1);
   });
 
   test('render expandview', async () => {
-    const response = {
-      status: 200,
-      data: [
-        {
-          id: 1,
-          code: 'stripe',
-          name: 'Visa/Master',
-          items: [
-            {
-              brand: 'Visa',
-              last4: '1234',
-            },
-          ],
-        },
-      ],
-    };
-    axios.get.mockImplementation(async () => {
-      return response;
-    });
+    const paymentMethodList = [
+      {
+        id: 1,
+        code: 'stripe',
+        name: 'Visa/Master',
+        items: [
+          {
+            brand: 'Visa',
+            last4: '1234',
+          },
+        ],
+      },
+    ];
+    useState.mockImplementationOnce((init) => [init, mockSetState]);
+    useState.mockImplementationOnce((init) => [init, mockSetState]);
+    useState.mockImplementationOnce((init) => [
+      paymentMethodList,
+      mockSetState,
+    ]);
+    useIsFocused.mockImplementation(() => true);
 
     await act(async () => {
       tree = await renderer.create(<SelectPaymentMethod route={route} />);
@@ -138,11 +138,6 @@ describe('test SelectPaymentMethod container', () => {
 
     expect(expandView).toHaveLength(1);
     expect(expandView[0].props.title).toEqual('Visa/Master');
-    expect(axios.get).toHaveBeenCalledWith(
-      API.BILLING.LIST_PAYMENT_METHODS_BY_COUNTRY('vn'),
-      {}
-    );
-    expect(axios.get).toHaveBeenCalledTimes(1);
   });
 
   test('onRefresh', async () => {
@@ -166,14 +161,15 @@ describe('test SelectPaymentMethod container', () => {
       return response;
     });
 
-    useIsFocused.mockImplementation(() => true);
     await act(async () => {
       tree = await renderer.create(<SelectPaymentMethod route={route} />);
     });
-    expect(axios.get).toHaveBeenCalledWith(
-      API.BILLING.LIST_PAYMENT_METHODS_BY_COUNTRY('vn'),
-      {}
-    );
-    expect(axios.get).toHaveBeenCalledTimes(2);
+    axios.get.mockClear();
+
+    const flatList = tree.root.findByType(FlatList);
+    act(() => {
+      flatList.props.onRefresh();
+    });
+    expect(axios.get).toBeCalled();
   });
 });

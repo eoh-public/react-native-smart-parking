@@ -97,7 +97,7 @@ const ViolationItem = memo(
                   color={Colors.White}
                   style={styles.textButton}
                 >
-                  {t('pay_an_extend')}
+                  {t('pay_and_extend')}
                 </Text>
               </TouchableOpacity>
             </View>

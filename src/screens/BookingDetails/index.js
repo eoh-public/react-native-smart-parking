@@ -35,18 +35,22 @@ import {
 } from './hooks/useStateAlertAction';
 import styles from './styles';
 import { Icon } from '@ant-design/react-native';
+import { ItemPaymentMethod } from '../BookingConfirm/components/ItemPaymentMethod';
 
 const getButtonDrawner = (
   is_paid,
   confirmed_arrival_at,
   start_countdown,
   status,
+  is_violated,
   onRebook,
   onShowAlertCancel,
   onPaynow,
   onShowExtend,
   onScanQR,
-  onShowAlertStop
+  onShowAlertStop,
+  onPayFine,
+  onPayFineAndExtend
 ) => {
   let mainTitle = t('extend');
   let secondaryTitle = t('cancel');
@@ -61,6 +65,15 @@ const getButtonDrawner = (
     return { mainTitle, secondaryTitle, onPressMain, onPressSecondary };
   } else if (status === undefined) {
     return {};
+  }
+
+  if (is_violated) {
+    return {
+      mainTitle: t('pay_and_extend'),
+      secondaryTitle: t('pay_a_fine'),
+      onPressMain: onPayFineAndExtend,
+      onPressSecondary: onPayFine,
+    };
   }
 
   if (start_countdown) {
@@ -90,8 +103,15 @@ const getStatus = (status) => {
   return { textStatus, colorStatus };
 };
 
+const getPaymentData = (paymentMethod) => {
+  return {
+    payment_method: 'last4' in paymentMethod ? 'stripe' : paymentMethod.code,
+    payment_card_id: paymentMethod.id,
+  };
+};
+
 const BookingDetails = memo(({ route }) => {
-  const { id, isShowExtendNow, scanDataResponse } = route.params;
+  const { id, isShowExtendNow, scanDataResponse, methodItem } = route.params;
   const [showScanResponse, setShowScanResponse] = useState(true);
   const { VnpayMerchant } = NativeModules;
 
@@ -135,6 +155,7 @@ const BookingDetails = memo(({ route }) => {
     hideAlertStop,
     onShowAlertStop,
   } = useStateAlertStop();
+  const [isPaymentReady, setIsPaymentReady] = useState(false);
 
   const {
     status,
@@ -150,6 +171,10 @@ const BookingDetails = memo(({ route }) => {
 
   const navigateBookingSuccess = useCallback(
     (bookingId, from) => {
+      if (from === 'fine') {
+        navigate(Routes.MapDashboard);
+        return;
+      }
       if (from === 'extend') {
         ToastBottomHelper.success(t('extend_success'));
       } else {
@@ -159,14 +184,15 @@ const BookingDetails = memo(({ route }) => {
     },
     [navigate]
   );
-  const handlePayment = useCallback(
-    (billing) => {
+
+  const processPayment = useCallback(
+    (booking, billing, paymentUrl, from) => {
       switch (billing.payment_method) {
         case 'vnpay':
           DeepLinking.addRoute('/eoh/success-payment', (response) => {
             navigate(Routes.SmartParkingBookingSuccess, {
               booking: {
-                ...bookingDetail,
+                ...booking,
                 is_pay_now: true,
               },
               billing,
@@ -175,7 +201,7 @@ const BookingDetails = memo(({ route }) => {
           VnpayMerchant.show(
             Constants.DEEP_LINK.SUCCESS_PAYMENT,
             true,
-            payment_url,
+            paymentUrl,
             'EOH00001',
             t('notify_back'),
             t('payment_confirm'),
@@ -188,8 +214,7 @@ const BookingDetails = memo(({ route }) => {
         case 'stripe': {
           navigate(Routes.ProcessPayment, {
             billingId: billing.id,
-            handleSuccess: () =>
-              navigateBookingSuccess(bookingDetail.id, 'extend'),
+            handleSuccess: () => navigateBookingSuccess(booking.id, from),
           });
           break;
         }
@@ -197,25 +222,26 @@ const BookingDetails = memo(({ route }) => {
           break;
       }
     },
-    [
-      VnpayMerchant,
-      bookingDetail,
-      navigate,
-      navigateBookingSuccess,
-      payment_url,
-    ]
+    [VnpayMerchant, navigate, navigateBookingSuccess]
+  );
+
+  const handleExtendPayment = useCallback(
+    (billing) => {
+      processPayment(bookingDetail, billing, payment_url, 'extend');
+    },
+    [bookingDetail, payment_url, processPayment]
   );
 
   const onExtend = useCallback(() => {
     setShowExtend(false);
     createExtendBooking(({ success, data }) => {
       if (success) {
-        handlePayment(data.billing);
+        handleExtendPayment(data.billing);
       } else {
         ToastBottomHelper.error(t('payment_failed'));
       }
     });
-  }, [createExtendBooking, handlePayment, setShowExtend]);
+  }, [createExtendBooking, handleExtendPayment, setShowExtend]);
 
   const onScanQR = useCallback(() => {
     navigate(Routes.SmartParkingScanQR);
@@ -253,33 +279,17 @@ const BookingDetails = memo(({ route }) => {
   }, [isShowExtendNow, onShowExtend]);
 
   const onPaynow = useCallback(() => {
-    if (payment_method_code === 'vnpay') {
-      VnpayMerchant.show(
-        Constants.DEEP_LINK.SUCCESS_PAYMENT,
-        true,
-        payment_url,
-        'EOH00001',
-        t('notify_back'),
-        t('payment_confirm'),
-        Colors.Black,
-        Colors.White,
-        Colors.White,
-        'ion_back'
-      );
-    } else {
-      navigate(Routes.ProcessPayment, {
-        billingId: billing_id,
-        handleSuccess: () => navigateBookingSuccess(bookingDetail.id),
-      });
-    }
+    processPayment(
+      bookingDetail,
+      { id: billing_id, payment_method: payment_method_code },
+      payment_url
+    );
   }, [
-    payment_method_code,
-    VnpayMerchant,
-    payment_url,
-    navigate,
-    navigateBookingSuccess,
-    bookingDetail.id,
+    processPayment,
+    bookingDetail,
     billing_id,
+    payment_method_code,
+    payment_url,
   ]);
 
   const onCancelBooking = useCallback(async () => {
@@ -299,6 +309,21 @@ const BookingDetails = memo(({ route }) => {
     });
   }, [navigation, parking_id]);
 
+  const onPayFine = useCallback(async () => {
+    const { success, data } = await axiosPost(
+      API.BOOKING.PAY_FINE(id),
+      getPaymentData(methodItem)
+    );
+    if (!success) {
+      return;
+    }
+
+    const { booking, billing, payment_url: paymentUrl } = data;
+    processPayment(booking, billing, paymentUrl, 'fine');
+  }, [id, methodItem, processPayment]);
+
+  const onPayFineAndExtend = useCallback(() => {}, []);
+
   const {
     mainTitle,
     secondaryTitle,
@@ -309,12 +334,15 @@ const BookingDetails = memo(({ route }) => {
     confirmed_arrival_at,
     start_countdown,
     status,
+    is_violated,
     onRebook,
     onShowAlertCancel,
     onPaynow,
     onShowExtend,
     onScanQR,
-    onShowAlertStop
+    onShowAlertStop,
+    onPayFine,
+    onPayFineAndExtend
   );
 
   const { textStatus, colorStatus } = getStatus(status);
@@ -357,6 +385,14 @@ const BookingDetails = memo(({ route }) => {
   const onClose = useCallback(() => {
     setshowButtonPopup(false);
   }, [setshowButtonPopup]);
+
+  const onPressChangePaymentMethod = useCallback(() => {
+    navigate(Routes.SmartParkingSelectPaymentMethod, {
+      routeName: Routes.SmartParkingBookingDetails,
+      routeData: route.params,
+    });
+  }, [navigate, route.params]);
+
   return (
     <View style={styles.container}>
       <HeaderUnit
@@ -381,6 +417,17 @@ const BookingDetails = memo(({ route }) => {
         </View>
         <ParkingTicket {...bookingDetail} getBookingDetail={getBookingDetail} />
         <DetailsParkingInfo {...bookingDetail} />
+        {!!is_violated && (
+          <ItemPaymentMethod
+            testID={TESTID.ITEM_PAYMENT_METHOD}
+            paymentMethodItem={methodItem}
+            onPressChange={onPressChangePaymentMethod}
+            paymentOption={t('pay_now')}
+            is_pay_now={true}
+            onPaymentReady={setIsPaymentReady}
+            isTick={true}
+          />
+        )}
       </ScrollView>
       <ButtonDrawner
         mainTitle={mainTitle}
@@ -390,6 +437,7 @@ const BookingDetails = memo(({ route }) => {
         rowButton
         semiboldMain
         isViolated={is_violated}
+        disabled={is_violated && !isPaymentReady}
       />
       <AlertAction
         visible={stateAlertCancel.visible}

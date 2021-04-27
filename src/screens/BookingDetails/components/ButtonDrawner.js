@@ -12,6 +12,7 @@ export const ButtonDrawner = memo(
     onPressSecondary,
     testIDPrefix = '',
     isViolated,
+    disabled,
   }) => (
     <>
       {isViolated ? (
@@ -23,6 +24,8 @@ export const ButtonDrawner = memo(
           rowButton={rowButton}
           typeMain="alert"
           typeSecondary="alertBorder"
+          disabled={disabled}
+          testIDPrefix={testIDPrefix}
         />
       ) : (
         <BottomButtonView
@@ -31,6 +34,8 @@ export const ButtonDrawner = memo(
           onPressMain={onPressMain}
           onPressSecondary={onPressSecondary}
           rowButton={rowButton}
+          disabled={disabled}
+          testIDPrefix={testIDPrefix}
         />
       )}
     </>

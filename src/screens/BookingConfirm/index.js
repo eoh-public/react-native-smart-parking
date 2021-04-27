@@ -43,7 +43,7 @@ const BookingConfirm = memo(({ route }) => {
     setReadyToConfirm,
     setNotReadyToConfirm,
   ] = useBoolean(false);
-  const [isTick, setTick] = useState(false);
+  const [isPaymentReady, setIsPaymentReady] = useState(false);
 
   const getDefaultPaymentMethod = useCallback(async () => {
     const { success, data } = await axiosGet(
@@ -117,12 +117,12 @@ const BookingConfirm = memo(({ route }) => {
     .format('LT - DD/MM/YYYY');
 
   useEffect(() => {
-    if ((paymentMethod.code || paymentMethod.last4) && isTick) {
+    if (isPaymentReady) {
       setReadyToConfirm();
     } else {
       setNotReadyToConfirm();
     }
-  }, [isTick, setNotReadyToConfirm, paymentMethod, setReadyToConfirm]);
+  }, [isPaymentReady, setNotReadyToConfirm, setReadyToConfirm]);
 
   const [checkBack, setCheckBack] = useState(false);
 
@@ -194,18 +194,13 @@ const BookingConfirm = memo(({ route }) => {
 
   const onPressChangePaymentMethod = useCallback(() => {
     navigate(Routes.SmartParkingSelectPaymentMethod, {
-      itemProps: item,
-      body,
+      routeName: Routes.SmartParkingBookingConfirm,
+      routeData: {
+        itemProps: item,
+        body,
+      },
     });
   }, [navigate, body, item]);
-
-  const onPressAgree = useCallback(() => {
-    setTick(!isTick);
-  }, [isTick]);
-
-  const onValueCheckBoxTncChange = useCallback((hadTicked) => {
-    setTick(hadTicked);
-  }, []);
 
   const hourUnit = total_hours > 1 ? t('hours') : t('hour');
   return (
@@ -265,15 +260,14 @@ const BookingConfirm = memo(({ route }) => {
         <View style={styles.line} />
         <ItemPaymentMethod
           testID={TESTID.ITEM_PAYMENT_METHOD}
-          paymentMethod={paymentMethod}
           onPressChange={onPressChangePaymentMethod}
           paymentOption={payment_option}
           is_pay_now={body.is_pay_now}
           timeWarning={timeWarning}
-          onPressAgree={onPressAgree}
-          onValueCheckBoxTncChange={onValueCheckBoxTncChange}
-          isTick={isTick}
+          onPaymentReady={setIsPaymentReady}
+          isTick={false}
           spotName={spot_name}
+          paymentMethod={paymentMethod}
         />
         <View style={styles.line} />
         <View style={styles.rowPrice}>
