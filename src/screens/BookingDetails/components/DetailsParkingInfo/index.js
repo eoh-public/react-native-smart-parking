@@ -93,7 +93,9 @@ const DetailsParkingInfo = memo(
           {extend_at.length > 0 && (
             <RowDetails title={t('extend_at')} value={extend_at_formated} />
           )}
-          <RowDetails title={t('payment_method')} value={[payment_method]} />
+          {!is_violated && (
+            <RowDetails title={t('payment_method')} value={[payment_method]} />
+          )}
         </View>
       </View>
     );

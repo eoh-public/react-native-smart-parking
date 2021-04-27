@@ -1,5 +1,5 @@
 import { IconFill, IconOutline } from '@ant-design/icons-react-native';
-import React, { memo } from 'react';
+import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { t } from 'i18n-js';
 
@@ -11,6 +11,7 @@ import {
   SvgMasterCard,
 } from '../../../../assets/images/SmartParking';
 import { SvgWarning } from '../../../../assets/images/BookingDetail';
+import { TESTID } from '../../../configs/Constants';
 
 const getNameAndIconPaymentMethod = (method) => {
   let text = t('please_select_a_payment_method');
@@ -56,18 +57,44 @@ const getNameAndIconPaymentMethod = (method) => {
 
 export const ItemPaymentMethod = memo(
   ({
-    paymentMethod,
     onPressChange,
     paymentOption,
     is_pay_now,
     timeWarning,
-    onPressAgree,
-    onValueCheckBoxTncChange,
     isTick,
     spotName,
+    paymentMethod,
+    onPaymentReady,
   }) => {
-    const { brand, last4 } = paymentMethod;
-    const { text, image, change } = getNameAndIconPaymentMethod(paymentMethod);
+    const [isTicked, setIsTicked] = useState(isTick);
+
+    const onTick = useCallback(() => {
+      setIsTicked(!isTicked);
+    }, [setIsTicked, isTicked]);
+
+    const onValueChange = useCallback(
+      (hadTicked) => {
+        setIsTicked(hadTicked);
+      },
+      [setIsTicked]
+    );
+
+    useEffect(() => {
+      const isReady = isTicked && paymentMethod;
+      onPaymentReady(isReady);
+    }, [isTicked, onPaymentReady, paymentMethod]);
+
+    const { brand, last4 } = useMemo(() => {
+      if (!paymentMethod) {
+        return {};
+      }
+      return paymentMethod;
+    }, [paymentMethod]);
+
+    const { text, image, change } = useMemo(() => {
+      return getNameAndIconPaymentMethod(paymentMethod || {});
+    }, [paymentMethod]);
+
     return (
       <View style={styles.container}>
         <Text
@@ -124,9 +151,10 @@ export const ItemPaymentMethod = memo(
         )}
         <CustomCheckbox
           style={styles.buttonAgree}
-          onPress={onPressAgree}
-          value={isTick}
-          onValueChange={onValueCheckBoxTncChange}
+          onPress={onTick}
+          value={isTicked}
+          onValueChange={onValueChange}
+          testID={TESTID.ITEM_PAYMENT_METHOD_CHECKBOX}
         >
           <Text type={'Body'} style={styles.termsText}>
             {t('terms_and_conditions_booking_prefix')}

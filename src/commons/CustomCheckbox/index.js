@@ -13,6 +13,7 @@ const CustomCheckbox = memo(
     onValueChange,
     children,
     type = 'square',
+    testID,
   }) => {
     return (
       <View style={style}>
@@ -27,6 +28,7 @@ const CustomCheckbox = memo(
             onFillColor={Colors.Green7}
             onTintColor={Colors.Green7}
             disabled={disabled}
+            testID={testID}
           />
         ) : (
           <CheckBox

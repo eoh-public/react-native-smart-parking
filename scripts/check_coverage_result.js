@@ -14,5 +14,9 @@ if (
   console.error(
     'Coverage config is not updated. Please update jest.config.js coverageThreshold as new value.'
   );
+  console.log('Config');
+  console.log(config);
+  console.log('Actually');
+  console.log({ statements, branches, functions, lines });
   process.exit(1);
 }

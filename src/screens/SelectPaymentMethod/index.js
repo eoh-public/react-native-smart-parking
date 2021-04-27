@@ -23,7 +23,7 @@ import {
 } from '../../../assets/images/SmartParking';
 
 export const SelectPaymentMethod = memo(({ route }) => {
-  const { itemProps, body } = route.params;
+  const { routeName, routeData } = route.params;
   const isFocused = useIsFocused();
   const { navigate } = useNavigation();
   const [loading, setLoading] = useState(false);
@@ -40,13 +40,12 @@ export const SelectPaymentMethod = memo(({ route }) => {
 
   const onChoose = useCallback(
     (method) => () => {
-      navigate(Routes.SmartParkingBookingConfirm, {
-        item: itemProps,
-        body: body,
+      navigate(routeName, {
+        ...routeData,
         methodItem: method,
       });
     },
-    [body, itemProps, navigate]
+    [navigate, routeData, routeName]
   );
 
   const fetchCard = useCallback(async () => {

@@ -15,9 +15,9 @@ const useExtendBooking = (id) => {
     async (onCreateBookingSuccess) => {
       const body = { hour_extend: hour };
       const res = await axiosPost(API.BOOKING.EXTEND(id), body);
-      onCreateBookingSuccess(res);
       setHour(1);
       setShowExtend(false);
+      onCreateBookingSuccess(res);
     },
     [hour, id]
   );

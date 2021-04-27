@@ -20,6 +20,7 @@ const BottomButtonView = memo(
     typeMain = 'primary',
     typeSecondary = 'cancel',
     testIDPrefix = '',
+    disabled = false,
   }) => {
     return (
       <View
@@ -33,7 +34,7 @@ const BottomButtonView = memo(
         {mainTitle && (
           <Button
             icon={mainIcon}
-            type={typeMain}
+            type={disabled ? 'disabled' : typeMain}
             title={mainTitle}
             onPress={onPressMain}
             textSemiBold={semiboldMain}
@@ -44,7 +45,7 @@ const BottomButtonView = memo(
         )}
         {secondaryTitle && (
           <Button
-            type={typeSecondary}
+            type={disabled ? 'disabled' : typeSecondary}
             title={secondaryTitle}
             onPress={onPressSecondary}
             textSemiBold={semiboldSecond}
