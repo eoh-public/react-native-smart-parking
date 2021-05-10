@@ -27,6 +27,7 @@ import {
   SvgCreditCardColor,
   SvgCreditCardGray,
 } from '../../../assets/images/SmartParking';
+import { TESTID } from '../../configs/Constants';
 
 const Payment = memo(() => {
   const [showRemove, setShowRemove] = useState(false);
@@ -153,10 +154,15 @@ const Payment = memo(() => {
         styleScrollView={styles.container}
         rightComponent={
           <View style={styles.headerRight}>
-            <TouchableOpacity style={styles.btnPlus} onPress={onPlus}>
+            <TouchableOpacity
+              testID={TESTID.PAYMENT_ON_PLUS}
+              style={styles.btnPlus}
+              onPress={onPlus}
+            >
               <Icon name={'plus'} size={30} color={Colors.Gray9} />
             </TouchableOpacity>
             <TouchableOpacity
+              testID={TESTID.PAYMENT_ON_MORE}
               style={styles.btnMore}
               onPress={onMore}
               ref={buttonMoreRef}
