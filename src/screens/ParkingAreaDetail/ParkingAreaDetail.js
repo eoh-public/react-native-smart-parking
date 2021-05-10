@@ -168,7 +168,7 @@ const ParkingAreaDetail = memo(({ route }) => {
     bookTime,
   ]);
 
-  const arriveAt = preBook ? bookTime.arriveAt : bookTime.arriveAt;
+  const arriveAt = bookTime.arriveAt;
   const bookingDetailData = useMemo(() => {
     const item = {
       spot_name: spot_name || spotNumber,
@@ -406,6 +406,7 @@ const ParkingAreaDetail = memo(({ route }) => {
           </Animated.View>
         )}
         <TextInput
+          testID={TESTID.PARKING_DETAIL_CHANGE_SPOT}
           value={spotNumber}
           onChangeText={onChangeText}
           ref={inputRef}

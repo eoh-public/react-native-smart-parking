@@ -148,7 +148,6 @@ const MapDashboard = memo(({ route }) => {
     if (!activeSessions) {
       await getNearbyParkings({ lat: location.lat, lng: location.lng });
     }
-    animateToRegion(location.lat, location.lng);
   }, [activeSessions, animateToRegion, getNearbyParkings]);
 
   const onPressNearby = useCallback(
