@@ -10,6 +10,7 @@ import { ControllHour } from '../../../ParkingAreaDetail/compenents/ParkingDetai
 import { axiosGet } from '../../../../utils/Apis/axios';
 import { calcTime } from '../../../../utils/Converter/time';
 import { formatMoney } from '../../../../utils/Utils';
+import RowDetails from '../DetailsParkingInfo/RowDetails';
 
 const ExtendPopup = memo(
   ({
@@ -21,6 +22,7 @@ const ExtendPopup = memo(
     extendInfo,
     hour,
     onChangeHour,
+    booking,
   }) => {
     const [confirmed, setConfirmed] = useState(false);
     const [total, setTotal] = useState(0);
@@ -101,6 +103,20 @@ const ExtendPopup = memo(
           <Text type="Label" style={styles.leaveTime} color={Colors.Gray8}>
             {`${t('leave_at')} ${leaveTime}`}
           </Text>
+          {!!booking.is_violated && (
+            <RowDetails
+              testID={TESTID.EXTEND_TOTAL_VIOLATION_FEE}
+              title={t('total_violation_fee')}
+              value={[`${formatMoney(booking.grand_total)}`]}
+            />
+          )}
+          {confirmed && !!booking.is_violated && (
+            <RowDetails
+              testID={TESTID.EXTEND_EXTEND_FEE}
+              title={t('extend_fee')}
+              value={[`${formatMoney(total)}`]}
+            />
+          )}
           {confirmed && (
             <View style={styles.totalRow}>
               <Text type="Body" color={Colors.Gray8}>
@@ -112,13 +128,25 @@ const ExtendPopup = memo(
                 semibold
                 testID={TESTID.EXTEND_TOTAL_PRICE}
               >
-                {formatMoney(total)}
+                {formatMoney(
+                  booking.is_violated
+                    ? parseFloat(total) + parseFloat(booking.grand_total)
+                    : total
+                )}
               </Text>
             </View>
           )}
         </View>
       );
-    }, [hour, leaveTime, onChangeHour, total, confirmed]);
+    }, [
+      hour,
+      onChangeHour,
+      confirmed,
+      leaveTime,
+      booking.is_violated,
+      booking.grand_total,
+      total,
+    ]);
 
     return (
       <ButtonPopup
