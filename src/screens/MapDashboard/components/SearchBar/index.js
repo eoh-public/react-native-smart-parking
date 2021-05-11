@@ -21,11 +21,8 @@ const SearchBar = memo(
     notificationNumber,
   }) => {
     const navigation = useNavigation();
-    const {
-      incompletedCarsInfo,
-      newSavedParking,
-      newNotification,
-    } = useSelector((state) => state.notifications);
+    const { incompletedCarsInfo, newSavedParking, newNotification } =
+      useSelector((state) => state.notifications) || {};
     const hasNotiOnMenu =
       !selectedLocation.description && (incompletedCarsInfo || newSavedParking);
     const onPressMenu = useCallback(() => {

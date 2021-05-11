@@ -18,6 +18,9 @@ const mockStore = configureStore([]);
 const mockNavigation = {
   navigate: jest.fn(),
 };
+const mockAddListener = jest.fn();
+const mockRemoveListener = jest.fn();
+const mockUseSelector = jest.fn();
 
 jest.mock('@react-navigation/native', () => {
   return {
@@ -31,6 +34,7 @@ jest.mock('react-redux', () => {
   return {
     ...jest.requireActual('react-redux'),
     useDispatch: jest.fn(),
+    useSelector: () => mockUseSelector,
   };
 });
 
@@ -47,6 +51,11 @@ jest.mock('react', () => {
 
 jest.mock('axios');
 
+jest.doMock('react-native/Libraries/AppState/AppState', () => ({
+  addEventListener: mockAddListener,
+  removeEventListener: mockRemoveListener,
+}));
+
 describe('Test MapDashboard', () => {
   let store;
   let tree;
@@ -56,11 +65,20 @@ describe('Test MapDashboard', () => {
       notifications: {
         newNotification: true,
         newSavedParking: true,
+        incompletedCarsInfo: false,
+      },
+      local: {
+        cancelBooking: false,
       },
     });
     useIsFocused.mockClear();
     axios.get.mockClear();
   });
+
+  afterEach(() => {
+    mockUseSelector.mockClear();
+  });
+
   const activeSessions = {
     time_remaining: 10,
     is_paid: true,
@@ -69,6 +87,21 @@ describe('Test MapDashboard', () => {
       name: 'Name',
     },
   };
+
+  test('onClearDataParking is called', async () => {
+    const route = {};
+    await act(async () => {
+      tree = await renderer.create(
+        <Provider store={store}>
+          <MapDashboard route={route} />
+        </Provider>
+      );
+    });
+    mockUseSelector.mockImplementation(() => ({
+      local: { cancelBooking: true },
+    }));
+    expect(mockSetState).toHaveBeenNthCalledWith(2, 0);
+  });
 
   test('default render map dashboard show search bar and bottom view', async () => {
     const route = {};
@@ -88,6 +121,11 @@ describe('Test MapDashboard', () => {
 
     expect(children[0].type.type).toBe(SearchBar.type);
     expect(children[1].props.pointerEvents).toBe('box-none');
+    expect(mockAddListener).toHaveBeenCalled();
+
+    // cleanup function of useEffect
+    tree.unmount();
+    expect(mockRemoveListener).toHaveBeenCalled();
   });
 
   it('Quick jump to scan', async () => {
@@ -319,6 +357,6 @@ describe('Test MapDashboard', () => {
         </Provider>
       );
     });
-    expect(axios.get).toBeCalledTimes(3);
+    expect(axios.get).toBeCalledTimes(2);
   });
 });

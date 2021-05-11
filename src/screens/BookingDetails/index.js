@@ -36,6 +36,8 @@ import {
 import styles from './styles';
 import { Icon } from '@ant-design/react-native';
 import { ItemPaymentMethod } from '../BookingConfirm/components/ItemPaymentMethod';
+import { useDispatch } from 'react-redux';
+import { cancelBooking } from '../../redux/Actions/local';
 
 const getButtonDrawner = (
   is_paid,
@@ -145,6 +147,7 @@ const BookingDetails = memo(({ route }) => {
     hideAlertCancel,
     onShowAlertCancel,
   } = useStateAlertCancel();
+  const dispatch = useDispatch();
 
   const hideScanResponse = useCallback(() => {
     setShowScanResponse(false);
@@ -326,12 +329,13 @@ const BookingDetails = memo(({ route }) => {
   const onCancelBooking = useCallback(async () => {
     const { success } = await axiosPost(API.BOOKING.CANCEL(id));
     if (success) {
+      dispatch(cancelBooking(true));
       getBookingDetail();
     } else {
       ToastBottomHelper.error(t('cancel_error_message'));
     }
     hideAlertCancel();
-  }, [id, hideAlertCancel, getBookingDetail]);
+  }, [id, hideAlertCancel, getBookingDetail, dispatch]);
 
   const navigation = useNavigation();
   const onRebook = useCallback(() => {

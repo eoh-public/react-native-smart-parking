@@ -16,6 +16,7 @@ jest.mock('axios');
 const mockedNavigate = jest.fn();
 const mockedAddRoute = jest.fn();
 const mockedVnpayMerchant = jest.fn();
+const mockedDispatch = jest.fn();
 
 jest.mock('@react-navigation/native', () => {
   return {
@@ -31,6 +32,13 @@ jest.mock('react-native-deep-linking', () => {
   return {
     ...jest.requireActual('react-native-deep-linking'),
     addRoute: () => mockedAddRoute,
+  };
+});
+
+jest.mock('react-redux', () => {
+  return {
+    ...jest.requireActual('react-redux'),
+    useDispatch: () => mockedDispatch,
   };
 });
 
@@ -281,6 +289,7 @@ describe('test BookingConfirm container', () => {
     await act(async () => {
       await button.props.onPress();
     });
+    expect(mockedDispatch).toHaveBeenCalled();
     expect(mockedNavigate).toHaveBeenCalledWith(
       Routes.SmartParkingBookingSuccess,
       {
@@ -338,6 +347,7 @@ describe('test BookingConfirm container', () => {
     await act(async () => {
       await button.props.onPress();
     });
+    expect(mockedDispatch).toHaveBeenCalled();
     expect(mockedNavigate).toHaveBeenCalledTimes(1);
   });
 
@@ -391,6 +401,7 @@ describe('test BookingConfirm container', () => {
     await act(async () => {
       await button.props.onPress();
     });
+    expect(mockedDispatch).toHaveBeenCalled();
     expect(mockedNavigate).not.toHaveBeenCalled();
   });
 
@@ -433,6 +444,7 @@ describe('test BookingConfirm container', () => {
     await act(async () => {
       await button.props.onPress();
     });
+    expect(mockedDispatch).toHaveBeenCalled();
     expect(mockedNavigate).not.toHaveBeenCalled();
   });
 });
