@@ -664,5 +664,6 @@
   "i_already_arrive_at_spot": "I already arrive at spot ",
   "violation_rate": "Violation charge rate",
   "violation_fee": "Wheel lock fee",
+  "total_violation_fee": "Violation fee",
   "error_please_try_later": "Error! Please try later"
 }

@@ -24,7 +24,12 @@ describe('Test extend popup', () => {
     const extendInfo = { last_leave_at: moment('2021-01-20T05:00:00.629Z') };
     await renderer.act(async () => {
       tree = renderer.create(
-        <ExtendPopup parking_id={1} extendInfo={extendInfo} hour={1} />
+        <ExtendPopup
+          parking_id={1}
+          extendInfo={extendInfo}
+          hour={1}
+          booking={{}}
+        />
       );
     });
 
@@ -57,7 +62,12 @@ describe('Test extend popup', () => {
     const extendInfo = { last_leave_at: moment('2021-01-20T05:00:00.629Z') };
     await renderer.act(async () => {
       tree = renderer.create(
-        <ExtendPopup parking_id={1} extendInfo={extendInfo} hour={1} />
+        <ExtendPopup
+          parking_id={1}
+          extendInfo={extendInfo}
+          hour={1}
+          booking={{}}
+        />
       );
     });
 
@@ -106,7 +116,12 @@ describe('Test extend popup', () => {
     const extendInfo = { last_leave_at: moment('2021-01-20T05:00:00.629Z') };
     await renderer.act(async () => {
       tree = renderer.create(
-        <ExtendPopup parking_id={1} extendInfo={extendInfo} hour={1} />
+        <ExtendPopup
+          parking_id={1}
+          extendInfo={extendInfo}
+          hour={1}
+          booking={{}}
+        />
       );
     });
 
@@ -154,7 +169,12 @@ describe('Test extend popup', () => {
     const extendInfo = { last_leave_at: moment('2021-01-20T05:00:00.629Z') };
     await renderer.act(async () => {
       tree = renderer.create(
-        <ExtendPopup parking_id={1} extendInfo={extendInfo} hour={1} />
+        <ExtendPopup
+          parking_id={1}
+          extendInfo={extendInfo}
+          hour={1}
+          booking={{}}
+        />
       );
     });
 

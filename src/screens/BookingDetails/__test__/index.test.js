@@ -5,7 +5,7 @@ import { TouchableOpacity } from 'react-native';
 import { act, create } from 'react-test-renderer';
 import BookingDetails from '../index';
 import { API } from '../../../configs';
-import { useIsFocused } from '@react-navigation/native';
+import { useIsFocused, useNavigation } from '@react-navigation/native';
 import moment from 'moment';
 import { t } from 'i18n-js';
 import { TESTID } from '../../../configs/Constants';
@@ -14,6 +14,9 @@ import _ from 'lodash';
 import { ButtonDrawner } from '../components/ButtonDrawner';
 import ExtendPopup from '../components/ExtendPopup';
 import DisplayChecking from '../../../commons/DisplayChecking';
+import { ItemPaymentMethod } from '../../BookingConfirm/components/ItemPaymentMethod';
+import Routes from '../../../utils/Route';
+import ScanningResponsePopup from '../../MapDashboard/components/ScanningResponsePopup';
 
 let mockGoBackGlobal;
 jest.mock('react', () => ({
@@ -58,11 +61,6 @@ describe('Test BookingDetails', () => {
 
   const bookingDetailUrl = API.BOOKING.DETAIL(1);
 
-  afterEach(() => {
-    useIsFocused.mockClear();
-    axios.get.mockClear();
-  });
-
   const bookingData = {
     arrive_at: moment(new Date('2021-01-20T05:00:00.629Z')),
     billing_id: 1368,
@@ -101,6 +99,9 @@ describe('Test BookingDetails', () => {
 
   beforeEach(() => {
     mockSetState.mockClear();
+    useIsFocused.mockClear();
+    axios.get.mockClear();
+    axios.post.mockClear();
   });
 
   let wrapper;
@@ -213,6 +214,12 @@ describe('Test BookingDetails', () => {
       );
     });
     expect(setScanResponse).toHaveBeenCalledWith(true);
+
+    const popup = wrapper.root.findByType(ScanningResponsePopup);
+    await act(async () => {
+      popup.props.hideModal();
+    });
+    expect(setScanResponse).toHaveBeenCalledWith(false);
   });
 
   test('render BookingDetails with extend active', async () => {
@@ -478,5 +485,124 @@ describe('Test BookingDetails', () => {
     });
     expect(calledFunc).not.toBeNull();
     expect(mockSetState).toBeCalledWith(calledFunc);
+  });
+
+  test('render completed booking', async () => {
+    mockInitBookingDetail({
+      city: {},
+      status: 'completed',
+    });
+
+    await act(async () => {
+      wrapper = await create(<BookingDetails route={route} />);
+    });
+    const instance = wrapper.root;
+
+    const buttons = instance.findAllByType(ButtonDrawner);
+    expect(buttons).toHaveLength(1);
+
+    const button = buttons[0];
+    expect(button.props.mainTitle).toEqual(t('rebook'));
+  });
+
+  test('render cancelled booking', async () => {
+    mockInitBookingDetail({
+      city: {},
+      status: 'cancelled',
+    });
+
+    await act(async () => {
+      wrapper = await create(<BookingDetails route={route} />);
+    });
+    const instance = wrapper.root;
+
+    const textStatus = instance.find(
+      (el) => el.props.testID === TESTID.BOOKING_DETAIL_TEST_STATUS
+    );
+    expect(textStatus.children[0].props.children).toEqual('#' + t('cancelled'));
+  });
+
+  test('render wait for confirm booking', async () => {
+    mockInitBookingDetail({
+      city: {},
+      status: '',
+      is_paid: true,
+      confirmed_arrival_at: null,
+    });
+
+    await act(async () => {
+      wrapper = await create(<BookingDetails route={route} />);
+    });
+    const instance = wrapper.root;
+
+    const buttons = instance.findAllByType(ButtonDrawner);
+    expect(buttons).toHaveLength(1);
+
+    const button = buttons[0];
+    expect(button.props.mainTitle).toEqual(t('scan_qr'));
+  });
+
+  test('press pay fine for violated booking', async () => {
+    mockInitBookingDetail({
+      is_violated: true,
+      city: {},
+    });
+
+    const modifiedRoute = {
+      ...route,
+      params: {
+        ...route.params,
+        methodItem: {
+          last4: '1234',
+          id: 'id_xxx',
+        },
+      },
+    };
+
+    await act(async () => {
+      wrapper = await create(<BookingDetails route={modifiedRoute} />);
+    });
+    const instance = wrapper.root;
+
+    const bottomPanels = instance.findAllByType(ButtonDrawner);
+    expect(bottomPanels).toHaveLength(1);
+
+    const bottomPanel = bottomPanels[0];
+
+    act(() => {
+      bottomPanel.props.onPressSecondary();
+    });
+    expect(axios.post).toBeCalledWith(API.BOOKING.PAY_FINE(1), {
+      payment_method: 'stripe',
+      payment_card_id: 'id_xxx',
+    });
+  });
+
+  test('render violated booking with select payment method', async () => {
+    mockInitBookingDetail({
+      is_violated: true,
+      city: {},
+    });
+
+    await act(async () => {
+      wrapper = await create(<BookingDetails route={route} />);
+    });
+    const instance = wrapper.root;
+
+    const itemPaymentMethods = instance.findAllByType(ItemPaymentMethod);
+    expect(itemPaymentMethods).toHaveLength(1);
+
+    const itemPaymentMethod = itemPaymentMethods[0];
+
+    const { navigate } = useNavigation();
+    navigate.mockClear();
+
+    act(() => {
+      itemPaymentMethod.props.onPressChange();
+    });
+    expect(navigate).toBeCalledWith(Routes.SmartParkingSelectPaymentMethod, {
+      routeName: Routes.SmartParkingBookingDetails,
+      routeData: route.params,
+    });
   });
 });

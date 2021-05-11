@@ -11,16 +11,13 @@ const useExtendBooking = (id) => {
     last_leave_at: moment(),
   });
 
-  const createExtendBooking = useCallback(
-    async (onCreateBookingSuccess) => {
-      const body = { hour_extend: hour };
-      const res = await axiosPost(API.BOOKING.EXTEND(id), body);
-      setHour(1);
-      setShowExtend(false);
-      onCreateBookingSuccess(res);
-    },
-    [hour, id]
-  );
+  const createExtendBooking = useCallback(async () => {
+    const body = { hour_extend: hour };
+    const res = await axiosPost(API.BOOKING.EXTEND(id), body);
+    setHour(1);
+    setShowExtend(false);
+    return res;
+  }, [hour, id]);
 
   const onHideChecking = useCallback(() => {
     setShowChecking(false);
@@ -38,7 +35,7 @@ const useExtendBooking = (id) => {
       setExtendInfo(data);
       setTimeout(() => {
         setShowExtend(true);
-      }, 1000); // issue https://github.com/react-native-modal/react-native-modal/issues/30
+      }, 100); // issue https://github.com/react-native-modal/react-native-modal/issues/30
     }
     setShowChecking(false);
   }, [id]);

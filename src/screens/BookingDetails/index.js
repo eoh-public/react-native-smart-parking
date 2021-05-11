@@ -232,16 +232,47 @@ const BookingDetails = memo(({ route }) => {
     [bookingDetail, payment_url, processPayment]
   );
 
+  const processExtend = useCallback(async () => {
+    const { success, data } = await createExtendBooking();
+    if (success) {
+      handleExtendPayment(data.billing);
+    } else {
+      ToastBottomHelper.error(t('payment_failed'));
+    }
+  }, [createExtendBooking, handleExtendPayment]);
+
+  const onPayFine = useCallback(async () => {
+    const { success, data } = await axiosPost(
+      API.BOOKING.PAY_FINE(id),
+      getPaymentData(methodItem)
+    );
+    if (!success) {
+      return;
+    }
+
+    const { booking, billing, payment_url: paymentUrl } = data;
+    processPayment(booking, billing, paymentUrl, 'fine');
+  }, [id, methodItem, processPayment]);
+
+  const onPayFineAndExtend = useCallback(async () => {
+    const { success } = await createExtendBooking();
+    if (success) {
+      await onPayFine();
+    } else {
+      ToastBottomHelper.error(t('payment_failed'));
+    }
+  }, [createExtendBooking, onPayFine]);
+
   const onExtend = useCallback(() => {
     setShowExtend(false);
-    createExtendBooking(({ success, data }) => {
-      if (success) {
-        handleExtendPayment(data.billing);
+    (async () => {
+      if (bookingDetail.is_violated) {
+        onPayFineAndExtend();
       } else {
-        ToastBottomHelper.error(t('payment_failed'));
+        processExtend();
       }
-    });
-  }, [createExtendBooking, handleExtendPayment, setShowExtend]);
+    })();
+  }, [bookingDetail, processExtend, onPayFineAndExtend, setShowExtend]);
 
   const onScanQR = useCallback(() => {
     navigate(Routes.SmartParkingScanQR);
@@ -309,20 +340,9 @@ const BookingDetails = memo(({ route }) => {
     });
   }, [navigation, parking_id]);
 
-  const onPayFine = useCallback(async () => {
-    const { success, data } = await axiosPost(
-      API.BOOKING.PAY_FINE(id),
-      getPaymentData(methodItem)
-    );
-    if (!success) {
-      return;
-    }
-
-    const { booking, billing, payment_url: paymentUrl } = data;
-    processPayment(booking, billing, paymentUrl, 'fine');
-  }, [id, methodItem, processPayment]);
-
-  const onPayFineAndExtend = useCallback(() => {}, []);
+  const showPayFineAndExtend = useCallback(() => {
+    setShowExtend(true);
+  }, [setShowExtend]);
 
   const {
     mainTitle,
@@ -342,7 +362,7 @@ const BookingDetails = memo(({ route }) => {
     onScanQR,
     onShowAlertStop,
     onPayFine,
-    onPayFineAndExtend
+    showPayFineAndExtend
   );
 
   const { textStatus, colorStatus } = getStatus(status);
@@ -411,7 +431,12 @@ const BookingDetails = memo(({ route }) => {
         }
       >
         <View style={styles.connectStatus}>
-          <Text color={colorStatus} size={14} style={styles.txtStatus}>
+          <Text
+            color={colorStatus}
+            size={14}
+            style={styles.txtStatus}
+            testID={TESTID.BOOKING_DETAIL_TEST_STATUS}
+          >
             {textStatus}
           </Text>
         </View>
@@ -420,7 +445,7 @@ const BookingDetails = memo(({ route }) => {
         {!!is_violated && (
           <ItemPaymentMethod
             testID={TESTID.ITEM_PAYMENT_METHOD}
-            paymentMethodItem={methodItem}
+            paymentMethod={methodItem}
             onPressChange={onPressChangePaymentMethod}
             paymentOption={t('pay_now')}
             is_pay_now={true}
@@ -467,6 +492,7 @@ const BookingDetails = memo(({ route }) => {
         extendInfo={extendInfo}
         hour={hour}
         onChangeHour={setHour}
+        booking={bookingDetail}
       />
 
       <DisplayChecking

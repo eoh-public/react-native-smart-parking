@@ -7,7 +7,6 @@ export const ButtonDrawner = memo(
     rowButton = false,
     mainTitle,
     secondaryTitle,
-    style,
     onPressMain,
     onPressSecondary,
     testIDPrefix = '',
