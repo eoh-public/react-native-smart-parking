@@ -48,6 +48,15 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
+const mockedDispatch = jest.fn();
+jest.mock('react-redux', () => {
+  return {
+    ...jest.requireActual('react-redux'),
+    useSelector: jest.fn(),
+    useDispatch: () => mockedDispatch,
+  };
+});
+
 const mockSetState = jest.fn();
 
 describe('Test BookingDetails', () => {
@@ -99,6 +108,7 @@ describe('Test BookingDetails', () => {
 
   beforeEach(() => {
     mockSetState.mockClear();
+    mockedDispatch.mockClear();
     useIsFocused.mockClear();
     axios.get.mockClear();
     axios.post.mockClear();
@@ -421,6 +431,15 @@ describe('Test BookingDetails', () => {
     expect(mockSetState).toBeCalledWith({
       visible: false,
     });
+    await axios.post.mockImplementationOnce(() => ({
+      status: 200,
+      data: {},
+      success: true,
+    }));
+    await act(async () => {
+      buttonPopups[0].props.rightButtonClick();
+    });
+    expect(mockedDispatch).toHaveBeenCalledTimes(1);
   });
 
   test('press close popup booking cancel', async () => {

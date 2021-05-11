@@ -11,21 +11,20 @@ import DeepLinking from 'react-native-deep-linking';
 import FastImage from 'react-native-fast-image';
 import moment from 'moment';
 import { t } from 'i18n-js';
-
 import { API, Colors, Constants, AppRNConfig } from '../../configs';
 import { axiosPost, axiosGet } from '../../utils/Apis/axios';
 import { formatMoney } from '../../utils/Utils';
 import Routes from '../../utils/Route';
 import { useBoolean } from '../../hooks/Common';
 import { transformDatetime } from '../../utils/Converter/time';
-
 import Text from '../../commons/Text';
 import { Button } from '../../commons';
 import ItemParkingSession from './components/ItemParkingSession/ItemParkingSession';
 import { ItemPaymentMethod } from './components/ItemPaymentMethod';
 import ItemInfo from './components/ItemInfo/ItemInfo';
-
 import { TESTID } from '../../configs/Constants';
+import { useDispatch } from 'react-redux';
+import { cancelBooking } from '../../redux/Actions/local';
 
 const exampleUri =
   'https://cdn.theculturetrip.com/wp-content/uploads/2018/02/32154960113_42b503c1b1_k-1024x683.jpg';
@@ -37,6 +36,7 @@ const BookingConfirm = memo(({ route }) => {
   const [paymentMethod, setPaymentMethod] = useState({});
   const [total, setTotal] = useState();
   const [loadingTotal, setLoadingTotal] = useState(false);
+  const dispatch = useDispatch();
 
   const [
     isReadyToConfirm,
@@ -151,6 +151,7 @@ const BookingConfirm = memo(({ route }) => {
   const onConfirmBooking = useCallback(async () => {
     const { success, data } = await axiosPost(API.BOOKING.CREATE, body);
     if (success) {
+      dispatch(cancelBooking(false));
       const { booking, billing, payment_url } = data;
       transformDatetime(booking, [
         'parking_session_start',
@@ -190,7 +191,7 @@ const BookingConfirm = memo(({ route }) => {
         navigateBookingSuccess(booking, billing);
       }
     }
-  }, [VnpayMerchant, body, navigate, navigateBookingSuccess]);
+  }, [VnpayMerchant, body, navigate, navigateBookingSuccess, dispatch]);
 
   const onPressChangePaymentMethod = useCallback(() => {
     navigate(Routes.SmartParkingSelectPaymentMethod, {

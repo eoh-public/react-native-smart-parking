@@ -46,9 +46,9 @@ import { getCurrentLatLng } from '../../utils/CountryUtils';
 import Routes from '../../utils/Route';
 import { deleteData, getData, storeData } from '../../utils/Storage';
 import { isObjectEmpty } from '../../utils/Utils';
-
 import { useNearbyParkings, useNotifications } from './hooks';
 import styles from './styles';
+import { useSelector } from 'react-redux';
 
 const selectedParkingIcon = require('../../../assets/images/Map/marker_parking_selected.png');
 const parkingIcon = require('../../../assets/images/Map/marker_parking.png');
@@ -56,6 +56,9 @@ const parkingIcon = require('../../../assets/images/Map/marker_parking.png');
 const MapDashboard = memo(({ route }) => {
   useAndroidTranslucentStatusBar();
   useBlockBackAndroid();
+
+  const cancelBooking = useSelector((state) => state.local.cancelBooking);
+
   const [loading, setLoading] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState({
     description: null, //null mean no search/nearby parking
@@ -363,6 +366,10 @@ const MapDashboard = memo(({ route }) => {
       getActiveSession();
     }
   }, [isFocused]);
+
+  useEffect(() => {
+    cancelBooking && onClearDataParking();
+  }, [cancelBooking]);
 
   const setCacheSelectLocation = useCallback(async () => {
     const cacheSelectLocation = JSON.parse(
