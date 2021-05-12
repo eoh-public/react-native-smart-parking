@@ -69,11 +69,11 @@ const ViolationItem = memo(
         </View>
 
         <View style={styles.viewBottom}>
-          <Text type={'Label'} color={Colors.Gray8} style={styles.widthText}>
+          <Text type={'Label'} color={Colors.Gray8}>
             {title}
           </Text>
           {!is_paid && (
-            <View style={Theme.flexRow}>
+            <View style={styles.wrapButtons}>
               <TouchableOpacity
                 onPress={goToDetail}
                 style={[styles.button, styles.buttonLeft]}
@@ -129,14 +129,12 @@ const styles = StyleSheet.create({
     ...Theme.flexRowSpaceBetween,
     marginTop: 16,
   },
-  widthText: {
-    width: '50%',
-  },
   buttonLeft: {
     backgroundColor: Colors.White,
     borderRadius: 28,
     borderWidth: 1,
     borderColor: Colors.Red6,
+    marginRight: 8,
   },
   textButton: {
     minWidth: 60,
@@ -149,13 +147,18 @@ const styles = StyleSheet.create({
     borderWidth: 0,
   },
   button: {
-    paddingVertical: 8,
-    paddingHorizontal: 4,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 7,
     ...Theme.center,
     borderRadius: 30,
-    marginLeft: 8,
     borderWidth: 1,
     height: 32,
     borderColor: Colors.White,
+  },
+  wrapButtons: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
   },
 });

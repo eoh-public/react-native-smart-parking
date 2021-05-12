@@ -113,7 +113,7 @@ const ParkingAreaList = ({
                   onPress={onPressBookNow}
                   width="auto"
                   height={32}
-                  textType="Body"
+                  textType="Label"
                   style={[styles.button, styles.buttonMarginRight]}
                   icon={
                     <IconOutline
