@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Platform } from 'react-native';
 
 import { Colors } from '../../configs';
 import Text from '../Text';
@@ -159,8 +159,11 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.Primary,
   },
   marginIcon: {
-    marginLeft: 10,
-    marginBottom: -3,
+    marginLeft: 5,
+    marginBottom: Platform.select({
+      ios: 0,
+      android: -3,
+    }),
   },
   wrap: {
     flex: 1,

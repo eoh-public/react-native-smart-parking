@@ -9,5 +9,9 @@ describe('Test Alert', () => {
       tree = renderer.create(<Alert />);
     });
     expect(tree.toJSON()).toMatchSnapshot();
+    Alert.setRef('_ref');
+    expect(Alert.getRef()).toEqual('_ref');
+    Alert.clearRef();
+    expect(Alert.getRef()).toBeNull();
   });
 });

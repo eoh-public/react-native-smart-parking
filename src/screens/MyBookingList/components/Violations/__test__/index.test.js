@@ -3,7 +3,7 @@ import { act, create } from 'react-test-renderer';
 import moment from 'moment';
 
 import Violations from '../index';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Text } from 'react-native';
 
 describe('Test ViolationItem', () => {
   let violation = [
@@ -29,6 +29,14 @@ describe('Test ViolationItem', () => {
     });
     const instance = tree.root;
     const item = instance.findAllByType(TouchableOpacity);
+    expect(item).toHaveLength(1);
+  });
+  test('render empty list', () => {
+    act(() => {
+      tree = create(<Violations />);
+    });
+    const instance = tree.root;
+    const item = instance.findAllByType(Text);
     expect(item).toHaveLength(1);
   });
 });
