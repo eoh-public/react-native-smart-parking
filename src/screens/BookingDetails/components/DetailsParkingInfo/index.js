@@ -48,14 +48,14 @@ const DetailsParkingInfo = memo(
             <RowDetails
               testID={TESTID.DETAIL_PARKING_INFO_VIOLATION_RATE}
               title={t('violation_rate')}
-              value={[`x${city.violation_charge_rate}`]}
+              value={city && [`x${city.violation_charge_rate}`]}
             />
           )}
           {!!is_violated && (
             <RowDetails
               testID={TESTID.DETAIL_PARKING_INFO_VIOLATION_FEE}
               title={t('violation_fee')}
-              value={[`${formatMoney(city.violation_charge_fee)}`]}
+              value={city && [`${formatMoney(city.violation_charge_fee)}`]}
             />
           )}
           {!is_violated && (

@@ -21,6 +21,14 @@ jest.mock('react', () => ({
   memo: (x) => x,
 }));
 
+const mockDispatch = jest.fn();
+jest.mock('react-redux', () => ({
+  ...jest.requireActual('react-redux'),
+  useDispatch: () => {
+    return mockDispatch;
+  },
+}));
+
 describe('MyBookingList', () => {
   afterEach(() => {
     useIsFocused.mockClear();

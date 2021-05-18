@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useIsFocused } from '@react-navigation/native';
 
 import {
   setNewSavedParking,
   setNewNotification,
 } from '../../../redux/Actions/notifications';
+import { getViolationSuccess } from '../../../redux/Actions/myBookingList';
 import { API } from '../../../configs';
 import { axiosGet, axiosPost } from '../../../utils/Apis/axios';
 
@@ -15,6 +16,7 @@ const useNearbyParkings = () => {
   const [nearbyParkings, setNearbyParkings] = useState([]);
   const [activeSessions, setActiveSessions] = useState(null);
   const dispatch = useDispatch();
+  const { violationsData } = useSelector((state) => state.myBookingList);
 
   const getNearbyParkings = useCallback(async ({ lat, lng }) => {
     setLoadingNearByParking(true);
@@ -80,8 +82,16 @@ const useNearbyParkings = () => {
     getActiveSession();
   }, [getActiveSession]);
 
+  const getViolations = async () => {
+    const { data, success } = await axiosGet(API.BOOKING.VIOLATION(1));
+    if (success && data) {
+      dispatch(getViolationSuccess(data.results || []));
+    }
+  };
+
   return {
     showThanks,
+    violationsData,
     loadingNearByParking,
     nearbyParkings,
     getNearbyParkings,
@@ -91,6 +101,7 @@ const useNearbyParkings = () => {
     onUnsaveParking,
     onCloseThanks,
     onShowThanks,
+    getViolations,
   };
 };
 

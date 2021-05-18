@@ -1,8 +1,12 @@
 import { useCallback, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
 import { API } from '../../../configs';
 import { axiosGet } from '../../../utils/Apis/axios';
+import { getViolationSuccess } from '../../../redux/Actions/myBookingList';
 
 const useMyBookingList = () => {
+  const dispatch = useDispatch();
   const [activeSessions, setActiveSessions] = useState([]);
   const [bookingHistory, setBookingHistory] = useState([]);
   const [maxPageHistoryBooking, setMaxPageHistoryBooking] = useState(1);
@@ -39,6 +43,7 @@ const useMyBookingList = () => {
       setLoading(true);
       const { data, success } = await axiosGet(API.BOOKING.VIOLATION(page));
       if (success && data) {
+        dispatch(getViolationSuccess(data.results || []));
         if (page !== 1) {
           setViolationBookings((preState) => preState.concat(data.results));
         } else {
@@ -48,7 +53,7 @@ const useMyBookingList = () => {
       }
       setLoading(false);
     },
-    [setViolationBookings]
+    [setViolationBookings, dispatch]
   );
 
   return {

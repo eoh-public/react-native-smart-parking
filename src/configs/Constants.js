@@ -281,3 +281,7 @@ export const TESTID = {
   PAYMENT_ON_PLUS: 'PAYMENT_ON_PLUS',
   PAYMENT_ON_MORE: 'PAYMENT_ON_MORE',
 };
+
+export const reduxTypes = {
+  GET_VIOLATION_SUCCESS: 'GET_VIOLATION_SUCCESS',
+};

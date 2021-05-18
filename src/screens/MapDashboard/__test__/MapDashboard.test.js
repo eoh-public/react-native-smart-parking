@@ -357,6 +357,6 @@ describe('Test MapDashboard', () => {
         </Provider>
       );
     });
-    expect(axios.get).toBeCalledTimes(2);
+    expect(axios.get).toBeCalledTimes(3);
   });
 });

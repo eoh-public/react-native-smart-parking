@@ -9,6 +9,8 @@ import { TESTID } from '../../../configs/Constants';
 
 jest.mock('axios');
 const mockNavigate = jest.fn();
+const mockDispatch = jest.fn();
+
 jest.mock('@react-navigation/native', () => {
   return {
     ...jest.requireActual('@react-navigation/native'),
@@ -18,10 +20,18 @@ jest.mock('@react-navigation/native', () => {
     useIsFocused: jest.fn(),
   };
 });
+
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
   useState: jest.fn(),
   memo: (x) => x,
+}));
+
+jest.mock('react-redux', () => ({
+  ...jest.requireActual('react-redux'),
+  useDispatch: () => {
+    return mockDispatch;
+  },
 }));
 
 describe('MyBookingList', () => {

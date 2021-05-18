@@ -108,7 +108,10 @@ const MyBookingList = memo(() => {
         ) : tab === 1 ? (
           <BookingHistory
             bookingsHistory={bookingHistory}
-            hasActiveSessions={hasActiveSession}
+            hasActiveSessions={
+              hasActiveSession ||
+              violationBookings.some((item) => !item.is_paid)
+            }
           />
         ) : (
           <Violations
