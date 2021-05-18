@@ -4,7 +4,7 @@ import { View, StyleSheet } from 'react-native';
 import Text from '../../../../commons/Text';
 import { Colors } from '../../../../configs';
 
-const RowDetails = memo(({ title, value, semibold = false }) => {
+const RowDetails = memo(({ title = '', value = [], semibold = false }) => {
   return (
     <View style={styles.row}>
       <Text type={'Body'} color={Colors.Gray7}>

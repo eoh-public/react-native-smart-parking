@@ -34,7 +34,10 @@ const ViolationItem = memo(
     const { navigate } = useNavigation();
 
     const goToDetail = useCallback(() => {
-      navigate(Routes.SmartParkingBookingDetails, { id });
+      navigate(Routes.SmartParkingBookingDetails, {
+        id,
+        title: t('violation_detail'),
+      });
     }, [id, navigate]);
     const title = !is_paid ? t('status') : t('fine_paid');
     return (

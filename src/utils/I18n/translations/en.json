@@ -665,5 +665,9 @@
   "violation_rate": "Violation charge rate",
   "violation_fee": "Wheel lock fee",
   "total_violation_fee": "Violation fee",
+  "no_violations": "There is no violation",
+  "desViolation": "You have one violation parking",
+  "violation_detail": "Violation detail",
+  "you_has_one_uncompleted_payment": "You have one uncompleted payment.",
   "error_please_try_later": "Error! Please try later"
 }

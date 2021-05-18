@@ -669,5 +669,9 @@
   "violation_rate": "Phí vi phạm",
   "violation_fee": "Phí khóa xe",
   "total_violation_fee": "Phí vi phạm",
+  "no_violations": "Không có vi phạm nào",
+  "desViolation": "Bạn có một lần đỗ xe vi phạm",
+  "violation_detail": "Chi tiết vi phạm",
+  "you_has_one_uncompleted_payment": "Bạn có một khoản thanh toán chưa hoàn thành.",
   "error_please_try_later": "Lỗi! Vui lòng thử lại sau"
 }

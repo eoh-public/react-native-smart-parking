@@ -11,6 +11,8 @@ import { TESTID } from '../../configs/Constants';
 import { useNavigation, useIsFocused } from '@react-navigation/native';
 import { t } from 'i18n-js';
 import DeepLinking from 'react-native-deep-linking';
+import { useDispatch, useSelector } from 'react-redux';
+import { Icon } from '@ant-design/react-native';
 
 import { Colors, Constants, API } from '../../configs';
 import { axiosPost } from '../../utils/Apis/axios';
@@ -34,10 +36,9 @@ import {
   useStateAlertStop,
 } from './hooks/useStateAlertAction';
 import styles from './styles';
-import { Icon } from '@ant-design/react-native';
 import { ItemPaymentMethod } from '../BookingConfirm/components/ItemPaymentMethod';
-import { useDispatch } from 'react-redux';
 import { cancelBooking } from '../../redux/Actions/local';
+import { getViolationSuccess } from '../../redux/Actions/myBookingList';
 
 const getButtonDrawner = (
   is_paid,
@@ -52,12 +53,17 @@ const getButtonDrawner = (
   onScanQR,
   onShowAlertStop,
   onPayFine,
-  onPayFineAndExtend
+  onPayFineAndExtend,
+  violationsData
 ) => {
   let mainTitle = t('extend');
   let secondaryTitle = t('cancel');
   let onPressMain = onShowExtend;
   let onPressSecondary = onShowAlertCancel;
+
+  if (status && violationsData) {
+    return {};
+  }
 
   if (status) {
     mainTitle = t('rebook');
@@ -113,9 +119,16 @@ const getPaymentData = (paymentMethod) => {
 };
 
 const BookingDetails = memo(({ route }) => {
-  const { id, isShowExtendNow, scanDataResponse, methodItem } = route.params;
+  const {
+    id,
+    isShowExtendNow,
+    scanDataResponse,
+    methodItem,
+    title,
+  } = route.params;
   const [showScanResponse, setShowScanResponse] = useState(true);
   const { VnpayMerchant } = NativeModules;
+  const { violationsData } = useSelector((state) => state.myBookingList);
 
   const isFocus = useIsFocused();
   const { navigate } = useNavigation();
@@ -244,23 +257,27 @@ const BookingDetails = memo(({ route }) => {
     }
   }, [createExtendBooking, handleExtendPayment]);
 
-  const onPayFine = useCallback(async () => {
-    const { success, data } = await axiosPost(
-      API.BOOKING.PAY_FINE(id),
-      getPaymentData(methodItem)
-    );
-    if (!success) {
-      return;
-    }
-
-    const { booking, billing, payment_url: paymentUrl } = data;
-    processPayment(booking, billing, paymentUrl, 'fine');
-  }, [id, methodItem, processPayment]);
+  const onPayFine = useCallback(
+    async (isExtend) => {
+      const { success, data } = await axiosPost(
+        API.BOOKING.PAY_FINE(id),
+        getPaymentData(methodItem)
+      );
+      if (!success) {
+        return;
+      }
+      dispatch(getViolationSuccess([]));
+      !isExtend && dispatch(cancelBooking(false));
+      const { booking, billing, payment_url: paymentUrl } = data;
+      processPayment(booking, billing, paymentUrl, 'fine');
+    },
+    [id, methodItem, processPayment, dispatch]
+  );
 
   const onPayFineAndExtend = useCallback(async () => {
     const { success } = await createExtendBooking();
     if (success) {
-      await onPayFine();
+      await onPayFine(true);
     } else {
       ToastBottomHelper.error(t('payment_failed'));
     }
@@ -366,7 +383,8 @@ const BookingDetails = memo(({ route }) => {
     onScanQR,
     onShowAlertStop,
     onPayFine,
-    showPayFineAndExtend
+    showPayFineAndExtend,
+    violationsData
   );
 
   const { textStatus, colorStatus } = getStatus(status);
@@ -423,7 +441,7 @@ const BookingDetails = memo(({ route }) => {
         testID={TESTID.HEADER_BOOKING_DETAILS}
         onBack={onBack}
         hideRight={true}
-        title={t('booking_details')}
+        title={title || t('booking_details')}
         styleBoxTitle={styles.boxTitle}
         bottomBorder
       />

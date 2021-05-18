@@ -22,6 +22,7 @@ import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import { useIsFocused, useNavigation } from '@react-navigation/native';
 import { t } from 'i18n-js';
+import { useSelector } from 'react-redux';
 
 import { ButtonPopup, CircleButton, FullLoading } from '../../commons';
 import ParkingAreaList from './components/ParkingAreaList';
@@ -48,7 +49,7 @@ import { deleteData, getData, storeData } from '../../utils/Storage';
 import { isObjectEmpty } from '../../utils/Utils';
 import { useNearbyParkings, useNotifications } from './hooks';
 import styles from './styles';
-import { useSelector } from 'react-redux';
+import { ViolationItem } from './components/Violation';
 
 const selectedParkingIcon = require('../../../assets/images/Map/marker_parking_selected.png');
 const parkingIcon = require('../../../assets/images/Map/marker_parking.png');
@@ -98,6 +99,8 @@ const MapDashboard = memo(({ route }) => {
     onUnsaveParking,
     onCloseThanks,
     onShowThanks,
+    getViolations,
+    violationsData,
   } = useNearbyParkings();
   const { notificationNumber } = useNotifications();
 
@@ -120,6 +123,7 @@ const MapDashboard = memo(({ route }) => {
   const handleAppStateChange = async (nextAppState) => {
     if (appState.match(/inactive|background/) && nextAppState === 'active') {
       await getActiveSession();
+      await getViolations();
     }
     setAppState(nextAppState);
   };
@@ -327,6 +331,7 @@ const MapDashboard = memo(({ route }) => {
     setDirections({});
     onShowThanks();
     getActiveSession();
+    getViolations();
   }, []);
 
   const getDirectionFrom = searchedLocation
@@ -350,6 +355,11 @@ const MapDashboard = memo(({ route }) => {
     setShowWarningBell(false);
   }, [activeSessions, navigate]);
 
+  const onReloadData = () => {
+    getActiveSession();
+    getViolations();
+  };
+
   useEffect(() => {
     setTimeout(() => {
       setEnableMapview(true);
@@ -364,6 +374,7 @@ const MapDashboard = memo(({ route }) => {
       }
       setLoading(false);
       getActiveSession();
+      getViolations();
     }
   }, [isFocused]);
 
@@ -402,6 +413,7 @@ const MapDashboard = memo(({ route }) => {
     if (scanDataResponse) {
       setShowScanResponse(true);
       getActiveSession();
+      getViolations();
     }
   }, [scanDataResponse]);
 
@@ -424,7 +436,7 @@ const MapDashboard = memo(({ route }) => {
           style={styles.mapView}
           followUserLocation={true}
         >
-          {!activeSessions && renderMarkers(nearbyParkings)}
+          {!activeSessions && !violationsData && renderMarkers(nearbyParkings)}
           {!!currentLocation && (
             <Marker
               testID={TESTID.MARKER_CURRENT_LOCATION}
@@ -456,7 +468,7 @@ const MapDashboard = memo(({ route }) => {
               tracksViewChanges={false}
             />
           )}
-          {activeSessions && (
+          {activeSessions && !violationsData && (
             <Marker
               testID={TESTID.MARKER_ACTIVE_SESSIONS}
               coordinate={{
@@ -476,6 +488,7 @@ const MapDashboard = memo(({ route }) => {
         onClearDataParking={onClearDataParking}
         notificationNumber={notificationNumber}
       />
+      {violationsData && <ViolationItem {...violationsData} />}
       <View style={styles.viewBottom} pointerEvents={'box-none'}>
         <CircleButton
           testID={TESTID.BUTTON_PRESS_LOCATE}
@@ -488,7 +501,7 @@ const MapDashboard = memo(({ route }) => {
         >
           <SvgLocate />
         </CircleButton>
-        {!activeSessions && (
+        {!activeSessions && !violationsData && (
           <CircleButton
             size={56}
             backgroundColor={Colors.Primary}
@@ -502,7 +515,7 @@ const MapDashboard = memo(({ route }) => {
             </Text>
           </CircleButton>
         )}
-        {!loading && !showNearbyParking && !activeSessions && (
+        {!loading && !showNearbyParking && !activeSessions && !violationsData && (
           <View style={[styles.fullWidth, styles.center]}>
             <TouchableOpacity
               style={[styles.button, styles.center]}
@@ -517,6 +530,7 @@ const MapDashboard = memo(({ route }) => {
           </View>
         )}
         {!activeSessions &&
+          !violationsData &&
           nearbyParkings.length === 0 &&
           loadingNearByParking && (
             <View style={[styles.fullWidth, styles.center]}>
@@ -527,7 +541,7 @@ const MapDashboard = memo(({ route }) => {
               />
             </View>
           )}
-        {showNearbyParking && !activeSessions && (
+        {showNearbyParking && !activeSessions && !violationsData && (
           <View style={styles.fullWidth}>
             <ParkingAreaList
               parkingAreas={nearbyParkings}
@@ -547,18 +561,18 @@ const MapDashboard = memo(({ route }) => {
             scanDataResponse={scanDataResponse}
           />
         )}
-        {activeSessions && (
+        {activeSessions && !violationsData && (
           <View style={[styles.fullWidth]}>
             <View style={styles.activeSessionView}>
               <ActiveSessionsItem
                 {...activeSessions}
                 onParkingCompleted={onParkingCompleted}
-                reloadData={getActiveSession}
+                reloadData={onReloadData}
               />
             </View>
           </View>
         )}
-        {activeSessions && (
+        {activeSessions && !violationsData && (
           <ButtonPopup
             visible={showWarningBell}
             mainTitle={t('extend')}
