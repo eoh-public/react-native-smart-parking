@@ -9,6 +9,7 @@ import TimeCountDown from '../TimeCountDown';
 import RowInfo from './RowInfo';
 import InfoField from '../InfoField';
 import { openMapDirection, formatMoney } from '../../../../utils/Utils';
+import { getDurationTime } from '../../../../utils/Converter/time';
 
 const ParkingTicket = memo(
   ({
@@ -33,6 +34,10 @@ const ParkingTicket = memo(
     const arrive_at_str = arrive_at && arrive_at.format(timeFormat);
     const leave_at_str = leave_at && leave_at.format(timeFormat);
     const pay_before_str = pay_before && pay_before.format(timeFormat);
+    const duration = getDurationTime(
+      arrive_at,
+      leave_at ? leave_at : undefined
+    );
 
     return (
       <View style={styles.container}>
@@ -43,8 +48,12 @@ const ParkingTicket = memo(
             </Text>
             {status === '' && (
               <TimeCountDown
-                time_remaining={time_remaining}
-                start_countdown={start_countdown}
+                time_remaining={
+                  is_violated
+                    ? parseInt(duration.asSeconds().toString(), 10)
+                    : time_remaining
+                }
+                start_countdown={is_violated ? !leave_at : start_countdown}
                 getBookingDetail={getBookingDetail}
                 is_violated={is_violated}
               />

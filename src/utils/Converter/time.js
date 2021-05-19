@@ -47,3 +47,6 @@ export const timeDifference = (current, previous) => {
     return `${Math.round(elapsed / msPerYear)} ${t('years_ago')}`;
   }
 };
+
+export const getDurationTime = (start, end = new Date()) =>
+  moment.duration(moment(end).diff(moment(start)));
