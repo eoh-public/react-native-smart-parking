@@ -1,3 +1,4 @@
+/* eslint-disable no-empty */
 import React, { useState, useCallback, useEffect } from 'react';
 import { StyleSheet, FlatList, SafeAreaView } from 'react-native';
 import Config from 'react-native-config';

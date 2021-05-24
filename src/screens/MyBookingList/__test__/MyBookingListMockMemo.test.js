@@ -1,4 +1,3 @@
-/* eslint-disable promise/prefer-await-to-callbacks */
 import React from 'react';
 import { create, act } from 'react-test-renderer';
 import MyBookingList from '../index';
@@ -35,7 +34,7 @@ describe('MyBookingList', () => {
   });
 
   test('WrapHeaderScrollable', () => {
-    const component = <MyBookingList />;
+    const component = <MyBookingList route />;
     let tree;
     act(() => {
       tree = create(component);

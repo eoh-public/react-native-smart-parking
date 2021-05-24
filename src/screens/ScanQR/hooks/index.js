@@ -28,9 +28,15 @@ const useBookingScan = () => {
             scanDataResponse: data,
           });
           break;
+        case Routes.MyBookingList:
+          navigation.navigate(Routes.MyBookingList, {
+            scanDataResponse: data,
+          });
+          break;
         default:
           navigation.navigate(Routes.SmartParkingBookingDetails, {
             scanDataResponse: data,
+            id: data.booking.id,
           });
       }
     },
@@ -64,7 +70,6 @@ const useBookingScan = () => {
   const scanToBook = useCallback(
     async (parking_id, spot_id) => {
       const { success: canBook, data } = await checkScanToBook(spot_id);
-
       if (data.spot_id) {
         data.status = 'spot_does_not_exist';
       }

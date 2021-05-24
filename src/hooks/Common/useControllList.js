@@ -1,3 +1,4 @@
+/* eslint-disable no-empty */
 import { useState, useCallback, useEffect } from 'react';
 
 const useControllList = (getData) => {

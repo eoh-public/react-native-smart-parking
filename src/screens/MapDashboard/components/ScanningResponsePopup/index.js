@@ -21,7 +21,6 @@ const ScanningResponsePopup = ({
   scanDataResponse,
 }) => {
   const { navigate } = useNavigation();
-
   const {
     status,
     right_spot,
@@ -249,6 +248,7 @@ const ScanningResponsePopup = ({
           <View style={styles.containerButton}>
             {result.leftButtonTitle && (
               <Button
+                testID={TESTID.SCANNING_RESPONSE_BUTTON_LEFT}
                 type={result.leftType}
                 title={result.leftButtonTitle}
                 onPress={result.leftButtonClick}
@@ -258,6 +258,7 @@ const ScanningResponsePopup = ({
             )}
             {result.rightButtonTitle && (
               <Button
+                testID={TESTID.SCANNING_RESPONSE_BUTTON_RIGHT}
                 type={result.rightType}
                 title={result.rightButtonTitle}
                 onPress={result.rightButtonClick}

@@ -1,3 +1,4 @@
+/* eslint-disable no-prototype-builtins */
 import { t } from 'i18n-js';
 import moment from 'moment';
 
