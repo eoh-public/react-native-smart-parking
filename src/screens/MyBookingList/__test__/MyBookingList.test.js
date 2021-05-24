@@ -40,9 +40,11 @@ describe('MyBookingList', () => {
     useState.mockClear();
   });
   const setState = jest.fn();
+  const mockSetShowScanResponse = jest.fn();
   const mockSetStates = (tabInit = 0, activeSession = []) => {
     useState.mockImplementationOnce((init) => [init, setState]); // setAppState
     useState.mockImplementationOnce((init) => [init, setState]); // setPage
+    useState.mockImplementationOnce((init) => [false, mockSetShowScanResponse]); // setShowScanResponse
     useState.mockImplementationOnce((init) => [activeSession, setState]); // setActiveSessions
     useState.mockImplementationOnce((init) => [init, setState]); // setBookingHistory
     useState.mockImplementationOnce((init) => [init, setState]);
@@ -57,10 +59,39 @@ describe('MyBookingList', () => {
   test('getActiveSession', () => {
     mockSetStates();
     act(() => {
-      create(<MyBookingList />);
+      create(<MyBookingList route />);
     });
     expect(axios.get).toHaveBeenCalledWith(API.BOOKING.ACTIVE_SESSION, {});
     expect(axios.get).toHaveBeenCalledWith(API.BOOKING.HISTORY(1), {});
+  });
+
+  test('hasScanDataResponse', async () => {
+    const route = {
+      key: 'MyBookingList-8Bk9Qu2NaFcosvwMIyfgr',
+      name: 'MyBookingList',
+      params: {
+        scanDataResponse: {
+          status: 'wrong_spot',
+          right_spot: '197',
+        },
+      },
+    };
+    mockSetStates();
+    mockSetShowScanResponse.mockImplementationOnce(async () => {
+      return false;
+    });
+    await act(async () => {
+      tree = await create(<MyBookingList route={route} />);
+    });
+    const instance = tree.root;
+    const button = instance.find(
+      (el) => el.props.testID === TESTID.SCANNING_RESPONSE_BUTTON_RIGHT
+    );
+
+    act(() => {
+      button.props.onPress();
+    });
+    expect(mockSetShowScanResponse).toHaveBeenCalledWith(true);
   });
 
   test('hasActiveSession', async () => {
@@ -86,6 +117,8 @@ describe('MyBookingList', () => {
         grand_total: 1,
         payment_url: '',
         payment_method: '',
+        parking_hours: '1',
+        payment_method_name: 'Visa',
       },
     };
     axios.get.mockImplementation(async () => {
@@ -98,7 +131,7 @@ describe('MyBookingList', () => {
     useState.mockImplementationOnce((init) => [init, setState]);
 
     await act(async () => {
-      tree = await create(<MyBookingList />);
+      tree = await create(<MyBookingList route />);
     });
     const instance = tree.root;
     instance.find((el) => el.props.testID === TESTID.ACTIVE_SESSION); // found 1
@@ -147,7 +180,7 @@ describe('MyBookingList', () => {
     })); // history
 
     await act(async () => {
-      tree = await create(<MyBookingList />);
+      tree = await create(<MyBookingList route />);
     });
     const instance = tree.root;
     instance.find((el) => el.props.testID === TESTID.BOOKING_HISTORY); // found 1
@@ -188,7 +221,7 @@ describe('MyBookingList', () => {
     });
 
     await act(async () => {
-      tree = await create(<MyBookingList />);
+      tree = await create(<MyBookingList route />);
     });
     const instance = tree.root;
 
@@ -205,7 +238,7 @@ describe('MyBookingList', () => {
   test('refreshControl', () => {
     mockSetStates();
     act(() => {
-      tree = create(<MyBookingList />);
+      tree = create(<MyBookingList route />);
     });
     const instance = tree.root;
     const refreshControl = instance.findByType(RefreshControl);
@@ -221,7 +254,7 @@ describe('MyBookingList', () => {
     mockSetStates();
     useIsFocused.mockImplementation(() => true);
     act(() => {
-      create(<MyBookingList />);
+      create(<MyBookingList route />);
     });
     expect(axios.get).toHaveBeenCalledWith(API.BOOKING.ACTIVE_SESSION, {});
     expect(axios.get).toHaveBeenCalledWith(API.BOOKING.HISTORY(1), {});

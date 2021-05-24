@@ -1,3 +1,4 @@
+/* eslint-disable no-empty */
 import React, { Component } from 'react';
 
 import { Platform, View, Button } from 'react-native';

@@ -14,11 +14,14 @@ import { useMyBookingList } from './hooks';
 import { TESTID } from '../../configs/Constants';
 import TabHeader from './components/TabHeader';
 import Violations from './components/Violations';
+import ScanningResponsePopup from '../MapDashboard/components/ScanningResponsePopup';
 
-const MyBookingList = memo(() => {
+const MyBookingList = memo(({ route }) => {
   const isFocused = useIsFocused();
   const [appState, setAppState] = useState(AppState.currentState);
   const [page, setPage] = useState(1);
+  const scanDataResponse = route.params ? route.params.scanDataResponse : false;
+  const [showScanResponse, setShowScanResponse] = useState(false);
 
   const {
     loading,
@@ -31,6 +34,16 @@ const MyBookingList = memo(() => {
     maxPageHistoryBooking,
     maxPageViolation,
   } = useMyBookingList();
+
+  const hideScanResponse = useCallback(() => {
+    setShowScanResponse(false);
+  }, []);
+
+  useEffect(() => {
+    if (scanDataResponse) {
+      setShowScanResponse(true);
+    }
+  }, [scanDataResponse]);
 
   useEffect(() => {
     AppState.addEventListener('change', handleAppStateChange);
@@ -120,6 +133,13 @@ const MyBookingList = memo(() => {
           />
         )}
       </WrapHeaderScrollable>
+      {scanDataResponse && (
+        <ScanningResponsePopup
+          visible={showScanResponse}
+          hideModal={hideScanResponse}
+          scanDataResponse={scanDataResponse}
+        />
+      )}
     </View>
   );
 });

@@ -51,6 +51,7 @@ const SavedParkingItem = memo(
                 {name}
               </Text>
               <TouchableOpacity
+                testID={TESTID.SAVED_PARKING_BUTTON}
                 onPress={() =>
                   is_saved ? onUnsaveParking(id) : onSaveParking(id)
                 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-empty */
 import { all, call, spawn } from 'redux-saga/effects';
 import watchAuth from './auth';
 
