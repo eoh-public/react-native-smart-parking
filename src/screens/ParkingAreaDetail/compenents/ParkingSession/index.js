@@ -133,7 +133,9 @@ const ParkingSession = memo(
                 <CustomCheckbox
                   style={styles.buttonAlreadyArrived}
                   onPress={onAlreadyArrived}
+                  onValueChange={onAlreadyArrived}
                   value={isSave}
+                  iOSCheckBoxStyles={styles.iOSCheckBoxStyles}
                 >
                   <Text type="Body">{t('i_already_arrived')}</Text>
                 </CustomCheckbox>
@@ -230,8 +232,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: 8,
     marginBottom: 16,
+    marginTop: 10,
   },
   marginLeft: {
     marginLeft: 0,
+  },
+  iOSCheckBoxStyles: {
+    marginTop: 0,
   },
 });

@@ -35,7 +35,7 @@ exec(
           )} from ${oldValue} to ${newValue}`
         );
       }
-      if (newValue - oldValue >= 0.4) {
+      if (newValue - oldValue >= 0.1) {
         isIncreased = true;
       }
     });
@@ -44,7 +44,7 @@ exec(
       console.error(error);
       process.exit(1);
     } else if (!isIncreased) {
-      console.error('At least 0.4 coverage category must be increased');
+      console.error('At least 0.1 coverage category must be increased');
       process.exit(1);
     } else {
       console.error('Coverage config is increased');

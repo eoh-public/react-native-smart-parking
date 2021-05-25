@@ -136,12 +136,15 @@ exports[`Test ItemPaymentMethod create ItemPaymentMethod 1`] = `
               "height": 32,
               "width": 32,
             },
-            Object {
-              "height": 20,
-              "marginRight": 15,
-              "marginTop": 15,
-              "width": 20,
-            },
+            Array [
+              Object {
+                "height": 20,
+                "marginRight": 15,
+                "marginTop": 15,
+                "width": 20,
+              },
+              undefined,
+            ],
           ]
         }
         testID="ITEM_PAYMENT_METHOD_CHECKBOX"
@@ -350,12 +353,15 @@ exports[`Test ItemPaymentMethod create ItemPaymentMethod is_default: false 1`] =
               "height": 32,
               "width": 32,
             },
-            Object {
-              "height": 20,
-              "marginRight": 15,
-              "marginTop": 15,
-              "width": 20,
-            },
+            Array [
+              Object {
+                "height": 20,
+                "marginRight": 15,
+                "marginTop": 15,
+                "width": 20,
+              },
+              undefined,
+            ],
           ]
         }
         testID="ITEM_PAYMENT_METHOD_CHECKBOX"
