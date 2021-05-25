@@ -1,32 +1,33 @@
-import reducer from '../auth';
 import { INIT_AUTH } from '../../Actions/auth';
+import auth from '../auth';
 
-describe('Test auth reducer', () => {
+const initialState = {
+  errorMsg: '',
+  isLoggedIn: false,
+  account: {
+    token: '',
+    user: {},
+  },
+};
+
+describe('todos auth reducer', () => {
   it('should return the initial state', () => {
-    expect(reducer(undefined, {})).toEqual({
-      errorMsg: '',
-      isLoggedIn: false,
-      account: {
-        token: '',
-        user: {},
-      },
-    });
+    expect(auth(undefined, {})).toEqual(initialState);
   });
 
-  it('Test init auth success type', () => {
+  it('should handle INIT_AUTH', () => {
+    const responseData = {
+      token: 'fwqg4qg4q8g4q864gq84gqw',
+      user: { name: 'test' },
+    };
+
+    initialState.account = responseData;
+
     expect(
-      reducer(
-        {},
-        {
-          type: INIT_AUTH.SUCCESS,
-          data: { token: '_token', user: { id: 1 } },
-        }
-      )
-    ).toEqual({
-      account: {
-        token: '_token',
-        user: { id: 1 },
-      },
-    });
+      auth(initialState, {
+        type: INIT_AUTH.SUCCESS,
+        data: responseData,
+      })
+    ).toEqual(initialState);
   });
 });

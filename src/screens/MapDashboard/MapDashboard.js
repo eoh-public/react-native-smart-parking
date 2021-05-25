@@ -37,6 +37,7 @@ import {
   useAndroidTranslucentStatusBar,
   useBlockBackAndroid,
 } from '../../hooks/Common';
+import { useDispatch } from 'react-redux';
 import { useCountDown } from '../../hooks/SmartParking';
 import { SvgWarningBell } from '../../../assets/images/SmartParking';
 import SvgLocate from '../../../assets/images/SmartParking/locate.svg';
@@ -45,8 +46,14 @@ import SvgParkingWhite from '../../../assets/images/SmartParking/parkingWhite.sv
 import { axiosGet } from '../../utils/Apis/axios';
 import { getCurrentLatLng } from '../../utils/CountryUtils';
 import Routes from '../../utils/Route';
-import { deleteData, getData, storeData } from '../../utils/Storage';
 import { isObjectEmpty } from '../../utils/Utils';
+import { exitApp } from '../../redux/Actions/ui';
+import { getData, storeData } from '../../utils/Storage';
+import AsyncKeys from '../../utils/AsyncKey';
+import TermAndConditions from '../TermAndConditions';
+import { CustomCheckbox } from '../../commons';
+import { deleteData } from '../../utils/Storage';
+
 import { useNearbyParkings, useNotifications } from './hooks';
 import styles from './styles';
 import { ViolationItem } from './components/Violation';
@@ -72,6 +79,7 @@ const MapDashboard = memo(({ route }) => {
     longitudeDelta: 0.0421,
   };
 
+  const dispatch = useDispatch();
   const { scanDataResponse } = route.params ? route.params : {};
   const { navigate } = useNavigation();
   const isFocused = useIsFocused();
@@ -84,7 +92,8 @@ const MapDashboard = memo(({ route }) => {
   const [currentLocation, setCurrentLocation] = useState(null);
   const [directions, setDirections] = useState({});
   const [appState, setAppState] = useState(AppState.currentState);
-
+  const [showCondition, setShowCondition] = useState(false);
+  const [isTickConfirmTerms, setIsTickConfirmTerms] = useState(false);
   const mapRef = useRef(null);
   const api_key = Config.GOOGLE_MAP_API_KEY;
 
@@ -112,7 +121,23 @@ const MapDashboard = memo(({ route }) => {
   }, [activeSessions]);
   const { timeLeft } = useCountDown(time_remaining, false, start_countdown);
 
+  const checkIsConfirmTermsSmartParking = useCallback(async () => {
+    let isConfirmSmartParking = await getData(
+      AsyncKeys.IS_CONFIRM_TERM_SMART_PARKING
+    );
+    if (isConfirmSmartParking === undefined || isConfirmSmartParking === null) {
+      isConfirmSmartParking = false;
+    }
+    setShowCondition(!isConfirmSmartParking);
+  }, []);
+
+  const onConfirmTerm = useCallback(() => {
+    storeData(AsyncKeys.IS_CONFIRM_TERM_SMART_PARKING, JSON.stringify(true));
+    setShowCondition(false);
+  }, []);
+
   useEffect(() => {
+    checkIsConfirmTermsSmartParking();
     AppState.addEventListener('change', handleAppStateChange);
 
     return () => {
@@ -131,6 +156,14 @@ const MapDashboard = memo(({ route }) => {
   const onPressParkingInput = useCallback(() => {
     navigate(Routes.ParkingInputManually);
   }, [navigate]);
+
+  const onPressAgree = useCallback(() => {
+    setIsTickConfirmTerms(!isTickConfirmTerms);
+  }, [isTickConfirmTerms]);
+
+  const onValueCheckBoxAgreeChange = useCallback((hadTicked) => {
+    setIsTickConfirmTerms(hadTicked);
+  }, []);
 
   const animateToRegion = useCallback((lat, lng) => {
     if (!mapRef || !mapRef.current) {
@@ -591,9 +624,40 @@ const MapDashboard = memo(({ route }) => {
             </Text>
           </ButtonPopup>
         )}
+
+        <ButtonPopup
+          visible={showCondition}
+          mainTitle={t('confirm')}
+          secondaryTitle={t('cancel')}
+          onClose={() => dispatch(exitApp(true))}
+          onPressSecondary={() => dispatch(exitApp(true))}
+          onPressMain={onConfirmTerm}
+          hideClose={true}
+          title={'Terms and Conditions Agreement'}
+          titleStyle={styles.titleContainer}
+          childrenStyle={styles.childrenStyle}
+          typeMain={isTickConfirmTerms ? 'primary' : 'disabled'}
+        >
+          <TermAndConditions scrollViewStyle={styles.scrollViewTerm} />
+          <CustomCheckbox
+            style={styles.buttonAgree}
+            onPress={onPressAgree}
+            value={isTickConfirmTerms}
+            onValueChange={onValueCheckBoxAgreeChange}
+          >
+            <Text type={'Body'} style={styles.termsText}>
+              {t('terms_and_conditions_booking_prefix')}
+              <Text underline style={styles.termsWord}>
+                {t('terms_and_conditions')}
+              </Text>
+            </Text>
+          </CustomCheckbox>
+        </ButtonPopup>
+
         <ThanksForParkingPopup visible={showThanks} onClose={onCloseThanks} />
       </View>
     </View>
   );
 });
+
 export default MapDashboard;

@@ -27,6 +27,8 @@ import ParkingInputManually from '../screens/ParkingInputManually';
 import NotificationCentre from '../screens/NotificationCentre';
 import ProcessPayment from '../screens/PaymentCommon/ProcessPayment';
 import StripeAddCard from '../screens/PaymentCommon/Stripe/AddCard';
+import ContactInformation from '../screens/ContactInformation';
+import TermAndConditions from '../screens/TermAndConditions';
 import { SelectPaymentMethod } from '../screens/SelectPaymentMethod';
 
 const Stack = createStackNavigator();
@@ -189,6 +191,16 @@ export const SmartParkingStack = memo(() => {
         name={Routes.SmartParkingSelectPaymentMethod}
         component={SelectPaymentMethod}
         options={{ title: t('select_payment_method') }}
+      />
+      <Stack.Screen
+        name={Routes.ContactInformation}
+        component={ContactInformation}
+        options={{ title: t('contact_infomation') }}
+      />
+      <Stack.Screen
+        name={Routes.TermAndConditions}
+        component={TermAndConditions}
+        options={{ title: t('terms_and_condition') }}
       />
     </Stack.Navigator>
   );

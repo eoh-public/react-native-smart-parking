@@ -108,27 +108,29 @@ exports[`Test button popup create button popup 1`] = `
           }
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#595959",
-                "fontFamily": "antoutline",
-                "fontSize": 22,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {
-                "position": "absolute",
-                "right": 20,
-                "top": 20,
-                "zIndex": 1,
-              },
-            ]
-          }
-        >
-          
-        </Text>
+        <View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "antoutline",
+                  "fontSize": 22,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {
+                  "position": "absolute",
+                  "right": 20,
+                  "top": 20,
+                  "zIndex": 1,
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
         <View
           style={
             Array [

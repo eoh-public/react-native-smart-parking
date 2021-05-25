@@ -203,6 +203,7 @@
     "@react-navigation/native": "^5.7.0",
     "@react-navigation/stack": "^5.7.0",
     "@sentry/react-native": "^1.7.1",
+    "@testing-library/react-hooks": "^5.1.2",
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
     "google-libphonenumber": "^3.2.10",

@@ -19,6 +19,8 @@ import SvgCarDrawer from '../../../assets/images/SmartParking/car_drawer.svg';
 import BookMarkGray from '../../../assets/images/SmartParking/bookmark-gray.svg';
 import CreditCard from '../../../assets/images/SmartParking/credit-card.svg';
 import Tags from '../../../assets/images/SmartParking/tags.svg';
+import Phone from '../../../assets/images/SmartParking/phone.svg';
+import TermAndCondition from '../../../assets/images/SmartParking/term-condition.svg';
 import { setInconpletedCarsInfo } from '../../redux/Actions/notifications';
 
 const SmartParkingDrawer = memo(() => {
@@ -80,6 +82,24 @@ const SmartParkingDrawer = memo(() => {
     [incompletedCarsInfo, newSavedParking]
   );
 
+  const dataContact = useMemo(
+    () => [
+      {
+        id: '0',
+        route: Routes.ContactInformation,
+        leftImage: <Phone />,
+        name: t('contact_infomation'),
+      },
+      {
+        id: '1',
+        route: Routes.TermAndConditions,
+        leftImage: <TermAndCondition />,
+        name: t('terms_and_condition'),
+      },
+    ],
+    []
+  );
+
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollView} bounces={false}>
@@ -93,6 +113,12 @@ const SmartParkingDrawer = memo(() => {
                 testID={TESTID.ROW_ITEM_SMARTPARKING_DRAWER}
               />
             ))}
+
+            <View style={styles.groupBorderTop}>
+              {dataContact.map((item) => (
+                <Row key={item.id} {...item} />
+              ))}
+            </View>
             <View style={styles.exitView}>
               <Row
                 route={Routes.Main}
@@ -132,6 +158,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 28,
   },
   exitView: {
+    marginTop: 24,
+    paddingTop: 12,
+    borderTopColor: Colors.Gray4,
+    borderTopWidth: 1,
+  },
+  groupBorderTop: {
     marginTop: 24,
     paddingTop: 12,
     borderTopColor: Colors.Gray4,
