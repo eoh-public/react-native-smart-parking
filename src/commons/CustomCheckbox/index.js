@@ -14,6 +14,7 @@ const CustomCheckbox = memo(
     children,
     type = 'square',
     testID,
+    iOSCheckBoxStyles,
   }) => {
     return (
       <View style={style}>
@@ -23,7 +24,7 @@ const CustomCheckbox = memo(
             onValueChange={onValueChange}
             tintColors={{ true: Colors.Primary, false: Colors.Gray3 }}
             boxType={type}
-            style={styles.iosCheckbox}
+            style={[styles.iosCheckbox, iOSCheckBoxStyles]}
             onCheckColor={Colors.White}
             onFillColor={Colors.Green7}
             onTintColor={Colors.Green7}

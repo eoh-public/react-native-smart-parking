@@ -127,12 +127,15 @@ VD: 50A-123.45
               "height": 32,
               "width": 32,
             },
-            Object {
-              "height": 20,
-              "marginRight": 15,
-              "marginTop": 15,
-              "width": 20,
-            },
+            Array [
+              Object {
+                "height": 20,
+                "marginRight": 15,
+                "marginTop": 15,
+                "width": 20,
+              },
+              undefined,
+            ],
           ]
         }
         tintColors={
@@ -320,12 +323,15 @@ VD: 50A-123.45
               "height": 32,
               "width": 32,
             },
-            Object {
-              "height": 20,
-              "marginRight": 15,
-              "marginTop": 15,
-              "width": 20,
-            },
+            Array [
+              Object {
+                "height": 20,
+                "marginRight": 15,
+                "marginTop": 15,
+                "width": 20,
+              },
+              undefined,
+            ],
           ]
         }
         tintColors={
@@ -491,12 +497,15 @@ Array [
               "height": 32,
               "width": 32,
             },
-            Object {
-              "height": 20,
-              "marginRight": 15,
-              "marginTop": 15,
-              "width": 20,
-            },
+            Array [
+              Object {
+                "height": 20,
+                "marginRight": 15,
+                "marginTop": 15,
+                "width": 20,
+              },
+              undefined,
+            ],
           ]
         }
         tintColors={
@@ -662,12 +671,15 @@ Array [
               "height": 32,
               "width": 32,
             },
-            Object {
-              "height": 20,
-              "marginRight": 15,
-              "marginTop": 15,
-              "width": 20,
-            },
+            Array [
+              Object {
+                "height": 20,
+                "marginRight": 15,
+                "marginTop": 15,
+                "width": 20,
+              },
+              undefined,
+            ],
           ]
         }
         tintColors={
@@ -855,12 +867,15 @@ VD: 50A-123.45
               "height": 32,
               "width": 32,
             },
-            Object {
-              "height": 20,
-              "marginRight": 15,
-              "marginTop": 15,
-              "width": 20,
-            },
+            Array [
+              Object {
+                "height": 20,
+                "marginRight": 15,
+                "marginTop": 15,
+                "width": 20,
+              },
+              undefined,
+            ],
           ]
         }
         tintColors={
