@@ -174,7 +174,7 @@ const BookingConfirm = memo(({ route }) => {
               Colors.Black,
               Colors.White,
               Colors.White,
-              'ion_back'
+              'back_icon'
             );
             break;
           case 'stripe': {

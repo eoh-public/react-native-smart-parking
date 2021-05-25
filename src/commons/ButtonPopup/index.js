@@ -5,6 +5,7 @@ import { Icon } from '@ant-design/react-native';
 
 import { Colors, Device } from '../../configs';
 import { TESTID } from '../../configs/Constants';
+import Text from '../../commons/Text';
 
 import BottomButtonView from '../BottomButtonView';
 
@@ -25,6 +26,9 @@ const ButtonPopup = ({
   typeSecondary,
   typeThird,
   semiboldSecond,
+  title,
+  childrenStyle,
+  titleStyle,
 }) => {
   return (
     <Modal
@@ -35,15 +39,29 @@ const ButtonPopup = ({
     >
       <View style={styles.popoverStyle}>
         <View style={styles.modalWrapper}>
-          {!hideClose && (
-            <Icon
-              name={'close'}
-              color={Colors.Gray8}
-              style={styles.close}
-              onPress={onClose}
-            />
-          )}
-          <View style={[styles.modalHeader, bodyStyle]}>{children}</View>
+          <View style={titleStyle}>
+            {title && (
+              <Text type="H4" bold>
+                {title}
+              </Text>
+            )}
+            {!hideClose && (
+              <Icon
+                name={'close'}
+                color={Colors.Gray8}
+                style={styles.close}
+                onPress={onClose}
+              />
+            )}
+          </View>
+          <View
+            style={[
+              childrenStyle ? childrenStyle : styles.modalHeader,
+              bodyStyle,
+            ]}
+          >
+            {children}
+          </View>
           <BottomButtonView
             rowButton={rowButton}
             style={[styles.bottomButtonView, thirdTitle && styles.thirdStyle]}

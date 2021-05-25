@@ -88,6 +88,8 @@ const Routes = {
   EmergencyContactsAddNew: 'EmergencyContactsAddNew',
   EmergencyContactsSelectContacts: 'EmergencyContactsSelectContacts',
   TermAndPolicy: 'TermAndPolicy',
+  ContactInformation: 'ContactInformation',
+  TermAndConditions: 'TermAndConditions',
   Browser: 'Browser',
 };
 

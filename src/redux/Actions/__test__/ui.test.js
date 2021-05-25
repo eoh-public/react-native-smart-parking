@@ -19,4 +19,12 @@ describe('Test ui actions', () => {
     };
     expect(exitApp(exit)).toEqual(expectedAction);
   });
+
+  it('Test exitApp action false', () => {
+    expectedAction = {
+      type: EXIT_APP,
+      exit: false,
+    };
+    expect(exitApp()).toEqual(expectedAction);
+  });
 });

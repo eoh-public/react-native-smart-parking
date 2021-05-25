@@ -3,6 +3,7 @@ import { View, Image, StyleSheet } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { connect, useSelector } from 'react-redux';
 import { Icon } from '@ant-design/react-native';
+import { TESTID } from '../../configs/Constants';
 
 import Text from '../Text';
 import { Images, Colors } from '../../configs';
@@ -23,7 +24,11 @@ const HeaderDrawer = memo(() => {
 
       <View style={styles.avatarBackground}>
         {user.avatar ? (
-          <FastImage source={{ uri: user.avatar }} style={styles.avatar} />
+          <FastImage
+            source={{ uri: user.avatar }}
+            style={styles.avatar}
+            testID={TESTID.FAST_IMAGE_USER_AVATAR}
+          />
         ) : (
           <View style={styles.avatar}>
             <Icon name={'user'} size={27} />

@@ -63,4 +63,29 @@ export default StyleSheet.create({
     textAlign: 'center',
     width: '95%',
   },
+  buttonAgree: {
+    flex: 1,
+    flexDirection: 'row',
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  titleContainer: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+    marginTop: 30,
+  },
+  childrenStyle: {
+    padding: 16,
+  },
+  scrollViewTerm: {
+    height: 300,
+    borderBottomWidth: 1,
+    borderTopWidth: 1,
+    borderTopColor: Colors.WrapGray,
+    borderBottomColor: Colors.WrapGray,
+  },
 });

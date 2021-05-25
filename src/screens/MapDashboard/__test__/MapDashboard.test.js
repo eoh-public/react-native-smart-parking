@@ -7,7 +7,6 @@ import axios from 'axios';
 import _ from 'lodash';
 
 import { ButtonPopup } from '../../../commons';
-import { API } from '../../../configs';
 import { storeData } from '../../../utils/Storage';
 import ActiveSessionsItem from '../../MyBookingList/components/ActiveSessions/ActiveSessionsItem';
 import ScanningResponsePopup from '../components/ScanningResponsePopup';
@@ -30,6 +29,11 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
+jest.mock(
+  '../../MyBookingList/components/ActiveSessions/ActiveSessionsItem',
+  () => 'ActiveSessionsItem'
+);
+
 jest.mock('react-redux', () => {
   return {
     ...jest.requireActual('react-redux'),
@@ -50,6 +54,35 @@ jest.mock('react', () => {
 });
 
 jest.mock('axios');
+
+const mockGetActionSession = jest.fn();
+const mockGetNearbyParking = jest.fn();
+
+jest.mock('../hooks', () => {
+  return {
+    useNearbyParkings: () => ({
+      showThanks: false,
+      loadingNearByParking: false,
+      nearbyParkings: jest.fn(),
+      getNearbyParkings: mockGetNearbyParking,
+      activeSessions: {
+        parking: {
+          lat: 10,
+          lng: 100,
+        },
+      },
+      getActiveSession: mockGetActionSession,
+      onSaveParking: jest.fn(),
+      onUnsaveParking: jest.fn(),
+      getViolations: jest.fn(),
+      onCloseThanks: jest.fn(),
+      onShowThanks: jest.fn(),
+    }),
+    useNotifications: () => ({
+      notificationNumber: 10,
+    }),
+  };
+});
 
 jest.doMock('react-native/Libraries/AppState/AppState', () => ({
   addEventListener: mockAddListener,
@@ -141,29 +174,6 @@ describe('Test MapDashboard', () => {
     expect(scanNodes).toHaveLength(1);
   });
 
-  it('active session countdown', async () => {
-    const mockSetMethod = jest.fn();
-    _.range(0, 6).map(() => {
-      useState.mockImplementationOnce((init) => [init, mockSetState]);
-    });
-    useState.mockImplementationOnce((init) => [init, mockSetMethod]);
-    _.range(7, 14).map(() => {
-      useState.mockImplementationOnce((init) => [init, mockSetState]);
-    });
-    useState.mockImplementationOnce((init) => [activeSessions, mockSetState]); // active session
-
-    const route = {};
-    await act(async () => {
-      tree = await renderer.create(
-        <Provider store={store}>
-          <MapDashboard route={route} />
-        </Provider>
-      );
-    });
-
-    expect(mockSetMethod).toBeCalledWith(true);
-  });
-
   it('active session load cached search', async () => {
     const mockSetMethod = jest.fn();
     _.range(0, 7).map(() => {
@@ -205,7 +215,7 @@ describe('Test MapDashboard', () => {
       );
     });
 
-    expect(axios.get).toBeCalledWith(API.BOOKING.ACTIVE_SESSION, {});
+    expect(mockGetActionSession).toBeCalled();
   });
 
   it('map is enabled after 0.5s', async () => {
@@ -299,64 +309,9 @@ describe('Test MapDashboard', () => {
     });
 
     const activeSessionItem = tree.root.findByType(ActiveSessionsItem);
-    axios.get.mockClear();
 
     act(() => {
       activeSessionItem.props.onParkingCompleted();
     });
-
-    expect(axios.get).toBeCalledWith(API.BOOKING.ACTIVE_SESSION, {});
-  });
-
-  it('map dashboard renderMarkers', async () => {
-    const nearbyParkings = [
-      {
-        address:
-          '215 Điện Biên Phủ, Phường 15, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam',
-        allow_pre_book: false,
-        available_spots_count: 1,
-        background: 'https://eoh-gateway-backend.eoh.io/Hong_bang.jpg',
-        distance: 91.5766437,
-        free_time: null,
-        id: 5,
-        is_saved: true,
-        lat: 10.7998447,
-        lng: 106.7062684,
-        name: 'Trường Đại học Quốc tế Hồng Bàng',
-        parking_charges: [
-          {
-            price_per_hour: 20000,
-            time_end: '18:01:53+00:00',
-            time_start: '01:01:49+00:00',
-          },
-        ],
-        price_now: 20000,
-        status: null,
-        tip: 'Mostly available',
-        total_spot: 1,
-      },
-    ];
-    const response = {
-      status: 200,
-      data: nearbyParkings,
-    };
-    axios.get.mockImplementation(async () => {
-      return response;
-    });
-    _.range(0, 13).map(() => {
-      useState.mockImplementationOnce((init) => [init, mockSetState]);
-    });
-    useState.mockImplementationOnce((init) => [nearbyParkings, mockSetState]); // nearbyParkings
-    // useState.mockImplementationOnce((init) => [activeSessions, mockSetState]); // active session
-
-    const route = {};
-    await act(async () => {
-      tree = await renderer.create(
-        <Provider store={store}>
-          <MapDashboard route={route} />
-        </Provider>
-      );
-    });
-    expect(axios.get).toBeCalledTimes(3);
   });
 });

@@ -108,28 +108,30 @@ exports[`Test ThanksForParkingPopup render ThanksForParkingPopup 1`] = `
           }
         }
       >
-        <Text
-          onPress={[Function]}
-          style={
-            Array [
-              Object {
-                "color": "#595959",
-                "fontFamily": "antoutline",
-                "fontSize": 22,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {
-                "position": "absolute",
-                "right": 20,
-                "top": 20,
-                "zIndex": 1,
-              },
-            ]
-          }
-        >
-          
-        </Text>
+        <View>
+          <Text
+            onPress={[Function]}
+            style={
+              Array [
+                Object {
+                  "color": "#595959",
+                  "fontFamily": "antoutline",
+                  "fontSize": 22,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {
+                  "position": "absolute",
+                  "right": 20,
+                  "top": 20,
+                  "zIndex": 1,
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
         <View
           style={
             Array [
