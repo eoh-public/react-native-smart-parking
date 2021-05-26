@@ -6,6 +6,7 @@ import QRScan from '../index';
 const mockedPop = jest.fn();
 const mockedOnScan = jest.fn();
 const mockedSetLoading = jest.fn();
+const mockedUseIsFocused = jest.fn();
 
 jest.mock('@react-navigation/native', () => {
   return {
@@ -13,7 +14,7 @@ jest.mock('@react-navigation/native', () => {
     useNavigation: () => ({
       pop: mockedPop,
     }),
-    useIsFocused: jest.fn(),
+    useIsFocused: () => mockedUseIsFocused,
   };
 });
 
@@ -55,5 +56,7 @@ describe('Test QRScan', () => {
       RNCam.props.onBarCodeRead(e);
     });
     expect(mockedOnScan).toHaveBeenCalledWith(e.data);
+    mockedUseIsFocused.mockImplementation(() => true);
+    expect(mockedSetLoading).toHaveBeenCalled();
   });
 });

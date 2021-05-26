@@ -7,6 +7,7 @@ import ButtonPopup from '../../ButtonPopup';
 describe('Test ImagePicker', () => {
   let tree;
   let Platform;
+  const setShowImagePicker = jest.fn();
   beforeEach(() => {
     Platform = require('react-native').Platform;
   });
@@ -32,7 +33,7 @@ describe('Test ImagePicker', () => {
       tree = renderer.create(
         <ImagePicker
           showImagePicker={true}
-          setShowImagePicker={''}
+          setShowImagePicker={setShowImagePicker}
           setImageUrl={'setImageUrl'}
           optionsCapture={options}
           optionsSelect={{
@@ -45,5 +46,15 @@ describe('Test ImagePicker', () => {
     const instance = tree.root;
     const textInputs = instance.findAllByType(ButtonPopup);
     expect(textInputs.length).toBe(1);
+    const buttonPopupProps = textInputs[0].props;
+    expect(buttonPopupProps.rowButton).toBeFalsy();
+    expect(buttonPopupProps.visible).toBeTruthy();
+    expect(buttonPopupProps.mainTitle).toBe('Chụp Ảnh');
+    expect(buttonPopupProps.secondaryTitle).toBe('Chọn Ảnh từ Thư Viện');
+    expect(buttonPopupProps.typeSecondary).toBe('primary');
+    act(() => {
+      buttonPopupProps.onClose();
+    });
+    expect(setShowImagePicker).toHaveBeenCalledTimes(1);
   });
 });

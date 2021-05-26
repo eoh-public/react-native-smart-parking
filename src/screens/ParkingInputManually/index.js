@@ -14,7 +14,7 @@ import { useNavigation } from '@react-navigation/native';
 import { ButtonPopup } from '../../commons';
 import WrapHeaderScrollable from '../../commons/Sharing/WrapHeaderScrollable';
 import Modal from 'react-native-modal';
-import { TESTID } from '../../configs/Constants';
+import { SPOT_STATUS_CHECK_CAR, TESTID } from '../../configs/Constants';
 import { styles } from './styles';
 
 const ParkingInputManually = memo(() => {
@@ -65,30 +65,36 @@ const ParkingInputManually = memo(() => {
       });
       return;
     }
-
     const { success, data } = await axiosGet(API.PARKING.CHECK_CAR_PARKED, {
       params: {
         spot_name: parkingSpot,
       },
     });
-    if (!success) {
-      if (data.spot_name[0] === 'Move your car to spot and then retry') {
-        setResultCheckCar(t('notify_no_car_parked'));
-      }
-      if (data.spot_name[0] === 'This spot has been booked before') {
-        setResultCheckCar(t('notify_spot_has_been_booked'));
-      } else {
-        setResultCheckCar(t('notify_spot_not_exist'));
-      }
-      setShowModal();
-    } else {
+    if (success && data && data.can_park) {
       navigate(Routes.ParkingAreaDetail, {
         id: parkingInfo.parking_id,
         spot_id: parkingInfo.id,
         spot_name: parkingSpot,
         unLock: true,
       });
+      return;
     }
+    if (data && data.status) {
+      switch (data.status) {
+        case SPOT_STATUS_CHECK_CAR.MOVE_CAR_TO_SPOT:
+          setResultCheckCar(t('notify_no_car_parked'));
+          break;
+        case SPOT_STATUS_CHECK_CAR.THERE_IS_CAR_PARKED:
+          setResultCheckCar(t('notify_spot_has_been_booked'));
+          break;
+        default:
+          break;
+      }
+      setShowModal();
+      return;
+    }
+    setResultCheckCar(t('notify_spot_not_exist'));
+    setShowModal();
   }, [navigate, parkingInfo, parkingSpot, setShowModal]);
 
   const onFocus = useCallback(() => {

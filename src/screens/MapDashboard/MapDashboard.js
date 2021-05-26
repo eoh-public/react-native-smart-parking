@@ -454,6 +454,12 @@ const MapDashboard = memo(({ route }) => {
     onPressCurrentLocation();
   }, [onPressCurrentLocation]);
 
+  useEffect(() => {
+    if (!activeSessions && !violationsData) {
+      onClearDataParking();
+    }
+  }, [activeSessions, violationsData]);
+
   return (
     <View style={styles.wrap} testID={TESTID.MAP_DASHBOARD_VIEW}>
       {loading && <FullLoading />}
