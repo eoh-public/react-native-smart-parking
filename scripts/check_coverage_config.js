@@ -35,7 +35,7 @@ exec(
           )} from ${oldValue} to ${newValue}`
         );
       }
-      if (newValue - oldValue >= 0.1) {
+      if (newValue - oldValue >= 0) {
         isIncreased = true;
       }
     });
@@ -44,10 +44,10 @@ exec(
       console.error(error);
       process.exit(1);
     } else if (!isIncreased) {
-      console.error('At least 0.1 coverage category must be increased');
+      console.error('Coverage category must not be descreased');
       process.exit(1);
     } else {
-      console.error('Coverage config is increased');
+      console.error('Coverage config is not descreased. OK!');
     }
   }
 );
