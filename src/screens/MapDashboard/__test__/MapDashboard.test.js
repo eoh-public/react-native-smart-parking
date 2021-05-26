@@ -256,12 +256,21 @@ describe('Test MapDashboard', () => {
     });
 
     const buttonPopup = tree.root.findAllByType(ButtonPopup)[0];
-
     act(() => {
       buttonPopup.props.onPressMain();
     });
-
     expect(mockNavigation.navigate).toBeCalled();
+
+    const buttonPopups = tree.root.findAllByType(ButtonPopup);
+    act(() => {
+      buttonPopups[1].props.onPressMain();
+    });
+    expect(mockSetState).toHaveBeenCalled();
+
+    act(() => {
+      buttonPopups[2].props.onPressMain();
+    });
+    expect(mockSetState).toHaveBeenCalled();
   });
 
   it('active session hide warning', async () => {

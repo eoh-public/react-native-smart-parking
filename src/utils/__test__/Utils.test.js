@@ -4,6 +4,7 @@ import {
   setAxiosDefaultLanguage,
   formatMoney,
   insertToString,
+  removeFromString,
 } from '../Utils';
 import axios from 'axios';
 
@@ -27,4 +28,8 @@ test('format money', () => {
 
 test('insert too string', () => {
   expect(insertToString('abc', 1, 'a')).toBe('aabc');
+});
+
+test('removeFromString', () => {
+  expect(removeFromString('abc', 1)).toBe('ac');
 });

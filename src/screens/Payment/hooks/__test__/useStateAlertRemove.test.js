@@ -34,4 +34,36 @@ describe('Test useStateAlertRemove', () => {
       itemRemove: {},
     });
   });
+
+  test('test onShowRemoveAlert', () => {
+    const { result } = renderHook(() => useStateAlertRemove());
+    act(() => {
+      result.current.onShowRemoveAlert();
+    });
+    expect(result.current.stateAlertRemove).toEqual({
+      visible: false,
+      title: '',
+      message: '',
+      leftButton: t('cancel'),
+      rightButton: '',
+      vehicle: {},
+      itemRemove: {},
+    });
+  });
+
+  test('test onShowChangeDefaultAlert', () => {
+    const { result } = renderHook(() => useStateAlertRemove());
+    act(() => {
+      result.current.onShowChangeDefaultAlert();
+    });
+    expect(result.current.stateAlertRemove).toEqual({
+      visible: false,
+      title: '',
+      message: '',
+      leftButton: t('cancel'),
+      rightButton: '',
+      vehicle: {},
+      itemRemove: {},
+    });
+  });
 });

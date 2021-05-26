@@ -162,7 +162,7 @@ describe('Test ParkingInputManually container', () => {
 
     const { textConfirmResult } = getResult(instance);
     expect(textConfirmResult[0].props.children).toBe(
-      t('notify_spot_has_been_booked')
+      t('notify_spot_not_exist')
     );
   });
 

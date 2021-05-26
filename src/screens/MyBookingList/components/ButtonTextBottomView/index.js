@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   NativeModules,
+  Platform,
 } from 'react-native';
 import { t } from 'i18n-js';
 import { useNavigation } from '@react-navigation/native';
@@ -141,6 +142,10 @@ const styles = StyleSheet.create({
   textButton: {
     minWidth: 60,
     textAlign: 'center',
+    marginTop: Platform.select({
+      android: 0,
+      ios: -3,
+    }),
   },
   widthText: {
     width: '50%',
