@@ -8,7 +8,6 @@ import { Colors } from '../../../configs';
 import { CustomCheckbox } from '../../../commons';
 
 const mockedDateTime = jest.fn();
-
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
   memo: (x) => x,

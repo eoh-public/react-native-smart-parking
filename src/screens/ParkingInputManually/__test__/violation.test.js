@@ -6,7 +6,6 @@ import { useNavigation } from '@react-navigation/native';
 import { TESTID } from '../../../configs/Constants';
 
 jest.mock('axios');
-
 const mockSetState = jest.fn();
 jest.mock('react', () => {
   return {

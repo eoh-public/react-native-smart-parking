@@ -26,6 +26,8 @@ const mockedReplace = jest.fn();
 const mockedUseIsFocused = jest.fn();
 mockedUseIsFocused.mockImplementation(() => true);
 
+jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
+
 jest.mock('@react-navigation/native', () => {
   return {
     ...jest.requireActual('@react-navigation/native'),

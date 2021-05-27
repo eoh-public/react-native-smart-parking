@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { memo, useMemo } from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
 import Text from '../../commons/Text';
@@ -65,8 +66,7 @@ const TermAndConditions = memo(({ scrollViewStyle }) => {
         Bảo mật tuyệt đối mọi thông tin giao dịch trực tuyến của Thành viên bao gồm thông tin hóa đơn kế toán
         chứng từ số hóa tại khu vực dữ liệu trung tâm an toàn cấp 1 của EOH. \n
         Ban quản lý EOH yêu cầu các cá nhân khi đăng ký/mua hàng là thành viên, phải cung cấp đầy đủ thông tin cá nhân
-        có liên quan như: Họ và tên, địa chỉ liên lạc, email, số chứng minh nhân dân, 
-        điện thoại, số tài khoản, số thẻ thanh toán …., và chịu trách nhiệm về tính pháp lý của những thông tin trên. 
+        có liên quan như: Họ và tên, email, số điện thoại …., và chịu trách nhiệm về tính pháp lý của những thông tin trên. 
         Ban quản lý EOH không chịu trách nhiệm cũng như không giải quyết mọi khiếu nại có liên quan đến quyền lợi
         của Thành viên đó nếu xét thấy tất cả thông tin cá nhân
         của thành viên đó cung cấp khi đăng ký ban đầu là không chính xác.`,
