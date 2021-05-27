@@ -7,7 +7,6 @@ import ParkingInputManually from '../index';
 import { t } from 'i18n-js';
 
 jest.mock('axios');
-
 describe('Test ParkingInputManually container', () => {
   beforeEach(() => {
     jest.useFakeTimers();

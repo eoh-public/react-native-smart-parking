@@ -10,7 +10,6 @@ import { TESTID } from '../../../configs/Constants';
 jest.mock('axios');
 const mockNavigate = jest.fn();
 const mockDispatch = jest.fn();
-
 jest.mock('@react-navigation/native', () => {
   return {
     ...jest.requireActual('@react-navigation/native'),

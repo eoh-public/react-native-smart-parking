@@ -92,7 +92,10 @@ const ItemNotification = memo(({ item, index }) => {
             arrParams,
             Colors.Orange
           ),
-          redirect: () => navigation.navigate(Routes.MyBookingList),
+          redirect: () =>
+            navigation.navigate(Routes.SmartParkingBookingDetails, {
+              id: booking_id,
+            }),
         };
       case 'SYSTEM_CANCEL_NO_PAYMENT':
         return {
@@ -102,7 +105,10 @@ const ItemNotification = memo(({ item, index }) => {
             arrParams,
             Colors.Orange
           ),
-          redirect: () => navigation.navigate(Routes.MyBookingList),
+          redirect: () =>
+            navigation.navigate(Routes.SmartParkingBookingDetails, {
+              id: booking_id,
+            }),
         };
       case 'BOOKING_SUCCESSFULLY':
         return {
@@ -125,7 +131,10 @@ const ItemNotification = memo(({ item, index }) => {
             arrParams,
             Colors.Orange
           ),
-          redirect: () => navigation.navigate(Routes.MyBookingList),
+          redirect: () =>
+            navigation.navigate(Routes.SmartParkingBookingDetails, {
+              id: booking_id,
+            }),
         };
     }
   }, [arrParams, content_code, navigation, params]);

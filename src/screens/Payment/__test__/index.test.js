@@ -10,7 +10,6 @@ import { TESTID } from '../../../configs/Constants';
 import { MenuActionList, MenuActionMore } from '../../../commons';
 
 jest.mock('axios');
-
 jest.mock('react', () => {
   return {
     ...jest.requireActual('react'),

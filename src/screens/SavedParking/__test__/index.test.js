@@ -9,9 +9,6 @@ import { API } from '../../../configs';
 jest.mock('axios');
 const mockNavigate = jest.fn();
 const mockDispatch = jest.fn();
-
-jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
-
 jest.mock('@react-navigation/native', () => {
   return {
     ...jest.requireActual('@react-navigation/native'),
@@ -96,5 +93,29 @@ describe('test saved parking container', () => {
       await button.props.onPress();
     });
     expect(axios.post).toHaveBeenCalledWith(API.PARKING.UNSAVE(9));
+  });
+  test('render saved parking container, onPress SAVE', async () => {
+    resGetSavedParkings.data.is_saved = false;
+    axios.get.mockImplementation(async () => {
+      return resGetSavedParkings;
+    });
+    mockSetStates(0, [resGetSavedParkings.data]);
+    const response = {
+      status: 200,
+    };
+    axios.post.mockImplementation(async () => {
+      return response;
+    });
+    await act(async () => {
+      tree = await create(<SavedParking />);
+    });
+    const instance = tree.root;
+    const button = instance.find(
+      (el) => el.props.testID === TESTID.SAVED_PARKING_BUTTON
+    );
+    await act(async () => {
+      await button.props.onPress();
+    });
+    expect(axios.post).toHaveBeenCalledWith(API.PARKING.SAVE(9));
   });
 });

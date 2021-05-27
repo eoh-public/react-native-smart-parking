@@ -10,7 +10,6 @@ import ItemVehicle from '../../SavedVehicle/ItemVehicle';
 import { AlertAction } from '../../../commons';
 
 const mockedNavigate = jest.fn();
-
 jest.mock('axios');
 
 jest.mock('react', () => ({
