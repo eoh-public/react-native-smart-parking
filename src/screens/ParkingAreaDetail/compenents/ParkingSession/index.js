@@ -50,7 +50,7 @@ const ParkingSession = memo(
       const newStateSave = !isSave;
       if (newStateSave) {
         setBookTime({ ...bookTime, arriveAt: moment() });
-      } else {
+      } else if (parkingSessionData[0]) {
         const { id, time } = parkingSessionData[0];
         onChooseArrive({ id, time }, 0);
       }
