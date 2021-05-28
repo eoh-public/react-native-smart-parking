@@ -43,7 +43,15 @@ import { formatLicencePlate } from '../../utils/inputFormatUtils';
 
 const ParkingAreaDetail = memo(({ route }) => {
   const { params } = route;
-  const { id, spot_id, spot_name, carItem, unLock, numBookHour } = params; // carItem: choose from SavedVehicle
+  const {
+    id,
+    spot_id,
+    spot_name,
+    carItem,
+    unLock,
+    numBookHour,
+    searchedLocation,
+  } = params; // carItem: choose from SavedVehicle
   const {
     loading,
     parkingDetailData,
@@ -346,7 +354,11 @@ const ParkingAreaDetail = memo(({ route }) => {
                   : styles.container
               }
             >
-              <AddressInfo {...parkingDetailData} preBook={preBook} />
+              <AddressInfo
+                {...parkingDetailData}
+                preBook={preBook}
+                searchedLocation={searchedLocation}
+              />
               {checkLockBook && (
                 <>
                   <ParkingSession

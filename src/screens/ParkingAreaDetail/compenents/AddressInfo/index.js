@@ -31,6 +31,7 @@ const AddressInfo = memo(
     distance: rawDistance,
     total_spot,
     preBook,
+    searchedLocation,
   }) => {
     const distance = calcDistance(rawDistance);
     const { navigate } = useNavigation();
@@ -74,7 +75,9 @@ const AddressInfo = memo(
     if (status === 'FULL' || status === 'ĐẦY') {
       titleColor = Colors.Red;
       timeHandler = setTimeout(async () => {
-        const location = await getCurrentLatLng();
+        const location = searchedLocation
+          ? { lat: searchedLocation.latitude, lng: searchedLocation.longitude }
+          : await getCurrentLatLng();
         const { data, success } = await axiosGet(API.PARKING.NEAREST, {
           params: { lat: location.lat, lng: location.lng },
         });

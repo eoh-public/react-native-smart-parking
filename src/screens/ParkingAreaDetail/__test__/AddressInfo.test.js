@@ -13,6 +13,10 @@ jest.mock('axios');
 
 const LAT = 10.762622;
 const LON = 106.660172;
+const searchedLocation = {
+  latitude: 123,
+  longitude: 456,
+};
 
 GetLocation.getCurrentPosition.mockImplementation(async () => {
   return {
@@ -138,14 +142,19 @@ describe('Test AddressInfo', () => {
     });
 
     await act(async () => {
-      tree = await create(<AddressInfo {...data} />);
+      tree = await create(
+        <AddressInfo {...data} searchedLocation={searchedLocation} />
+      );
     });
     await act(async () => {
       await jest.runAllTimers();
     });
 
     expect(axios.get).toHaveBeenCalledWith(API.PARKING.NEAREST, {
-      params: { lat: LAT, lng: LON },
+      params: {
+        lat: searchedLocation.latitude,
+        lng: searchedLocation.longitude,
+      },
     });
 
     const res = { parking_nearest: {}, status: 'parking_nearest' };

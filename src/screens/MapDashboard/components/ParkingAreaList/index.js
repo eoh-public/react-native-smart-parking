@@ -25,6 +25,7 @@ const ParkingAreaList = ({
   onUnsaveParking,
   indexParking,
   onSnapToIndex,
+  searchedLocation,
 }) => {
   const carousel = useRef();
   const debounce = useRef();
@@ -54,6 +55,7 @@ const ParkingAreaList = ({
       const onPressBookNow = () => {
         navigate(Routes.SmartParkingParkingAreaDetail, {
           id: item.id,
+          searchedLocation,
         });
       };
 
@@ -164,7 +166,7 @@ const ParkingAreaList = ({
         </View>
       );
     },
-    [navigate, onSaveParking, onUnsaveParking, parkingAreas]
+    [navigate, onSaveParking, onUnsaveParking, parkingAreas, searchedLocation]
   );
 
   return (
