@@ -6,7 +6,7 @@ exports[`Test RowDetails render row details 1`] = `
     Object {
       "flexDirection": "row",
       "justifyContent": "space-between",
-      "marginTop": 8,
+      "marginBottom": 16,
     }
   }
 >
@@ -38,7 +38,7 @@ exports[`Test RowDetails render row details 1`] = `
       style={
         Array [
           Object {
-            "color": "#595959",
+            "color": "#262626",
             "fontFamily": "SFProDisplay-Semibold",
             "fontSize": 14,
             "lineHeight": 22,
@@ -61,7 +61,7 @@ exports[`Test RowDetails render row details 2 1`] = `
     Object {
       "flexDirection": "row",
       "justifyContent": "space-between",
-      "marginTop": 8,
+      "marginBottom": 16,
     }
   }
 >
@@ -93,7 +93,7 @@ exports[`Test RowDetails render row details 2 1`] = `
       style={
         Array [
           Object {
-            "color": "#8C8C8C",
+            "color": "#262626",
             "fontFamily": "SFProDisplay-Regular",
             "fontSize": 14,
             "lineHeight": 22,
@@ -110,7 +110,7 @@ exports[`Test RowDetails render row details 2 1`] = `
       style={
         Array [
           Object {
-            "color": "#8C8C8C",
+            "color": "#262626",
             "fontFamily": "SFProDisplay-Regular",
             "fontSize": 14,
             "lineHeight": 22,

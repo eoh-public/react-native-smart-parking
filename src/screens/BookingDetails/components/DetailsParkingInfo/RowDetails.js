@@ -15,7 +15,7 @@ const RowDetails = memo(({ title = '', value = [], semibold = false }) => {
           <Text
             key={index}
             type={'Body'}
-            color={semibold ? Colors.Gray8 : Colors.Gray7}
+            color={Colors.Gray9}
             semibold={semibold}
             style={index !== 0 && styles.rowInCol}
           >
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 8,
+    marginBottom: 16,
   },
   col: {
     flexDirection: 'column',
