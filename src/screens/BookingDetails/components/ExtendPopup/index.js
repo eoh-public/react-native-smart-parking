@@ -87,11 +87,11 @@ const ExtendPopup = memo(
 
     const renderChild = useMemo(() => {
       return (
-        <View>
+        <View style={styles.wrapContent}>
           <Text semibold type="H4" style={styles.title}>
             {t('extend_parking_hours')}
           </Text>
-          <Text type="H4" style={styles.extendDescription}>
+          <Text type="Body" style={styles.extendDescription}>
             {t('select_time_want_park_extra')}
           </Text>
           <ControllHour
@@ -124,7 +124,7 @@ const ExtendPopup = memo(
               </Text>
               <Text
                 type="H4"
-                color={Colors.Orange}
+                color={Colors.Gray9}
                 semibold
                 testID={TESTID.EXTEND_TOTAL_PRICE}
               >
@@ -157,6 +157,8 @@ const ExtendPopup = memo(
         onPressSecondary={buttonEvent.on_press_secondary}
         onPressMain={buttonEvent.on_press_main}
         bodyStyle={styles.buttonPopupBody}
+        hideClose
+        childrenStyle={styles.childrenStyle}
       >
         {renderChild}
       </ButtonPopup>
@@ -175,6 +177,7 @@ const styles = StyleSheet.create({
   },
   extendDescription: {
     marginBottom: 16,
+    color: Colors.Gray8,
   },
   controlHour: {
     paddingHorizontal: 0,
@@ -190,5 +193,12 @@ const styles = StyleSheet.create({
     paddingBottom: 17,
     borderBottomWidth: 1,
     borderColor: Colors.Gray4,
+  },
+  childrenStyle: {
+    paddingHorizontal: 16,
+  },
+  wrapContent: {
+    marginTop: -20,
+    marginBottom: 12,
   },
 });
