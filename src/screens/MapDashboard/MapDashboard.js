@@ -588,6 +588,7 @@ const MapDashboard = memo(({ route }) => {
               onUnsaveParking={onUnsaveParking}
               indexParking={indexParking}
               onSnapToIndex={onChoosingIndexParking}
+              searchedLocation={searchedLocation}
             />
           </View>
         )}
