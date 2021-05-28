@@ -106,7 +106,8 @@ const ParkingTicket = memo(
                   type="Body"
                   style={styles.textPayBefore}
                 >
-                  {t('pay_before_%{time}', { time: pay_before_str })}
+                  {!is_violated &&
+                    t('pay_before_%{time}', { time: pay_before_str })}
                 </Text>
               )}
             </View>
