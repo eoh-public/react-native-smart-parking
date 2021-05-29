@@ -1,7 +1,9 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import ParkingTicket from '..';
+import TimeCountDown from '../../TimeCountDown';
 import moment from 'moment';
+import Text from '../../../../../commons/Text';
 
 describe('Test ParkingTicket', () => {
   let data;
@@ -10,28 +12,34 @@ describe('Test ParkingTicket', () => {
     Date.now = jest.fn(() => new Date('2021-01-24T12:00:00.000Z'));
     data = {
       time_remaining: 100,
-      start_countdown: false,
-      arrive_at: moment(),
-      leave_at: moment(),
-      pay_before: moment(),
-      plate_number: '59Z-1234',
+      arrive_at: moment(new Date('2021-01-20T05:00:00.629Z')),
+      leave_at: moment(new Date('2021-01-20T05:00:00.629Z')),
+      start_countdown: true,
       spot_name: 'HU1',
-      parking_area: '',
-      parking_address: '',
-      parking_lat: '123',
-      parking_lng: '456',
+      parking_area: 'parking area',
+      parking_address: 'parking address',
       status: '',
-      is_paid: false,
-      grand_total: 1,
+      is_violated: false,
     };
   });
 
-  let tree;
+  let wrapper;
 
   test('render', () => {
     act(() => {
-      tree = renderer.create(<ParkingTicket {...data} />);
+      wrapper = renderer.create(<ParkingTicket {...data} />);
     });
-    expect(tree.toJSON()).toMatchSnapshot();
+    const instance = wrapper.root;
+    const timeCountDowns = instance.findAllByType(TimeCountDown.type);
+    expect(timeCountDowns.length).toBe(1);
+
+    const texts = instance.findAllByType(Text);
+    const textsLen = texts.length;
+    const textParkingArea = texts[textsLen - 4];
+    const textParkingAddress = texts[textsLen - 3];
+    const textParkingSpot = texts[textsLen - 1];
+    expect(textParkingArea.props.children).toBe(data.parking_area);
+    expect(textParkingAddress.props.children).toBe(data.parking_address);
+    expect(textParkingSpot.props.children).toBe(data.spot_name);
   });
 });

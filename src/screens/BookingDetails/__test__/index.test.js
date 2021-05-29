@@ -539,7 +539,7 @@ describe('Test BookingDetails', () => {
     const textStatus = instance.find(
       (el) => el.props.testID === TESTID.BOOKING_DETAIL_TEST_STATUS
     );
-    expect(textStatus.children[0].props.children).toEqual('#' + t('cancelled'));
+    expect(textStatus.children[0].props.children).toEqual(t('cancelled'));
   });
 
   test('render wait for confirm booking', async () => {

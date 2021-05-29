@@ -1,6 +1,7 @@
 import ThanksForParkingPopup from './ThanksForParking';
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
+import { ButtonPopup } from '../../../../commons';
 
 describe('Test ThanksForParkingPopup', () => {
   let tree;
@@ -12,6 +13,8 @@ describe('Test ThanksForParkingPopup', () => {
         <ThanksForParkingPopup visible={true} onClose={onClose} />
       );
     });
-    expect(tree.toJSON()).toMatchSnapshot();
+    const instance = tree.root;
+    const popup = instance.findAllByType(ButtonPopup);
+    expect(popup.length).toBe(1);
   });
 });

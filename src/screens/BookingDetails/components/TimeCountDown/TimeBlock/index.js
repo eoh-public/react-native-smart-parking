@@ -27,6 +27,5 @@ const styles = StyleSheet.create({
   },
   time: {
     flexDirection: 'row',
-    marginBottom: 8,
   },
 });

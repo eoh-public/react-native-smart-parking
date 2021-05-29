@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { t } from 'i18n-js';
 
-const { transformDatetime, timeDifference } = require('../time');
+const { transformDatetime, timeDifference, calcTime } = require('../time');
 
 describe('test time utils, transformDatetime', () => {
   const timeSample = '2020-10-05T08:00:00.000Z';
@@ -22,6 +22,16 @@ describe('test time utils, transformDatetime', () => {
     expect(data).toEqual({
       time: timeSample,
     });
+  });
+
+  test('test transformDatetime array property', () => {
+    let data = {
+      time: [timeSample],
+    };
+    let result = [...data.time];
+    result = result.map((item) => (item ? moment(item) : item));
+    transformDatetime(data, ['time']);
+    expect(data.time).toEqual(result);
   });
 });
 
@@ -72,4 +82,12 @@ describe('test time utils, timeDifference', () => {
     const result = `1 ${t('years_ago')}`;
     _testTime(current, lastUpdated, result);
   });
+});
+
+describe('test time utils, calcTime', () => {
+  const testTime = '2021-01-23T04:34:57.465029Z';
+  const inputFormat = 'HH:mm';
+  const outputFormat = 'LT, DD/MM/YYYY';
+  const result = calcTime(testTime, inputFormat, outputFormat);
+  expect(result).toBe(moment(testTime, inputFormat).format(outputFormat));
 });
