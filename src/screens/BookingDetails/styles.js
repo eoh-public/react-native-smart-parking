@@ -9,7 +9,7 @@ export default StyleSheet.create({
     backgroundColor: Colors.White,
   },
   contentContainerStyle: {
-    paddingBottom: getBottomSpace() + 60,
+    paddingBottom: getBottomSpace() + 100,
     paddingTop: 16,
   },
   cancelButton: {
@@ -55,5 +55,9 @@ export default StyleSheet.create({
     color: Colors.Gray9,
     marginTop: 8,
     textAlign: 'center',
+  },
+  separator: {
+    borderColor: Colors.Gray4,
+    borderWidth: 0.3,
   },
 });

@@ -29,23 +29,31 @@ const TimeCountDown = memo(
 
     return (
       <View style={styles.container}>
-        <TimeBlock title={t('hour')} time={hours.toString()} color={color} />
-        <Text type="H2" color={Colors.Black} style={styles.text} semibold>
-          :
+        <Text>
+          {is_violated
+            ? t('total_violating_time')
+            : t('parking_time_remaining')}
         </Text>
-        <TimeBlock
-          title={t('minute')}
-          time={minutes.toString()}
-          color={color}
-        />
-        <Text type="H2" color={Colors.Black} style={styles.text} semibold>
-          :
-        </Text>
-        <TimeBlock
-          title={t('second')}
-          time={seconds.toString()}
-          color={color}
-        />
+
+        <View style={styles.timeContainer}>
+          <TimeBlock title={t('hour')} time={hours.toString()} color={color} />
+          <Text type="H1" color={color} style={styles.text} semibold>
+            :
+          </Text>
+          <TimeBlock
+            title={t('minute')}
+            time={minutes.toString()}
+            color={color}
+          />
+          <Text type="H1" color={color} style={styles.text} semibold>
+            :
+          </Text>
+          <TimeBlock
+            title={t('second')}
+            time={seconds.toString()}
+            color={color}
+          />
+        </View>
       </View>
     );
   }
@@ -55,14 +63,23 @@ export default TimeCountDown;
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    backgroundColor: Colors.Gray2,
-    flex: 1,
-    marginTop: 10,
+    padding: 16,
     borderRadius: 5,
-    borderWidth: 1,
-    borderColor: Colors.Gray4,
-    paddingVertical: 24,
+    marginBottom: 24,
+    backgroundColor: Colors.White,
+    shadowColor: Colors.Shadow,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.8,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  timeContainer: {
+    flexDirection: 'row',
+    flex: 1,
+    paddingVertical: 10,
     justifyContent: 'center',
   },
   text: {

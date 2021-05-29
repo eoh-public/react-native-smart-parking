@@ -7,7 +7,7 @@ import { Colors } from '../../../../configs';
 const RowDetails = memo(({ title = '', value = [], semibold = false }) => {
   return (
     <View style={styles.row}>
-      <Text type={'Body'} color={Colors.Gray7}>
+      <Text type={'Body'} color={Colors.Gray8}>
         {title}
       </Text>
       <View style={styles.col}>
@@ -32,12 +32,12 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 16,
+    marginTop: 16,
   },
   col: {
     flexDirection: 'column',
   },
   rowInCol: {
-    marginTop: 8,
+    marginTop: 16,
   },
 });

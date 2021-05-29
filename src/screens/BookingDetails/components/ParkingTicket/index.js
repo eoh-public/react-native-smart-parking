@@ -4,114 +4,70 @@ import { t } from 'i18n-js';
 
 import { Colors } from '../../../../configs';
 import Text from '../../../../commons/Text';
-import TicketViewSpace from '../TicketViewSpace';
 import TimeCountDown from '../TimeCountDown';
-import RowInfo from './RowInfo';
-import InfoField from '../InfoField';
-import { openMapDirection, formatMoney } from '../../../../utils/Utils';
 import { getDurationTime } from '../../../../utils/Converter/time';
+import { TESTID } from '../../../../configs/Constants';
 
 const ParkingTicket = memo(
   ({
     time_remaining,
-    start_countdown,
     arrive_at,
     leave_at,
-    pay_before,
-    plate_number,
+    start_countdown,
     spot_name,
     parking_area,
     parking_address,
-    parking_lat,
-    parking_lng,
     status,
-    is_paid,
-    grand_total,
     getBookingDetail,
     is_violated,
   }) => {
-    const timeFormat = 'LT - DD/MM/YYYY';
-    const arrive_at_str = arrive_at && arrive_at.format(timeFormat);
-    const leave_at_str = leave_at && leave_at.format(timeFormat);
-    const pay_before_str = pay_before && pay_before.format(timeFormat);
     const duration = getDurationTime(
       arrive_at,
       leave_at ? leave_at : undefined
     );
 
+    const statusColor = status === 'completed' ? Colors.Green6 : Colors.Red6;
+
     return (
       <View style={styles.container}>
+        {status === '' && (
+          <TimeCountDown
+            time_remaining={
+              is_violated
+                ? parseInt(duration.asSeconds().toString(), 10)
+                : time_remaining
+            }
+            start_countdown={is_violated ? !leave_at : start_countdown}
+            getBookingDetail={getBookingDetail}
+            is_violated={is_violated}
+          />
+        )}
         <View>
-          <View style={styles.ticketTopContainer}>
-            <Text type="Body" semibold>
-              {t('parking_session')}
+          <Text style={styles.parkingInfoText} type="H3" semibold>
+            {parking_area}
+          </Text>
+          <Text style={styles.parkingInfoText} type="Body" color={Colors.Gray8}>
+            {parking_address}
+          </Text>
+          <Text style={styles.parkingInfoText} type="Body" color={Colors.Gray8}>
+            {t('parking_spot_number')}:{' '}
+            <Text color={Colors.Primary}>{spot_name}</Text>
+          </Text>
+          {status !== '' && (
+            <Text
+              style={styles.parkingInfoText}
+              type="Body"
+              color={Colors.Gray8}
+            >
+              {t('Status')}{' '}
+              <Text
+                testID={TESTID.BOOKING_DETAIL_TEST_STATUS}
+                color={statusColor}
+              >
+                {t(status)}
+              </Text>
             </Text>
-            {status === '' && (
-              <TimeCountDown
-                time_remaining={
-                  is_violated
-                    ? parseInt(duration.asSeconds().toString(), 10)
-                    : time_remaining
-                }
-                start_countdown={is_violated ? !leave_at : start_countdown}
-                getBookingDetail={getBookingDetail}
-                is_violated={is_violated}
-              />
-            )}
-            <RowInfo
-              leftValue={arrive_at_str}
-              rightValue={leave_at_str}
-              leftTitle={t('arrive_at')}
-              rightTitle={t('leave_at')}
-            />
-          </View>
-          <TicketViewSpace />
-          <View style={styles.ticketBottomContainer}>
-            <Text type={'Body'} semibold>
-              {t('parking_information')}
-            </Text>
-            <RowInfo
-              leftValue={plate_number}
-              rightValue={spot_name}
-              rightTitle={t('parking_spot')}
-              leftTitle={t('license_plate')}
-              body={false}
-            />
-            <InfoField
-              title={t('parking_area')}
-              value={parking_area}
-              style={styles.infoField}
-            />
-            <InfoField
-              title={t('parking_address')}
-              value={parking_address}
-              style={styles.infoField}
-              onDirection={openMapDirection({
-                lat: parking_lat,
-                lng: parking_lng,
-              })}
-            />
-            <View style={styles.totalPay}>
-              <View style={styles.totalRow}>
-                <Text type="Body" color={Colors.Gray8}>
-                  {t('text_total')}
-                </Text>
-                <Text type="H4" color={Colors.Orange} semibold>
-                  {formatMoney(grand_total)}
-                </Text>
-              </View>
-              {!is_paid && status === '' && (
-                <Text
-                  color={Colors.Red6}
-                  type="Body"
-                  style={styles.textPayBefore}
-                >
-                  {!is_violated &&
-                    t('pay_before_%{time}', { time: pay_before_str })}
-                </Text>
-              )}
-            </View>
-          </View>
+          )}
         </View>
       </View>
     );
@@ -127,40 +83,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     borderRadius: 8,
   },
-  ticketTopContainer: {
-    paddingTop: 16,
-    paddingBottom: 8,
-    paddingHorizontal: 16,
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
-    borderWidth: 1,
-    borderBottomWidth: 0,
-    borderColor: Colors.Gray4,
-  },
-  ticketBottomContainer: {
-    paddingBottom: 24,
-    paddingHorizontal: 16,
-    borderBottomLeftRadius: 8,
-    borderBottomRightRadius: 8,
-    borderWidth: 1,
-    borderTopWidth: 0,
-    borderColor: Colors.Gray4,
-  },
-  infoField: {
-    marginTop: 4,
-  },
-  totalPay: {
-    marginTop: 17,
-    paddingTop: 17,
-    paddingBottom: 8,
-    borderTopWidth: 1,
-    borderColor: Colors.Gray4,
-  },
-  totalRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  textPayBefore: {
-    textAlign: 'center',
+  parkingInfoText: {
+    marginBottom: 8,
   },
 });

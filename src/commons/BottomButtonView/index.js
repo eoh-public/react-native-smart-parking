@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { View, StyleSheet } from 'react-native';
+import { Colors } from '../../configs';
 
 import { TESTID } from '../../configs/Constants';
 import Button from '../Button';
@@ -71,21 +72,24 @@ const styleCustom = StyleSheet.create({
   },
   container: {
     paddingHorizontal: 16,
-    paddingVertical: 8,
+    paddingVertical: 20,
     position: 'absolute',
     bottom: 0,
     left: 0,
     right: 0,
     flex: 1,
+    borderTopWidth: 1,
+    borderTopColor: Colors.Gray4,
+    backgroundColor: Colors.White,
   },
   mainIcon: {
     marginRight: 10,
   },
   buttonMainRow: {
-    marginLeft: 4,
+    marginLeft: 8,
   },
   buttonSecondaryRow: {
-    marginRight: 4,
+    marginRight: 8,
   },
   buttonSecondaryColumn: {
     marginTop: 8,

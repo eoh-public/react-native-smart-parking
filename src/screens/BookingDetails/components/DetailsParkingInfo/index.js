@@ -2,100 +2,97 @@ import React, { memo } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { t } from 'i18n-js';
 
-import Text from '../../../../commons/Text';
-import { Colors } from '../../../../configs';
 import { formatMoney } from '../../../../utils/Utils';
 import { TESTID } from '../../../../configs/Constants';
 
 import RowDetails from './RowDetails';
+import RowHighlight from './RowHighlight';
 
 const DetailsParkingInfo = memo(
   ({
     id,
-    extend_at,
-    book_at,
-    pay_at,
-    num_of_hour_parking,
+    arrive_at,
+    leave_at,
     grand_total,
-    extend_fee,
     service_fee,
     discount,
     total,
     payment_method,
     is_violated,
+    plate_number,
     city,
   }) => {
     const timeFormat = 'LT - DD/MM/YYYY';
-    const book_at_str = book_at && book_at.format(timeFormat);
-    const pay_at_str = pay_at && pay_at.format(timeFormat);
-    const extend_at_formated = extend_at.map((item) => item.format(timeFormat));
-
-    const hourUnit =
-      num_of_hour_parking > 1 ? t('hours_parking') : t('hour_parking');
+    const arrive_at_str = arrive_at && arrive_at.format(timeFormat);
+    const leave_at_str = leave_at && leave_at.format(timeFormat);
 
     return (
       <View style={styles.container}>
         <View style={styles.content}>
-          <Text type={'Body'} color={Colors.Gray8} semibold>
-            {t('details')}
-          </Text>
+          <RowHighlight title={t('booking_info')} />
+          <RowDetails title={t('booking_id')} value={[`#${id}`]} />
           <RowDetails
-            testID={TESTID.NUMBER_OF_HOUR_PARKING}
-            title={`${num_of_hour_parking} ${hourUnit}`}
-            value={[`${formatMoney(total)}`]}
+            title={t('license_plate')}
+            value={[`${plate_number || '--'}`]}
           />
-          {!!is_violated && (
-            <RowDetails
-              testID={TESTID.DETAIL_PARKING_INFO_VIOLATION_RATE}
-              title={t('violation_rate')}
-              value={city && [`x${city.violation_charge_rate}`]}
-            />
-          )}
-          {!!is_violated && (
-            <RowDetails
-              testID={TESTID.DETAIL_PARKING_INFO_VIOLATION_FEE}
-              title={t('violation_fee')}
-              value={city && [`${formatMoney(city.violation_charge_fee)}`]}
-            />
-          )}
-          {!is_violated && (
-            <RowDetails
-              title={t('extend_fee')}
-              value={[`${formatMoney(extend_fee)}`]}
-            />
-          )}
-          {!is_violated && (
-            <RowDetails
-              title={t('service_fee')}
-              value={[`${formatMoney(service_fee)}`]}
-            />
-          )}
-          {!is_violated && (
-            <RowDetails
-              title={t('discount')}
-              value={[`-${formatMoney(discount)}`]}
-            />
-          )}
           <RowDetails
-            title={t('text_total')}
-            value={[`${grand_total ? formatMoney(grand_total) : 0}`]}
-            semibold
+            title={t('arrive_at')}
+            value={[`${arrive_at_str || '--'}`]}
+            testID={TESTID.ARRIVE_AT}
+          />
+          <RowDetails
+            title={t('leave_at')}
+            value={[`${leave_at_str || '--'}`]}
+            testID={TESTID.LEAVE_AT}
+          />
+          <RowDetails
+            title={t('payment_method')}
+            value={[payment_method || '--']}
           />
         </View>
+
         <View style={styles.bottomContent}>
-          <RowDetails title={t('booking_id')} value={[`#${id}`]} />
-          <RowDetails title={t('book_at')} value={[book_at_str]} />
+          <RowHighlight title={t('parking_fee')} />
           <RowDetails
-            testID={TESTID.PAY_AT}
-            title={t('pay_at')}
-            value={[pay_at_str || t('not_paid')]}
+            testID={TESTID.NUMBER_OF_HOUR_PARKING}
+            title={
+              !is_violated
+                ? t('total_parking_hours')
+                : t('violating_parking_hours')
+            }
+            value={[`${formatMoney(total)}`]}
           />
-          {extend_at.length > 0 && (
-            <RowDetails title={t('extend_at')} value={extend_at_formated} />
-          )}
           {!is_violated && (
-            <RowDetails title={t('payment_method')} value={[payment_method]} />
+            <>
+              <RowDetails
+                title={t('service_fee')}
+                value={[`${formatMoney(service_fee)}`]}
+              />
+              <RowDetails
+                title={t('discount')}
+                value={[`-${formatMoney(discount)}`]}
+              />
+            </>
           )}
+          {!!is_violated && (
+            <>
+              <RowDetails
+                testID={TESTID.DETAIL_PARKING_INFO_VIOLATION_RATE}
+                title={t('violation_rate')}
+                value={city && [`x${city.violation_charge_rate}`]}
+              />
+              <RowDetails
+                testID={TESTID.DETAIL_PARKING_INFO_VIOLATION_FEE}
+                title={t('violation_fee')}
+                value={city && [`${formatMoney(city.violation_charge_fee)}`]}
+              />
+            </>
+          )}
+
+          <RowHighlight
+            title={t('text_total')}
+            value={`${grand_total ? formatMoney(grand_total) : '--VND'}`}
+          />
         </View>
       </View>
     );
@@ -109,11 +106,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   content: {
-    borderBottomColor: Colors.Gray4,
-    borderBottomWidth: 1,
     paddingVertical: 16,
   },
   bottomContent: {
-    paddingVertical: 16,
+    paddingBottom: 16,
   },
 });

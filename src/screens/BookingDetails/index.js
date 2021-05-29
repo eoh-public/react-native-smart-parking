@@ -98,19 +98,6 @@ const getButtonDrawner = (
   return { mainTitle, secondaryTitle, onPressMain, onPressSecondary };
 };
 
-const getStatus = (status) => {
-  let textStatus = '';
-  let colorStatus = Colors.White;
-  if (status === 'completed') {
-    textStatus = '#' + t('completed');
-    colorStatus = Colors.Green6;
-  } else if (status === 'cancelled') {
-    textStatus = '#' + t('cancelled');
-    colorStatus = Colors.Gray7;
-  }
-  return { textStatus, colorStatus };
-};
-
 const getPaymentData = (paymentMethod) => {
   return {
     payment_method: 'last4' in paymentMethod ? 'stripe' : paymentMethod.code,
@@ -119,13 +106,7 @@ const getPaymentData = (paymentMethod) => {
 };
 
 const BookingDetails = memo(({ route }) => {
-  const {
-    id,
-    isShowExtendNow,
-    scanDataResponse,
-    methodItem,
-    title,
-  } = route.params;
+  const { id, isShowExtendNow, scanDataResponse, methodItem } = route.params;
   const [showScanResponse, setShowScanResponse] = useState(true);
   const { VnpayMerchant } = NativeModules;
   const { violationsData } = useSelector((state) => state.myBookingList);
@@ -286,13 +267,13 @@ const BookingDetails = memo(({ route }) => {
   const onExtend = useCallback(() => {
     setShowExtend(false);
     (async () => {
-      if (bookingDetail.is_violated) {
+      if (is_violated) {
         onPayFineAndExtend();
       } else {
         processExtend();
       }
     })();
-  }, [bookingDetail, processExtend, onPayFineAndExtend, setShowExtend]);
+  }, [is_violated, processExtend, onPayFineAndExtend, setShowExtend]);
 
   const onScanQR = useCallback(() => {
     navigate(Routes.SmartParkingScanQR);
@@ -387,7 +368,6 @@ const BookingDetails = memo(({ route }) => {
     violationsData
   );
 
-  const { textStatus, colorStatus } = getStatus(status);
   const [appState, setAppState] = useState(AppState.currentState);
 
   useEffect(() => {
@@ -441,7 +421,7 @@ const BookingDetails = memo(({ route }) => {
         testID={TESTID.HEADER_BOOKING_DETAILS}
         onBack={onBack}
         hideRight={true}
-        title={title || t('booking_details')}
+        title={!is_violated ? t('booking_details') : t('violation_details')}
         styleBoxTitle={styles.boxTitle}
         bottomBorder
       />
@@ -452,17 +432,8 @@ const BookingDetails = memo(({ route }) => {
           <RefreshControl refreshing={loading} onRefresh={onRefresh} />
         }
       >
-        <View style={styles.connectStatus}>
-          <Text
-            color={colorStatus}
-            size={14}
-            style={styles.txtStatus}
-            testID={TESTID.BOOKING_DETAIL_TEST_STATUS}
-          >
-            {textStatus}
-          </Text>
-        </View>
         <ParkingTicket {...bookingDetail} getBookingDetail={getBookingDetail} />
+        <View style={styles.separator} />
         <DetailsParkingInfo {...bookingDetail} />
         {!!is_violated && (
           <ItemPaymentMethod

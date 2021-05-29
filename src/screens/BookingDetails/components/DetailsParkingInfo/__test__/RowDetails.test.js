@@ -1,6 +1,7 @@
 import React from 'react';
 import { create, act } from 'react-test-renderer';
 import RowDetails from '../RowDetails';
+import Text from '../../../../../commons/Text';
 
 describe('Test RowDetails', () => {
   let wrapper;
@@ -9,7 +10,9 @@ describe('Test RowDetails', () => {
     act(() => {
       wrapper = create(<RowDetails value={['value']} title="title" semibold />);
     });
-    expect(wrapper.toJSON()).toMatchSnapshot();
+    const instance = wrapper.root;
+    const texts = instance.findAllByType(Text);
+    expect(texts.length).toBe(2);
   });
 
   test('render row details 2', () => {
@@ -18,6 +21,8 @@ describe('Test RowDetails', () => {
         <RowDetails value={['extend_time_1', 'extend_time_2']} title="title" />
       );
     });
-    expect(wrapper.toJSON()).toMatchSnapshot();
+    const instance = wrapper.root;
+    const texts = instance.findAllByType(Text);
+    expect(texts.length).toBe(3);
   });
 });

@@ -30,7 +30,6 @@ describe('Test TimeCountDown', () => {
     act(() => {
       tree = create(<TimeCountDown />);
     });
-    expect(tree.toJSON()).toMatchSnapshot();
     const instance = tree.root;
     const texts = instance.findAll(
       (el) =>
@@ -61,7 +60,6 @@ describe('Test TimeCountDown', () => {
     act(() => {
       tree = create(<TimeCountDown />);
     });
-    expect(tree.toJSON()).toMatchSnapshot();
     const instance = tree.root;
     const texts = instance.findAll(
       (el) =>

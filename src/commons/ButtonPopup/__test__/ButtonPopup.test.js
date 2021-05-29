@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import ButtonPopup from '../index';
+import Modal from 'react-native-modal';
 
 describe('Test button popup', () => {
   let tree;
@@ -15,6 +16,8 @@ describe('Test button popup', () => {
         />
       );
     });
-    expect(tree.toJSON()).toMatchSnapshot();
+    const instance = tree.root;
+    const modal = instance.findAllByType(Modal);
+    expect(modal.length).toBe(1);
   });
 });
