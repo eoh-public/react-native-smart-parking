@@ -402,7 +402,7 @@ describe('test BookingConfirm container', () => {
       await button.props.onPress();
     });
     expect(mockedDispatch).toHaveBeenCalled();
-    expect(mockedNavigate).not.toHaveBeenCalled();
+    expect(mockedNavigate).toHaveBeenCalled();
   });
 
   test('onConfirmBooking pay now without any case', async () => {

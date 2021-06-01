@@ -1,17 +1,10 @@
 import React, { memo, useState, useEffect, useCallback } from 'react';
-import {
-  StyleSheet,
-  View,
-  ScrollView,
-  NativeModules,
-  ActivityIndicator,
-} from 'react-native';
+import { StyleSheet, View, ScrollView, ActivityIndicator } from 'react-native';
 import { useIsFocused, useNavigation } from '@react-navigation/native';
-import DeepLinking from 'react-native-deep-linking';
 import FastImage from 'react-native-fast-image';
 import moment from 'moment';
 import { t } from 'i18n-js';
-import { API, Colors, Constants, AppRNConfig } from '../../configs';
+import { API, Colors, AppRNConfig } from '../../configs';
 import { axiosPost, axiosGet } from '../../utils/Apis/axios';
 import { formatMoney } from '../../utils/Utils';
 import Routes from '../../utils/Route';
@@ -124,9 +117,7 @@ const BookingConfirm = memo(({ route }) => {
     }
   }, [isPaymentReady, setNotReadyToConfirm, setReadyToConfirm]);
 
-  const [checkBack, setCheckBack] = useState(false);
-
-  const { VnpayMerchant } = NativeModules;
+  const [checkBack] = useState(false);
 
   useEffect(() => {
     if (isFocused && checkBack) {
@@ -160,22 +151,7 @@ const BookingConfirm = memo(({ route }) => {
       if (body.is_pay_now) {
         switch (billing.payment_method) {
           case 'vnpay':
-            DeepLinking.addRoute('/eoh/success-payment', (response) => {
-              navigateBookingSuccess(booking, billing);
-            });
-            setCheckBack(true);
-            VnpayMerchant.show(
-              Constants.DEEP_LINK.SUCCESS_PAYMENT,
-              true,
-              payment_url,
-              'EOH00001',
-              t('notify_back'),
-              t('payment_confirm'),
-              Colors.Black,
-              Colors.White,
-              Colors.White,
-              'back_icon'
-            );
+            navigate(Routes.VnPay, { payment_url });
             break;
           case 'stripe': {
             navigate(Routes.ProcessPayment, {
@@ -191,7 +167,7 @@ const BookingConfirm = memo(({ route }) => {
         navigateBookingSuccess(booking, billing);
       }
     }
-  }, [VnpayMerchant, body, navigate, navigateBookingSuccess, dispatch]);
+  }, [body, navigate, navigateBookingSuccess, dispatch]);
 
   const onPressChangePaymentMethod = useCallback(() => {
     navigate(Routes.SmartParkingSelectPaymentMethod, {

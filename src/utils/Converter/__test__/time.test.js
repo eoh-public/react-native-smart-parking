@@ -41,42 +41,42 @@ describe('test time utils, timeDifference', () => {
     expect(timeString).toEqual(result);
   };
 
-  test('test transformDatetime seconds ago', () => {
+  test('test timeDifference seconds ago', () => {
     const current = '2020-10-05T08:00:01.000Z';
     const lastUpdated = '2020-10-05T08:00:00.000Z';
     const result = `1 ${t('seconds_ago')}`;
     _testTime(current, lastUpdated, result);
   });
 
-  test('test transformDatetime minutes ago', () => {
+  test('test timeDifference minutes ago', () => {
     const current = '2020-10-05T08:01:00.000Z';
     const lastUpdated = '2020-10-05T08:00:00.000Z';
     const result = `1 ${t('minutes_ago')}`;
     _testTime(current, lastUpdated, result);
   });
 
-  test('test transformDatetime hours ago', () => {
+  test('test timeDifference hours ago', () => {
     const current = '2020-10-05T09:00:00.000Z';
     const lastUpdated = '2020-10-05T08:00:00.000Z';
     const result = `1 ${t('hours_ago')}`;
     _testTime(current, lastUpdated, result);
   });
 
-  test('test transformDatetime days ago', () => {
+  test('test timeDifference days ago', () => {
     const current = '2020-10-06T08:00:00.000Z';
     const lastUpdated = '2020-10-05T08:00:00.000Z';
     const result = `1 ${t('days_ago')}`;
     _testTime(current, lastUpdated, result);
   });
 
-  test('test transformDatetime months ago', () => {
+  test('test timeDifference months ago', () => {
     const current = '2020-11-05T08:00:00.000Z';
     const lastUpdated = '2020-10-05T08:00:00.000Z';
     const result = `1 ${t('months_ago')}`;
     _testTime(current, lastUpdated, result);
   });
 
-  test('test transformDatetime years ago', () => {
+  test('test timeDifference years ago', () => {
     const current = '2021-10-05T08:00:00.000Z';
     const lastUpdated = '2020-10-05T08:00:00.000Z';
     const result = `1 ${t('years_ago')}`;

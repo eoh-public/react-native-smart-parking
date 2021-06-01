@@ -7,21 +7,20 @@ export const calcTime = (time, inputFormat, outputFormat) => {
   return datetime.format(outputFormat);
 };
 
-export const transformDatetime = (data = {}, listFieldName) => {
+export const transformDatetime = (data, listFieldName) => {
   listFieldName.forEach((name) => {
-    const value = data[name];
-    const isArray = Array.isArray(value);
-
     if (!data.hasOwnProperty(name)) {
       return;
     }
 
+    const value = data[name];
+    const isArray = Array.isArray(value);
+
     if (isArray) {
       data[name] = value.map((item) => (item ? moment(item) : item));
-      return;
+    } else {
+      data[name] = value ? moment(value) : value;
     }
-
-    data[name] = value ? moment(value) : value;
   });
 };
 

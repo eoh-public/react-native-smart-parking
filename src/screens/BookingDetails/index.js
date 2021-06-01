@@ -1,20 +1,13 @@
 import React, { memo, useCallback, useEffect, useState } from 'react';
-import {
-  ScrollView,
-  View,
-  NativeModules,
-  RefreshControl,
-  AppState,
-} from 'react-native';
+import { ScrollView, View, RefreshControl, AppState } from 'react-native';
 import { TESTID } from '../../configs/Constants';
 
 import { useNavigation, useIsFocused } from '@react-navigation/native';
 import { t } from 'i18n-js';
-import DeepLinking from 'react-native-deep-linking';
 import { useDispatch, useSelector } from 'react-redux';
 import { Icon } from '@ant-design/react-native';
 
-import { Colors, Constants, API } from '../../configs';
+import { Colors, API } from '../../configs';
 import { axiosPost } from '../../utils/Apis/axios';
 import Routes from '../../utils/Route';
 import { ToastBottomHelper } from '../../utils/Utils';
@@ -108,7 +101,6 @@ const getPaymentData = (paymentMethod) => {
 const BookingDetails = memo(({ route }) => {
   const { id, isShowExtendNow, scanDataResponse, methodItem } = route.params;
   const [showScanResponse, setShowScanResponse] = useState(true);
-  const { VnpayMerchant } = NativeModules;
   const { violationsData } = useSelector((state) => state.myBookingList);
 
   const isFocus = useIsFocused();
@@ -186,27 +178,7 @@ const BookingDetails = memo(({ route }) => {
     (booking, billing, paymentUrl, from) => {
       switch (billing.payment_method) {
         case 'vnpay':
-          DeepLinking.addRoute('/eoh/success-payment', (response) => {
-            navigate(Routes.SmartParkingBookingSuccess, {
-              booking: {
-                ...booking,
-                is_pay_now: true,
-              },
-              billing,
-            });
-          });
-          VnpayMerchant.show(
-            Constants.DEEP_LINK.SUCCESS_PAYMENT,
-            true,
-            paymentUrl,
-            'EOH00001',
-            t('notify_back'),
-            t('payment_confirm'),
-            Colors.Black,
-            Colors.White,
-            Colors.White,
-            'ion_back'
-          );
+          navigate(Routes.VnPay, { payment_url: paymentUrl });
           break;
         case 'stripe': {
           navigate(Routes.ProcessPayment, {
@@ -219,7 +191,7 @@ const BookingDetails = memo(({ route }) => {
           break;
       }
     },
-    [VnpayMerchant, navigate, navigateBookingSuccess]
+    [navigate, navigateBookingSuccess]
   );
 
   const handleExtendPayment = useCallback(
