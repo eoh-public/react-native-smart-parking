@@ -1,20 +1,15 @@
 import React, { memo, useCallback } from 'react';
-import {
-  View,
-  TouchableOpacity,
-  StyleSheet,
-  NativeModules,
-  Platform,
-} from 'react-native';
+import { View, TouchableOpacity, StyleSheet, Platform } from 'react-native';
 import { t } from 'i18n-js';
 import { useNavigation } from '@react-navigation/native';
 
-import { Theme, Colors, Constants } from '../../../../configs';
+import { Theme, Colors } from '../../../../configs';
 import { TESTID } from '../../../../configs/Constants';
 import Text from '../../../../commons/Text';
 import { openMapDirection } from '../../../../utils/Utils';
 
 import { bookingStatus } from '../BookingHistory/BookingHistoryItem';
+import Routes from '../../../../utils/Route';
 
 const ButtonTextBottomView = memo(
   ({
@@ -43,28 +38,17 @@ const ButtonTextBottomView = memo(
       colorTitle = Colors.Gray7;
     }
 
-    const { VnpayMerchant } = NativeModules;
-
     const navigation = useNavigation();
 
     const onPressRightButton = useCallback(() => {
-      if (!isPaid && rightData.paymentMethod === 'vnpay') {
-        VnpayMerchant.show(
-          Constants.DEEP_LINK.SUCCESS_PAYMENT,
-          true,
-          rightData.paymentUrl,
-          'EOH00001',
-          t('notify_back'),
-          t('payment_confirm'),
-          Colors.Black,
-          Colors.White,
-          Colors.White,
-          'ion_back'
-        );
+      if (!isPaid && rightData && rightData.paymentMethod === 'vnpay') {
+        navigation.navigate(Routes.VnPay, {
+          payment_url: rightData.paymentUrl,
+        });
       } else {
         navigation.navigate(rightRoute, rightData); // if click this one on map dashboard, `replace` mean exit
       }
-    }, [navigation, rightRoute, rightData, VnpayMerchant, isPaid]);
+    }, [navigation, rightRoute, rightData, isPaid]);
 
     return (
       <View style={styles.container}>

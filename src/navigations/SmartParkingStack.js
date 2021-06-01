@@ -30,6 +30,7 @@ import StripeAddCard from '../screens/PaymentCommon/Stripe/AddCard';
 import ContactInformation from '../screens/ContactInformation';
 import TermAndConditions from '../screens/TermAndConditions';
 import { SelectPaymentMethod } from '../screens/SelectPaymentMethod';
+import VnPayScreen from '../screens/VnPay';
 
 const Stack = createStackNavigator();
 
@@ -201,6 +202,11 @@ export const SmartParkingStack = memo(() => {
         name={Routes.TermAndConditions}
         component={TermAndConditions}
         options={{ title: t('terms_and_condition') }}
+      />
+      <Stack.Screen
+        name={Routes.VnPay}
+        component={VnPayScreen}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );

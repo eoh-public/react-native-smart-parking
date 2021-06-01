@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { create, act } from 'react-test-renderer';
 import axios from 'axios';
 import MyBookingList from '../index';
-import { NativeModules, RefreshControl } from 'react-native';
+import { RefreshControl } from 'react-native';
 import { API } from '../../../configs';
 import { useIsFocused } from '@react-navigation/native';
 import { TESTID } from '../../../configs/Constants';
@@ -230,8 +230,7 @@ describe('MyBookingList', () => {
     act(() => {
       button.props.onPress();
     });
-    const { VnpayMerchant } = NativeModules;
-    expect(VnpayMerchant.show).toBeCalled();
+    expect(mockNavigate).toHaveBeenCalled();
   });
 
   test('refreshControl', () => {

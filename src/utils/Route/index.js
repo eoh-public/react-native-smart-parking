@@ -91,6 +91,7 @@ const Routes = {
   ContactInformation: 'ContactInformation',
   TermAndConditions: 'TermAndConditions',
   Browser: 'Browser',
+  VnPay: 'VnPay',
 };
 
 export default Routes;
