@@ -192,6 +192,7 @@ exports[`Test ItemPaymentMethod create ItemPaymentMethod 1`] = `
       >
         Tôi đã đọc và chấp nhận các 
         <Text
+          onPress={[Function]}
           style={
             Array [
               Object {
@@ -409,6 +410,7 @@ exports[`Test ItemPaymentMethod create ItemPaymentMethod is_default: false 1`] =
       >
         Tôi đã đọc và chấp nhận các 
         <Text
+          onPress={[Function]}
           style={
             Array [
               Object {

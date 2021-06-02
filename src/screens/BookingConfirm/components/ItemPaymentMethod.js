@@ -12,6 +12,8 @@ import {
 } from '../../../../assets/images/SmartParking';
 import { SvgWarning } from '../../../../assets/images/BookingDetail';
 import { TESTID } from '../../../configs/Constants';
+import { useNavigation } from '@react-navigation/native';
+import Routes from '../../../utils/Route';
 
 const getNameAndIconPaymentMethod = (method) => {
   let text = t('please_select_a_payment_method');
@@ -67,6 +69,7 @@ export const ItemPaymentMethod = memo(
     onPaymentReady,
   }) => {
     const [isTicked, setIsTicked] = useState(isTick);
+    const { navigate } = useNavigation();
 
     const onTick = useCallback(() => {
       setIsTicked(!isTicked);
@@ -94,6 +97,8 @@ export const ItemPaymentMethod = memo(
     const { text, image, change } = useMemo(() => {
       return getNameAndIconPaymentMethod(paymentMethod || {});
     }, [paymentMethod]);
+
+    const goToTerms = () => navigate(Routes.TermAndConditions);
 
     return (
       <View style={styles.container}>
@@ -158,7 +163,9 @@ export const ItemPaymentMethod = memo(
         >
           <Text type={'Body'} style={styles.termsText}>
             {t('terms_and_conditions_booking_prefix')}
-            <Text style={styles.termsWord}>{t('terms_and_conditions')}</Text>
+            <Text style={styles.termsWord} onPress={goToTerms}>
+              {t('terms_and_conditions')}
+            </Text>
             {t('terms_and_conditions_booking_postfix')}
           </Text>
         </CustomCheckbox>
