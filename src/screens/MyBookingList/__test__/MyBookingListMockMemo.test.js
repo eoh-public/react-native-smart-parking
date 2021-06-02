@@ -44,6 +44,5 @@ describe('MyBookingList', () => {
     act(() => {
       wrapHeaderScrollable.props.onLoadMore();
     });
-    expect(tree.toJSON()).toMatchSnapshot();
   });
 });

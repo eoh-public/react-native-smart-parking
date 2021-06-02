@@ -673,9 +673,12 @@
   "booking_info": "Booking info",
   "parking_fee": "Parking Fee",
   "total_parking_hour": "Total parking hour",
-  "no_violations": "There is no violation",
+  "no_violations": "No violations.",
   "desViolation": "You have one violation parking",
   "violation_detail": "Violation detail",
   "you_has_one_uncompleted_payment": "You have one uncompleted payment.",
+  "no_active_parking": "No active parking.",
+  "find_a_parking_area": "Find a parking area",
+  "no_parking_history": "No parking history.",
   "error_please_try_later": "Error! Please try later"
 }
