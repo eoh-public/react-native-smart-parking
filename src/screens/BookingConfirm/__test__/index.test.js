@@ -10,6 +10,7 @@ import { TESTID } from '../../../configs/Constants';
 import Routes from '../../../utils/Route';
 import BookingConfirm from '../index';
 import { TouchableOpacity } from 'react-native';
+import { useIsFocused } from '@react-navigation/native';
 
 jest.mock('axios');
 
@@ -84,10 +85,12 @@ describe('test BookingConfirm container', () => {
     mockedNavigate.mockClear();
     mockedAddRoute.mockClear();
     mockedVnpayMerchant.mockClear();
+    useIsFocused.mockClear();
     axios.get.mockReset();
   });
 
   test('getDefaultPaymentMethod', async () => {
+    useIsFocused.mockImplementation(() => true);
     const response = {
       status: 200,
       data: { id: 1, code: 'vnpay' },
@@ -402,7 +405,7 @@ describe('test BookingConfirm container', () => {
       await button.props.onPress();
     });
     expect(mockedDispatch).toHaveBeenCalled();
-    expect(mockedNavigate).toHaveBeenCalled();
+    expect(mockedNavigate).toHaveBeenCalledTimes(1);
   });
 
   test('onConfirmBooking pay now without any case', async () => {

@@ -681,5 +681,8 @@
   "desViolation": "Bạn có một lần đỗ xe vi phạm",
   "violation_detail": "Chi tiết vi phạm",
   "you_has_one_uncompleted_payment": "Bạn có một khoản thanh toán chưa hoàn thành.",
+  "no_active_parking": "Không có chổ đỗ  xe hoạt động.",
+  "find_a_parking_area": "Tìm khu vực đỗ xe",
+  "no_parking_history": "Không có lịch sử  đỗ xe.",
   "error_please_try_later": "Lỗi! Vui lòng thử lại sau"
 }

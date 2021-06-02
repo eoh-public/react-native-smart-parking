@@ -1,12 +1,24 @@
-import React, { memo } from 'react';
-import { View, StyleSheet } from 'react-native';
-
+import React, { memo, useCallback } from 'react';
+import { View, TouchableOpacity, Text } from 'react-native';
 import ActiveSessionsItem from './ActiveSessionsItem';
+import { styles } from './styles';
+import { t } from 'i18n-js';
 
 const ActiveSessions = memo(({ activeSessions, getActiveSession }) => {
-  return (
-    <View style={styles.container}>
-      {activeSessions.map((item) => {
+  const renderActiveSession = useCallback(() => {
+    if (!activeSessions.length) {
+      return (
+        <View style={styles.FrameNoActive}>
+          <Text style={styles.txtNoActive}>{t('no_active_parking')}</Text>
+          <TouchableOpacity style={styles.btnNoActive}>
+            <Text style={styles.txtInBtnNoActive}>
+              {t('find_a_parking_area')}
+            </Text>
+          </TouchableOpacity>
+        </View>
+      );
+    } else {
+      return activeSessions.map((item) => {
         return (
           <ActiveSessionsItem
             key={item.id}
@@ -14,14 +26,10 @@ const ActiveSessions = memo(({ activeSessions, getActiveSession }) => {
             reloadData={getActiveSession}
           />
         );
-      })}
-    </View>
-  );
+      });
+    }
+  }, [activeSessions, getActiveSession]);
+  return <View style={styles.container}>{renderActiveSession()}</View>;
 });
 
 export default ActiveSessions;
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 16,
-  },
-});

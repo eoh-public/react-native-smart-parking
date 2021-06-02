@@ -77,7 +77,9 @@ export default TabHeader;
 
 const styles = StyleSheet.create({
   tabItem: {
-    marginRight: 32,
+    paddingLeft: 40,
+    paddingRight: 39,
+    paddingBottom: 8,
   },
   tabItemActive: {
     borderBottomWidth: 2,
@@ -89,7 +91,6 @@ const styles = StyleSheet.create({
   tabHeaderContainer: {
     flexDirection: 'row',
     backgroundColor: Colors.White,
-    paddingLeft: 39,
     borderBottomWidth: 1,
     borderColor: Colors.Gray11,
   },
