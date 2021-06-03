@@ -49,7 +49,7 @@ describe('Test useSavedParkings', () => {
     );
   });
 
-  it('Test useCallback getParkingSession true', async () => {
+  it('Test useCallback getParkingSession call api success', async () => {
     const response = {
       status: 200,
       data: [
@@ -78,5 +78,30 @@ describe('Test useSavedParkings', () => {
     );
     expect(setParkingSessionData).toHaveBeenCalledTimes(1);
     expect(setBookTime).toHaveBeenCalledTimes(1);
+  });
+
+  it('Test useCallback getParkingSession call api fail', async () => {
+    const response = {
+      data: [],
+      success: false,
+    };
+    const setParkingSessionData = jest.fn();
+    const setBookTime = jest.fn();
+    useState.mockImplementationOnce((init) => [init, setParkingSessionData]);
+    useState.mockImplementationOnce((init) => [init, setBookTime]);
+    axios.get.mockImplementation(async (url) => response);
+
+    const { result } = renderHook(() => useParkingSession(1, 2, 3));
+    expect(result.current.bookTime.numBookHour).toBe(3);
+    expect(result.current.parkingSessionData).toEqual([]);
+    await act(async () => {
+      await result.current.getParkingSession();
+    });
+    expect(axios.get).toHaveBeenCalledWith(
+      API.PARKING.AVAILABLE_TIME_SLOTS(1),
+      {}
+    );
+    expect(setParkingSessionData).not.toHaveBeenCalled();
+    expect(setBookTime).not.toHaveBeenCalled();
   });
 });

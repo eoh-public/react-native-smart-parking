@@ -25,7 +25,9 @@ const ParkingInfo = memo(({ parking, styleParkingInfo }) => {
         style={styles.textInfo}
         testID={TESTID.AVAILABLE_SPOT_NUMBER}
       >
-        {t('number_spots', { number: parking.available_spots_count || 0 })}
+        {parking.available_spots_count <= 1
+          ? t('number_spot', { number: parking.available_spots_count || 0 })
+          : t('number_spots', { number: parking.available_spots_count || 0 })}
       </Text>
       <IconOutline
         name={'dollar-circle'}

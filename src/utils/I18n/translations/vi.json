@@ -440,6 +440,7 @@
   "pay_and_extend": "Pay & Extend",
   "start_time": "Start time",
   "end_time": "End time",
+  "number_spot": "%{number} chỗ trống",
   "number_spots": "%{number} chỗ trống",
   "nearby_parking_areas": "Điểm đỗ xe gần đây",
   "recently_saved": "Mới lưu",
