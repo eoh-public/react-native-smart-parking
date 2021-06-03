@@ -429,6 +429,7 @@
   "minute": "minute",
   "second": "second",
   "saved": "Saved",
+  "number_spots": "%{number} spot",
   "number_spots": "%{number} spots",
   "nearby_parking_areas": "Nearby parking areas",
   "recently_saved": "Recently saved",
