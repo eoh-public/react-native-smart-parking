@@ -36,8 +36,15 @@ describe('Test ViolationItem', () => {
     });
     const instance = tree.root;
     const texts = instance.findAllByType(Text);
-    expect(texts[10].props.style[0].color).toEqual(Colors.Red6);
-
+    expect(texts[1].props.children).toBe('Thảo cầm viên parking street');
+    expect(texts[2].props.children).toBe(
+      '2 Nguyễn Bỉnh Khiêm, Bến Nghé, Quận 1'
+    );
+    expect(texts[6].props.children).toBe('3:43 PM, 20/04/2021');
+    expect(texts[7].props.children).toBe('End time');
+    expect(texts[8].props.children).toBe('3:55 PM, 20/04/2021');
+    expect(texts[9].props.children).toBe('Total violating time');
+    expect(texts[10].props.style[0].color).toBe(Colors.Red6);
     const buttons = instance.findAllByType(TouchableOpacity);
     act(() => {
       buttons[0].props.onPress();
@@ -56,8 +63,14 @@ describe('Test ViolationItem', () => {
   });
 
   test('create render Booking item with is_paid is false', () => {
+    violation = {
+      ...violation,
+      is_paid: false,
+      leave_at: null,
+      start_count_up: false,
+    };
     act(() => {
-      tree = create(<ViolationItem {...{ ...violation, is_paid: false }} />);
+      tree = create(<ViolationItem {...violation} />);
     });
     const instance = tree.root;
     const buttons = instance.findAllByType(TouchableOpacity);
@@ -83,11 +96,11 @@ describe('Test ViolationItem', () => {
     act(() => {
       buttons[1].props.onPress();
     });
-    expect(mockNavigateReact).toBeCalledTimes(2);
+    expect(mockNavigateReact).toHaveBeenCalled();
     expect(buttons[2].props.children.props.type).toBe('Label');
     act(() => {
       buttons[2].props.onPress();
     });
-    expect(mockNavigateReact).toBeCalledTimes(3);
+    expect(mockNavigateReact).toHaveBeenCalled();
   });
 });

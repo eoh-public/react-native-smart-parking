@@ -17,7 +17,6 @@ const mockStore = configureStore([]);
 const mockNavigation = {
   navigate: jest.fn(),
 };
-const mockAddListener = jest.fn();
 const mockRemoveListener = jest.fn();
 const mockUseSelector = jest.fn();
 
@@ -82,6 +81,14 @@ jest.mock('../hooks', () => {
       notificationNumber: 10,
     }),
   };
+});
+
+let capturedChangeCallback;
+// eslint-disable-next-line promise/prefer-await-to-callbacks
+const mockAddListener = jest.fn((event, callback) => {
+  if (event === 'change') {
+    capturedChangeCallback = callback;
+  }
 });
 
 jest.doMock('react-native/Libraries/AppState/AppState', () => ({
@@ -155,10 +162,6 @@ describe('Test MapDashboard', () => {
     expect(children[0].type.type).toBe(SearchBar.type);
     expect(children[1].props.pointerEvents).toBe('box-none');
     expect(mockAddListener).toHaveBeenCalled();
-
-    // cleanup function of useEffect
-    tree.unmount();
-    expect(mockRemoveListener).toHaveBeenCalled();
   });
 
   it('Quick jump to scan', async () => {
@@ -322,5 +325,25 @@ describe('Test MapDashboard', () => {
     act(() => {
       activeSessionItem.props.onParkingCompleted();
     });
+  });
+
+  it('Test appState', async () => {
+    _.range(0, 3).map(() => {
+      useState.mockImplementationOnce((init) => [init, mockSetState]);
+    });
+    const route = {};
+    act(async () => {
+      tree = renderer.create(
+        <Provider store={store}>
+          <MapDashboard route={route} />
+        </Provider>
+      );
+    });
+    capturedChangeCallback('background');
+    capturedChangeCallback('active');
+    expect(mockSetState).toBeCalled();
+    // cleanup function of useEffect
+    tree.unmount();
+    expect(mockRemoveListener).toHaveBeenCalled();
   });
 });

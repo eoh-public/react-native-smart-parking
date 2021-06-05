@@ -1,73 +1,63 @@
 import React from 'react';
-import renderer, { act } from 'react-test-renderer';
-import { t } from 'i18n-js';
+import { FlatList } from 'react-native';
+import { act, create } from 'react-test-renderer';
+import BookingHistory from '../';
+import axios from 'axios';
+import moment from 'moment';
 
-import BookingHistory from '../index';
-import { Text } from 'react-native';
-import { Colors } from '../../../../../configs';
-import { TouchableOpacity } from 'react-native';
+const mockNavigation = jest.fn();
 
-const mockNavigateReact = jest.fn();
-jest.mock('@react-navigation/native', () => {
+jest.mock('@react-navigation/core', () => {
   return {
-    ...jest.requireActual('@react-navigation/native'),
-    useNavigation: () => ({
-      navigate: mockNavigateReact,
-    }),
+    ...jest.requireActual('@react-navigation/core'),
+    useNavigation: () => mockNavigation,
+    useIsFocused: jest.fn(),
   };
 });
-describe('Test booking history popup', () => {
-  let bookingsHistory = [
-    {
-      confirmed_arrival_at: '2021-01-20T04:08:53Z',
-      created_at: '2021-01-20T04:05:35Z',
-      grand_total: '12000.00',
-      id: 959,
+
+jest.mock('axios');
+
+describe('Test ActiveSessions', () => {
+  let tree;
+  let appState = 'active';
+  it('Test render', () => {
+    act(() => {
+      tree = create(<BookingHistory appState={appState} />);
+    });
+    expect(axios.get).toHaveBeenCalled();
+    const instance = tree.root;
+    const FlatListElement = instance.findAllByType(FlatList);
+    expect(FlatListElement).toHaveLength(1);
+    const item = {
+      arrive_at: moment('2021-01-26T07:00:00.025000Z'),
+      billing_id: 1127,
+      confirmed_arrival_at: null,
+      created_at: moment('2021-01-26T06:51:39.791370Z'),
+      grand_total: '1200.00',
+      id: 1020,
+      is_paid: false,
+      leave_at: moment('2021-01-26T08:00:00.025000Z'),
       parking: {
         address:
-          '2 Nguyễn Bỉnh Khiêm, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh, Việt Nam',
-        background: 'https://cdn-staging.eoh.io/thao-cam-vien.jpg',
-        id: 3,
-        lat: 10.787944,
-        lng: 106.7049902,
-        name: 'Thảo cầm viên parking street',
+          '2 Võ Oanh, Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam',
+        background: '',
+        id: 9,
+        lat: 10.8046919,
+        lng: 106.7169677,
+        name: 'Trường Đại học Giao thông Vận tải TP.HCM',
         parking_charges: [Array],
       },
-      spot: 2,
-      spot_name: 'sp22222222',
-      status: 'Completed',
-    },
-  ];
-  let wrapper;
-  test('create render Booking item', () => {
+      payment_method: 'stripe',
+      payment_url: '',
+      spot: 11,
+      spot_name: 'A1',
+      start_countdown: false,
+      status: '----',
+      time_remaining: 3600,
+    };
     act(() => {
-      wrapper = renderer.create(
-        <BookingHistory bookingsHistory={bookingsHistory} />
-      );
+      FlatListElement[0].props.renderItem({ item });
     });
-    const instance = wrapper.root;
-    const texts = instance.findAllByType(Text);
-    expect(texts[1].props.children).toEqual('Thảo cầm viên parking street');
-    expect(texts[5].props.children).toEqual(t('completed'));
-    expect(texts[5].props.style[0].color).toEqual(Colors.Green6);
-
-    const buttons = instance.findAllByType(TouchableOpacity);
-    act(() => {
-      buttons[0].props.onPress();
-    });
-    expect(mockNavigateReact).toBeCalledTimes(1);
-  });
-
-  test('create render Booking item cancelled', () => {
-    bookingsHistory[0].status = 'Cancelled';
-    act(() => {
-      wrapper = renderer.create(
-        <BookingHistory bookingsHistory={bookingsHistory} />
-      );
-    });
-    const instance = wrapper.root;
-    const texts = instance.findAllByType(Text);
-    expect(texts[5].props.children).toEqual(t('cancelled'));
-    expect(texts[5].props.style[0].color).toEqual(Colors.Gray7);
+    expect(axios.get).toHaveBeenCalledTimes(1);
   });
 });
