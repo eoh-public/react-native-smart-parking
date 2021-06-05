@@ -21,27 +21,27 @@ const HeaderAni = memo(
       }
     }, [goBack, onLeft]);
     const titleTransformY = scrollY.interpolate({
-      inputRange: [0, title_height],
+      inputRange: [0, 2 * title_height],
       outputRange: [0, -title_height],
       extrapolate: 'clamp',
     });
     const titleTransformX = scrollY.interpolate({
-      inputRange: [0, title_height],
+      inputRange: [0, 2 * title_height],
       outputRange: [0, 16],
       extrapolate: 'clamp',
     });
     const titleScale = scrollY.interpolate({
-      inputRange: [0, title_height],
+      inputRange: [0, 2 * title_height],
       outputRange: [1, 0.9],
       extrapolate: 'clamp',
     });
     const translateY = scrollY.interpolate({
-      inputRange: [0, title_height],
+      inputRange: [0, 2 * title_height],
       outputRange: [0, -title_height],
       extrapolate: 'clamp',
     });
     const opacity = scrollY.interpolate({
-      inputRange: [0, title_height],
+      inputRange: [0, 2 * title_height],
       outputRange: [0, 1],
       extrapolate: 'clamp',
     });
@@ -51,11 +51,14 @@ const HeaderAni = memo(
     return (
       <View style={styles.container}>
         <Animated.View
-          style={{
-            transform: [{ translateY }],
-            opacity,
-            ...styles.content,
-          }}
+          style={[
+            {
+              transform: [{ translateY }],
+              opacity,
+            },
+            styles.content,
+            headerStyle,
+          ]}
         />
         <View style={styles.header}>
           <TouchableOpacity style={styles.btnBack} onPress={onPressLeft}>

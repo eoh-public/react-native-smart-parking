@@ -80,7 +80,7 @@ const MapDashboard = memo(({ route }) => {
   };
 
   const dispatch = useDispatch();
-  const { scanDataResponse } = route.params ? route.params : {};
+  const { scanDataResponse, responseData } = route.params ? route.params : {};
   const { navigate } = useNavigation();
   const isFocused = useIsFocused();
   const [enableMapview, setEnableMapview] = useState(false);
@@ -146,7 +146,11 @@ const MapDashboard = memo(({ route }) => {
   }, [appState]);
 
   const handleAppStateChange = async (nextAppState) => {
-    if (appState.match(/inactive|background/) && nextAppState === 'active') {
+    if (
+      appState &&
+      appState.match(/inactive|background/) &&
+      nextAppState === 'active'
+    ) {
       await getActiveSession();
       await getViolations();
     }
@@ -459,6 +463,10 @@ const MapDashboard = memo(({ route }) => {
       onClearDataParking();
     }
   }, [activeSessions, violationsData]);
+
+  useEffect(() => {
+    responseData && responseData.isFindAParkingArea && onPressNearby();
+  }, [responseData]);
 
   return (
     <View style={styles.wrap} testID={TESTID.MAP_DASHBOARD_VIEW}>

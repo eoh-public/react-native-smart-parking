@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import renderer, { act } from 'react-test-renderer';
-import { TextInput } from 'react-native';
+import { TextInput, TouchableOpacity } from 'react-native';
 
 import { TESTID } from '../../../configs/Constants';
 import AsyncKeys from '../../../utils/AsyncKey';
@@ -19,11 +19,13 @@ jest.mock('@react-navigation/native', () => {
 });
 
 const mockSetState = jest.fn();
+const mockRef = { current: jest.fn() };
 jest.mock('react', () => {
   return {
     ...jest.requireActual('react'),
     useState: jest.fn((init) => [init, mockSetState]),
     memo: (x) => x,
+    useRef: () => mockRef,
   };
 });
 
@@ -40,6 +42,7 @@ describe('Test SearchLocation container', () => {
   beforeEach(async () => {
     mockSetState.mockClear();
     axios.get.mockClear();
+    jest.clearAllTimers();
   });
 
   test('create SearchLocation', async () => {
@@ -117,6 +120,14 @@ describe('Test SearchLocation container', () => {
     expect(axios.get).not.toBeCalled();
   });
 
+  it('test useEffect', async () => {
+    await act(async () => {
+      tree = await renderer.create(<SearchLocation route={route} />);
+    });
+    jest.runAllTimers();
+    expect(mockRef.current).toBe(31);
+  });
+
   it('save search history normal', async () => {
     const searchItem = { description: 'description' };
     const searchData = [searchItem];
@@ -167,5 +178,17 @@ describe('Test SearchLocation container', () => {
     expect(recentData.length).toEqual(10);
     expect(recentData[0].description).toEqual('description');
     expect(recentData[9].description).toEqual('9');
+  });
+
+  it('Test onPressRight', () => {
+    act(() => {
+      tree = renderer.create(<SearchLocation route={route} />);
+    });
+    const instance = tree.root;
+    const TouchableOpacityElement = instance.findAllByType(TouchableOpacity);
+    act(() => {
+      TouchableOpacityElement[1].props.onPress();
+    });
+    expect(mockSetState).toBeCalled();
   });
 });

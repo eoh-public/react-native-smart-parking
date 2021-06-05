@@ -5,3 +5,5 @@ export const removeDuplicateSearch = (recentSearch, description) => {
     }
   });
 };
+
+export const keyExtractor = (item) => item.id;

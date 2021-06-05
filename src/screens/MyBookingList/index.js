@@ -1,39 +1,48 @@
-import React, { memo, useState, useCallback, useEffect, useMemo } from 'react';
-import { View, StyleSheet, AppState } from 'react-native';
-import { useIsFocused } from '@react-navigation/native';
-import { getBottomSpace } from 'react-native-iphone-x-helper';
+import React, {
+  memo,
+  useState,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+} from 'react';
+import { View, StyleSheet, AppState, Animated } from 'react-native';
 import { t } from 'i18n-js';
 
 import { Colors } from '../../configs';
-import { heightHeader } from '../../commons/HeaderAni';
+import HeaderAni from '../../commons/HeaderAni';
 import ActiveSessions from './components/ActiveSessions';
 import BookingHistory from './components/BookingHistory';
-import WrapHeaderScrollable from '../../commons/Sharing/WrapHeaderScrollable';
 
-import { useMyBookingList } from './hooks';
-import { TESTID } from '../../configs/Constants';
-import TabHeader from './components/TabHeader';
+import { Constants, getStatusBarHeight } from '../../configs/Constants';
 import Violations from './components/Violations';
 import ScanningResponsePopup from '../MapDashboard/components/ScanningResponsePopup';
+import { TabView, TabBar } from 'react-native-tab-view';
+import { Text } from 'react-native';
+
+import { useActiveSession, useViolation } from './hooks';
+import { Platform } from 'react-native';
 
 const MyBookingList = memo(({ route }) => {
-  const isFocused = useIsFocused();
   const [appState, setAppState] = useState(AppState.currentState);
-  const [page, setPage] = useState(1);
   const scanDataResponse = route.params ? route.params.scanDataResponse : false;
   const [showScanResponse, setShowScanResponse] = useState(false);
+  const [index, setIndex] = useState(0);
+  const [routes] = useState([
+    { key: 'active', title: t('active') },
+    { key: 'history', title: t('history') },
+    { key: 'violation', title: t('violation') },
+  ]);
+  const animatedScrollYValue = useRef(new Animated.Value(0)).current;
 
-  const {
-    loading,
-    activeSessions,
-    bookingHistory,
-    violationBookings,
-    getActiveSession,
-    getBookingHistory,
-    getViolationBookings,
-    maxPageHistoryBooking,
-    maxPageViolation,
-  } = useMyBookingList();
+  const translateY = animatedScrollYValue.interpolate({
+    inputRange: [0, 88],
+    outputRange: [0, -44],
+    extrapolate: 'clamp',
+  });
+
+  const { arrActiveSessions } = useActiveSession();
+  const { arrViolations } = useViolation();
 
   const hideScanResponse = useCallback(() => {
     setShowScanResponse(false);
@@ -53,86 +62,74 @@ const MyBookingList = memo(({ route }) => {
     };
   }, [appState, handleAppStateChange]);
 
-  const handleAppStateChange = useCallback(
-    (nextAppState) => {
-      if (appState.match(/inactive|background/) && nextAppState === 'active') {
-        getActiveSession();
-      }
-      setAppState(nextAppState);
-    },
-    [appState, getActiveSession]
-  );
-
-  useEffect(() => {
-    getActiveSession();
-    getBookingHistory(1);
-    getViolationBookings(1);
-  }, [getActiveSession, getBookingHistory, getViolationBookings]);
-
-  const onRefresh = useCallback(() => {
-    getActiveSession();
-    getBookingHistory(1);
-    getViolationBookings(1);
-  }, [getActiveSession, getBookingHistory, getViolationBookings]);
-
-  useEffect(() => {
-    if (isFocused) {
-      getActiveSession();
-      getBookingHistory(1);
-      getViolationBookings(1);
-    }
-  }, [isFocused, getActiveSession, getBookingHistory, getViolationBookings]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleAppStateChange = (nextAppState) => {
+    setAppState(nextAppState);
+  };
 
   const hasActiveSession = useMemo(() => {
-    return activeSessions.length > 0;
-  }, [activeSessions.length]);
+    return arrActiveSessions.length > 0;
+  }, [arrActiveSessions.length]);
 
-  const handleEndReachHistoryBookings = () => {
-    setPage(page + 1);
-    if (page <= maxPageHistoryBooking) {
-      getBookingHistory(page);
-    }
-    if (page <= maxPageViolation) {
-      getViolationBookings(page);
+  // eslint-disable-next-line no-shadow
+  const renderScene = ({ route }) => {
+    switch (route.key) {
+      case 'active':
+        return <ActiveSessions appState={appState} />;
+      case 'history':
+        return (
+          <BookingHistory
+            hasActiveSessions={
+              hasActiveSession || arrViolations.some((item) => !item.is_paid)
+            }
+            animatedScrollYValue={animatedScrollYValue}
+            appState={appState}
+          />
+        );
+      case 'violation':
+        return (
+          <Violations
+            animatedScrollYValue={animatedScrollYValue}
+            appState={appState}
+          />
+        );
+      default:
+        return null;
     }
   };
-  const [tab, setTabActiveState] = useState(0);
-  const ChangeTabActiveState = useCallback((index) => {
-    setTabActiveState(index);
-  }, []);
+
+  const renderLabel = ({ route, focused, color }) => (
+    <Text style={[styles.tabBarLabel, { color }]}>{route.title}</Text>
+  );
+
   return (
     <View style={styles.container}>
-      <WrapHeaderScrollable
-        title={t('my_bookings')}
-        contentContainerStyle={styles.contentContainerStyle}
-        headerAniStyle={styles.scrollView}
-        loading={loading}
-        onRefresh={onRefresh}
-        styleScrollView={styles.scrollView}
-        onLoadMore={handleEndReachHistoryBookings}
+      <HeaderAni
+        scrollY={animatedScrollYValue}
+        title={'MybookingList'}
+        headerStyle={styles.headerStyle}
+      />
+      <Animated.View
+        style={[styles.wrapTabView, { transform: [{ translateY }] }]}
       >
-        <TabHeader current={tab} getCurrentTab={ChangeTabActiveState} />
-        {tab === 0 ? (
-          <ActiveSessions
-            testID={TESTID.ACTIVE_SESSION}
-            activeSessions={activeSessions}
-            getActiveSession={getActiveSession}
-          />
-        ) : tab === 1 ? (
-          <BookingHistory
-            bookingsHistory={bookingHistory}
-            hasActiveSessions={
-              hasActiveSession ||
-              violationBookings.some((item) => !item.is_paid)
-            }
-          />
-        ) : (
-          <Violations
-            violation={violationBookings}
-            getViolation={getViolationBookings}
-          />
-        )}
-      </WrapHeaderScrollable>
+        <TabView
+          lazy
+          navigationState={{ index, routes }}
+          renderScene={renderScene}
+          onIndexChange={setIndex}
+          renderTabBar={(props) => (
+            <TabBar
+              {...props}
+              style={styles.tabBar}
+              activeColor={Colors.Gray9}
+              inactiveColor={Colors.Gray8}
+              indicatorStyle={styles.indicatorStyle}
+              renderLabel={renderLabel}
+            />
+          )}
+        />
+      </Animated.View>
+
       {scanDataResponse && (
         <ScanningResponsePopup
           visible={showScanResponse}
@@ -148,31 +145,33 @@ export default MyBookingList;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  wrap: {
-    paddingBottom: 0,
-  },
-  contentContainerStyle: {
-    paddingBottom: getBottomSpace() + heightHeader,
-  },
-  buttonPopupBody: {
-    marginTop: 52,
-    flex: 1,
-    alignItems: 'center',
-  },
-  popupIcon: {
-    marginBottom: 15,
-  },
-  popupTitle: {
-    alignSelf: 'center',
-    marginBottom: 15,
-  },
-  popupDes: {
-    alignSelf: 'center',
-    textAlign: 'center',
-    width: '95%',
-  },
-  scrollView: {
+    paddingTop: Platform.select({
+      ios: getStatusBarHeight(),
+      android: 0,
+    }),
     backgroundColor: Colors.White,
+  },
+  headerStyle: {
+    backgroundColor: Colors.White,
+    borderBottomColor: Colors.ShadownTransparent,
+  },
+  wrapTabView: {
+    zIndex: 2,
+    height: Constants.height - 70,
+  },
+  tabBar: {
+    backgroundColor: Colors.White,
+    borderBottomColor: Colors.ShadownTransparent,
+    borderBottomWidth: 0.5,
+  },
+  indicatorStyle: {
+    backgroundColor: Colors.Primary,
+    height: 2,
+    marginBottom: -0.5,
+  },
+  tabBarLabel: {
+    textTransform: 'capitalize',
+    fontSize: 16,
+    fontWeight: '500',
   },
 });

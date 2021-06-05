@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 import { act, create } from 'react-test-renderer';
-import Violation from '../';
+import ActiveSessions from '.';
 import axios from 'axios';
 import moment from 'moment';
 
@@ -22,12 +22,13 @@ describe('Test ActiveSessions', () => {
   let appState = 'active';
   it('Test render', () => {
     act(() => {
-      tree = create(<Violation appState={appState} />);
+      tree = create(<ActiveSessions appState={appState} />);
     });
     expect(axios.get).toHaveBeenCalled();
     const instance = tree.root;
     const FlatListElement = instance.findAllByType(FlatList);
     expect(FlatListElement).toHaveLength(1);
+
     const item = {
       arrive_at: moment('2021-01-26T07:00:00.025000Z'),
       billing_id: 1127,
@@ -58,6 +59,6 @@ describe('Test ActiveSessions', () => {
     act(() => {
       FlatListElement[0].props.renderItem({ item });
     });
-    expect(axios.get).toHaveBeenCalledTimes(1);
+    expect(axios.get).toHaveBeenCalled();
   });
 });
