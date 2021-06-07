@@ -56,6 +56,7 @@ const ButtonTextBottomView = memo(
           type={status ? 'Body' : 'Label'}
           color={colorTitle}
           style={styles.widthText}
+          testID={TESTID.TEXT_STATUS_BUTTOM_TEXT_BOTTOM_VIEW}
         >
           {titleStatus}
         </Text>
