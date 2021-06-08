@@ -4,6 +4,7 @@ import ParkingTicket from '..';
 import TimeCountDown from '../../TimeCountDown';
 import moment from 'moment';
 import Text from '../../../../../commons/Text';
+import { BOOKING_STATUS } from '../../../../../configs/Constants';
 
 describe('Test ParkingTicket', () => {
   let data;
@@ -18,7 +19,7 @@ describe('Test ParkingTicket', () => {
       spot_name: 'HU1',
       parking_area: 'parking area',
       parking_address: 'parking address',
-      status: '',
+      status: BOOKING_STATUS.ON_GOING,
       is_violated: false,
     };
   });

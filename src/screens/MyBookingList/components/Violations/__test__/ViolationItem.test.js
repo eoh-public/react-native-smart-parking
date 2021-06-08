@@ -6,6 +6,7 @@ import moment from 'moment';
 import ViolationItem from '../ViolationItem';
 import { Text } from 'react-native';
 import { Colors } from '../../../../../configs';
+import { BOOKING_STATUS } from '../../../../../configs/Constants';
 
 const mockNavigateReact = jest.fn();
 jest.mock('@react-navigation/native', () => {
@@ -27,7 +28,7 @@ describe('Test ViolationItem', () => {
     start_count_up: true,
     total_violating_time: 763,
     is_paid: true,
-    status: 'Completed',
+    status: BOOKING_STATUS.COMPLETED,
   };
   let tree;
   test('create render Booking item start_count_up is true', () => {

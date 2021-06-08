@@ -4,11 +4,10 @@ import { t } from 'i18n-js';
 import { useNavigation } from '@react-navigation/native';
 
 import { Theme, Colors } from '../../../../configs';
-import { TESTID } from '../../../../configs/Constants';
+import { TESTID, BOOKING_STATUS } from '../../../../configs/Constants';
 import Text from '../../../../commons/Text';
 import { openMapDirection } from '../../../../utils/Utils';
 
-import { bookingStatus } from '../BookingHistory/BookingHistoryItem';
 import Routes from '../../../../utils/Route';
 
 const ButtonTextBottomView = memo(
@@ -29,12 +28,12 @@ const ButtonTextBottomView = memo(
       titleStatus = title;
       colorTitle = Colors.Gray9;
     }
-    if (status === bookingStatus.completed) {
-      titleStatus = t('completed');
+    if (status === BOOKING_STATUS.COMPLETED) {
+      titleStatus = t('Completed');
       colorTitle = Colors.Green6;
     }
-    if (status === bookingStatus.cancelled) {
-      titleStatus = t('cancelled');
+    if (status === BOOKING_STATUS.CANCELLED) {
+      titleStatus = t('Cancelled');
       colorTitle = Colors.Gray7;
     }
 
@@ -53,7 +52,7 @@ const ButtonTextBottomView = memo(
     return (
       <View style={styles.container}>
         <Text
-          type={status ? 'Body' : 'Label'}
+          type={status !== BOOKING_STATUS.ON_GOING ? 'Body' : 'Label'}
           color={colorTitle}
           style={styles.widthText}
           testID={TESTID.TEXT_STATUS_BUTTOM_TEXT_BOTTOM_VIEW}

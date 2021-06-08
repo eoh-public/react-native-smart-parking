@@ -4,6 +4,8 @@ import { useIsFocused, useNavigation } from '@react-navigation/native';
 import FastImage from 'react-native-fast-image';
 import moment from 'moment';
 import { t } from 'i18n-js';
+import { useDispatch } from 'react-redux';
+
 import { API, Colors, AppRNConfig } from '../../configs';
 import { axiosPost, axiosGet } from '../../utils/Apis/axios';
 import { formatMoney } from '../../utils/Utils';
@@ -16,7 +18,6 @@ import ItemParkingSession from './components/ItemParkingSession/ItemParkingSessi
 import { ItemPaymentMethod } from './components/ItemPaymentMethod';
 import ItemInfo from './components/ItemInfo/ItemInfo';
 import { TESTID } from '../../configs/Constants';
-import { useDispatch } from 'react-redux';
 import { cancelBooking } from '../../redux/Actions/local';
 
 const exampleUri =

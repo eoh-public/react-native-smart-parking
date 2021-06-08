@@ -1,16 +1,18 @@
 import CheckBox from '@react-native-community/checkbox';
 import axios from 'axios';
 import moment from 'moment';
-import React from 'react';
+import React, { useState } from 'react';
 import { NativeModules } from 'react-native';
 import { act, create } from 'react-test-renderer';
+import _ from 'lodash';
+import { TouchableOpacity } from 'react-native';
+import { useIsFocused } from '@react-navigation/native';
+
 import { Button } from '../../../commons';
 import { API } from '../../../configs';
 import { TESTID } from '../../../configs/Constants';
 import Routes from '../../../utils/Route';
 import BookingConfirm from '../index';
-import { TouchableOpacity } from 'react-native';
-import { useIsFocused } from '@react-navigation/native';
 
 jest.mock('axios');
 
@@ -29,13 +31,6 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
-jest.mock('react-native-deep-linking', () => {
-  return {
-    ...jest.requireActual('react-native-deep-linking'),
-    addRoute: () => mockedAddRoute,
-  };
-});
-
 jest.mock('react-redux', () => {
   return {
     ...jest.requireActual('react-redux'),
@@ -43,8 +38,17 @@ jest.mock('react-redux', () => {
   };
 });
 
+const mockSetState = jest.fn();
+jest.mock('react', () => {
+  return {
+    ...jest.requireActual('react'),
+    useState: jest.fn((init) => [init, mockSetState]),
+  };
+});
+
 describe('test BookingConfirm container', () => {
   let route;
+  let tree;
 
   beforeEach(() => {
     NativeModules.TestModule = { VnpayMerchant: mockedVnpayMerchant };
@@ -114,7 +118,14 @@ describe('test BookingConfirm container', () => {
       code: 'vnpay',
     };
 
-    let tree;
+    useState.mockImplementationOnce((init) => [
+      route.params.methodItem,
+      mockSetState,
+    ]);
+    _.range(5).map(() => {
+      useState.mockImplementationOnce((init) => [init, mockSetState]);
+    });
+
     await act(async () => {
       tree = await create(<BookingConfirm route={route} />);
     });
@@ -134,8 +145,13 @@ describe('test BookingConfirm container', () => {
       last4: '1234',
       brand: 'Visa',
     };
-
-    let tree;
+    useState.mockImplementationOnce((init) => [
+      route.params.methodItem,
+      mockSetState,
+    ]);
+    _.range(5).map(() => {
+      useState.mockImplementationOnce((init) => [init, mockSetState]);
+    });
     await act(async () => {
       tree = await create(<BookingConfirm route={route} />);
     });
@@ -153,7 +169,6 @@ describe('test BookingConfirm container', () => {
   test('onPressChangePaymentMethod', async () => {
     route.params.methodItem = { id: 1, code: 'vnpay' };
 
-    let tree;
     await act(async () => {
       tree = await create(<BookingConfirm route={route} />);
     });
@@ -210,7 +225,11 @@ describe('test BookingConfirm container', () => {
   });
 
   test('onValueCheckBoxTncChange', async () => {
-    let tree;
+    _.range(6).map(() => {
+      useState.mockImplementationOnce((init) => [init, mockSetState]);
+    });
+    const mockSetIsTicked = jest.fn();
+    useState.mockImplementationOnce((init) => [init, mockSetIsTicked]);
     await act(async () => {
       tree = await create(<BookingConfirm route={route} />);
     });
@@ -223,13 +242,18 @@ describe('test BookingConfirm container', () => {
     expect(itemPaymentMethod.props.isTick).toEqual(false);
 
     act(() => {
-      checkbox.props.onValueChange();
+      checkbox.props.onValueChange(true);
     });
-    expect(checkbox.props.value).toEqual(undefined);
+    expect(mockSetIsTicked).toBeCalledWith(true);
   });
 
   test('on agree onPress', async () => {
-    let tree;
+    _.range(6).map(() => {
+      useState.mockImplementationOnce((init) => [init, mockSetState]);
+    });
+    const mockSetIsTicked = jest.fn();
+    useState.mockImplementationOnce((init) => [true, mockSetIsTicked]);
+
     await act(async () => {
       tree = await create(<BookingConfirm route={route} />);
     });
@@ -237,7 +261,6 @@ describe('test BookingConfirm container', () => {
     const itemPaymentMethod = instance.find(
       (el) => el.props.testID === TESTID.ITEM_PAYMENT_METHOD
     );
-    const checkbox = instance.findByType(CheckBox);
     const agreeText = instance.findAllByType(TouchableOpacity)[1];
 
     expect(itemPaymentMethod.props.isTick).toEqual(false);
@@ -245,7 +268,7 @@ describe('test BookingConfirm container', () => {
     act(() => {
       agreeText.props.onPress();
     });
-    expect(checkbox.props.value).toEqual(true);
+    expect(mockSetIsTicked).toBeCalledWith(!true);
   });
 
   test('onConfirmBooking pay later', async () => {
@@ -282,7 +305,6 @@ describe('test BookingConfirm container', () => {
       return response;
     });
 
-    let tree;
     await act(async () => {
       tree = await create(<BookingConfirm route={route} />);
     });
@@ -340,7 +362,6 @@ describe('test BookingConfirm container', () => {
       return response;
     });
 
-    let tree;
     await act(async () => {
       tree = await create(<BookingConfirm route={route} />);
     });
@@ -394,7 +415,6 @@ describe('test BookingConfirm container', () => {
     axios.post.mockImplementation(async () => {
       return response;
     });
-    let tree;
     await act(async () => {
       tree = await create(<BookingConfirm route={route} />);
     });
@@ -438,7 +458,6 @@ describe('test BookingConfirm container', () => {
       return response;
     });
 
-    let tree;
     await act(async () => {
       tree = await create(<BookingConfirm route={route} />);
     });
@@ -449,5 +468,20 @@ describe('test BookingConfirm container', () => {
     });
     expect(mockedDispatch).toHaveBeenCalled();
     expect(mockedNavigate).not.toHaveBeenCalled();
+  });
+
+  test('test call useEffect', async () => {
+    useIsFocused.mockImplementation(() => true);
+
+    _.range(5).map(() => {
+      useState.mockImplementationOnce((init) => [init, mockSetState]);
+    });
+    useState.mockImplementationOnce((init) => [true, mockSetState]);
+
+    await act(async () => {
+      await create(<BookingConfirm route={route} />);
+    });
+    expect(mockedNavigate).toBeCalledTimes(1);
+    expect(mockedNavigate).toBeCalledWith(Routes.SmartParkingMapDrawer);
   });
 });

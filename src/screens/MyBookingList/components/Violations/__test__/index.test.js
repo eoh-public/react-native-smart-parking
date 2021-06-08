@@ -4,6 +4,7 @@ import { act, create } from 'react-test-renderer';
 import Violation from '../';
 import axios from 'axios';
 import moment from 'moment';
+import { BOOKING_STATUS } from '../../../../../configs/Constants';
 
 const mockNavigation = jest.fn();
 
@@ -52,7 +53,7 @@ describe('Test ActiveSessions', () => {
       spot: 11,
       spot_name: 'A1',
       start_countdown: false,
-      status: '----',
+      status: BOOKING_STATUS.ON_GOING,
       time_remaining: 3600,
     };
     act(() => {

@@ -3,11 +3,11 @@ import { TouchableOpacity, Text } from 'react-native';
 import { act, create } from 'react-test-renderer';
 import moment from 'moment';
 
+import { TESTID, BOOKING_STATUS } from '../../../../configs/Constants';
 import { Colors } from '../../../../configs';
 
 import ActiveSessionItem from './ActiveSessionsItem';
 import Routes from '../../../../utils/Route';
-import { TESTID } from '../../../../configs/Constants';
 
 const mockedNavigate = jest.fn();
 jest.mock('@react-navigation/native', () => {
@@ -51,7 +51,7 @@ describe('Test active session item component', () => {
       spot: 11,
       spot_name: 'A1',
       start_countdown: false,
-      status: '----',
+      status: BOOKING_STATUS.ON_GOING,
       time_remaining: 3600,
     };
   });

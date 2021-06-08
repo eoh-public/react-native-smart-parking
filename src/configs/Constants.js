@@ -32,10 +32,10 @@ export function getStatusBarHeight() {
   });
 }
 
-export const SOCIAL_PROVIDER = {
-  EMAIL: 'email',
-  FACEBOOK: 'facebook',
-  GOOGLE: 'google',
+export const BOOKING_STATUS = {
+  ON_GOING: '----',
+  COMPLETED: 'Completed',
+  CANCELLED: 'Cancelled',
 };
 
 export const BLE_REMOTE_SERVICE_UUID = '4fafc201-1fb5-459e-8fcc-c5c9c331914b';
@@ -51,7 +51,7 @@ export const Constants = {
   paddingTop: getStatusBarHeight(),
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height,
-  SOCIAL_PROVIDER,
+  BOOKING_STATUS,
   LANGUAGE,
   FONT_PREFIX,
   isIphoneX,
