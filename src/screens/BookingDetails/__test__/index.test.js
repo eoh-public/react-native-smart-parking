@@ -8,7 +8,7 @@ import { API } from '../../../configs';
 import { useIsFocused, useNavigation } from '@react-navigation/native';
 import moment from 'moment';
 import { t } from 'i18n-js';
-import { TESTID } from '../../../configs/Constants';
+import { TESTID, BOOKING_STATUS } from '../../../configs/Constants';
 import { AlertAction, ButtonPopup } from '../../../commons';
 import _ from 'lodash';
 import { ButtonDrawner } from '../components/ButtonDrawner';
@@ -102,7 +102,7 @@ describe('Test BookingDetails', () => {
     service_fee: '0.00',
     spot_name: '4444444444',
     start_countdown: true,
-    status: '',
+    status: BOOKING_STATUS.ON_GOING,
     time_remaining: 4492,
     total: '15000.00',
   };
@@ -477,7 +477,7 @@ describe('Test BookingDetails', () => {
     useState.mockImplementationOnce((init) => [
       {
         ...init,
-        status: '',
+        status: BOOKING_STATUS.ON_GOING,
       },
       mockSetState,
     ]); // stateAlertCancel
@@ -509,7 +509,7 @@ describe('Test BookingDetails', () => {
   test('render completed booking', async () => {
     mockInitBookingDetail({
       city: {},
-      status: 'completed',
+      status: BOOKING_STATUS.COMPLETED,
     });
 
     await act(async () => {
@@ -527,7 +527,7 @@ describe('Test BookingDetails', () => {
   test('render cancelled booking', async () => {
     mockInitBookingDetail({
       city: {},
-      status: 'cancelled',
+      status: BOOKING_STATUS.CANCELLED,
     });
 
     await act(async () => {
@@ -538,13 +538,13 @@ describe('Test BookingDetails', () => {
     const textStatus = instance.find(
       (el) => el.props.testID === TESTID.BOOKING_DETAIL_TEST_STATUS
     );
-    expect(textStatus.children[0].props.children).toEqual(t('cancelled'));
+    expect(textStatus.children[0].props.children).toEqual(t('Cancelled'));
   });
 
   test('render wait for confirm booking', async () => {
     mockInitBookingDetail({
       city: {},
-      status: '',
+      status: BOOKING_STATUS.ON_GOING,
       is_paid: true,
       confirmed_arrival_at: null,
     });
@@ -587,7 +587,7 @@ describe('Test BookingDetails', () => {
     expect(bottomPanels).toHaveLength(1);
 
     const bottomPanel = bottomPanels[0];
-
+    expect(bottomPanel.props.secondaryTitle).toEqual(t('pay_a_fine'));
     act(() => {
       bottomPanel.props.onPressSecondary();
     });

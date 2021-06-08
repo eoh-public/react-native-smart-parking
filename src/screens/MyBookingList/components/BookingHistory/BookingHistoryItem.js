@@ -8,11 +8,6 @@ import AddressInfo from '../ActiveSessions/AddressInfo/AddressInfo';
 import ButtonTextBottomView from '../ButtonTextBottomView';
 import Routes from '../../../../utils/Route';
 
-export const bookingStatus = {
-  completed: 'Completed',
-  cancelled: 'Cancelled',
-};
-
 const BookingHistoryItem = memo(
   ({ id, parking, grand_total, status, hasActiveSessions }) => {
     const { navigate } = useNavigation();

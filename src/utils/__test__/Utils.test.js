@@ -5,6 +5,7 @@ import {
   formatMoney,
   insertToString,
   removeFromString,
+  ToastBottomHelper,
 } from '../Utils';
 import axios from 'axios';
 
@@ -32,4 +33,18 @@ test('insert too string', () => {
 
 test('removeFromString', () => {
   expect(removeFromString('abc', 1)).toBe('ac');
+});
+
+const mockToastShow = jest.fn();
+jest.mock('react-native-toast-message', () => ({
+  ...jest.requireActual('react-native-toast-message'),
+  _ref: null,
+  show: mockToastShow,
+}));
+test('ToastBottomHelper case !Toast._ref true', () => {
+  ToastBottomHelper.success('message');
+  expect(mockToastShow).not.toBeCalled();
+
+  ToastBottomHelper.error('message');
+  expect(mockToastShow).not.toBeCalled();
 });

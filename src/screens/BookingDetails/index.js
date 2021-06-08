@@ -1,6 +1,6 @@
 import React, { memo, useCallback, useEffect, useState } from 'react';
 import { ScrollView, View, RefreshControl, AppState } from 'react-native';
-import { TESTID } from '../../configs/Constants';
+import { TESTID, BOOKING_STATUS } from '../../configs/Constants';
 
 import { useNavigation, useIsFocused } from '@react-navigation/native';
 import { t } from 'i18n-js';
@@ -54,18 +54,15 @@ const getButtonDrawner = (
   let onPressMain = onShowExtend;
   let onPressSecondary = onShowAlertCancel;
 
-  if (status && violationsData) {
-    return {};
-  }
-
-  if (status) {
+  if (status !== BOOKING_STATUS.ON_GOING) {
+    if (violationsData) {
+      return {};
+    }
     mainTitle = t('rebook');
     onPressMain = onRebook;
     secondaryTitle = null;
     onPressSecondary = null;
     return { mainTitle, secondaryTitle, onPressMain, onPressSecondary };
-  } else if (status === undefined) {
-    return {};
   }
 
   if (is_violated) {

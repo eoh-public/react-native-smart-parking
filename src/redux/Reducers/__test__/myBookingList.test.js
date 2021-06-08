@@ -1,5 +1,5 @@
 import reducer from '../myBookingList';
-import { reduxTypes } from '../../../configs/Constants';
+import { reduxTypes, BOOKING_STATUS } from '../../../configs/Constants';
 
 describe('Test myBookingList reducer', () => {
   it('should return initial state', () => {
@@ -27,7 +27,7 @@ describe('Test myBookingList reducer', () => {
             start_count_up: true,
             total_violating_time: 1640,
             is_paid: false,
-            status: '----',
+            status: BOOKING_STATUS.ON_GOING,
           },
           {
             id: 2879,
@@ -39,7 +39,7 @@ describe('Test myBookingList reducer', () => {
             start_count_up: true,
             total_violating_time: 1640,
             is_paid: true,
-            status: 'Completed',
+            status: BOOKING_STATUS.COMPLETED,
           },
         ],
       })
@@ -54,7 +54,7 @@ describe('Test myBookingList reducer', () => {
         start_count_up: true,
         total_violating_time: 1640,
         is_paid: false,
-        status: '----',
+        status: BOOKING_STATUS.ON_GOING,
       },
     });
   });

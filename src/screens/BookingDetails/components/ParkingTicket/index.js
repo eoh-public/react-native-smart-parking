@@ -6,7 +6,7 @@ import { Colors } from '../../../../configs';
 import Text from '../../../../commons/Text';
 import TimeCountDown from '../TimeCountDown';
 import { getDurationTime } from '../../../../utils/Converter/time';
-import { TESTID } from '../../../../configs/Constants';
+import { TESTID, BOOKING_STATUS } from '../../../../configs/Constants';
 
 const ParkingTicket = memo(
   ({
@@ -26,11 +26,12 @@ const ParkingTicket = memo(
       leave_at ? leave_at : undefined
     );
 
-    const statusColor = status === 'completed' ? Colors.Green6 : Colors.Red6;
+    const statusColor =
+      status === BOOKING_STATUS.COMPLETED ? Colors.Green6 : Colors.Red6;
 
     return (
       <View style={styles.container}>
-        {status === '' && (
+        {status === BOOKING_STATUS.ON_GOING && (
           <TimeCountDown
             time_remaining={
               is_violated
@@ -53,7 +54,7 @@ const ParkingTicket = memo(
             {t('parking_spot_number')}:{' '}
             <Text color={Colors.Primary}>{spot_name}</Text>
           </Text>
-          {status !== '' && (
+          {status !== BOOKING_STATUS.ON_GOING && (
             <Text
               style={styles.parkingInfoText}
               type="Body"
