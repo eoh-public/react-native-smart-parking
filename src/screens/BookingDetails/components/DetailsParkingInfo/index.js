@@ -21,16 +21,22 @@ const DetailsParkingInfo = memo(
     is_violated,
     plate_number,
     city,
+    extend_fee,
+    book_at,
+    extend_at,
+    pay_at,
   }) => {
     const timeFormat = 'LT - DD/MM/YYYY';
     const arrive_at_str = arrive_at && arrive_at.format(timeFormat);
     const leave_at_str = leave_at && leave_at.format(timeFormat);
+    const book_at_str = book_at && book_at.format(timeFormat);
+    const extend_at_formated = extend_at.map((item) => item.format(timeFormat));
+    const pay_at_str = pay_at && pay_at.format(timeFormat);
 
     return (
       <View style={styles.container}>
         <View style={styles.content}>
           <RowHighlight title={t('booking_info')} />
-          <RowDetails title={t('booking_id')} value={[`#${id}`]} />
           <RowDetails
             title={t('license_plate')}
             value={[`${plate_number || '--'}`]}
@@ -45,10 +51,6 @@ const DetailsParkingInfo = memo(
             value={[`${leave_at_str || '--'}`]}
             testID={TESTID.LEAVE_AT}
           />
-          <RowDetails
-            title={t('payment_method')}
-            value={[payment_method || '--']}
-          />
         </View>
 
         <View style={styles.bottomContent}>
@@ -62,8 +64,14 @@ const DetailsParkingInfo = memo(
             }
             value={[`${formatMoney(total)}`]}
           />
-          {!is_violated && (
+          {!is_violated ? (
             <>
+              {extend_at.length > 0 && (
+                <RowDetails
+                  title={t('extend_fee')}
+                  value={[`${formatMoney(extend_fee)}`]}
+                />
+              )}
               <RowDetails
                 title={t('service_fee')}
                 value={[`${formatMoney(service_fee)}`]}
@@ -73,8 +81,7 @@ const DetailsParkingInfo = memo(
                 value={[`-${formatMoney(discount)}`]}
               />
             </>
-          )}
-          {!!is_violated && (
+          ) : (
             <>
               <RowDetails
                 testID={TESTID.DETAIL_PARKING_INFO_VIOLATION_RATE}
@@ -88,11 +95,28 @@ const DetailsParkingInfo = memo(
               />
             </>
           )}
-
           <RowHighlight
             title={t('text_total')}
             value={`${grand_total ? formatMoney(grand_total) : '--VND'}`}
           />
+        </View>
+
+        <View style={styles.bottomContent}>
+          <RowHighlight title={t('text_detail')} />
+          <RowDetails title={t('booking_id')} value={[`#${id}`]} />
+          <RowDetails
+            title={t('payment_method')}
+            value={[payment_method || '--']}
+          />
+          <RowDetails title={t('book_at')} value={[book_at_str || '--']} />
+          <RowDetails
+            testID={TESTID.PAY_AT}
+            title={t('pay_at')}
+            value={[pay_at_str || '--']}
+          />
+          {extend_at.length > 0 && (
+            <RowDetails title={t('extend_at')} value={extend_at_formated} />
+          )}
         </View>
       </View>
     );

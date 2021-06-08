@@ -254,7 +254,6 @@ describe('Test BookingDetails', () => {
         />
       );
     });
-    expect(setExtendCheckingState).toHaveBeenCalledWith(true);
 
     expect(setExtendState).toHaveBeenCalledTimes(0);
     await act(async () => {
@@ -601,6 +600,7 @@ describe('Test BookingDetails', () => {
   test('render violated booking with select payment method', async () => {
     mockInitBookingDetail({
       is_violated: true,
+      is_paid: false,
       city: {},
     });
 

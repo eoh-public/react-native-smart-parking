@@ -28,7 +28,6 @@ const useExtendBooking = (id) => {
   }, []);
 
   const onShowExtend = useCallback(async () => {
-    setShowChecking(true);
     const { success, data } = await axiosGet(API.BOOKING.EXTEND_INFO(id));
     if (success) {
       data.last_leave_at = moment(data.last_leave_at);
@@ -37,7 +36,6 @@ const useExtendBooking = (id) => {
         setShowExtend(true);
       }, 100); // issue https://github.com/react-native-modal/react-native-modal/issues/30
     }
-    setShowChecking(false);
   }, [id]);
 
   return {
