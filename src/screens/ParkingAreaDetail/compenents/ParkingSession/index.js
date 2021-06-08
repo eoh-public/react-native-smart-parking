@@ -11,7 +11,14 @@ import { CustomCheckbox } from '../../../../commons';
 import { calcTime } from '../../../../utils/Converter/time';
 
 const ParkingSession = memo(
-  ({ bookTime, setBookTime, parkingSessionData, preBook, spotNumber }) => {
+  ({
+    bookTime,
+    setBookTime,
+    parkingSessionData,
+    preBook,
+    spotNumber,
+    type,
+  }) => {
     let arrSpotNumber = [];
     if (spotNumber) {
       for (let i = 0; i < spotNumber.length; i++) {
@@ -130,15 +137,17 @@ const ParkingSession = memo(
                 >
                   {t('you_can_only_book_max_1_hour_in_advance')}
                 </Text>
-                <CustomCheckbox
-                  style={styles.buttonAlreadyArrived}
-                  onPress={onAlreadyArrived}
-                  onValueChange={onAlreadyArrived}
-                  value={isSave}
-                  iOSCheckBoxStyles={styles.iOSCheckBoxStyles}
-                >
-                  <Text type="Body">{t('i_already_arrived')}</Text>
-                </CustomCheckbox>
+                {type === 1 && (
+                  <CustomCheckbox
+                    style={styles.buttonAlreadyArrived}
+                    onPress={onAlreadyArrived}
+                    onValueChange={onAlreadyArrived}
+                    value={isSave}
+                    iOSCheckBoxStyles={styles.iOSCheckBoxStyles}
+                  >
+                    <Text type="Body">{t('i_already_arrived')}</Text>
+                  </CustomCheckbox>
+                )}
               </>
             )}
           </>
