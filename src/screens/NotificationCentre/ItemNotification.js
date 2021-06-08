@@ -10,6 +10,7 @@ import Text from '../../commons/Text';
 import { API, Colors } from '../../configs';
 import { axiosPost } from '../../utils/Apis/axios';
 import Routes from '../../utils/Route';
+import { NOTIFICATION_TYPES } from '../../configs/Constants';
 
 const customColorText = (text, params, color) => {
   return text.split('**').map((str, i) =>
@@ -44,9 +45,8 @@ const ItemNotification = memo(({ item, index }) => {
     const paramsJSON = JSON.parse(params.replace(/'/g, '"'));
     const booking_id = paramsJSON.booking_id;
     switch (content_code) {
-      case 'REMIND_TO_MAKE_PAYMENT':
+      case NOTIFICATION_TYPES.REMIND_TO_MAKE_PAYMENT:
         return {
-          title: t('text_notification_title_remind_to_make_payment'),
           content: customColorText(
             t('text_notification_content_remind_to_make_payment'),
             arrParams,
@@ -58,9 +58,8 @@ const ItemNotification = memo(({ item, index }) => {
             }),
         };
 
-      case 'EXPIRE_PARKING_SESSION':
+      case NOTIFICATION_TYPES.EXPIRE_PARKING_SESSION:
         return {
-          title: t('text_notification_title_expire_parking_session'),
           content: customColorText(
             t('text_notification_content_expire_parking_session'),
             arrParams,
@@ -71,9 +70,8 @@ const ItemNotification = memo(({ item, index }) => {
               id: booking_id,
             }),
         };
-      case 'REMIND_TO_SCAN_QR_CODE':
+      case NOTIFICATION_TYPES.REMIND_TO_SCAN_QR_CODE:
         return {
-          title: t('text_notification_title_remind_to_scan_qr_code'),
           content: customColorText(
             t('text_notification_content_remind_to_scan_qr_code'),
             arrParams,
@@ -84,9 +82,8 @@ const ItemNotification = memo(({ item, index }) => {
               id: booking_id,
             }),
         };
-      case 'USER_CANCEL':
+      case NOTIFICATION_TYPES.USER_CANCEL:
         return {
-          title: t('text_notification_title_user_cancel'),
           content: customColorText(
             t('text_notification_content_user_cancel'),
             arrParams,
@@ -97,9 +94,8 @@ const ItemNotification = memo(({ item, index }) => {
               id: booking_id,
             }),
         };
-      case 'SYSTEM_CANCEL_NO_PAYMENT':
+      case NOTIFICATION_TYPES.SYSTEM_CANCEL_NO_PAYMENT:
         return {
-          title: t('text_notification_title_system_cancel_no_payment'),
           content: customColorText(
             t('text_notification_content_system_cancel_no_payment'),
             arrParams,
@@ -110,9 +106,8 @@ const ItemNotification = memo(({ item, index }) => {
               id: booking_id,
             }),
         };
-      case 'BOOKING_SUCCESSFULLY':
+      case NOTIFICATION_TYPES.BOOKING_SUCCESSFULLY:
         return {
-          title: t('text_notification_title_booking_successfully'),
           content: customColorText(
             t('text_notification_content_booking_successfully'),
             arrParams,
@@ -123,11 +118,48 @@ const ItemNotification = memo(({ item, index }) => {
               id: booking_id,
             }),
         };
-      case 'PARKING_COMPLETED':
+      case NOTIFICATION_TYPES.PARKING_COMPLETED:
         return {
-          title: t('text_notification_title_parking_completed'),
           content: customColorText(
             t('text_notification_content_parking_completed'),
+            arrParams,
+            Colors.Orange
+          ),
+          redirect: () =>
+            navigation.navigate(Routes.SmartParkingBookingDetails, {
+              id: booking_id,
+            }),
+        };
+      case NOTIFICATION_TYPES.BOOKING_EXPIRED_AND_VIOLATION_CREATED:
+        return {
+          content: customColorText(
+            t(
+              'text_notification_content_not_move_care_after_parking_session_expire'
+            ),
+            arrParams,
+            Colors.Orange
+          ),
+          redirect: () =>
+            navigation.navigate(Routes.SmartParkingBookingDetails, {
+              id: booking_id,
+            }),
+        };
+      case NOTIFICATION_TYPES.MOVE_CAR_WITHOUT_PAY_VIOLATION:
+        return {
+          content: customColorText(
+            t('text_notification_content_move_car_without_pay_violation'),
+            arrParams,
+            Colors.Orange
+          ),
+          redirect: () =>
+            navigation.navigate(Routes.SmartParkingBookingDetails, {
+              id: booking_id,
+            }),
+        };
+      case NOTIFICATION_TYPES.PAY_FINE_SUCCESSFULLY:
+        return {
+          content: customColorText(
+            t('text_notification_content_pay_fine_successfully'),
             arrParams,
             Colors.Orange
           ),
@@ -139,7 +171,7 @@ const ItemNotification = memo(({ item, index }) => {
     }
   }, [arrParams, content_code, navigation, params]);
 
-  const { title, content, redirect } = renderItem();
+  const { content, redirect } = renderItem() || {};
 
   const onItemPress = useCallback(() => {
     if (!isRead) {
@@ -161,9 +193,6 @@ const ItemNotification = memo(({ item, index }) => {
       <View style={styles.container}>
         <FastImage source={{ uri: icon }} style={styles.image} />
         <View style={styles.info}>
-          <Text type="H4" color={Colors.Gray9}>
-            {title}
-          </Text>
           <Text type="Body" color={Colors.Gray8} style={styles.textDescription}>
             {content}
           </Text>
@@ -227,6 +256,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.LightPrimary,
   },
   textDescription: {
-    marginTop: 8,
+    marginTop: -3,
   },
 });

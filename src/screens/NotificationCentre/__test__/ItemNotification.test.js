@@ -5,6 +5,7 @@ import ItemNotification from '../ItemNotification';
 import axios from 'axios';
 import { API } from '../../../configs';
 import Routes from '../../../utils/Route';
+import { NOTIFICATION_TYPES } from '../../../configs/Constants';
 
 jest.mock('axios');
 const mockNavigate = jest.fn();
@@ -35,13 +36,16 @@ describe('Test ItemNotification', () => {
   });
   let wrapper;
   const listCase = [
-    'REMIND_TO_MAKE_PAYMENT',
-    'EXPIRE_PARKING_SESSION',
-    'REMIND_TO_SCAN_QR_CODE',
-    'USER_CANCEL',
-    'SYSTEM_CANCEL_NO_PAYMENT',
-    'BOOKING_SUCCESSFULLY',
-    'PARKING_COMPLETED',
+    NOTIFICATION_TYPES.REMIND_TO_MAKE_PAYMENT,
+    NOTIFICATION_TYPES.EXPIRE_PARKING_SESSION,
+    NOTIFICATION_TYPES.REMIND_TO_SCAN_QR_CODE,
+    NOTIFICATION_TYPES.USER_CANCEL,
+    NOTIFICATION_TYPES.SYSTEM_CANCEL_NO_PAYMENT,
+    NOTIFICATION_TYPES.BOOKING_SUCCESSFULLY,
+    NOTIFICATION_TYPES.PARKING_COMPLETED,
+    NOTIFICATION_TYPES.BOOKING_EXPIRED_AND_VIOLATION_CREATED,
+    NOTIFICATION_TYPES.MOVE_CAR_WITHOUT_PAY_VIOLATION,
+    NOTIFICATION_TYPES.PAY_FINE_SUCCESSFULLY,
   ];
 
   for (const content_code of listCase) {
