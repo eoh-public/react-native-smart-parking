@@ -407,7 +407,7 @@ const BookingDetails = memo(({ route }) => {
         <ParkingTicket {...bookingDetail} getBookingDetail={getBookingDetail} />
         <View style={styles.separator} />
         <DetailsParkingInfo {...bookingDetail} />
-        {!!is_violated && (
+        {!!is_violated && !is_paid && (
           <ItemPaymentMethod
             testID={TESTID.ITEM_PAYMENT_METHOD}
             paymentMethod={methodItem}
