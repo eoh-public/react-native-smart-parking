@@ -126,7 +126,7 @@ describe('Test ParkingSession', () => {
       () => new Date('2021-01-24T13:15:00.000Z')
     );
     data.spotNumber = undefined;
-
+    data.type = 1;
     act(() => {
       wrapper = create(<ParkingSession {...data} />);
     });
@@ -147,7 +147,7 @@ describe('Test ParkingSession', () => {
       () => new Date('2021-01-24T13:15:00.000Z')
     );
     data.spotNumber = undefined;
-
+    data.type = 1;
     act(() => {
       wrapper = create(<ParkingSession {...data} />);
     });

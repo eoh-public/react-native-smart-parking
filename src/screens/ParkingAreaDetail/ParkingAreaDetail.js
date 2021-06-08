@@ -367,6 +367,7 @@ const ParkingAreaDetail = memo(({ route }) => {
                     bookTime={bookTime}
                     setBookTime={setBookTime}
                     parkingSessionData={parkingSessionData}
+                    type={parkingDetailData && parkingDetailData.type}
                   />
                   <LicensePlate
                     saveVehicle={saveVehicle}
