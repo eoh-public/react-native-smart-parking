@@ -58,7 +58,7 @@ const ParkingAreaDetail = memo(({ route }) => {
     getParkingDetail,
     onSaveParking,
     onUnsaveParking,
-  } = useParkingDetail(id);
+  } = useParkingDetail(id, spot_name);
   const [car, setCar] = useState({ plate_number: '' });
 
   const { is_saved, background, allow_pre_book: preBook } = parkingDetailData;
@@ -356,6 +356,7 @@ const ParkingAreaDetail = memo(({ route }) => {
             >
               <AddressInfo
                 {...parkingDetailData}
+                spot_name
                 preBook={preBook}
                 searchedLocation={searchedLocation}
               />

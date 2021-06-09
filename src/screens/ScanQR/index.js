@@ -21,7 +21,9 @@ const SMScanQR = memo(() => {
   const onScan = useCallback(
     async (data) => {
       setLoading(true);
-      const { isValid, parking_id, spot_id } = checkQRCodeValid(data);
+      const { isValid, parking_id, spot_id, spot_name } = checkQRCodeValid(
+        data
+      );
 
       if (!isValid) {
         ToastBottomHelper.error(t('qr_code_invalid'));
@@ -38,7 +40,7 @@ const SMScanQR = memo(() => {
       if (hasBooked) {
         scanToConfirm(spot_id);
       } else {
-        scanToBook(parking_id, spot_id);
+        scanToBook(parking_id, spot_id, spot_name);
       }
     },
     [

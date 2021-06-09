@@ -14,6 +14,18 @@ describe('test time utils, transformDatetime', () => {
     expect(data.time).toEqual(moment(timeSample));
   });
 
+  test('test all case transformDatetime data null', () => {
+    transformDatetime();
+    let data = {
+      time: [''],
+    };
+    transformDatetime(data, ['time']);
+    expect(data.time).toEqual(['']);
+    data.time = '';
+    transformDatetime(data, ['time']);
+    expect(data.time).toEqual('');
+  });
+
   test('test transformDatetime not own property', () => {
     let data = {
       time: timeSample,

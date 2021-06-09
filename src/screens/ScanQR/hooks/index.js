@@ -68,7 +68,7 @@ const useBookingScan = () => {
   );
 
   const scanToBook = useCallback(
-    async (parking_id, spot_id) => {
+    async (parking_id, spot_id, spot_name) => {
       const { success: canBook, data } = await checkScanToBook(spot_id);
       if (data.spot_id) {
         data.status = 'spot_does_not_exist';
@@ -77,6 +77,8 @@ const useBookingScan = () => {
       if (canBook) {
         navigation.navigate(Routes.SmartParkingParkingAreaDetail, {
           id: parking_id,
+          unLock: true,
+          spot_name,
           spot_id,
         });
       } else {
@@ -97,12 +99,12 @@ const useBookingScan = () => {
     }
 
     // For invalid data
-    const { parking: parking_id, id: spot_id } = parseData;
+    const { parking: parking_id, id: spot_id, name: spot_name } = parseData;
     if (parking_id === undefined && spot_id === undefined) {
       return { isValid: false };
     }
 
-    return { isValid: true, parking_id, spot_id };
+    return { isValid: true, parking_id, spot_id, spot_name };
   }, []);
 
   return {

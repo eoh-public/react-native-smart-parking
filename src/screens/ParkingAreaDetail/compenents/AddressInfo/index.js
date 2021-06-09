@@ -31,6 +31,7 @@ const AddressInfo = memo(
     distance: rawDistance,
     total_spot,
     preBook,
+    spot_name,
     searchedLocation,
   }) => {
     const distance = calcDistance(rawDistance);
@@ -72,7 +73,7 @@ const AddressInfo = memo(
     }
 
     let timeHandler;
-    if (status === 'FULL' || status === 'ĐẦY') {
+    if ((status === 'FULL' && !spot_name) || (status === 'ĐẦY' && !spot_name)) {
       titleColor = Colors.Red;
       timeHandler = setTimeout(async () => {
         const location = searchedLocation
@@ -113,6 +114,7 @@ const AddressInfo = memo(
           freeFrom={freeFrom}
           freeTo={freeTo}
           preBook={preBook}
+          spot_name
         />
 
         <RowItem

@@ -278,6 +278,8 @@ describe('Test Scan QR', () => {
       {
         id: 1,
         spot_id: 2,
+        spot_name: undefined,
+        unLock: true,
       }
     );
   });
