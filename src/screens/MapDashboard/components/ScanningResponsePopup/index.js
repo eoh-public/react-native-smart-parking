@@ -152,6 +152,22 @@ const ScanningResponsePopup = ({
         leftType: 'cancel',
         rightType: 'primary',
       };
+    } else if (status === SCANNING_STATUS.NO_CAR_PARKED_AT_THIS_SPOT) {
+      return {
+        iconName: 'frown',
+        iconColor: Colors.Gray8,
+        title: t('no_car_parked_at_this_spot'),
+        des: t('des_no_car_parked'),
+        subTitle: '---',
+        data: '---',
+        info: null,
+        leftButtonTitle: t('cancel'),
+        leftButtonClick: hideModal,
+        rightButtonTitle: t('scan_qr_code'),
+        rightButtonClick: goScanQR,
+        leftType: 'cancel',
+        rightType: 'primary',
+      };
     }
 
     return {

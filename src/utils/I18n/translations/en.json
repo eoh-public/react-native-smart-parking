@@ -634,6 +634,8 @@
   "text_notification_content_move_car_without_pay_violation": "You have an unpaid violation. Please complete your fine.",
   "text_notification_content_pay_fine_successfully": "Your violation **%{booking}** has been paid successfully.",
   "this_spot_does_not_exsit": "This spot does not exist",
+  "no_car_parked_at_this_spot": "No car parked at this spot at this moment.",
+  "des_no_car_parked": "Please check your current position again and enter a right spot number.",
   "please_scan_again_or_contact_the_parking_manager": "Please scan again or contact the parking manager",
   "this_spot_does_not_support_to_scan": "This spot does not support to scan",
   "please_book_by_the_normal_way": "Please book by the normal way",

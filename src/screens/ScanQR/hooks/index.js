@@ -71,7 +71,7 @@ const useBookingScan = () => {
     async (parking_id, spot_id, spot_name) => {
       const { success: canBook, data } = await checkScanToBook(spot_id);
       if (data.spot_id) {
-        data.status = 'spot_does_not_exist';
+        data.status = data.spot_id[0];
       }
 
       if (canBook) {
