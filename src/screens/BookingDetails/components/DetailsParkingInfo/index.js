@@ -98,6 +98,7 @@ const DetailsParkingInfo = memo(
           <RowHighlight
             title={t('text_total')}
             value={`${grand_total ? formatMoney(grand_total) : '--VND'}`}
+            style={styles.styleTotal}
           />
         </View>
 
@@ -134,5 +135,9 @@ const styles = StyleSheet.create({
   },
   bottomContent: {
     paddingBottom: 16,
+  },
+  styleTotal: {
+    fontSize: 14,
+    lineHeight: 22,
   },
 });
