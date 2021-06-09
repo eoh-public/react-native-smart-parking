@@ -108,6 +108,7 @@ const ExtendPopup = memo(
               testID={TESTID.EXTEND_TOTAL_VIOLATION_FEE}
               title={t('total_violation_fee')}
               value={[`${formatMoney(booking.grand_total)}`]}
+              style={styles.rowDetails}
             />
           )}
           {confirmed && !!booking.is_violated && (
@@ -115,6 +116,7 @@ const ExtendPopup = memo(
               testID={TESTID.EXTEND_EXTEND_FEE}
               title={t('extend_fee')}
               value={[`${formatMoney(total)}`]}
+              style={styles.rowDetails}
             />
           )}
           {confirmed && (
@@ -159,6 +161,7 @@ const ExtendPopup = memo(
         bodyStyle={styles.buttonPopupBody}
         hideClose
         childrenStyle={styles.childrenStyle}
+        bottomStyles={styles.bottomStyles}
       >
         {renderChild}
       </ButtonPopup>
@@ -173,7 +176,7 @@ const styles = StyleSheet.create({
     marginTop: 47,
   },
   title: {
-    marginBottom: 8,
+    marginBottom: 17,
   },
   extendDescription: {
     marginBottom: 16,
@@ -190,15 +193,21 @@ const styles = StyleSheet.create({
   totalRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingBottom: 17,
-    borderBottomWidth: 1,
-    borderColor: Colors.Gray4,
+    paddingBottom: 16,
   },
   childrenStyle: {
-    paddingHorizontal: 16,
+    marginHorizontal: 16,
   },
   wrapContent: {
     marginTop: -20,
-    marginBottom: 12,
+  },
+  bottomStyles: {
+    marginHorizontal: 16,
+    paddingHorizontal: 0,
+    marginBottom: 8,
+  },
+  rowDetails: {
+    marginTop: 0,
+    marginBottom: 16,
   },
 });
