@@ -66,7 +66,8 @@ export const SCANNING_STATUS = {
   AVAILABLE_SPOTS: 'available_spots',
   PARKING_NEAREST: 'parking_nearest',
   NOT_WORKING_FOR_SENSOR_ONLY: 'not_working_for_sensor_only',
-  SPOT_DOES_NOT_EXIST: 'spot_does_not_exist',
+  SPOT_DOES_NOT_EXIST: 'Spot does not exist',
+  NO_CAR_PARKED_AT_THIS_SPOT: 'No car parked at this spot',
 };
 
 export const TESTID = {
