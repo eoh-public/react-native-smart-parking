@@ -29,6 +29,7 @@ const ButtonPopup = ({
   title,
   childrenStyle,
   titleStyle,
+  bottomStyles,
 }) => {
   return (
     <Modal
@@ -64,7 +65,11 @@ const ButtonPopup = ({
           </View>
           <BottomButtonView
             rowButton={rowButton}
-            style={[styles.bottomButtonView, thirdTitle && styles.thirdStyle]}
+            style={[
+              styles.bottomButtonView,
+              thirdTitle && styles.thirdStyle,
+              bottomStyles,
+            ]}
             secondaryTitle={secondaryTitle}
             mainTitle={mainTitle}
             onPressSecondary={onPressSecondary}
