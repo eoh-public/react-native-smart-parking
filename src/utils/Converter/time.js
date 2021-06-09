@@ -7,7 +7,7 @@ export const calcTime = (time, inputFormat, outputFormat) => {
   return datetime.format(outputFormat);
 };
 
-export const transformDatetime = (data, listFieldName) => {
+export const transformDatetime = (data, listFieldName = []) => {
   listFieldName.forEach((name) => {
     if (!data.hasOwnProperty(name)) {
       return;

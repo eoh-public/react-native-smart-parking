@@ -98,6 +98,7 @@ const MyBookingList = memo(({ route }) => {
     }
   };
 
+  // eslint-disable-next-line no-shadow
   const renderLabel = ({ route, focused, color }) => (
     <Text style={[styles.tabBarLabel, { color }]}>{route.title}</Text>
   );

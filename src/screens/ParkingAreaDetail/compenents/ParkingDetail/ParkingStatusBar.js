@@ -6,50 +6,52 @@ import { IconOutline } from '@ant-design/icons-react-native';
 import Text from '../../../../commons/Text';
 import { Colors } from '../../../../configs';
 
-const ParkingStatusBar = memo(({ status, freeFrom, freeTo, preBook }) => {
-  const isFull = status === 'FULL' || status === 'ĐẦY';
-  const statusInfo = isFull
-    ? 'status_full_info'
-    : freeFrom === ''
-    ? 'status_always_free'
-    : 'status_free_info';
+const ParkingStatusBar = memo(
+  ({ status, freeFrom, freeTo, preBook, spot_name }) => {
+    const isFull = status === 'FULL' || status === 'ĐẦY';
+    const statusInfo = isFull
+      ? 'status_full_info'
+      : freeFrom === ''
+      ? 'status_always_free'
+      : 'status_free_info';
 
-  return (
-    <View>
-      {!preBook ? (
-        <View style={[styles.container, styles.statusContainerNotPreBooking]}>
-          <View style={styles.statusBar}>
-            <IconOutline
-              name="info-circle"
-              size={20}
-              color={Colors.Gray8}
-              style={styles.paddingRight16}
-            />
-            <Text style={styles.statusNotPreBooking}>
-              {t('not_support_pre_booking')}
-            </Text>
+    return (
+      <View>
+        {!preBook && !spot_name ? (
+          <View style={[styles.container, styles.statusContainerNotPreBooking]}>
+            <View style={styles.statusBar}>
+              <IconOutline
+                name="info-circle"
+                size={20}
+                color={Colors.Gray8}
+                style={styles.paddingRight16}
+              />
+              <Text style={styles.statusNotPreBooking}>
+                {t('not_support_pre_booking')}
+              </Text>
+            </View>
           </View>
-        </View>
-      ) : status === null ? null : (
-        <View
-          style={[
-            styles.container,
-            isFull ? styles.statusContainerFull : styles.statusContainerFree,
-          ]}
-        >
-          <View style={styles.statusBar}>
-            <Text style={isFull ? styles.statusFull : styles.statusFree}>
-              {status}
-            </Text>
-            <Text style={styles.statusInfo}>
-              {t(statusInfo, { from: freeFrom, to: freeTo })}
-            </Text>
+        ) : status === null ? null : (
+          <View
+            style={[
+              styles.container,
+              isFull ? styles.statusContainerFull : styles.statusContainerFree,
+            ]}
+          >
+            <View style={styles.statusBar}>
+              <Text style={isFull ? styles.statusFull : styles.statusFree}>
+                {status}
+              </Text>
+              <Text style={styles.statusInfo}>
+                {t(statusInfo, { from: freeFrom, to: freeTo })}
+              </Text>
+            </View>
           </View>
-        </View>
-      )}
-    </View>
-  );
-});
+        )}
+      </View>
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   container: {

@@ -6,7 +6,7 @@ import { API } from '../../../configs';
 import { axiosGet, axiosPost } from '../../../utils/Apis/axios';
 import { getCurrentLatLng } from '../../../utils/CountryUtils';
 
-const useParkingDetail = (id) => {
+const useParkingDetail = (id, spot_name) => {
   const [loading, setLoading] = useState(false);
   const [parkingDetailData, setParkingDetailData] = useState({});
   const dispatch = useDispatch();
@@ -20,11 +20,12 @@ const useParkingDetail = (id) => {
     const { data, success } = result;
 
     if (success) {
+      spot_name && (data.allow_pre_book = false);
       setParkingDetailData(data);
     }
 
     setLoading(false);
-  }, [id]);
+  }, [id, spot_name]);
 
   const saveParking = useCallback(
     (is_saved) => {
