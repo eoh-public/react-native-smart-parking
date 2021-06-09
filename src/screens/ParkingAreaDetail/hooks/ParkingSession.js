@@ -3,7 +3,7 @@ import moment from 'moment';
 import { axiosGet } from '../../../utils/Apis/axios';
 import { API } from '../../../configs';
 
-const useParkingSession = (id, preBook, numBookHour) => {
+const useParkingSession = (id, preBook, numBookHour, spot_id) => {
   const [parkingSessionData, setParkingSessionData] = useState([]);
   const [bookTime, setBookTime] = useState({
     arriveAt: moment(),
@@ -11,7 +11,7 @@ const useParkingSession = (id, preBook, numBookHour) => {
   });
 
   const getParkingSession = useCallback(async () => {
-    if (preBook) {
+    if (!spot_id && preBook) {
       const { data, success } = await axiosGet(
         API.PARKING.AVAILABLE_TIME_SLOTS(id)
       );
@@ -30,7 +30,7 @@ const useParkingSession = (id, preBook, numBookHour) => {
     } else {
       setBookTime({ numBookHour: 1, arriveAt: moment() });
     }
-  }, [id, preBook]);
+  }, [id, preBook, spot_id]);
 
   return {
     bookTime,

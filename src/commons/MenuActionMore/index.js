@@ -15,6 +15,7 @@ const MenuActionMoreComponent = memo(
       },
       [hideMore, onItemClick]
     );
+
     return (
       <Popover
         popoverStyle={styles.menuStyle}
