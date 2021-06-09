@@ -68,7 +68,7 @@ const ParkingAreaDetail = memo(({ route }) => {
     setBookTime,
     parkingSessionData,
     getParkingSession,
-  } = useParkingSession(id, preBook, numBookHour);
+  } = useParkingSession(id, preBook, numBookHour, spot_id);
 
   const { keyboardVisible } = useKeyboardShow();
 
