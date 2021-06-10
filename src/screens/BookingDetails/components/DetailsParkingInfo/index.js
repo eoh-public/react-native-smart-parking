@@ -42,12 +42,13 @@ const DetailsParkingInfo = memo(
             value={[`${plate_number || '--'}`]}
           />
           <RowDetails
-            title={t('arrive_at')}
+            title={!is_violated ? t('arrive_at') : t('start_time')}
             value={[`${arrive_at_str || '--'}`]}
             testID={TESTID.ARRIVE_AT}
           />
+
           <RowDetails
-            title={t('leave_at')}
+            title={!is_violated ? t('leave_at') : t('end_time')}
             value={[`${leave_at_str || '--'}`]}
             testID={TESTID.LEAVE_AT}
           />
@@ -109,7 +110,10 @@ const DetailsParkingInfo = memo(
             title={t('payment_method')}
             value={[payment_method || '--']}
           />
-          <RowDetails title={t('book_at')} value={[book_at_str || '--']} />
+          {!is_violated && (
+            <RowDetails title={t('book_at')} value={[book_at_str || '--']} />
+          )}
+
           <RowDetails
             testID={TESTID.PAY_AT}
             title={t('pay_at')}
