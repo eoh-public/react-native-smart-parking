@@ -45,7 +45,6 @@ describe('Test useKeyboardShow', () => {
     act(() => {
       axios.get.mockImplementation(() => ({
         data: { test: 1 },
-        success: true,
         status: 200,
       }));
       result.current.getActiveSession();
@@ -57,7 +56,6 @@ describe('Test useKeyboardShow', () => {
     act(() => {
       axios.get.mockImplementation(() => ({
         data: null,
-        success: true,
         status: 200,
       }));
       result.current.getActiveSession();
@@ -69,7 +67,6 @@ describe('Test useKeyboardShow', () => {
     act(() => {
       axios.get.mockImplementation(() => ({
         data: null,
-        success: false,
         status: 500,
       }));
       result.current.getActiveSession();

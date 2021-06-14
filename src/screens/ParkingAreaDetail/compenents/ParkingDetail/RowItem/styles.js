@@ -1,5 +1,5 @@
+import { Platform } from 'react-native';
 import { StyleSheet } from 'react-native';
-import { Device } from '../../../../../configs';
 
 export const styles = StyleSheet.create({
   container: {
@@ -14,7 +14,10 @@ export const styles = StyleSheet.create({
     marginLeft: 16,
   },
   txtTitle: {
-    marginTop: !Device.isIOS ? 4 : 0,
+    marginTop: Platform.select({
+      android: 4,
+      ios: 0,
+    }),
     marginLeft: 18,
   },
 });

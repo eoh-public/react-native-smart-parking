@@ -100,19 +100,20 @@ const ImagePicker = memo(
               mediaType: type,
               quality: 1,
             };
-        launchImageLibrary(options, (response) => {
-          if (response.didCancel) {
-            return;
-          } else if (response.errorCode === 'camera_unavailable') {
-            return;
-          } else if (response.errorCode === 'permission') {
-            return;
-          } else if (response.errorCode === 'others') {
-            return;
-          }
-          setImageUrl(response);
-          setShowImagePicker(false);
-        });
+        launchImageLibrary &&
+          launchImageLibrary(options, (response) => {
+            if (response.didCancel) {
+              return;
+            } else if (response.errorCode === 'camera_unavailable') {
+              return;
+            } else if (response.errorCode === 'permission') {
+              return;
+            } else if (response.errorCode === 'others') {
+              return;
+            }
+            setImageUrl(response);
+            setShowImagePicker(false);
+          });
       },
       [setImageUrl, setShowImagePicker, optionsSelect]
     );

@@ -64,4 +64,60 @@ describe('Test HeaderDrawer', () => {
     );
     expect(itemInput).not.toBeUndefined();
   });
+
+  test('create userName with email', () => {
+    store = mockStore({
+      auth: {
+        account: {
+          user: {
+            avatar: '1',
+            name: null,
+            email: 1,
+            phone_number: null,
+          },
+        },
+      },
+    });
+
+    act(() => {
+      tree = renderer.create(
+        <Provider store={store}>
+          <HeaderDrawer />
+        </Provider>
+      );
+    });
+    const instance = tree.root;
+    const itemInput = instance.findAll(
+      (item) => item.props.testID === TESTID.FAST_IMAGE_USER_AVATAR
+    );
+    expect(itemInput).not.toBeUndefined();
+  });
+
+  test('create userName with no email', () => {
+    store = mockStore({
+      auth: {
+        account: {
+          user: {
+            avatar: '1',
+            name: null,
+            email: null,
+            phone_number: null,
+          },
+        },
+      },
+    });
+
+    act(() => {
+      tree = renderer.create(
+        <Provider store={store}>
+          <HeaderDrawer />
+        </Provider>
+      );
+    });
+    const instance = tree.root;
+    const itemInput = instance.findAll(
+      (item) => item.props.testID === TESTID.FAST_IMAGE_USER_AVATAR
+    );
+    expect(itemInput).not.toBeUndefined();
+  });
 });

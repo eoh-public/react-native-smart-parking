@@ -62,6 +62,21 @@ describe('Test DashBoard hook', () => {
     expect(result.current.activeSessions).toBe(null);
   });
 
+  test('Test getViolations', () => {
+    const response = {
+      status: 200,
+      data: [{ id: 1 }],
+    };
+    axios.get.mockImplementation(async () => {
+      return response;
+    });
+    const { result } = renderHook(() => useNearbyParkings());
+    act(() => {
+      result.current.getViolations();
+    });
+    expect(mockedDispatch).toBeCalled();
+  });
+
   test('test useNearbyParkings setActiveSessions has data', async () => {
     const response = {
       status: 200,
@@ -100,7 +115,7 @@ describe('Test DashBoard hook', () => {
 
   test('test unsave parking', async () => {
     const response = {
-      status: 200,
+      status: 400,
       data: 'test',
     };
     const { result } = renderHook(() => useNearbyParkings());
