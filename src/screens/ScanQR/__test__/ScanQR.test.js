@@ -27,6 +27,7 @@ jest.mock('@react-navigation/native', () => {
 jest.mock('react-native-toast-message');
 
 describe('Test Scan QR', () => {
+  let tree;
   beforeEach(() => {
     Date.now = jest.fn(() => new Date('2021-01-24T12:00:00.000Z'));
   });
@@ -38,7 +39,6 @@ describe('Test Scan QR', () => {
   });
 
   test('render Scan QR', async () => {
-    let tree;
     act(() => {
       tree = create(<SMScanQR />);
     });
@@ -48,7 +48,6 @@ describe('Test Scan QR', () => {
   });
 
   test('onBarCodeRead invalid data cause not a JSON type', async () => {
-    let tree;
     act(() => {
       tree = create(<SMScanQR />);
     });
@@ -64,7 +63,6 @@ describe('Test Scan QR', () => {
   });
 
   test('onBarCodeRead invalid data cause undefined parking and spot', async () => {
-    let tree;
     act(() => {
       tree = create(<SMScanQR />);
     });
@@ -84,24 +82,51 @@ describe('Test Scan QR', () => {
       status: 400,
       data: {},
     };
-    axios.get.mockImplementation(async () => {
+    axios.get.mockImplementation(async (url) => {
+      if (url === API.PARKING.PARKING_INFO) {
+        return { status: 200 };
+      }
       return response;
     });
 
-    let tree;
-    act(() => {
-      tree = create(<SMScanQR />);
+    await act(async () => {
+      tree = await create(<SMScanQR />);
     });
     const instance = tree.root;
     const RNCam = instance.findByType(RNCamera);
-
-    act(() => {
+    await act(async () => {
       const e = { data: JSON.stringify({ parking: 1, id: 1 }) };
-      RNCam.props.onBarCodeRead(e);
+      await RNCam.props.onBarCodeRead(e);
     });
-
-    expect(axios.get).toHaveBeenCalledWith(API.BOOKING.ACTIVE_SESSION, {});
+    expect(axios.get).toBeCalledTimes(2);
+    expect(mockedNavigate).not.toBeCalled();
+    expect(axios.get).toHaveBeenNthCalledWith(
+      2,
+      API.BOOKING.ACTIVE_SESSION,
+      {}
+    );
     expect(mockedGoBack).toHaveBeenCalled();
+  });
+
+  test('onBarCodeRead has violating then navigate', async () => {
+    const response = {
+      status: 200,
+      data: { booking_id: 1 },
+    };
+    axios.get.mockImplementation(async () => {
+      return response;
+    });
+    await act(async () => {
+      tree = await create(<SMScanQR />);
+    });
+    const instance = tree.root;
+    const RNCam = instance.findByType(RNCamera);
+    await act(async () => {
+      const e = { data: JSON.stringify({ parking: 1, id: 1 }) };
+      await RNCam.props.onBarCodeRead(e);
+    });
+    expect(axios.get).toBeCalledTimes(1);
+    expect(mockedNavigate).toBeCalled();
   });
 
   test('onBarCodeRead valid data, has active session, then scanToConfirm, then route to MapDashboard', async () => {
@@ -130,7 +155,6 @@ describe('Test Scan QR', () => {
       ],
     }));
 
-    let tree;
     act(() => {
       tree = create(<SMScanQR />);
     });
@@ -177,7 +201,6 @@ describe('Test Scan QR', () => {
       ],
     }));
 
-    let tree;
     act(() => {
       tree = create(<SMScanQR />);
     });
@@ -224,7 +247,6 @@ describe('Test Scan QR', () => {
       ],
     }));
 
-    let tree;
     act(() => {
       tree = create(<SMScanQR />);
     });
@@ -260,7 +282,6 @@ describe('Test Scan QR', () => {
       return responsePost;
     });
 
-    let tree;
     act(() => {
       tree = create(<SMScanQR />);
     });
@@ -302,7 +323,6 @@ describe('Test Scan QR', () => {
       return responsePost;
     });
 
-    let tree;
     act(() => {
       tree = create(<SMScanQR />);
     });
