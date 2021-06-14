@@ -21,7 +21,7 @@ const Violations = memo(({ animatedScrollYValue, appState }) => {
   );
 
   const renderListEmptyComponent = () => (
-    <Text style={styles.textEmpty}>{t('no_parking_history')}</Text>
+    <Text style={styles.textEmpty}>{t('no_violations')}</Text>
   );
 
   useEffect(() => {
