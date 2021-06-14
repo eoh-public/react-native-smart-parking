@@ -5,7 +5,7 @@ import { transformDatetime } from '../../../utils/Converter/time';
 
 const useBookingDetail = (id, fetchNow) => {
   const [showThanks, setShowThanks] = useState(false);
-  const [loading, setloading] = useState(false);
+  const [loading, setloading] = useState(true);
   const [bookingDetail, setBookingDetail] = useState({
     extend_at: [],
   });

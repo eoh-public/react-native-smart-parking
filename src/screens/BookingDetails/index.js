@@ -14,7 +14,7 @@ import { ToastBottomHelper } from '../../utils/Utils';
 import HeaderUnit from '../../commons/Unit/HeaderUnit';
 import { goBack } from '../../navigations/utils';
 import Text from '../../commons/Text';
-import { AlertAction } from '../../commons';
+import { AlertAction, FullLoading } from '../../commons';
 import ExtendPopup from './components/ExtendPopup';
 import DisplayChecking from '../../commons/DisplayChecking';
 import ScanningResponsePopup from '../MapDashboard/components/ScanningResponsePopup';
@@ -394,107 +394,116 @@ const BookingDetails = memo(({ route }) => {
         styleBoxTitle={styles.boxTitle}
         bottomBorder
       />
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainerStyle}
-        refreshControl={
-          <RefreshControl refreshing={loading} onRefresh={onRefresh} />
-        }
-      >
-        <ParkingTicket {...bookingDetail} getBookingDetail={getBookingDetail} />
-        <View style={styles.separator} />
-        <DetailsParkingInfo {...bookingDetail} />
-        {!!is_violated && !is_paid && (
-          <ItemPaymentMethod
-            testID={TESTID.ITEM_PAYMENT_METHOD}
-            paymentMethod={methodItem}
-            onPressChange={onPressChangePaymentMethod}
-            paymentOption={t('pay_now')}
-            is_pay_now={true}
-            onPaymentReady={setIsPaymentReady}
-            isTick={true}
+      {loading && bookingDetail && !bookingDetail.id ? (
+        <FullLoading />
+      ) : (
+        <>
+          <ScrollView
+            style={styles.container}
+            contentContainerStyle={styles.contentContainerStyle}
+            refreshControl={
+              <RefreshControl refreshing={loading} onRefresh={onRefresh} />
+            }
+          >
+            <ParkingTicket
+              {...bookingDetail}
+              getBookingDetail={getBookingDetail}
+            />
+            <View style={styles.separator} />
+            <DetailsParkingInfo {...bookingDetail} />
+            {!!is_violated && !is_paid && (
+              <ItemPaymentMethod
+                testID={TESTID.ITEM_PAYMENT_METHOD}
+                paymentMethod={methodItem}
+                onPressChange={onPressChangePaymentMethod}
+                paymentOption={t('pay_now')}
+                is_pay_now={true}
+                onPaymentReady={setIsPaymentReady}
+                isTick={true}
+              />
+            )}
+          </ScrollView>
+          <ButtonDrawner
+            mainTitle={mainTitle}
+            secondaryTitle={secondaryTitle}
+            onPressMain={onPressMain}
+            onPressSecondary={onPressSecondary}
+            rowButton
+            semiboldMain
+            isViolated={is_violated}
+            disabled={is_violated && !isPaymentReady}
           />
-        )}
-      </ScrollView>
-      <ButtonDrawner
-        mainTitle={mainTitle}
-        secondaryTitle={secondaryTitle}
-        onPressMain={onPressMain}
-        onPressSecondary={onPressSecondary}
-        rowButton
-        semiboldMain
-        isViolated={is_violated}
-        disabled={is_violated && !isPaymentReady}
-      />
-      <AlertAction
-        visible={stateAlertCancel.visible}
-        hideModal={hideAlertCancel}
-        title={stateAlertCancel.title}
-        message={stateAlertCancel.message}
-        leftButtonTitle={stateAlertCancel.leftButton}
-        leftButtonClick={hideAlertCancel}
-        rightButtonTitle={stateAlertCancel.rightButton}
-        rightButtonClick={onCancelBooking}
-        rightButtonStyle={styles.cancelButton}
-        testIDPrefix={TESTID.PREFIX.ALERT_CANCEL}
-      />
-      {scanDataResponse && (
-        <ScanningResponsePopup
-          visible={showScanResponse}
-          hideModal={hideScanResponse}
-          scanDataResponse={scanDataResponse}
-        />
+          <AlertAction
+            visible={stateAlertCancel.visible}
+            hideModal={hideAlertCancel}
+            title={stateAlertCancel.title}
+            message={stateAlertCancel.message}
+            leftButtonTitle={stateAlertCancel.leftButton}
+            leftButtonClick={hideAlertCancel}
+            rightButtonTitle={stateAlertCancel.rightButton}
+            rightButtonClick={onCancelBooking}
+            rightButtonStyle={styles.cancelButton}
+            testIDPrefix={TESTID.PREFIX.ALERT_CANCEL}
+          />
+          {scanDataResponse && (
+            <ScanningResponsePopup
+              visible={showScanResponse}
+              hideModal={hideScanResponse}
+              scanDataResponse={scanDataResponse}
+            />
+          )}
+          <ExtendPopup
+            parking_id={parking_id}
+            visible={showExtend}
+            onClose={onCancelExtend}
+            onCancel={onCancelExtend}
+            onExtend={onExtend}
+            extendInfo={extendInfo}
+            hour={hour}
+            onChangeHour={setHour}
+            booking={bookingDetail}
+          />
+
+          <DisplayChecking
+            visible={showChecking}
+            onClose={onHideChecking}
+            message={t('checking_availability')}
+            isOpacityLayout
+          />
+          <ButtonPopup
+            visible={showButtonPopup}
+            onClose={onClose}
+            mainTitle={t('ok_got_it')}
+            onPressMain={onClose}
+            bodyStyle={styles.buttonPopupBody}
+          >
+            <Icon
+              name={'check-circle'}
+              color={Colors.Primary}
+              style={styles.icon}
+              size={42}
+            />
+            <Text semibold style={styles.title}>
+              {t('payment_success')}
+            </Text>
+            <Text style={styles.describe}>
+              {t('text_notification_payment_success')}
+            </Text>
+          </ButtonPopup>
+
+          <AlertAction
+            visible={stateAlertStop.visible}
+            hideModal={hideAlertStop}
+            title={stateAlertStop.title}
+            message={stateAlertStop.message}
+            leftButtonTitle={stateAlertStop.leftButton}
+            leftButtonClick={hideAlertStop}
+            rightButtonTitle={stateAlertStop.rightButton}
+            rightButtonClick={onStopParking}
+          />
+          <ThanksForParkingPopup visible={showThanks} onClose={onCloseThanks} />
+        </>
       )}
-      <ExtendPopup
-        parking_id={parking_id}
-        visible={showExtend}
-        onClose={onCancelExtend}
-        onCancel={onCancelExtend}
-        onExtend={onExtend}
-        extendInfo={extendInfo}
-        hour={hour}
-        onChangeHour={setHour}
-        booking={bookingDetail}
-      />
-
-      <DisplayChecking
-        visible={showChecking}
-        onClose={onHideChecking}
-        message={t('checking_availability')}
-        isOpacityLayout
-      />
-      <ButtonPopup
-        visible={showButtonPopup}
-        onClose={onClose}
-        mainTitle={t('ok_got_it')}
-        onPressMain={onClose}
-        bodyStyle={styles.buttonPopupBody}
-      >
-        <Icon
-          name={'check-circle'}
-          color={Colors.Primary}
-          style={styles.icon}
-          size={42}
-        />
-        <Text semibold style={styles.title}>
-          {t('payment_success')}
-        </Text>
-        <Text style={styles.describe}>
-          {t('text_notification_payment_success')}
-        </Text>
-      </ButtonPopup>
-
-      <AlertAction
-        visible={stateAlertStop.visible}
-        hideModal={hideAlertStop}
-        title={stateAlertStop.title}
-        message={stateAlertStop.message}
-        leftButtonTitle={stateAlertStop.leftButton}
-        leftButtonClick={hideAlertStop}
-        rightButtonTitle={stateAlertStop.rightButton}
-        rightButtonClick={onStopParking}
-      />
-      <ThanksForParkingPopup visible={showThanks} onClose={onCloseThanks} />
     </View>
   );
 });

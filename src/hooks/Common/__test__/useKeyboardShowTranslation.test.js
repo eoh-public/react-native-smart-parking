@@ -1,6 +1,7 @@
 import { Keyboard } from 'react-native';
-import { act, renderHook } from '@testing-library/react-hooks';
-import { useKeyboardShow } from '../';
+import { renderHook } from '@testing-library/react-hooks';
+import { useKeyboardShowTranslation } from '../useKeyboardShowTranslation';
+import { Value } from 'react-native-reanimated';
 
 let onKeyBoardDidShowCallback = null;
 let onKeyBoardDidHideCallback = null;
@@ -9,7 +10,7 @@ const originalAddListener = Keyboard.addListener;
 
 // eslint-disable-next-line promise/prefer-await-to-callbacks
 const mockAddListener = jest.fn((event, callback) => {
-  if (event === 'keyboardDidShow') {
+  if (event === 'keyboardDidShow' || event === 'keyboardWillShow') {
     onKeyBoardDidShowCallback = callback;
   } else {
     onKeyBoardDidHideCallback = callback;
@@ -26,11 +27,6 @@ jest.mock('react', () => {
 });
 
 describe('Test useKeyboardShow', () => {
-  const config = {
-    useWillShow: false,
-    useWillHide: false,
-  };
-
   beforeAll(() => {
     Keyboard.addListener = mockAddListener;
   });
@@ -44,27 +40,25 @@ describe('Test useKeyboardShow', () => {
   });
 
   it('Test keyboard event listener', async () => {
-    const { result } = renderHook(() => useKeyboardShow(config));
-    act(() => {
-      result.current.dismissKeyboard();
-    });
-    expect(result.current.keyboardVisible).toBeFalsy();
-    expect(result.current.keyboardBottomPadding).toBe(0);
+    const { result } = renderHook(() => useKeyboardShowTranslation());
+    expect(result.current.opacity).toBe(undefined);
   });
 
   it('Test on keyboardShow', () => {
-    renderHook(() => useKeyboardShow(config));
+    const { result } = renderHook(() => useKeyboardShowTranslation());
     onKeyBoardDidHideCallback();
-    expect(mockSetState).toBeCalled();
+    expect(result.current.transY).toEqual(new Value(0));
   });
 
   it('Test on keyboardHide', () => {
-    renderHook(() => useKeyboardShow(config));
+    const { result } = renderHook(() => useKeyboardShowTranslation());
     onKeyBoardDidShowCallback({
       endCoordinates: {
         height: 100,
       },
     });
-    expect(mockSetState).toBeCalled();
+    expect(result.current.opacityStyle).toEqual({
+      opacity: undefined,
+    });
   });
 });

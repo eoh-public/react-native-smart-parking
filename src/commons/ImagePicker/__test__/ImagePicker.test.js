@@ -4,6 +4,15 @@ import renderer, { act } from 'react-test-renderer';
 import ImagePicker from '../index';
 import ButtonPopup from '../../ButtonPopup';
 
+const mockSetState = jest.fn();
+jest.mock('react', () => {
+  return {
+    ...jest.requireActual('react'),
+    useState: jest.fn((init) => [init, mockSetState]),
+    memo: (x) => x,
+  };
+});
+
 describe('Test ImagePicker', () => {
   let tree;
   let Platform;
@@ -56,5 +65,32 @@ describe('Test ImagePicker', () => {
       buttonPopupProps.onClose();
     });
     expect(setShowImagePicker).toHaveBeenCalledTimes(1);
+  });
+
+  test('Test onPress', () => {
+    act(() => {
+      tree = renderer.create(
+        <ImagePicker
+          showImagePicker={true}
+          setShowImagePicker={setShowImagePicker}
+          setImageUrl={'setImageUrl'}
+          optionsSelect={{
+            mediaType: 'photo',
+            quality: 1,
+          }}
+        />
+      );
+    });
+
+    const instance = tree.root;
+    const ButtonPopupElement = instance.findAllByType(ButtonPopup);
+    act(() => {
+      ButtonPopupElement[0].props.onPressMain();
+    });
+    expect(mockSetState).not.toBeCalled();
+    act(() => {
+      ButtonPopupElement[0].props.onPressSecondary();
+    });
+    expect(mockSetState).not.toBeCalled();
   });
 });
