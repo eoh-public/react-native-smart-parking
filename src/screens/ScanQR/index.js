@@ -1,14 +1,18 @@
 import React, { memo, useCallback } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { useBookingScan } from './hooks';
-import { useNavigation } from '@react-navigation/native';
-import { ToastBottomHelper } from '../../utils/Utils';
 import { t } from 'i18n-js';
+import { useNavigation } from '@react-navigation/native';
+
+import { useBookingScan } from './hooks';
+import { ToastBottomHelper } from '../../utils/Utils';
 import QRScan from './components/QRScan';
 import { TESTID } from '../../configs/Constants';
+import { axiosGet } from '../../utils/Apis/axios';
+import { API } from '../../configs';
+import Routes from '../../utils/Route';
 
 const SMScanQR = memo(() => {
-  const { goBack } = useNavigation();
+  const { goBack, navigate } = useNavigation();
   const {
     loading,
     setLoading,
@@ -31,12 +35,23 @@ const SMScanQR = memo(() => {
         return;
       }
 
+      const response = await axiosGet(API.PARKING.PARKING_INFO, {
+        params: {
+          spot_name: spot_name,
+        },
+      });
+      if (response.success && response.data && response.data.booking_id) {
+        navigate(Routes.SmartParkingBookingDetails, {
+          id: response.data.booking_id,
+        });
+        return;
+      }
+
       const hasBooked = await getActiveBooking();
       if (hasBooked === -1) {
         goBack();
         return;
       }
-
       if (hasBooked) {
         scanToConfirm(spot_id);
       } else {
@@ -50,6 +65,7 @@ const SMScanQR = memo(() => {
       scanToBook,
       scanToConfirm,
       setLoading,
+      navigate,
     ]
   );
 
