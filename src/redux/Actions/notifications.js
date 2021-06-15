@@ -15,3 +15,9 @@ export const setInconpletedCarsInfo = (boolean) => ({
   type: SET_INCOMPLETED_CARS_INFO,
   boolean,
 });
+
+export const SAVE_NOTIFICATION_DATA = 'SAVE_NOTIFICATION_DATA';
+export const saveNotificationData = (payload) => ({
+  type: SAVE_NOTIFICATION_DATA,
+  payload,
+});
