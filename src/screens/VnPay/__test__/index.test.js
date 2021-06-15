@@ -3,20 +3,11 @@ import { act, create } from 'react-test-renderer';
 import { WebView } from 'react-native-webview';
 import VnPayScreen, { Header } from '../';
 import { FullLoading } from '../../../commons';
-
-const dangerouslyGetState = {
-  routes: {
-    name: jest.fn(),
-  },
-};
+import Routes from '../../../utils/Route';
 
 const mockGoBack = jest.fn();
 const mockNavigate = jest.fn();
-const mockNavigation = {
-  dangerouslyGetState: () => dangerouslyGetState,
-  goBack: mockGoBack,
-  navigate: mockNavigate,
-};
+const mockedDangerouslyGetState = jest.fn();
 
 const mockRoute = {
   params: jest.fn(),
@@ -26,7 +17,11 @@ const mockSetState = jest.fn();
 jest.mock('@react-navigation/core', () => {
   return {
     ...jest.requireActual('@react-navigation/core'),
-    useNavigation: () => mockNavigation,
+    useNavigation: () => ({
+      navigate: mockNavigate,
+      goBack: mockGoBack,
+      dangerouslyGetState: mockedDangerouslyGetState,
+    }),
     useRoute: () => mockRoute,
   };
 });
@@ -43,12 +38,15 @@ jest.mock('react-native-webview');
 describe('Test VnPay screen', () => {
   let tree;
   afterEach(() => {
-    mockNavigation.goBack.mockClear();
-    mockNavigation.navigate.mockClear();
+    mockNavigate.mockClear();
+    mockGoBack.mockClear();
     mockSetState.mockClear();
     mockRoute.params.mockClear();
   });
-  it('Test render', () => {
+  it('Test render VnPay screen click onBack goBack', () => {
+    mockedDangerouslyGetState.mockImplementationOnce(() => ({
+      routes: [{ name: 'route 1' }],
+    }));
     act(() => {
       tree = create(<VnPayScreen />);
     });
@@ -66,5 +64,25 @@ describe('Test VnPay screen', () => {
       WebViewElement[0].props.onLoadEnd();
     });
     expect(mockSetState).toHaveBeenCalledWith(false);
+  });
+
+  it('Test render VnPay screen click onBack navigate SmartParkingBookingConfirm', () => {
+    mockedDangerouslyGetState.mockImplementationOnce(() => ({
+      routes: [
+        { name: 'route 1' },
+        { name: Routes.SmartParkingBookingConfirm },
+        { name: 'route 2' },
+      ],
+    }));
+
+    act(() => {
+      tree = create(<VnPayScreen />);
+    });
+    const instance = tree.root;
+    const HeaderElement = instance.findByType(Header);
+    act(() => {
+      HeaderElement.props.onBack();
+    });
+    expect(mockNavigate).toHaveBeenCalled();
   });
 });

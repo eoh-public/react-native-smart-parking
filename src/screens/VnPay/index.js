@@ -48,7 +48,6 @@ const VnPayScreen = () => {
   const { routes } = dangerouslyGetState();
   const preScreenName = (routes[routes.length - 2] || {}).name;
   const [loading, setLoading] = useState(true);
-
   const onBack = () =>
     preScreenName === Routes.SmartParkingBookingConfirm
       ? navigate(Routes.MapDashboard)
