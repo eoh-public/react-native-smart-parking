@@ -2,12 +2,14 @@ import {
   SET_NEW_SAVED_PARKING,
   SET_NEW_NOTIFICATION,
   SET_INCOMPLETED_CARS_INFO,
+  SAVE_NOTIFICATION_DATA,
 } from '../Actions/notifications';
 
 const initialState = {
   newSavedParking: false,
   newNotification: false,
   incompletedCarsInfo: false,
+  notificationData: null,
 };
 
 export default (state = initialState, action) => {
@@ -29,6 +31,12 @@ export default (state = initialState, action) => {
         ...state,
         incompletedCarsInfo: action.boolean,
       };
+    case SAVE_NOTIFICATION_DATA: {
+      return {
+        ...state,
+        notificationData: action.payload,
+      };
+    }
 
     default:
       return state;

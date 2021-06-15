@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React, { useEffect, useState } from 'react';
@@ -11,6 +12,7 @@ import { exitApp as resetExitApp } from '../redux/Actions/ui';
 import Routes from '../utils/Route';
 import { SmartParkingStack } from './SmartParkingStack';
 import { navigationRef } from './utils';
+import { saveNotificationData } from '../redux/Actions/notifications';
 
 const Stack = createStackNavigator();
 
@@ -53,26 +55,26 @@ const NavStack = () => {
   );
 };
 
-const App = (props) => {
+const App = ({ dataNotification, auth, onExitApp }) => {
   const exitApp = useSelector((state) => state.ui.exitApp);
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(initAuth(props.auth?.account));
+    dispatch(initAuth(auth?.account));
     setLoading(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     if (exitApp) {
-      const { onExitApp } = props;
       onExitApp && onExitApp();
-
       dispatch(resetExitApp());
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [exitApp]);
+
+  useEffect(() => {
+    dataNotification && dispatch(saveNotificationData(dataNotification));
+  }, [dataNotification]);
 
   if (loading) {
     return null;

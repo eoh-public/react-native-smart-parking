@@ -1,4 +1,6 @@
 import {
+  saveNotificationData,
+  SAVE_NOTIFICATION_DATA,
   setInconpletedCarsInfo,
   setNewNotification,
   setNewSavedParking,
@@ -34,5 +36,14 @@ describe('Test notifications actions', () => {
       boolean,
     };
     expect(setInconpletedCarsInfo(boolean)).toEqual(expectedAction);
+  });
+
+  it('Test saveNotificationData action', () => {
+    const payload = { test: 1 };
+    expectedAction = {
+      type: SAVE_NOTIFICATION_DATA,
+      payload,
+    };
+    expect(saveNotificationData(payload)).toEqual(expectedAction);
   });
 });

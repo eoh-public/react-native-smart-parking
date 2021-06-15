@@ -1,5 +1,6 @@
 import reducer from '../notifications';
 import {
+  SAVE_NOTIFICATION_DATA,
   SET_INCOMPLETED_CARS_INFO,
   SET_NEW_NOTIFICATION,
   SET_NEW_SAVED_PARKING,
@@ -11,6 +12,7 @@ describe('Test notification reducer', () => {
       newSavedParking: false,
       newNotification: false,
       incompletedCarsInfo: false,
+      notificationData: null,
     });
   });
 
@@ -71,6 +73,27 @@ describe('Test notification reducer', () => {
       newSavedParking: false,
       newNotification: false,
       incompletedCarsInfo: true,
+    });
+  });
+
+  it('Test SAVE_NOTIFICATION_DATA type', () => {
+    expect(
+      reducer(
+        {
+          newSavedParking: false,
+          newNotification: false,
+          incompletedCarsInfo: false,
+        },
+        {
+          type: SAVE_NOTIFICATION_DATA,
+          payload: { test: 1 },
+        }
+      )
+    ).toEqual({
+      newSavedParking: false,
+      newNotification: false,
+      incompletedCarsInfo: false,
+      notificationData: { test: 1 },
     });
   });
 });

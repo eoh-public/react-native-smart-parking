@@ -32,7 +32,7 @@ import SearchBar from './components/SearchBar';
 import ActiveSessionsItem from '../MyBookingList/components/ActiveSessions/ActiveSessionsItem';
 import Text from '../../commons/Text';
 import { API, AppRNConfig, Colors, Device } from '../../configs';
-import { TESTID } from '../../configs/Constants';
+import { NOTIFICATION_TYPES, TESTID } from '../../configs/Constants';
 import {
   useAndroidTranslucentStatusBar,
   useBlockBackAndroid,
@@ -66,6 +66,9 @@ const MapDashboard = memo(({ route }) => {
   useBlockBackAndroid();
 
   const cancelBooking = useSelector((state) => state.local.cancelBooking);
+  const notificationData = useSelector(
+    (state) => state.notifications.notificationData
+  );
 
   const [loading, setLoading] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState({
@@ -467,6 +470,13 @@ const MapDashboard = memo(({ route }) => {
   useEffect(() => {
     responseData && responseData.isFindAParkingArea && onPressNearby();
   }, [responseData]);
+
+  useEffect(() => {
+    notificationData &&
+      notificationData.content_code ===
+        NOTIFICATION_TYPES.SYSTEM_CANCEL_NO_PAYMENT &&
+      getActiveSession();
+  }, [notificationData]);
 
   return (
     <View style={styles.wrap} testID={TESTID.MAP_DASHBOARD_VIEW}>
