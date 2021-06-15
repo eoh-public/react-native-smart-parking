@@ -426,7 +426,7 @@ const MapDashboard = memo(({ route }) => {
     const cacheSelectLocation = JSON.parse(
       await getData('@CACHE_SELECT_LOCATION')
     );
-    if (cacheSelectLocation.latitude !== null) {
+    if (cacheSelectLocation && cacheSelectLocation.latitude !== null) {
       setSearchedLocation(cacheSelectLocation);
     }
   }, []);
@@ -669,6 +669,7 @@ const MapDashboard = memo(({ route }) => {
             onPress={onPressAgree}
             value={isTickConfirmTerms}
             onValueChange={onValueCheckBoxAgreeChange}
+            testID={TESTID.TERMS_AND_CONDITIONS_CHECKBOX}
           >
             <Text type={'Body'} style={styles.termsText}>
               {t('terms_and_conditions_booking_prefix')}

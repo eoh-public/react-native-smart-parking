@@ -38,6 +38,7 @@ const CustomCheckbox = memo(
             tintColors={{ true: Colors.Primary, false: Colors.Gray3 }}
             boxType={type}
             disabled={disabled}
+            testID={testID}
           />
         )}
         <TouchableOpacity onPress={onPress} disabled={disabled}>
