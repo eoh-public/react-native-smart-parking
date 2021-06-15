@@ -5,6 +5,7 @@ import axios from 'axios';
 import Routes from '../../../utils/Route';
 import SMScanQR from '..';
 import { API } from '../../../configs';
+import { SCANNING_STATUS } from '../../../configs/Constants';
 
 const mockedGoBack = jest.fn();
 const mockedNavigate = jest.fn();
@@ -141,6 +142,52 @@ describe('Test Scan QR', () => {
     let postData = { status: 'booking_activated' };
     const responsePost = {
       status: 200,
+      data: postData,
+    };
+    axios.post.mockImplementation(async () => {
+      return responsePost;
+    });
+
+    mockedDangerouslyGetState.mockImplementation(() => ({
+      routes: [
+        { name: 'route 1' },
+        { name: Routes.SmartParkingMapDrawer },
+        { name: 'route 2' },
+      ],
+    }));
+
+    act(() => {
+      tree = create(<SMScanQR />);
+    });
+    const instance = tree.root;
+    const RNCam = instance.findByType(RNCamera);
+
+    await act(async () => {
+      const e = { data: JSON.stringify({ parking: 1, id: 2 }) };
+      await RNCam.props.onBarCodeRead(e);
+    });
+
+    expect(axios.get).toHaveBeenCalledWith(API.BOOKING.ACTIVE_SESSION, {});
+    expect(axios.post).toHaveBeenCalledWith(API.BOOKING.SCAN_TO_CONFIRM, {
+      spot_id: 2,
+    });
+    expect(mockedNavigate).toHaveBeenCalledWith(Routes.MapDashboard, {
+      scanDataResponse: postData,
+    });
+  });
+
+  test('SMScanQR has active session then scanToConfirm route to MapDashboard popup no car', async () => {
+    const responseGet = {
+      status: 200,
+      data: { id: 1 },
+    };
+    axios.get.mockImplementation(async () => {
+      return responseGet;
+    });
+
+    let postData = { spot_id: [SCANNING_STATUS.NO_CAR_PARKED_AT_THIS_SPOT] };
+    const responsePost = {
+      status: 400,
       data: postData,
     };
     axios.post.mockImplementation(async () => {

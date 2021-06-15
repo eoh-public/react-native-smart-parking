@@ -61,7 +61,10 @@ const useBookingScan = () => {
 
   const scanToConfirm = useCallback(
     async (spot_id) => {
-      const { data } = await checkScanToConfirm(spot_id);
+      const { success, data } = await checkScanToConfirm(spot_id);
+      if (!success && data.spot_id) {
+        data.status = data.spot_id[0];
+      }
       onBack(data);
     },
     [checkScanToConfirm, onBack]
