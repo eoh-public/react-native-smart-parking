@@ -5,6 +5,8 @@ import { TESTID } from '../../../configs/Constants';
 import SavedParking from '../index';
 import axios from 'axios';
 import { API } from '../../../configs';
+import WrapHeaderScrollable from '../../../commons/Sharing/WrapHeaderScrollable';
+import SavedParkingList from '../components/SavedParkingList';
 
 jest.mock('axios');
 const mockNavigate = jest.fn();
@@ -117,5 +119,56 @@ describe('test saved parking container', () => {
       await button.props.onPress();
     });
     expect(axios.post).toHaveBeenCalledWith(API.PARKING.SAVE(9));
+  });
+
+  test('render saved parking container, onRefresh', async () => {
+    resGetSavedParkings.data.is_saved = false;
+    axios.get.mockImplementation(async () => {
+      return resGetSavedParkings;
+    });
+    mockSetStates(0, [resGetSavedParkings.data]);
+    const response = {
+      status: 200,
+    };
+    axios.post.mockImplementation(async () => {
+      return response;
+    });
+    await act(async () => {
+      tree = await create(<SavedParking />);
+    });
+    const instance = tree.root;
+    const wrapHeaderScrollable = instance.findByType(WrapHeaderScrollable);
+    await act(async () => {
+      await wrapHeaderScrollable.props.onRefresh();
+    });
+    expect(axios.get).toHaveBeenCalledWith(API.PARKING.SAVED_LIST, {
+      params: {
+        lat: 10.7974046,
+        lng: 106.7035663,
+        ordering: '-saved_users__created_at',
+      },
+    });
+  });
+
+  test('render saved parking container, savedParkingsNearMe', async () => {
+    resGetSavedParkings.data.is_saved = false;
+    resGetSavedParkings.data2 = { ...resGetSavedParkings.data, distance: 1200 };
+    axios.get.mockImplementation(async () => {
+      return resGetSavedParkings;
+    });
+    mockSetStates(1, [resGetSavedParkings.data, resGetSavedParkings.data2]);
+    const response = {
+      status: 200,
+    };
+    axios.post.mockImplementation(async () => {
+      return response;
+    });
+    await act(async () => {
+      tree = await create(<SavedParking />);
+    });
+    const instance = tree.root;
+    const saveParkingList = instance.findByType(SavedParkingList);
+    const savedParkingsNearMe = saveParkingList.props.savedList;
+    expect(savedParkingsNearMe[0].distance).toBe(1200);
   });
 });

@@ -57,6 +57,7 @@ import { deleteData } from '../../utils/Storage';
 import { useNearbyParkings, useNotifications } from './hooks';
 import styles from './styles';
 import { ViolationItem } from './components/Violation';
+import { watchViolationData, unwatchViolationData } from './Monitor';
 
 const selectedParkingIcon = require('../../../assets/images/Map/marker_parking_selected.png');
 const parkingIcon = require('../../../assets/images/Map/marker_parking.png');
@@ -65,6 +66,7 @@ const MapDashboard = memo(({ route }) => {
   useAndroidTranslucentStatusBar();
   useBlockBackAndroid();
 
+  const user = useSelector((state) => state.auth.account.user);
   const cancelBooking = useSelector((state) => state.local.cancelBooking);
   const notificationData = useSelector(
     (state) => state.notifications.notificationData
@@ -470,6 +472,11 @@ const MapDashboard = memo(({ route }) => {
   useEffect(() => {
     responseData && responseData.isFindAParkingArea && onPressNearby();
   }, [responseData]);
+
+  useEffect(() => {
+    watchViolationData(user, getViolations);
+    return () => unwatchViolationData(user);
+  }, []);
 
   useEffect(() => {
     notificationData &&

@@ -25,6 +25,7 @@ check-basic-rule:
     refs:
       - master
   script:
+    - git fetch origin master
     - yarn run check_translation_file_change
     - yarn run check_create_within_act
 
