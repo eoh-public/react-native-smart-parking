@@ -84,6 +84,9 @@ const API = {
     SET_LAST_SEEN: API_ROOT + '/notifications/notifications/set_last_seen/',
     NUMBER: API_ROOT + '/notifications/notifications/number/',
   },
+  PUSHER: {
+    AUTH: API_ROOT + '/smart_parking/pusher/auth/',
+  },
 };
 
 export default API;
