@@ -1,7 +1,7 @@
 {
   "name": "@eohjsc/react-native-smart-parking",
   "title": "React Native Smart Parking",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "TODO",
   "main": "index.js",
   "files": [
