@@ -639,7 +639,7 @@
   "text_notification_content_pay_fine_successfully": "Đỗ xe vi phạm **%{booking}** của bạn đã được thanh toán.",
   "this_spot_does_not_exsit": "Vị trí đỗ này không tồn tại",
   "no_car_parked_at_this_spot": "Không phát hiện có xe đang đỗ tại vị trí này.",
-  "des_no_car_parked": "Vui lòng kiểm tra chính xác số vị trí đỗ của bạn và thử lại.",
+  "des_no_car_parked": "Vui lòng quét mã QR vị trí bạn đang đậu xe hoặc liên hệ với người quản lý bãi đậu xe.",
   "please_scan_again_or_contact_the_parking_manager": "Vui lòng quét lại hoặc liên hệ với người quản lý bãi đậu xe",
   "this_spot_does_not_support_to_scan": "Vị trí đỗ này không hỗ trợ quét",
   "please_book_by_the_normal_way": "Vui lòng đặt trước bằng cách thông thường",

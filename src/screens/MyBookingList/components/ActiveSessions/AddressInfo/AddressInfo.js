@@ -9,22 +9,11 @@ import { formatMoney } from '../../../../../utils/Utils';
 import { styles } from './styles';
 
 const AddressInfo = memo(
-  ({
-    id,
-    name,
-    address,
-    grand_total,
-    parking_hours,
-    payment_method_name,
-    isViolated,
-  }) => {
-    const text_hour = parking_hours > 1 ? t('hours') : t('hour');
-    const text_payment_method_name = payment_method_name
-      ? `- ${payment_method_name}`
-      : '';
-    const sub_text = isViolated
-      ? ''
-      : ` (${parking_hours} ${text_hour}) ${text_payment_method_name}`;
+  ({ id, name, address, grand_total, hourParking, payment_method }) => {
+    const text_hour = hourParking > 1 ? t('hours') : t('hour');
+    const sub_text = ` (${hourParking} ${text_hour}) ${
+      payment_method && payment_method
+    }`;
     return (
       <View style={styles.container}>
         <View style={styles.info}>
