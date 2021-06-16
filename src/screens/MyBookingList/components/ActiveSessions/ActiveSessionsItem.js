@@ -12,6 +12,7 @@ import RowTimeParking from './RowTimeParking/RowTimeParking';
 import AddressInfo from './AddressInfo/AddressInfo';
 import ButtonTextBottomView from '../ButtonTextBottomView';
 import { TESTID } from '../../../../configs/Constants';
+import { getDurationTime } from '../../../../utils/Converter/time';
 
 const getTitleRightTitleColor = (
   id,
@@ -105,7 +106,7 @@ const ActiveSessionsItem = memo(
       .add(AppRNConfig.MAX_SECONDS, 'seconds')
       .format('HH:mm');
     const [taskId, setTaskId] = useState(null);
-
+    const hourParking = getDurationTime(arrive_at, leave_at).asHours();
     // check pay before
     useEffect(() => {
       const diff = payBefore.diff(moment());
@@ -122,7 +123,6 @@ const ActiveSessionsItem = memo(
         return;
       }
 
-      const hourParking = moment(leave_at).hour() - moment(arrive_at).hour();
       const totalTime = hourParking * 3600;
       const timeLeft = time_remaining;
       let timeHandler;
@@ -135,6 +135,7 @@ const ActiveSessionsItem = memo(
       return () => clearTimeout(timeHandler);
     }, [
       arrive_at,
+      hourParking,
       is_paid,
       leave_at,
       reloadData,
@@ -204,7 +205,16 @@ const ActiveSessionsItem = memo(
         activeOpacity={0.4}
         testID={TESTID.ACTIVE_SESSION_ITEM}
       >
-        <AddressInfo {...{ id, name, address, grand_total }} />
+        <AddressInfo
+          {...{
+            id,
+            name,
+            address,
+            hourParking,
+            grand_total,
+            payment_method,
+          }}
+        />
         <View style={styles.timeInfo}>
           <RowTimeParking
             rightText={moment(arrive_at).format('LT, DD/MM/YYYY')}
