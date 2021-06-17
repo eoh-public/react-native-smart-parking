@@ -107,7 +107,7 @@ const MyBookingList = memo(({ route }) => {
     <View style={styles.container}>
       <HeaderAni
         scrollY={animatedScrollYValue}
-        title={'MybookingList'}
+        title={t('my_bookings')}
         headerStyle={styles.headerStyle}
       />
       <Animated.View
