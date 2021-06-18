@@ -484,4 +484,18 @@ describe('test BookingConfirm container', () => {
     expect(mockedNavigate).toBeCalledTimes(1);
     expect(mockedNavigate).toBeCalledWith(Routes.SmartParkingMapDrawer);
   });
+
+  test('test call useEffect isPaymentReady true', async () => {
+    const setReadyToConfirm = jest.fn();
+    _.range(3).map(() => {
+      useState.mockImplementationOnce((init) => [init, mockSetState]);
+    });
+
+    useState.mockImplementationOnce((init) => [init, setReadyToConfirm]);
+    useState.mockImplementationOnce((init) => [true, mockSetState]);
+    await act(async () => {
+      await create(<BookingConfirm route={route} />);
+    });
+    expect(setReadyToConfirm).toHaveBeenCalledWith(true);
+  });
 });

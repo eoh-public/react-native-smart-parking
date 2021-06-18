@@ -366,6 +366,7 @@ describe('Test BookingDetails', () => {
   test('press pay fine for violated booking', async () => {
     mockInitBookingDetail({
       is_violated: true,
+      is_paid: false,
       city: {},
     });
 
