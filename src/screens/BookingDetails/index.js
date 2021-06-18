@@ -423,16 +423,20 @@ const BookingDetails = memo(({ route }) => {
               />
             )}
           </ScrollView>
-          <ButtonDrawner
-            mainTitle={mainTitle}
-            secondaryTitle={secondaryTitle}
-            onPressMain={onPressMain}
-            onPressSecondary={onPressSecondary}
-            rowButton
-            semiboldMain
-            isViolated={is_violated}
-            disabled={is_violated && !isPaymentReady}
-          />
+
+          {is_violated && is_paid ? null : (
+            <ButtonDrawner
+              mainTitle={mainTitle}
+              secondaryTitle={secondaryTitle}
+              onPressMain={onPressMain}
+              onPressSecondary={onPressSecondary}
+              rowButton
+              semiboldMain
+              isViolated={is_violated}
+              disabled={is_violated && !isPaymentReady}
+            />
+          )}
+
           <AlertAction
             visible={stateAlertCancel.visible}
             hideModal={hideAlertCancel}

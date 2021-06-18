@@ -50,6 +50,7 @@ describe('Test useBookingDetail', () => {
     const { result } = renderHook(() => useBookingDetail(1, true));
     act(() => {
       result.current.onCloseThanks();
+      result.current.onRefresh();
     });
     expect(axios.get).toBeCalled();
   });
