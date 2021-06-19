@@ -11,7 +11,10 @@ const TimeBlock = memo(({ title, time, color }) => {
     <View style={styles.container}>
       <View style={styles.time}>
         <TimeCountDownText number={convert.substring(0, 1)} color={color} />
-        <TimeCountDownText number={convert.substring(1)} color={color} />
+        <TimeCountDownText number={convert.substring(1, 2)} color={color} />
+        {time.length >= 3 && (
+          <TimeCountDownText number={convert.substring(2)} color={color} />
+        )}
       </View>
       <Text type="Body" color={Colors.Gray8}>
         {title}
