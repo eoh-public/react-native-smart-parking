@@ -89,6 +89,7 @@ const NotificationCentre = memo(() => {
                 renderItem={renderItem}
                 onMomentumScrollBegin={() => setOnEndReached(false)}
                 onEndReached={handleEndReachNotifications}
+                style={styles.container}
               />
             </View>
           ) : (

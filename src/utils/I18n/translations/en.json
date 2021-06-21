@@ -159,6 +159,8 @@
   "ok": "OK",
   "Status": "Status: ",
   "connected": "Connected",
+  "ggHomeConnected": "Google Home is connected",
+  "ggHomeDisconnected": "Google Home is disconnected",
   "don_t_have_an_account": "Don't have an account?",
   "please_enter_your_phone_number": "Please enter your phone number",
   "please_enter_your_password": "Please enter your password",

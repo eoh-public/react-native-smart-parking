@@ -183,6 +183,8 @@
   "ok": "OK",
   "Status": "Trạng thái: ",
   "connected": "Đã kết nối",
+  "ggHomeConnected": "Google Home đã kết nối",
+  "ggHomeDisconnected": "Google Home bị ngắt kết nối",
   "don_t_have_an_account": "Bạn chưa có tài khoản?",
   "please_enter_your_phone_number": "Vui lòng nhập số điện thoại",
   "please_enter_your_password": "Vui lòng nhập mật khẩu",
