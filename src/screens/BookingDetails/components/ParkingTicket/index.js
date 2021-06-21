@@ -28,7 +28,6 @@ const ParkingTicket = memo(
 
     const statusColor =
       status === BOOKING_STATUS.COMPLETED ? Colors.Green6 : Colors.Red6;
-
     return (
       <View style={styles.container}>
         {status === BOOKING_STATUS.ON_GOING && (
@@ -41,6 +40,7 @@ const ParkingTicket = memo(
             start_countdown={is_violated ? !leave_at : start_countdown}
             getBookingDetail={getBookingDetail}
             is_violated={is_violated}
+            leave_at={leave_at}
           />
         )}
         <View>
