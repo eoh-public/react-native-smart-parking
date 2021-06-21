@@ -10,7 +10,7 @@ import Text from '../../commons/Text';
 import { API, Colors } from '../../configs';
 import { axiosPost } from '../../utils/Apis/axios';
 import Routes from '../../utils/Route';
-import { NOTIFICATION_TYPES } from '../../configs/Constants';
+import { NOTIFICATION_TYPES, TESTID } from '../../configs/Constants';
 
 const customColorText = (text, params, color) => {
   return text.split('**').map((str, i) =>
@@ -134,7 +134,7 @@ const ItemNotification = memo(({ item, index }) => {
         return {
           content: customColorText(
             t(
-              'text_notification_content_not_move_care_after_parking_session_expire'
+              'text_notification_content_not_move_car_after_parking_session_expire'
             ),
             arrParams,
             Colors.Orange
@@ -168,6 +168,30 @@ const ItemNotification = memo(({ item, index }) => {
               id: booking_id,
             }),
         };
+      case NOTIFICATION_TYPES.PAY_FINE_AND_EXTEND_SUCCESSFULLY:
+        return {
+          content: customColorText(
+            t('text_notification_content_pay_fine_and_extend_successfully'),
+            arrParams,
+            Colors.Orange
+          ),
+          redirect: () =>
+            navigation.navigate(Routes.SmartParkingBookingDetails, {
+              id: booking_id,
+            }),
+        };
+      case NOTIFICATION_TYPES.STOP_VIOLATION_FREE_PARKING_ZONE:
+        return {
+          content: customColorText(
+            t('text_notification_content_stop_violation_free_parking_zone'),
+            arrParams,
+            Colors.Orange
+          ),
+          redirect: () =>
+            navigation.navigate(Routes.SmartParkingBookingDetails, {
+              id: booking_id,
+            }),
+        };
     }
   }, [arrParams, content_code, navigation, params]);
 
@@ -193,7 +217,12 @@ const ItemNotification = memo(({ item, index }) => {
       <View style={styles.container}>
         <FastImage source={{ uri: icon }} style={styles.image} />
         <View style={styles.info}>
-          <Text type="Body" color={Colors.Gray8} style={styles.textDescription}>
+          <Text
+            type="Body"
+            color={Colors.Gray8}
+            style={styles.textDescription}
+            testID={TESTID.NOTIFICATION_CONTENT}
+          >
             {content}
           </Text>
 
