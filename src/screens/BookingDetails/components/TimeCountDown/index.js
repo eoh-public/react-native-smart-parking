@@ -17,7 +17,6 @@ const TimeCountDown = memo(
       !is_violated
     );
     const { hours, minutes, seconds } = countDown;
-
     let color = Colors.Black;
     if (timeLeft < AppRNConfig.MAX_SECONDS) {
       color = Colors.Red6;
