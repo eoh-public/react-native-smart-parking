@@ -32,11 +32,9 @@ const NotificationCentre = memo(() => {
         setNotifications((preState) => preState.concat(data.results));
         setMaxPageNotification(Math.ceil(data.count / 10));
       }
-      if (!isLoaded) {
-        setIsLoaded(true);
-      }
+      setIsLoaded(true);
     },
-    [isLoaded, setIsLoaded]
+    [setIsLoaded]
   );
 
   const updateLastSeen = useCallback(async () => {
@@ -50,7 +48,7 @@ const NotificationCentre = memo(() => {
 
   useEffect(() => {
     fetchNotifications(1);
-  }, [fetchNotifications]);
+  });
 
   const renderItem = useCallback(({ item, index }) => {
     return <ItemNotification item={item} index={index} />;
