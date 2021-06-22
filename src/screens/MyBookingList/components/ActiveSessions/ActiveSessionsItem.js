@@ -106,7 +106,9 @@ const ActiveSessionsItem = memo(
       .add(AppRNConfig.MAX_SECONDS, 'seconds')
       .format('HH:mm');
     const [taskId, setTaskId] = useState(null);
-    const hourParking = getDurationTime(arrive_at, leave_at).asHours();
+    const hourParking = Math.round(
+      getDurationTime(arrive_at, leave_at).asHours()
+    );
     // check pay before
     useEffect(() => {
       const diff = payBefore.diff(moment());
