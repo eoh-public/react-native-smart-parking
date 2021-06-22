@@ -54,7 +54,7 @@ const ParkingTicket = memo(
             {t('parking_spot_number')}:{' '}
             <Text color={Colors.Primary}>{spot_name}</Text>
           </Text>
-          {status !== BOOKING_STATUS.ON_GOING && (
+          {!is_violated && status !== BOOKING_STATUS.ON_GOING && (
             <Text
               style={styles.parkingInfoText}
               type="Body"
@@ -66,6 +66,22 @@ const ParkingTicket = memo(
                 color={statusColor}
               >
                 {t(status)}
+              </Text>
+            </Text>
+          )}
+
+          {is_violated && status === BOOKING_STATUS.COMPLETED && (
+            <Text
+              style={styles.parkingInfoText}
+              type="Body"
+              color={Colors.Gray8}
+            >
+              {t('Status')}{' '}
+              <Text
+                testID={TESTID.BOOKING_DETAIL_TEST_STATUS}
+                color={Colors.Gray8}
+              >
+                {t('fine_paid')}
               </Text>
             </Text>
           )}
