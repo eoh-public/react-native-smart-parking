@@ -248,5 +248,6 @@ const styles = StyleSheet.create({
   },
   iOSCheckBoxStyles: {
     marginTop: 0,
+    marginLeft: 9,
   },
 });
