@@ -84,7 +84,7 @@ const ParkingInputManually = memo(() => {
         case SPOT_STATUS_CHECK_CAR.MOVE_CAR_TO_SPOT:
           setResultCheckCar(t('notify_no_car_parked'));
           break;
-        case SPOT_STATUS_CHECK_CAR.THERE_IS_CAR_PARKED:
+        case SPOT_STATUS_CHECK_CAR.THIS_SPOT_HAVE_BOOKED:
           setResultCheckCar(t('notify_spot_has_been_booked'));
           break;
         default:

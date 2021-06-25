@@ -571,7 +571,7 @@
   "sub_text_parking_spot_number": "Please enter the spot number at your parking position to start booking",
   "check_parking_spot_number": "Check parking spot number",
   "notify_no_car_parked": "No car parked at this spot at this moment. Please check your current position again and enter a right spot number.",
-  "notify_spot_has_been_booked": "This spot has been booked before",
+  "notify_spot_has_been_booked": "This spot has been booked before. Please try another spot.",
   "notify_spot_not_exist": "This spot does not exist. Please try enter again",
   "then_select_a_sub_unit_to_add": "Then, select a sub-unit that you want to add this device in",
   "first_select_a_unit": "First, select a unit that has this device",
