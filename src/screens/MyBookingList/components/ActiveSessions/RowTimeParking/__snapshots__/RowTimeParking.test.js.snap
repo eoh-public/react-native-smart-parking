@@ -17,12 +17,15 @@ exports[`Test RowTimeParking render RowTimeParking 1`] = `
         Object {
           "color": "#595959",
           "fontFamily": "SFProDisplay-Semibold",
-          "fontSize": 12,
-          "lineHeight": 12,
+          "fontSize": undefined,
+          "lineHeight": undefined,
           "textAlign": "left",
           "textDecorationLine": "none",
         },
-        Object {},
+        Object {
+          "fontSize": 14,
+          "lineHeight": 22,
+        },
       ]
     }
     testID="LEFT_TEXT_ROW_TIME_PARKING"
@@ -40,7 +43,10 @@ exports[`Test RowTimeParking render RowTimeParking 1`] = `
           "textAlign": "left",
           "textDecorationLine": "none",
         },
-        Object {},
+        Object {
+          "fontSize": 16,
+          "lineHeight": 22,
+        },
       ]
     }
     testID="RIGHT_TEXT_ROW_TIME_PARKING"
@@ -67,12 +73,15 @@ exports[`Test RowTimeParking render RowTimeParking without timeLeft 1`] = `
         Object {
           "color": "#595959",
           "fontFamily": "SFProDisplay-Regular",
-          "fontSize": 12,
-          "lineHeight": 12,
+          "fontSize": undefined,
+          "lineHeight": undefined,
           "textAlign": "left",
           "textDecorationLine": "none",
         },
-        Object {},
+        Object {
+          "fontSize": 14,
+          "lineHeight": 22,
+        },
       ]
     }
     testID="LEFT_TEXT_ROW_TIME_PARKING"
@@ -85,12 +94,15 @@ exports[`Test RowTimeParking render RowTimeParking without timeLeft 1`] = `
         Object {
           "color": "#595959",
           "fontFamily": "SFProDisplay-Semibold",
-          "fontSize": 12,
-          "lineHeight": 20,
+          "fontSize": 14,
+          "lineHeight": 22,
           "textAlign": "left",
           "textDecorationLine": "none",
         },
-        Object {},
+        Object {
+          "fontSize": 14,
+          "lineHeight": 22,
+        },
       ]
     }
     testID="RIGHT_TEXT_ROW_TIME_PARKING"
