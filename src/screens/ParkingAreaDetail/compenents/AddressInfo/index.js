@@ -73,7 +73,7 @@ const AddressInfo = memo(
     }
 
     let timeHandler;
-    if (status === 'FULL') {
+    if (status === 'FULL' && !spot_name) {
       titleColor = Colors.Red;
       timeHandler = setTimeout(async () => {
         const location = searchedLocation
