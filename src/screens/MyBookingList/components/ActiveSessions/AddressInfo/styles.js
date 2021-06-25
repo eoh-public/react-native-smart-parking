@@ -17,5 +17,11 @@ export const styles = StyleSheet.create({
   },
   textDetail: {
     marginTop: 4,
+    fontSize: 14,
+    lineHeight: 22,
+  },
+  textName: {
+    fontSize: 16,
+    lineHeight: 24,
   },
 });

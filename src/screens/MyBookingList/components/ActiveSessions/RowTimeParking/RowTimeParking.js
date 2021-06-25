@@ -10,9 +10,8 @@ const RowTimeParking = memo(({ rightText, leftText, timeLeft, rightColor }) => {
   return (
     <View style={styles.container}>
       <Text
-        size={12}
         color={Colors.Gray8}
-        style={styles.text}
+        style={styles.lineHeight}
         semibold={timeLeft}
         testID={TESTID.LEFT_TEXT_ROW_TIME_PARKING}
       >
@@ -20,9 +19,10 @@ const RowTimeParking = memo(({ rightText, leftText, timeLeft, rightColor }) => {
       </Text>
       <Text
         semibold
-        type={timeLeft ? 'H4' : 'Label'}
+        type={timeLeft ? 'H4' : 'Body'}
         color={timeLeft && rightColor ? rightColor : Colors.Gray8}
         testID={TESTID.RIGHT_TEXT_ROW_TIME_PARKING}
+        style={timeLeft ? styles.lineHeight1 : styles.lineHeight}
       >
         {rightText}
       </Text>

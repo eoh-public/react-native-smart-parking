@@ -20,7 +20,13 @@ const AddressInfo = memo(
           <Text type="Label" color={Colors.Gray6} numberOfLines={1}>
             #{id}
           </Text>
-          <Text type="Body" semibold color={Colors.Gray9} numberOfLines={1}>
+          <Text
+            type="Body"
+            semibold
+            color={Colors.Gray9}
+            numberOfLines={1}
+            style={styles.textName}
+          >
             {name}
           </Text>
           <Text

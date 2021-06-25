@@ -6,4 +6,12 @@ export const styles = StyleSheet.create({
     ...Theme.flexRowSpaceBetween,
     marginTop: 8,
   },
+  lineHeight: {
+    fontSize: 14,
+    lineHeight: 22,
+  },
+  lineHeight1: {
+    fontSize: 16,
+    lineHeight: 22,
+  },
 });
