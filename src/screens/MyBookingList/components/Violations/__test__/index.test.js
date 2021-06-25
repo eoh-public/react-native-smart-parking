@@ -16,6 +16,13 @@ jest.mock('@react-navigation/core', () => {
   };
 });
 
+jest.mock('react-redux', () => {
+  return {
+    ...jest.requireActual('react-redux'),
+    useSelector: jest.fn(),
+  };
+});
+
 jest.mock('axios');
 
 describe('Test ActiveSessions', () => {

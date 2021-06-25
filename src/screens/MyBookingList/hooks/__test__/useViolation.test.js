@@ -13,6 +13,13 @@ jest.mock('@react-navigation/core', () => {
   };
 });
 
+jest.mock('react-redux', () => {
+  return {
+    ...jest.requireActual('react-redux'),
+    useSelector: () => jest.fn(),
+  };
+});
+
 describe('Test useKeyboardShow', () => {
   const { result } = renderHook(() => useViolation());
 

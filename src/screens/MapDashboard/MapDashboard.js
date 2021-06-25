@@ -479,10 +479,19 @@ const MapDashboard = memo(({ route }) => {
   }, []);
 
   useEffect(() => {
-    notificationData &&
-      notificationData.content_code ===
-        NOTIFICATION_TYPES.SYSTEM_CANCEL_NO_PAYMENT &&
-      getActiveSession();
+    if (notificationData) {
+      switch (notificationData.content_code) {
+        case NOTIFICATION_TYPES.SYSTEM_CANCEL_NO_PAYMENT:
+          getActiveSession();
+          break;
+        case NOTIFICATION_TYPES.STOP_VIOLATION_FREE_PARKING_ZONE:
+        case NOTIFICATION_TYPES.MOVE_CAR_WITHOUT_PAY_VIOLATION:
+          getViolations();
+          break;
+        default:
+          break;
+      }
+    }
   }, [notificationData]);
 
   return (
