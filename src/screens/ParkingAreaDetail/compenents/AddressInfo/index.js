@@ -73,7 +73,7 @@ const AddressInfo = memo(
     }
 
     let timeHandler;
-    if ((status === 'FULL' && !spot_name) || (status === 'ĐẦY' && !spot_name)) {
+    if (status === 'FULL') {
       titleColor = Colors.Red;
       timeHandler = setTimeout(async () => {
         const location = searchedLocation
@@ -95,7 +95,7 @@ const AddressInfo = memo(
       return () => clearTimeout(timeHandler);
     });
 
-    if (status === 'FREE' || status === 'MIỄN PHÍ') {
+    if (status === 'FREE') {
       available_spots_count = '--';
     }
 
