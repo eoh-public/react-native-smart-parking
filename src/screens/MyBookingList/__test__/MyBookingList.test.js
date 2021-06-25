@@ -38,6 +38,13 @@ jest.mock('react', () => {
   };
 });
 
+jest.mock('react-redux', () => {
+  return {
+    ...jest.requireActual('react-redux'),
+    useSelector: jest.fn(),
+  };
+});
+
 describe('Test MyBookingList', () => {
   let route;
   let tree;

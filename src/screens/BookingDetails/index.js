@@ -1,6 +1,10 @@
 import React, { memo, useCallback, useEffect, useState } from 'react';
 import { ScrollView, View, RefreshControl, AppState } from 'react-native';
-import { TESTID, BOOKING_STATUS } from '../../configs/Constants';
+import {
+  TESTID,
+  BOOKING_STATUS,
+  NOTIFICATION_TYPES,
+} from '../../configs/Constants';
 
 import { useNavigation, useIsFocused } from '@react-navigation/native';
 import { t } from 'i18n-js';
@@ -99,6 +103,9 @@ const BookingDetails = memo(({ route }) => {
   const { id, isShowExtendNow, scanDataResponse, methodItem } = route.params;
   const [showScanResponse, setShowScanResponse] = useState(true);
   const { violationsData } = useSelector((state) => state.myBookingList);
+  const notificationData = useSelector(
+    (state) => state.notifications.notificationData
+  );
 
   const isFocus = useIsFocused();
   const { navigate } = useNavigation();
@@ -278,6 +285,16 @@ const BookingDetails = memo(({ route }) => {
       onShowExtend();
     }
   }, [isShowExtendNow, onShowExtend]);
+
+  useEffect(() => {
+    notificationData &&
+      (notificationData.content_code ===
+        NOTIFICATION_TYPES.MOVE_CAR_WITHOUT_PAY_VIOLATION ||
+        notificationData.content_code ===
+          NOTIFICATION_TYPES.STOP_VIOLATION_FREE_PARKING_ZONE) &&
+      onRefresh();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [notificationData]);
 
   const onPaynow = useCallback(() => {
     processPayment(

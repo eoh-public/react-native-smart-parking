@@ -2,11 +2,16 @@ import { useState, useEffect } from 'react';
 import { useIsFocused } from '@react-navigation/core';
 import { API } from '../../../configs';
 import { axiosGet } from '../../../utils/Apis/axios';
+import { NOTIFICATION_TYPES } from '../../../configs/Constants';
+import { useSelector } from 'react-redux';
 
 let onEndReachedCalledDuringMomentum = false;
 
 export default () => {
   const isFocused = useIsFocused();
+  const notificationData = useSelector(
+    (state) => state.notifications.notificationData
+  );
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [isLoadMore, setIsLoadMore] = useState(false);
   const [arrViolations, setArrViolations] = useState([]);
@@ -52,9 +57,18 @@ export default () => {
     (onEndReachedCalledDuringMomentum = false);
 
   useEffect(() => {
-    isFocused && onRefresh();
+    if (
+      isFocused ||
+      (notificationData &&
+        (notificationData.content_code ===
+          NOTIFICATION_TYPES.MOVE_CAR_WITHOUT_PAY_VIOLATION ||
+          notificationData.content_code ===
+            NOTIFICATION_TYPES.STOP_VIOLATION_FREE_PARKING_ZONE))
+    ) {
+      onRefresh();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isFocused]);
+  }, [isFocused, notificationData]);
 
   return {
     isRefreshing,
