@@ -356,7 +356,7 @@ const ParkingAreaDetail = memo(({ route }) => {
             >
               <AddressInfo
                 {...parkingDetailData}
-                spot_name
+                spot_name={spot_name}
                 preBook={preBook}
                 searchedLocation={searchedLocation}
               />

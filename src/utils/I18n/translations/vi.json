@@ -573,7 +573,7 @@
   "sub_text_parking_spot_number": "Vui lòng nhập chính xác số thứ tự tại vị trí đỗ xe của bạn để tiến hành đặt chỗ",
   "check_parking_spot_number": "Kiểm tra vị trí đỗ",
   "notify_no_car_parked": "Không phát hiện có xe đang đỗ tại vị trí này. Vui lòng kiểm tra chính xác số vị trí đỗ của bạn và thử lại.",
-  "notify_spot_has_been_booked": "Vị trí này đã được đặt. Vui lòng thử một vị trí khác",
+  "notify_spot_has_been_booked": "Vị trí này đã được đặt. Vui lòng thử một vị trí khác.",
   "notify_spot_not_exist": "Vị trí này không tồn tại. Vui lòng nhập chính xác tên vị trí",
   "then_select_a_sub_unit_to_add": "Sau đó, lựa chọn một khu vực mà bạn muốn đặt vào thiết bị",
   "first_select_a_unit": "Đầu tiên, lựa chọn địa điểm mà bạn muốn thêm thiết bị",

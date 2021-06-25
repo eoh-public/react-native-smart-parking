@@ -149,7 +149,7 @@ describe('Test ParkingInputManually container', () => {
       result: '',
     },
     {
-      status: SPOT_STATUS_CHECK_CAR.THERE_IS_CAR_PARKED,
+      status: SPOT_STATUS_CHECK_CAR.THIS_SPOT_HAVE_BOOKED,
       result: t('notify_spot_has_been_booked'),
     },
     {
