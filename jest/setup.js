@@ -1,5 +1,9 @@
 /* eslint-disable no-undef */
-import '../src/utils/I18n/index'; // translation
+import i18n from 'i18n-js';
+import { translations, updateTranslation } from '../src/utils/I18n/index';
+
+i18n.locale = 'vi';
+updateTranslation(translations);
 
 (function () {
   if (typeof Object.id === 'undefined') {

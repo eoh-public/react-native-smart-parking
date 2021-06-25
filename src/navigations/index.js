@@ -13,6 +13,7 @@ import Routes from '../utils/Route';
 import { SmartParkingStack } from './SmartParkingStack';
 import { navigationRef } from './utils';
 import { saveNotificationData } from '../redux/Actions/notifications';
+import { updateTranslation } from '../utils/I18n';
 
 const Stack = createStackNavigator();
 
@@ -55,13 +56,14 @@ const NavStack = () => {
   );
 };
 
-const App = ({ dataNotification, auth, onExitApp }) => {
+const App = ({ dataNotification, auth, onExitApp, langTranslate }) => {
   const exitApp = useSelector((state) => state.ui.exitApp);
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(initAuth(auth?.account));
+    updateTranslation(langTranslate);
     setLoading(false);
   }, []);
 

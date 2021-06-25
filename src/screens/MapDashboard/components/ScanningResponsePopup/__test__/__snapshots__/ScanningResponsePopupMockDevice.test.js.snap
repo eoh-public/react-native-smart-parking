@@ -103,7 +103,7 @@ exports[`Test ScanningResponsePopup with mock OS render with device android 1`] 
             "borderRadius": 10,
             "flex": 1,
             "flexDirection": "column",
-            "marginBottom": 20,
+            "marginBottom": 0,
           }
         }
       >
