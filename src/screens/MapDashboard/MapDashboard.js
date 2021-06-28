@@ -141,6 +141,25 @@ const MapDashboard = memo(({ route }) => {
     setShowCondition(false);
   }, []);
 
+  const handleAppStateChange = useCallback(
+    async (nextAppState) => {
+      setAppState(nextAppState);
+      if (!isFocused) {
+        return;
+      }
+
+      if (
+        appState &&
+        appState.match(/inactive|background/) &&
+        nextAppState === 'active'
+      ) {
+        getActiveSession();
+        getViolations();
+      }
+    },
+    [appState, isFocused]
+  );
+
   useEffect(() => {
     checkIsConfirmTermsSmartParking();
     AppState.addEventListener('change', handleAppStateChange);
@@ -149,18 +168,6 @@ const MapDashboard = memo(({ route }) => {
       AppState.removeEventListener('change', handleAppStateChange);
     };
   }, [appState]);
-
-  const handleAppStateChange = async (nextAppState) => {
-    if (
-      appState &&
-      appState.match(/inactive|background/) &&
-      nextAppState === 'active'
-    ) {
-      await getActiveSession();
-      await getViolations();
-    }
-    setAppState(nextAppState);
-  };
 
   const onPressParkingInput = useCallback(() => {
     navigate(Routes.ParkingInputManually);

@@ -12,6 +12,7 @@ import ActiveSessionsItem from '../../MyBookingList/components/ActiveSessions/Ac
 import ScanningResponsePopup from '../components/ScanningResponsePopup';
 import MapDashboard from '../MapDashboard';
 import SearchBar from '../components/SearchBar';
+import { AppState } from 'react-native';
 
 const mockStore = configureStore([]);
 const mockNavigation = {
@@ -56,6 +57,7 @@ jest.mock('axios');
 
 const mockGetActionSession = jest.fn();
 const mockGetNearbyParking = jest.fn();
+const mockGetViolations = jest.fn();
 
 jest.mock('../hooks', () => {
   return {
@@ -73,7 +75,7 @@ jest.mock('../hooks', () => {
       getActiveSession: mockGetActionSession,
       onSaveParking: jest.fn(),
       onUnsaveParking: jest.fn(),
-      getViolations: jest.fn(),
+      getViolations: mockGetViolations,
       onCloseThanks: jest.fn(),
       onShowThanks: jest.fn(),
     }),
@@ -332,8 +334,8 @@ describe('Test MapDashboard', () => {
       useState.mockImplementationOnce((init) => [init, mockSetState]);
     });
     const route = {};
-    act(async () => {
-      tree = renderer.create(
+    await act(async () => {
+      tree = await renderer.create(
         <Provider store={store}>
           <MapDashboard route={route} />
         </Provider>
@@ -342,8 +344,22 @@ describe('Test MapDashboard', () => {
     capturedChangeCallback('background');
     capturedChangeCallback('active');
     expect(mockSetState).toBeCalled();
+
     // cleanup function of useEffect
     tree.unmount();
     expect(mockRemoveListener).toHaveBeenCalled();
+
+    useIsFocused.mockImplementation(() => true);
+    AppState.currentState = 'inactive';
+    await act(async () => {
+      tree = await renderer.create(
+        <Provider store={store}>
+          <MapDashboard route={route} />
+        </Provider>
+      );
+    });
+    mockGetViolations.mockClear();
+    capturedChangeCallback('active');
+    expect(mockGetViolations).toBeCalled();
   });
 });
