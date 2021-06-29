@@ -72,17 +72,17 @@ export default TimeCountDown;
 const styles = StyleSheet.create({
   container: {
     padding: 16,
-    borderRadius: 5,
+    borderRadius: 10,
     marginBottom: 24,
     backgroundColor: Colors.White,
-    shadowColor: Colors.Shadow,
+    shadowColor: Colors.Gray19,
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 3,
     },
     shadowOpacity: 0.8,
     shadowRadius: 4,
-    elevation: 5,
+    elevation: 3,
   },
   timeContainer: {
     flexDirection: 'row',
