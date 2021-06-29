@@ -48,7 +48,8 @@ const NotificationCentre = memo(() => {
 
   useEffect(() => {
     fetchNotifications(1);
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const renderItem = useCallback(({ item, index }) => {
     return <ItemNotification item={item} index={index} />;
