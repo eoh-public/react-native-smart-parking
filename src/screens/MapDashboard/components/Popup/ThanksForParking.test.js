@@ -7,7 +7,7 @@ describe('Test ThanksForParkingPopup', () => {
   let tree;
 
   test('render ThanksForParkingPopup', () => {
-    const onClose = () => {};
+    const onClose = jest.fn();
     act(() => {
       tree = renderer.create(
         <ThanksForParkingPopup visible={true} onClose={onClose} />

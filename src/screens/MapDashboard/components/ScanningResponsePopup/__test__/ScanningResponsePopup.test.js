@@ -467,4 +467,52 @@ describe('Test ScanningResponsePopup', () => {
     expect(textData).toBeUndefined();
     expect(tree.toJSON()).toMatchSnapshot();
   });
+
+  test('render status NO CAR PARKED AT THIS SPOT', () => {
+    scanDataResponse.status = SCANNING_STATUS.NO_CAR_PARKED_AT_THIS_SPOT;
+    let tree;
+    act(() => {
+      tree = create(<ScanningResponsePopup {...data} />);
+    });
+    const instance = tree.root;
+
+    const {
+      buttons,
+      icons,
+      textTitle,
+      textDescription,
+      textSubTitle,
+      textData,
+      textInfo,
+    } = getQueryset(instance);
+
+    // icon
+    expect(icons).toHaveLength(2);
+    expect(icons[1].props.name).toEqual('frown');
+    expect(icons[1].props.color).toEqual(Colors.Gray8);
+
+    // text
+    expect(textTitle.props.children).toEqual(t('no_car_parked_at_this_spot'));
+    expect(textDescription.props.children).toEqual(t('des_no_car_parked'));
+    expect(textSubTitle).toBeUndefined();
+    expect(textData).toBeUndefined();
+    expect(textInfo).toBeUndefined();
+
+    // button
+    expect(buttons).toHaveLength(2);
+    expect(buttons[0].props.title).toEqual(t('cancel'));
+    expect(buttons[0].props.type).toEqual('cancel');
+    expect(buttons[1].props.title).toEqual(t('scan_qr_code'));
+    expect(buttons[1].props.type).toEqual('primary');
+    act(() => {
+      buttons[0].props.onPress();
+    });
+    expect(mockHideModal).toHaveBeenCalledTimes(1);
+    act(() => {
+      buttons[1].props.onPress();
+    });
+    expect(mockHideModal).toHaveBeenCalledTimes(2);
+    expect(mockedNavigate).toHaveBeenCalledTimes(1);
+    expect(mockedNavigate).toHaveBeenCalledWith(Routes.SmartParkingScanQR);
+  });
 });

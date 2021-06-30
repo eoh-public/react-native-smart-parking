@@ -243,4 +243,23 @@ describe('Test active session item component', () => {
     jest.runAllTimers();
     expect(mockedReloadData).toBeCalled();
   });
+
+  it('check refresh data', async () => {
+    Date.now = jest.fn(() => new Date('2021-06-28T10:00:00.813000Z'));
+    activeSessionData = {
+      ...activeSessionData,
+      arrive_at: moment('2021-06-28T10:15:00.813000Z'),
+    };
+    const mockedReloadData = jest.fn();
+    await act(async () => {
+      tree = await create(
+        <ActiveSessionItem
+          {...activeSessionData}
+          reloadData={mockedReloadData}
+        />
+      );
+    });
+    jest.runAllTimers();
+    expect(mockedReloadData).toBeCalled();
+  });
 });
