@@ -13,6 +13,7 @@ import ScanningResponsePopup from '../components/ScanningResponsePopup';
 import MapDashboard from '../MapDashboard';
 import SearchBar from '../components/SearchBar';
 import { AppState } from 'react-native';
+import { CustomCheckbox } from '../../../commons';
 
 const mockStore = configureStore([]);
 const mockNavigation = {
@@ -143,6 +144,23 @@ describe('Test MapDashboard', () => {
       local: { cancelBooking: true },
     }));
     expect(mockSetState).toHaveBeenNthCalledWith(2, 0);
+  });
+
+  test('onPressAgree is called', async () => {
+    const route = {};
+    await act(async () => {
+      tree = await renderer.create(
+        <Provider store={store}>
+          <MapDashboard route={route} />
+        </Provider>
+      );
+    });
+    const root = tree.root;
+
+    const wrapper = root.findByType(CustomCheckbox);
+    act(() => {
+      wrapper.props.onPress();
+    });
   });
 
   test('default render map dashboard show search bar and bottom view', async () => {

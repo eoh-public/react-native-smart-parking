@@ -120,6 +120,20 @@ const ActiveSessionsItem = memo(
       }
     }, [payBefore, reloadData, taskId]);
 
+    const now = moment(new Date());
+    const arriveAt = moment(arrive_at);
+
+    useEffect(() => {
+      const totalSeconds = arriveAt.diff(now, 'seconds');
+      if (totalSeconds < 0) {
+        return;
+      }
+      const timeout = setTimeout(() => {
+        reloadData();
+      }, totalSeconds);
+      return () => clearTimeout(timeout);
+    }, [reloadData, arriveAt, now, start_countdown]);
+
     useEffect(() => {
       if (!start_countdown || is_paid) {
         return;
