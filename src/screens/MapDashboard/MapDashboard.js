@@ -13,7 +13,6 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Config from 'react-native-config';
 import {
   getBottomSpace,
   getStatusBarHeight,
@@ -31,7 +30,7 @@ import ScanningResponsePopup from './components/ScanningResponsePopup';
 import SearchBar from './components/SearchBar';
 import ActiveSessionsItem from '../MyBookingList/components/ActiveSessions/ActiveSessionsItem';
 import Text from '../../commons/Text';
-import { API, AppRNConfig, Colors, Device } from '../../configs';
+import { API, SPConfig, Colors, Device } from '../../configs';
 import { NOTIFICATION_TYPES, TESTID } from '../../configs/Constants';
 import {
   useAndroidTranslucentStatusBar,
@@ -100,7 +99,7 @@ const MapDashboard = memo(({ route }) => {
   const [showCondition, setShowCondition] = useState(false);
   const [isTickConfirmTerms, setIsTickConfirmTerms] = useState(false);
   const mapRef = useRef(null);
-  const api_key = Config.GOOGLE_MAP_API_KEY;
+  const api_key = SPConfig.googleMapApiKey;
 
   const {
     showThanks,
@@ -451,7 +450,7 @@ const MapDashboard = memo(({ route }) => {
   }, [activeSessions]);
 
   useEffect(() => {
-    if (timeLeft !== 0 && timeLeft < AppRNConfig.MAX_SECONDS) {
+    if (timeLeft !== 0 && timeLeft < SPConfig.maxSeconds) {
       if (is_paid && showWarningBell === undefined) {
         onShowWarning();
       }
@@ -532,7 +531,7 @@ const MapDashboard = memo(({ route }) => {
               testID={TESTID.GUIDE_LINE}
               origin={getDirectionFrom}
               destination={directions}
-              apikey={AppRNConfig.GOOGLE_MAP_API_KEY}
+              apikey={SPConfig.googleMapApiKey}
               strokeWidth={5}
               strokeColor={Colors.Primary}
               onReady={onDirectionReady}

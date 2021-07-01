@@ -6,7 +6,7 @@ import { Icon } from '@ant-design/react-native';
 import { useNavigation } from '@react-navigation/native';
 import { t } from 'i18n-js';
 
-import { Colors, AppRNConfig } from '../../configs';
+import { Colors, SPConfig } from '../../configs';
 import Text from '../../commons/Text';
 import { SvgParkingSuccess } from '../../../assets/images/SmartParking';
 import Routes from '../../utils/Route';
@@ -37,7 +37,7 @@ const BookingSuccess = memo(({ route }) => {
     const date = start.format('DD/MM/YYYY');
     const pay_before = start
       .clone()
-      .add(AppRNConfig.MAX_SECONDS, 'seconds')
+      .add(SPConfig.maxSeconds, 'seconds')
       .format('LT - DD/MM/YYYY');
     const hour = end.diff(start, 'hours');
 

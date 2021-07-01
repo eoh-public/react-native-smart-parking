@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { t } from 'i18n-js';
 
-import { Colors, AppRNConfig } from '../../../../configs';
+import { Colors, SPConfig } from '../../../../configs';
 import Text from '../../../../commons/Text';
 import TimeBlock from './TimeBlock';
 import { useCountDown } from '../../../../hooks/SmartParking';
@@ -27,7 +27,7 @@ const TimeCountDown = memo(
     }
     const { hours, minutes, seconds } = countDown;
     let color = Colors.Black;
-    if (timeLeft < AppRNConfig.MAX_SECONDS) {
+    if (timeLeft < SPConfig.maxSeconds) {
       color = Colors.Red6;
     }
     if (is_violated) {

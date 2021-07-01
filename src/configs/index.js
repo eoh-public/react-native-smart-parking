@@ -1,4 +1,4 @@
-import AppRNConfig from 'react-native-config';
+import { SPConfig, initSPConfig } from './SPConfig';
 import API from './API';
 import { Colors } from './Colors';
 import { Constants } from './Constants';
@@ -18,5 +18,6 @@ export {
   Images,
   Device,
   Fonts,
-  AppRNConfig,
+  SPConfig,
+  initSPConfig,
 };

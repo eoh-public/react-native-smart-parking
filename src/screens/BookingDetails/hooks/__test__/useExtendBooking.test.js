@@ -1,6 +1,7 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 import { useExtendBooking } from '../';
 import axios from 'axios';
+import { SPConfig } from '../../../../configs';
 
 jest.mock('axios');
 
@@ -37,7 +38,7 @@ describe('Test useBookingDetail', () => {
       result.current.createExtendBooking();
     });
     expect(axios.post).toBeCalledWith(
-      'undefined/smart_parking/bookings/1/extend/',
+      `${SPConfig.apiRoot}/smart_parking/bookings/1/extend/`,
       {
         hour_extend: 1,
       }

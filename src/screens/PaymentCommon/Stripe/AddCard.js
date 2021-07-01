@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { CreditCardInput } from 'react-native-credit-card-input';
 import { t } from 'i18n-js';
 
-import { API, AppRNConfig } from '../../../configs';
+import { API, SPConfig } from '../../../configs';
 import { axiosPost } from '../../../utils/Apis/axios';
 import axios from 'axios';
 
@@ -36,7 +36,7 @@ const StripeAddCard = memo(({ route }) => {
         }),
         {
           headers: {
-            Authorization: `Bearer ${AppRNConfig.STRIPE_PUBLIC_KEY}`,
+            Authorization: `Bearer ${SPConfig.stripePublishKey}`,
             'Content-Type': 'application/x-www-form-urlencoded',
           },
         }

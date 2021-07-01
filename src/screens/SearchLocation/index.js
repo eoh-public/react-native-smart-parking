@@ -1,11 +1,10 @@
 /* eslint-disable no-empty */
 import React, { useState, useCallback, useEffect } from 'react';
 import { StyleSheet, FlatList, SafeAreaView } from 'react-native';
-import Config from 'react-native-config';
 import { useNavigation } from '@react-navigation/native';
 import { t } from 'i18n-js';
 
-import { Colors, API } from '../../configs';
+import { Colors, API, SPConfig } from '../../configs';
 import SearchBarLocation from './components/SearchLocation';
 import RowLocation from './components/SearchLocation/RowLocation';
 import Text from '../../commons/Text';
@@ -45,7 +44,7 @@ const SearchLocation = ({ route }) => {
       if (!input) {
         return;
       }
-      const api_key = Config.GOOGLE_MAP_API_KEY;
+      const api_key = SPConfig.stripePublishKey;
       try {
         const location = await getCurrentLatLng();
         const config = {

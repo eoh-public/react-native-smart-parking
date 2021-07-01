@@ -4,15 +4,14 @@ import { View, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { t } from 'i18n-js';
 import stripe from '@agaweb/react-native-stripe';
-import Config from 'react-native-config';
 
 import Routes from '../../../utils/Route';
-import { API, Colors } from '../../../configs';
+import { API, Colors, SPConfig } from '../../../configs';
 import { axiosPost } from '../../../utils/Apis/axios';
 import { ToastBottomHelper } from '../../../utils/Utils';
 import { FullLoading } from '../../../commons';
 
-stripe.initModule(Config.PUBLISHABLE_KEY_STRIPE);
+stripe.initModule(SPConfig.stripePublishKey);
 
 const ProcessPayment = memo(({ route }) => {
   const { billingId, handleSuccess } = route.params;

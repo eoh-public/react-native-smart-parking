@@ -6,7 +6,7 @@ import axios from 'axios';
 import { t } from 'i18n-js';
 
 import StripeAddCard from '../AddCard';
-import { API, AppRNConfig } from '../../../../configs';
+import { API, SPConfig } from '../../../../configs';
 const qs = require('querystring');
 
 const mockedGoback = jest.fn();
@@ -103,7 +103,7 @@ describe('test AddCard', () => {
       }),
       {
         headers: {
-          Authorization: `Bearer ${AppRNConfig.STRIPE_PUBLIC_KEY}`,
+          Authorization: `Bearer ${SPConfig.stripePublishKey}`,
           'Content-Type': 'application/x-www-form-urlencoded',
         },
       }
@@ -154,7 +154,7 @@ describe('test AddCard', () => {
       }),
       {
         headers: {
-          Authorization: `Bearer ${AppRNConfig.STRIPE_PUBLIC_KEY}`,
+          Authorization: `Bearer ${SPConfig.stripePublishKey}`,
           'Content-Type': 'application/x-www-form-urlencoded',
         },
       }

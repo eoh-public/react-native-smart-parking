@@ -5,7 +5,7 @@ import { useCountDown } from '../../../../hooks/SmartParking';
 import { t } from 'i18n-js';
 import moment from 'moment';
 
-import { Colors, AppRNConfig } from '../../../../configs';
+import { Colors, SPConfig } from '../../../../configs';
 import Routes from '../../../../utils/Route';
 
 import RowTimeParking from './RowTimeParking/RowTimeParking';
@@ -30,7 +30,7 @@ const getTitleRightTitleColor = (
 ) => {
   let rightColor = Colors.Orange;
 
-  if (time_remaining <= AppRNConfig.MAX_SECONDS) {
+  if (time_remaining <= SPConfig.MAX_SECONDS) {
     rightColor = Colors.Red6;
   }
   if (!is_paid) {
@@ -53,9 +53,7 @@ const getTitleRightTitleColor = (
       rightColor: rightColor,
       rightRoute: Routes.SmartParkingScanQR,
     };
-  } else if (
-    moment(leave_at).diff(moment(), 'seconds') < AppRNConfig.MAX_SECONDS
-  ) {
+  } else if (moment(leave_at).diff(moment(), 'seconds') < SPConfig.maxSeconds) {
     return {
       title: t('move_car_before', { time: moveCarBefore }),
       rightTitle: t('extend'),
@@ -100,10 +98,10 @@ const ActiveSessionsItem = memo(
     const goToDetail = useCallback(() => {
       navigate(Routes.SmartParkingBookingDetails, { id });
     }, [id, navigate]);
-    const payBefore = moment(arrive_at).add(AppRNConfig.MAX_SECONDS, 'seconds');
+    const payBefore = moment(arrive_at).add(SPConfig.maxSeconds, 'seconds');
     const payBeforeString = payBefore.format('HH:mm');
     const moveCarBefore = moment(leave_at)
-      .add(AppRNConfig.MAX_SECONDS, 'seconds')
+      .add(SPConfig.maxSeconds, 'seconds')
       .format('HH:mm');
     const [taskId, setTaskId] = useState(null);
     const hourParking = Math.round(
@@ -206,7 +204,7 @@ const ActiveSessionsItem = memo(
 
     useEffect(() => {
       if (countDownString !== '00 : 00 : 00') {
-        if (timeLeft < AppRNConfig.MAX_SECONDS) {
+        if (timeLeft < SPConfig.maxSeconds) {
           setOnTimeSoon(true);
         } else {
           setOnTimeSoon(false);

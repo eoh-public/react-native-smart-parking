@@ -10,11 +10,10 @@ import {
 import moment from 'moment';
 import axios from 'axios';
 import { t } from 'i18n-js';
-import Config from 'react-native-config';
 import { useNavigation } from '@react-navigation/native';
 
 import { axiosPost } from '../../../utils/Apis/axios';
-import { API, Colors } from '../../../configs';
+import { API, Colors, SPConfig } from '../../../configs';
 import { TESTID } from '../../../configs/Constants';
 import { Button, ButtonPopup } from '../../../commons';
 import { insertToString } from '../../../utils/Utils';
@@ -197,7 +196,7 @@ const AddCreditCard = memo(({ route }) => {
     };
     const config = {
       headers: {
-        Authorization: `Bearer ${Config.PUBLISHABLE_KEY_STRIPE}`,
+        Authorization: `Bearer ${SPConfig.stripePublishKey}`,
         'Content-Type': 'application/x-www-form-urlencoded',
       },
     };
