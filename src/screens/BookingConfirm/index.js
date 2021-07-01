@@ -6,7 +6,7 @@ import moment from 'moment';
 import { t } from 'i18n-js';
 import { useDispatch } from 'react-redux';
 
-import { API, Colors, AppRNConfig } from '../../configs';
+import { API, Colors, SPConfig } from '../../configs';
 import { axiosPost, axiosGet } from '../../utils/Apis/axios';
 import { formatMoney } from '../../utils/Utils';
 import Routes from '../../utils/Route';
@@ -107,7 +107,7 @@ const BookingConfirm = memo(({ route }) => {
   const strPrice = total && formatMoney(total, 0, currency);
   const strServiceFee = `${0} ${currency}`;
   const timeWarning = moment(arrive_at, 'LT - DD/MM/YYYY')
-    .add(AppRNConfig.MAX_SECONDS, 'seconds')
+    .add(SPConfig.maxSeconds, 'seconds')
     .format('LT - DD/MM/YYYY');
 
   useEffect(() => {

@@ -6,7 +6,7 @@ import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import Toast from 'react-native-toast-message';
 import { useDispatch, useSelector } from 'react-redux';
 import { Alert } from '../commons';
-import { Colors } from '../configs';
+import { Colors, initSPConfig } from '../configs';
 import { initAuth } from '../redux/Actions/auth';
 import { exitApp as resetExitApp } from '../redux/Actions/ui';
 import Routes from '../utils/Route';
@@ -56,13 +56,14 @@ const NavStack = () => {
   );
 };
 
-const App = ({ dataNotification, auth, onExitApp, langTranslate }) => {
+const App = ({ dataNotification, auth, onExitApp, config, langTranslate }) => {
   const exitApp = useSelector((state) => state.ui.exitApp);
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(initAuth(auth?.account));
+    initSPConfig(config);
     updateTranslation(langTranslate);
     setLoading(false);
   }, []);

@@ -3,7 +3,7 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import logger from 'redux-logger';
 import { persistReducer, persistStore } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
-import { AppRNConfig } from '../configs';
+import { SPConfig } from '../configs';
 
 import reducers from './Reducers';
 
@@ -23,10 +23,9 @@ export function rehydration() {
     rehydrationComplete = resolve;
   });
 }
-const midlewares = [
-  sagaMiddleware,
-  AppRNConfig.REDUX_LOGGER === '1' && logger,
-].filter(Boolean);
+const midlewares = [sagaMiddleware, SPConfig.reduxLogger && logger].filter(
+  Boolean
+);
 
 export const store = compose(applyMiddleware(...midlewares))(createStore)(
   persistedReducer,

@@ -13,7 +13,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Button, ButtonPopup, FullLoading } from '../../commons';
 import ParkingSpotInput from '../ParkingInputManually/components/ParkingSpotInput';
 import WrapParallaxScrollView from '../../commons/WrapParallaxScrollView';
-import { API, AppRNConfig, Colors } from '../../configs';
+import { API, Colors, SPConfig } from '../../configs';
 import { TESTID } from '../../configs/Constants';
 import { useBoolean, useControllList } from '../../hooks/Common';
 import { useKeyboardShowTranslation } from '../../hooks/Common/useKeyboardShowTranslation';
@@ -194,7 +194,7 @@ const ParkingAreaDetail = memo(({ route }) => {
       currency: 'đ',
       payment_option: isPayNow ? t('pay_now') : t('pay_later'),
       time_warning: moment()
-        .add(AppRNConfig.MAX_SECONDS, 'seconds')
+        .add(SPConfig.maxSeconds, 'seconds')
         .format('LT - DD/MM/YYYY'),
     };
     const body = {

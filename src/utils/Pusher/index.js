@@ -1,5 +1,5 @@
-import Config from 'react-native-config';
 import Pusher from 'pusher-js/react-native';
+import { SPConfig } from '../../configs';
 import API from '../../configs/API';
 import { axiosPost } from '../Apis/axios';
 
@@ -8,8 +8,8 @@ let pusher = null;
 
 export const getPusher = () => {
   if (!pusher) {
-    pusher = new Pusher(Config.PUSHER_APP_KEY, {
-      cluster: Config.PUSHER_APP_CLUSTER,
+    pusher = new Pusher(SPConfig.pusherAppKey, {
+      cluster: SPConfig.pusherAppCluster,
       authorizer: function (channel, option) {
         return {
           // eslint-disable-next-line promise/prefer-await-to-callbacks

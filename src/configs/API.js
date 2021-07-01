@@ -1,6 +1,6 @@
-import Config from 'react-native-config';
+import { SPConfig } from './index';
 
-const API_ROOT = Config.API_ROOT;
+const API_ROOT = SPConfig.apiRoot;
 
 const API = {
   ACCOUNTS: {

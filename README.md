@@ -13,6 +13,13 @@
 ```javascript
 import SmartParking from 'react-native-smart-parking';
 
-// TODO: What to do with the module?
+<SmartParking
+  auth={auth}
+  onExitApp={onExitApp}
+  dataNotification={dataNofitication}
+  langTranslate={translations}
+  config={config}
+/>;
+
 SmartParking;
 ```

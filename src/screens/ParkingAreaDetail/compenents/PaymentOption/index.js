@@ -3,13 +3,13 @@ import { StyleSheet, View } from 'react-native';
 import moment from 'moment';
 import { t } from 'i18n-js';
 
-import { Colors, AppRNConfig } from '../../../../configs';
+import { Colors, SPConfig } from '../../../../configs';
 import Text from '../../../../commons/Text';
 import { GroupCheckbox } from '../ParkingDetail';
 
 const PaymentOption = memo(({ bookTime, setIsPayNow }) => {
   const payBefore = moment(bookTime.arriveAt)
-    .add(AppRNConfig.MAX_SECONDS, 'seconds')
+    .add(SPConfig.maxSeconds, 'seconds')
     .format('LT DD/MM/YYYY');
 
   const PAY_NOW_OPTION = {
