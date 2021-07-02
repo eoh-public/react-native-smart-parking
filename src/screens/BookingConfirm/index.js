@@ -41,7 +41,7 @@ const BookingConfirm = memo(({ route }) => {
 
   const getDefaultPaymentMethod = useCallback(async () => {
     const { success, data } = await axiosGet(
-      API.BILLING.DEFAULT_PAYMENT_METHODS
+      API.BILLING.DEFAULT_PAYMENT_METHODS()
     );
     if (success) {
       item.payment_method = data;
@@ -141,7 +141,7 @@ const BookingConfirm = memo(({ route }) => {
   );
 
   const onConfirmBooking = useCallback(async () => {
-    const { success, data } = await axiosPost(API.BOOKING.CREATE, body);
+    const { success, data } = await axiosPost(API.BOOKING.CREATE(), body);
     if (success) {
       dispatch(cancelBooking(false));
       const { booking, billing, payment_url } = data;

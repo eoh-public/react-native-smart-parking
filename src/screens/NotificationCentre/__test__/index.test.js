@@ -144,7 +144,7 @@ describe('Test NotificationCentre', () => {
         </Provider>
       );
     });
-    expect(axios.post).toHaveBeenCalledWith(API.NOTIFICATION.SET_LAST_SEEN);
+    expect(axios.post).toHaveBeenCalledWith(API.NOTIFICATION.SET_LAST_SEEN());
     expect(mockDispatch).not.toHaveBeenCalled();
   });
 
@@ -194,7 +194,7 @@ describe('Test NotificationCentre', () => {
     const instance = tree.root;
     const flatLists = instance.findAll((el) => el.type === FlatList); // list notifications
     expect(flatLists).toHaveLength(1);
-    expect(axios.post).toHaveBeenCalledWith(API.NOTIFICATION.SET_LAST_SEEN);
+    expect(axios.post).toHaveBeenCalledWith(API.NOTIFICATION.SET_LAST_SEEN());
     expect(mockDispatch).toHaveBeenCalledWith({
       boolean: false,
       type: 'SET_NEW_NOTIFICATION',

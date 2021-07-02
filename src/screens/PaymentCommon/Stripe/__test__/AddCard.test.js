@@ -110,7 +110,7 @@ describe('test AddCard', () => {
     );
 
     expect(axios.post).toHaveBeenCalledWith(
-      API.BILLING.PAYMENT.STRIPE.ADD_CARD,
+      API.BILLING.PAYMENT.STRIPE.ADD_CARD(),
       {
         card_token: 1,
       }
@@ -161,7 +161,7 @@ describe('test AddCard', () => {
     );
 
     expect(axios.post).not.toHaveBeenCalledWith(
-      API.BILLING.PAYMENT.STRIPE.ADD_CARD,
+      API.BILLING.PAYMENT.STRIPE.ADD_CARD(),
       {
         card_token: 1,
       }
@@ -199,7 +199,7 @@ describe('test AddCard', () => {
     });
     expect(axios.post).not.toHaveBeenCalled();
     expect(axios.post).not.toHaveBeenCalledWith(
-      API.BILLING.PAYMENT.STRIPE.ADD_CARD,
+      API.BILLING.PAYMENT.STRIPE.ADD_CARD(),
       {
         card_token: 1,
       }

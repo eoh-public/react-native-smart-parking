@@ -79,7 +79,7 @@ const AddressInfo = memo(
         const location = searchedLocation
           ? { lat: searchedLocation.latitude, lng: searchedLocation.longitude }
           : await getCurrentLatLng();
-        const { data, success } = await axiosGet(API.PARKING.NEAREST, {
+        const { data, success } = await axiosGet(API.PARKING.NEAREST(), {
           params: { lat: location.lat, lng: location.lng },
         });
         if (success) {

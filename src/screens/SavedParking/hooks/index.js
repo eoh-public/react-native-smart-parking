@@ -22,7 +22,7 @@ const useSavedParkings = () => {
     const { lat, lng } = location;
     const ordering = '-saved_users__created_at';
 
-    const { data, success } = await axiosGet(API.PARKING.SAVED_LIST, {
+    const { data, success } = await axiosGet(API.PARKING.SAVED_LIST(), {
       params: { ordering, lat, lng },
     });
     if (success) {

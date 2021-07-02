@@ -29,7 +29,10 @@ describe('Test useKeyboardShow', () => {
   it('Test init', async () => {
     expect(result.current.isRefreshing).toBeTruthy();
     expect(result.current.arrActiveSessions).toEqual([]);
-    expect(axios.get).toHaveBeenLastCalledWith(API.BOOKING.ACTIVE_SESSION, {});
+    expect(axios.get).toHaveBeenLastCalledWith(
+      API.BOOKING.ACTIVE_SESSION(),
+      {}
+    );
   });
 
   it('Test onPressFindAParkingArea', () => {

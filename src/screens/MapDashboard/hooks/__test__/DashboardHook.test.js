@@ -40,7 +40,7 @@ describe('Test DashBoard hook', () => {
     act(() => {
       result.current.getNotificationNumber();
     });
-    expect(axios.get).toHaveBeenCalledWith(API.NOTIFICATION.NUMBER, {});
+    expect(axios.get).toHaveBeenCalledWith(API.NOTIFICATION.NUMBER(), {});
   });
 
   test('test useNearbyParkings', () => {

@@ -107,7 +107,7 @@ describe('test BookingConfirm container', () => {
       await create(<BookingConfirm route={route} />);
     });
     expect(axios.get).toHaveBeenCalledWith(
-      API.BILLING.DEFAULT_PAYMENT_METHODS,
+      API.BILLING.DEFAULT_PAYMENT_METHODS(),
       {}
     );
   });
@@ -283,7 +283,7 @@ describe('test BookingConfirm container', () => {
     };
 
     axios.get.mockImplementation(async (url) => {
-      if (url === API.BILLING.DEFAULT_PAYMENT_METHODS) {
+      if (url === API.BILLING.DEFAULT_PAYMENT_METHODS()) {
         return responseBookingPrice;
       }
       return {};
@@ -341,7 +341,7 @@ describe('test BookingConfirm container', () => {
     };
 
     axios.get.mockImplementation(async (url) => {
-      if (url === API.BILLING.DEFAULT_PAYMENT_METHODS) {
+      if (url === API.BILLING.DEFAULT_PAYMENT_METHODS()) {
         return responseBookingPrice;
       }
       return {};
@@ -391,7 +391,7 @@ describe('test BookingConfirm container', () => {
     };
 
     axios.get.mockImplementation(async (url) => {
-      if (url === API.BILLING.DEFAULT_PAYMENT_METHODS) {
+      if (url === API.BILLING.DEFAULT_PAYMENT_METHODS()) {
         return responseDefaultPayment;
       } else {
         return responseBookingPrice;

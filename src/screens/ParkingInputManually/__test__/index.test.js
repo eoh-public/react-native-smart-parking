@@ -225,7 +225,7 @@ describe('Test ParkingInputManually container', () => {
     };
 
     axios.get.mockImplementation(async (url) => {
-      if (url === API.PARKING.PARKING_INFO) {
+      if (url === API.PARKING.PARKING_INFO()) {
         return resParkingInfo;
       }
       return resCheckCarParked;

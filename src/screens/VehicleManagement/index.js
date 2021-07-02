@@ -42,7 +42,7 @@ const VehicleManagement = memo(() => {
   );
 
   const getData = useCallback(() => {
-    return axiosGet(API.CAR.MY_CARS);
+    return axiosGet(API.CAR.MY_CARS());
   }, []);
 
   // eslint-disable-next-line no-unused-vars

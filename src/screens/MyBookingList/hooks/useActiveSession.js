@@ -17,7 +17,7 @@ export default () => {
 
   const getActiveSession = async () => {
     setIsRefreshing(true);
-    const { data, success } = await axiosGet(API.BOOKING.ACTIVE_SESSION);
+    const { data, success } = await axiosGet(API.BOOKING.ACTIVE_SESSION());
     if (success) {
       setArrActiveSessions(data ? [data] : []);
     }

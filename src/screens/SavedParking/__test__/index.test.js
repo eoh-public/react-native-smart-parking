@@ -141,7 +141,7 @@ describe('test saved parking container', () => {
     await act(async () => {
       await wrapHeaderScrollable.props.onRefresh();
     });
-    expect(axios.get).toHaveBeenCalledWith(API.PARKING.SAVED_LIST, {
+    expect(axios.get).toHaveBeenCalledWith(API.PARKING.SAVED_LIST(), {
       params: {
         lat: 10.7974046,
         lng: 106.7035663,

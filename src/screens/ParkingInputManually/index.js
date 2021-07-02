@@ -48,7 +48,7 @@ const ParkingInputManually = memo(() => {
     inputRef.current.blur();
     clearTimeout(enterTimeout.current);
     enterTimeout.current = setTimeout(async () => {
-      const { success, data } = await axiosGet(API.PARKING.PARKING_INFO, {
+      const { success, data } = await axiosGet(API.PARKING.PARKING_INFO(), {
         params: {
           spot_name: _parkingSpot,
         },
@@ -65,7 +65,7 @@ const ParkingInputManually = memo(() => {
       });
       return;
     }
-    const { success, data } = await axiosGet(API.PARKING.CHECK_CAR_PARKED, {
+    const { success, data } = await axiosGet(API.PARKING.CHECK_CAR_PARKED(), {
       params: {
         spot_name: parkingSpot,
       },

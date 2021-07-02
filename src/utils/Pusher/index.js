@@ -14,7 +14,7 @@ export const getPusher = () => {
         return {
           // eslint-disable-next-line promise/prefer-await-to-callbacks
           authorize: async function (socketId, callback) {
-            const { success, data } = await axiosPost(API.PUSHER.AUTH, {
+            const { success, data } = await axiosPost(API.PUSHER.AUTH(), {
               channel_name: channel.name,
               socket_id: socketId,
             });

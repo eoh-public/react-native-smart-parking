@@ -71,7 +71,7 @@ describe('test Vehicle Management container', () => {
     await act(async () => {
       tree = await create(<VehicleManagement />);
     });
-    expect(axios.get).toHaveBeenNthCalledWith(1, API.CAR.MY_CARS, {});
+    expect(axios.get).toHaveBeenNthCalledWith(1, API.CAR.MY_CARS(), {});
 
     const instance = tree.root;
     const itemVehicle = instance.find(
@@ -88,7 +88,7 @@ describe('test Vehicle Management container', () => {
       itemVehicle.props.onUpdateDefault();
     });
     expect(axios.put).toHaveBeenCalled();
-    expect(axios.get).toHaveBeenNthCalledWith(2, API.CAR.MY_CARS, {});
+    expect(axios.get).toHaveBeenNthCalledWith(2, API.CAR.MY_CARS(), {});
 
     const buttonPlus = instance.find(
       (el) => el.props.testID === TESTID.ON_PLUS_VEHICLE
@@ -142,7 +142,7 @@ describe('test Vehicle Management container', () => {
     await act(async () => {
       tree = await create(<VehicleManagement />);
     });
-    expect(axios.get).toHaveBeenCalledWith(API.CAR.MY_CARS, {});
+    expect(axios.get).toHaveBeenCalledWith(API.CAR.MY_CARS(), {});
     const instance = tree.root;
     const item_vehicles = instance.findAllByType(ItemVehicle);
     expect(item_vehicles).not.toBeUndefined();

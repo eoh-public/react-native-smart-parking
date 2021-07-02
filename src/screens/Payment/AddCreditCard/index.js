@@ -212,7 +212,7 @@ const AddCreditCard = memo(({ route }) => {
         urlParams,
         config
       );
-      const { success } = await axiosPost(API.ACCOUNTS.ADD_CARD, {
+      const { success } = await axiosPost(API.ACCOUNTS.ADD_CARD(), {
         card_token: result.data.id,
       });
       if (success) {

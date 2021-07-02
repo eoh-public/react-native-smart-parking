@@ -131,7 +131,7 @@ const AddVehicle = memo(({ route }) => {
     };
     if (!isEdit) {
       const formData = createFormData(vehicle, ['background']);
-      const { success } = await axiosPost(API.CAR.MY_CARS, formData, header);
+      const { success } = await axiosPost(API.CAR.MY_CARS(), formData, header);
 
       if (success) {
         updateData();
