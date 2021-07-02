@@ -224,7 +224,8 @@ const ActiveSessionsItem = memo(
             id,
             name,
             address,
-            hourParking,
+            arrive_at,
+            leave_at,
             grand_total,
             payment_method,
           }}
