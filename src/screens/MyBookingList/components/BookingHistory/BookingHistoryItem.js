@@ -9,7 +9,16 @@ import ButtonTextBottomView from '../ButtonTextBottomView';
 import Routes from '../../../../utils/Route';
 
 const BookingHistoryItem = memo(
-  ({ id, parking, grand_total, status, hasActiveSessions }) => {
+  ({
+    id,
+    parking,
+    arrive_at,
+    leave_at,
+    payment_method,
+    grand_total,
+    status,
+    hasActiveSessions,
+  }) => {
     const { navigate } = useNavigation();
 
     const onPress = useCallback(() => {
@@ -26,8 +35,11 @@ const BookingHistoryItem = memo(
         <AddressInfo
           id={id}
           name={parking.name}
+          leave_at={leave_at}
+          arrive_at={arrive_at}
           address={parking.address}
           grand_total={grand_total}
+          payment_method={payment_method}
         />
         <ButtonTextBottomView
           rightTitle={!hasActiveSessions && t('rebook')}

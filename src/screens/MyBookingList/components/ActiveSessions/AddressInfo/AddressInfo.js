@@ -7,13 +7,29 @@ import Text from '../../../../../commons/Text';
 import { formatMoney } from '../../../../../utils/Utils';
 
 import { styles } from './styles';
+import { getDurationTime } from '../../../../../utils/Converter/time';
 
 const AddressInfo = memo(
-  ({ id, name, address, grand_total, hourParking, payment_method }) => {
-    const text_hour = hourParking > 1 ? t('hours') : t('hour');
-    const sub_text = ` (${hourParking} ${text_hour}) ${
-      payment_method && payment_method
-    }`;
+  ({
+    id,
+    name,
+    address,
+    grand_total,
+    arrive_at,
+    leave_at,
+    payment_method,
+    isViolated,
+  }) => {
+    let sub_text = '';
+    if (!isViolated) {
+      const hourParking = Math.round(
+        getDurationTime(arrive_at, leave_at).asHours()
+      );
+      const text_hour = t(hourParking > 1 ? 'hours' : 'hour');
+      sub_text = ` (${hourParking} ${text_hour}) ${
+        payment_method && payment_method
+      }`;
+    }
     return (
       <View style={styles.container}>
         <View style={styles.info}>
