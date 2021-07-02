@@ -27,7 +27,8 @@ const MyBookingList = memo(({ route }) => {
   const [appState, setAppState] = useState(AppState.currentState);
   const scanDataResponse = route.params ? route.params.scanDataResponse : false;
   const [showScanResponse, setShowScanResponse] = useState(false);
-  const [index, setIndex] = useState(0);
+  const tab = route.params?.tab || 0;
+  const [index, setIndex] = useState(tab);
   const [routes] = useState([
     { key: 'active', title: t('active') },
     { key: 'history', title: t('history') },
