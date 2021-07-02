@@ -681,7 +681,7 @@
   "parking_fee": "Phí đỗ xe",
   "total_parking_hour": "Tổng giờ đỗ xe",
   "no_violations": "Không có vi phạm nào",
-  "desViolation": "Bạn có một lần đỗ xe vi phạm",
+  "des_violation": "Bạn có một lần đỗ xe vi phạm",
   "violation_detail": "Chi tiết vi phạm",
   "you_has_one_uncompleted_payment": "Bạn có một khoản thanh toán chưa hoàn thành.",
   "no_active_parking": "Không có bãi đậu xe nào đang hoạt động.",

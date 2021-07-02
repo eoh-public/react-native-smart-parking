@@ -41,7 +41,7 @@ const ViolationItem = ({
     <TouchableOpacity style={styles.wrap} onPress={goToDetail}>
       <View style={styles.viewRow}>
         <Text style={styles.text}>
-          {t(leave_at ? 'you_has_one_uncompleted_payment' : 'desViolation')}
+          {t(leave_at ? 'you_has_one_uncompleted_payment' : 'des_violation')}
         </Text>
         {!leave_at && (
           <Text style={[styles.text, styles.time]}>{`  ${time}`}</Text>
