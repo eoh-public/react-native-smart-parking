@@ -51,7 +51,7 @@ export const SelectPaymentMethod = memo(({ route }) => {
   const fetchCard = useCallback(async () => {
     setLoading(true);
     const { success, data: paymentData } = await axiosGet(
-      API.ACCOUNTS.LIST_PAYMENT_METHODS
+      API.ACCOUNTS.LIST_PAYMENT_METHODS()
     );
     if (success && !!paymentData.cards) {
       setCards(paymentData.cards);

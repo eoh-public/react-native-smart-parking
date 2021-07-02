@@ -13,13 +13,19 @@
 ```javascript
 import SmartParking from 'react-native-smart-parking';
 
-<SmartParking
-  auth={auth}
-  onExitApp={onExitApp}
-  dataNotification={dataNofitication}
-  langTranslate={translations}
-  config={config}
-/>;
 
-SmartParking;
+export const SmartParkingStack = memo(() => {
+  initSPConfig(config);
+
+  ...
+
+  return (
+    <SmartParking
+      auth={auth}
+      onExitApp={onExitApp}
+      dataNotification={dataNofitication}
+      langTranslate={'en'}
+    />
+  );
+});
 ```

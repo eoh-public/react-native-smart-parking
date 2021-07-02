@@ -39,7 +39,7 @@ describe('test CardItem', () => {
       tree = await create(<Payment />);
     });
     expect(axios.get).toHaveBeenCalledWith(
-      API.ACCOUNTS.LIST_PAYMENT_METHODS,
+      API.ACCOUNTS.LIST_PAYMENT_METHODS(),
       {}
     );
     const instance = tree.root;
@@ -128,7 +128,7 @@ describe('test CardItem', () => {
     });
 
     expect(axios.get).toHaveBeenCalledWith(
-      API.ACCOUNTS.LIST_PAYMENT_METHODS,
+      API.ACCOUNTS.LIST_PAYMENT_METHODS(),
       {}
     );
     const instance = tree.root;
@@ -157,7 +157,7 @@ describe('test CardItem', () => {
     });
 
     expect(axios.get).toHaveBeenCalledWith(
-      API.ACCOUNTS.LIST_PAYMENT_METHODS,
+      API.ACCOUNTS.LIST_PAYMENT_METHODS(),
       {}
     );
   });
@@ -317,8 +317,11 @@ describe('test CardItem', () => {
 
     alertAction = instance.findByType(AlertAction);
     expect(alertAction.props.visible).toBeFalsy();
-    expect(axios.post).toHaveBeenCalledWith(API.ACCOUNTS.CHANGE_DEFAULT_CARD, {
-      card: 1,
-    });
+    expect(axios.post).toHaveBeenCalledWith(
+      API.ACCOUNTS.CHANGE_DEFAULT_CARD(),
+      {
+        card: 1,
+      }
+    );
   });
 });

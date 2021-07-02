@@ -84,7 +84,7 @@ describe('Test Scan QR', () => {
       data: {},
     };
     axios.get.mockImplementation(async (url) => {
-      if (url === API.PARKING.PARKING_INFO) {
+      if (url === API.PARKING.PARKING_INFO()) {
         return { status: 200 };
       }
       return response;
@@ -103,7 +103,7 @@ describe('Test Scan QR', () => {
     expect(mockedNavigate).not.toBeCalled();
     expect(axios.get).toHaveBeenNthCalledWith(
       2,
-      API.BOOKING.ACTIVE_SESSION,
+      API.BOOKING.ACTIVE_SESSION(),
       {}
     );
     expect(mockedGoBack).toHaveBeenCalled();
@@ -167,8 +167,8 @@ describe('Test Scan QR', () => {
       await RNCam.props.onBarCodeRead(e);
     });
 
-    expect(axios.get).toHaveBeenCalledWith(API.BOOKING.ACTIVE_SESSION, {});
-    expect(axios.post).toHaveBeenCalledWith(API.BOOKING.SCAN_TO_CONFIRM, {
+    expect(axios.get).toHaveBeenCalledWith(API.BOOKING.ACTIVE_SESSION(), {});
+    expect(axios.post).toHaveBeenCalledWith(API.BOOKING.SCAN_TO_CONFIRM(), {
       spot_id: 2,
     });
     expect(mockedNavigate).toHaveBeenCalledWith(Routes.MapDashboard, {
@@ -213,8 +213,8 @@ describe('Test Scan QR', () => {
       await RNCam.props.onBarCodeRead(e);
     });
 
-    expect(axios.get).toHaveBeenCalledWith(API.BOOKING.ACTIVE_SESSION, {});
-    expect(axios.post).toHaveBeenCalledWith(API.BOOKING.SCAN_TO_CONFIRM, {
+    expect(axios.get).toHaveBeenCalledWith(API.BOOKING.ACTIVE_SESSION(), {});
+    expect(axios.post).toHaveBeenCalledWith(API.BOOKING.SCAN_TO_CONFIRM(), {
       spot_id: 2,
     });
     expect(mockedNavigate).toHaveBeenCalledWith(Routes.MapDashboard, {
@@ -340,7 +340,7 @@ describe('Test Scan QR', () => {
       await RNCam.props.onBarCodeRead(e);
     });
 
-    expect(axios.get).toHaveBeenCalledWith(API.BOOKING.ACTIVE_SESSION, {});
+    expect(axios.get).toHaveBeenCalledWith(API.BOOKING.ACTIVE_SESSION(), {});
     expect(mockedNavigate).toHaveBeenCalledWith(
       Routes.SmartParkingParkingAreaDetail,
       {
@@ -381,7 +381,7 @@ describe('Test Scan QR', () => {
       await RNCam.props.onBarCodeRead(e);
     });
 
-    expect(axios.get).toHaveBeenCalledWith(API.BOOKING.ACTIVE_SESSION, {});
+    expect(axios.get).toHaveBeenCalledWith(API.BOOKING.ACTIVE_SESSION(), {});
     expect(mockedNavigate).toHaveBeenCalledWith(Routes.MapDashboard, {
       scanDataResponse: postData,
     });

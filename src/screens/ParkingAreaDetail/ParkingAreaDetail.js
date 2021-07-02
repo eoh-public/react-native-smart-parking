@@ -98,7 +98,7 @@ const ParkingAreaDetail = memo(({ route }) => {
     const _parkingSpot = text.substring(0, 3);
     setSpotNumber(_parkingSpot);
     if (text.length === 3) {
-      const { success, data } = await axiosGet(API.PARKING.PARKING_INFO, {
+      const { success, data } = await axiosGet(API.PARKING.PARKING_INFO(), {
         params: {
           spot_name: _parkingSpot,
         },
@@ -127,7 +127,7 @@ const ParkingAreaDetail = memo(({ route }) => {
   }, [is_saved, onSaveParking, onUnsaveParking]);
 
   const getData = useCallback(() => {
-    return axiosGet(API.CAR.MY_CARS);
+    return axiosGet(API.CAR.MY_CARS());
   }, []);
 
   const [cars, loadingCars, refresh, onRefresh] = useControllList(getData);
@@ -243,7 +243,7 @@ const ParkingAreaDetail = memo(({ route }) => {
   }, [bookingDetailData, navigate]);
 
   const checkSpotNumber = useCallback(async () => {
-    const { success, data } = await axiosGet(API.PARKING.CHECK_CAR_PARKED, {
+    const { success, data } = await axiosGet(API.PARKING.CHECK_CAR_PARKED(), {
       params: {
         spot_name: spotNumber,
         parking_id: id,

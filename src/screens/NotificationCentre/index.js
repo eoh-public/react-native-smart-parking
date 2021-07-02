@@ -38,7 +38,7 @@ const NotificationCentre = memo(() => {
   );
 
   const updateLastSeen = useCallback(async () => {
-    const { success } = await axiosPost(API.NOTIFICATION.SET_LAST_SEEN);
+    const { success } = await axiosPost(API.NOTIFICATION.SET_LAST_SEEN());
     success && dispatch(setNewNotification(false));
   }, [dispatch]);
 

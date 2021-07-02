@@ -121,7 +121,7 @@ describe('Test AddressInfo', () => {
       await jest.runAllTimers();
     });
 
-    expect(axios.get).toHaveBeenCalledWith(API.PARKING.NEAREST, {
+    expect(axios.get).toHaveBeenCalledWith(API.PARKING.NEAREST(), {
       params: { lat: LAT, lng: LON },
     });
 
@@ -150,7 +150,7 @@ describe('Test AddressInfo', () => {
       await jest.runAllTimers();
     });
 
-    expect(axios.get).toHaveBeenCalledWith(API.PARKING.NEAREST, {
+    expect(axios.get).toHaveBeenCalledWith(API.PARKING.NEAREST(), {
       params: {
         lat: searchedLocation.latitude,
         lng: searchedLocation.longitude,

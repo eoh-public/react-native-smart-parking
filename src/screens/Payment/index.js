@@ -99,7 +99,9 @@ const Payment = memo(() => {
 
   const fetchCard = useCallback(async () => {
     setLoading(true);
-    const { success, data } = await axiosGet(API.ACCOUNTS.LIST_PAYMENT_METHODS);
+    const { success, data } = await axiosGet(
+      API.ACCOUNTS.LIST_PAYMENT_METHODS()
+    );
     if (success) {
       setCards(data.cards);
     }
@@ -121,7 +123,7 @@ const Payment = memo(() => {
   const onPressChangeDefault = useCallback(async () => {
     setLoading(true);
     hideAlertAction();
-    const { success } = await axiosPost(API.ACCOUNTS.CHANGE_DEFAULT_CARD, {
+    const { success } = await axiosPost(API.ACCOUNTS.CHANGE_DEFAULT_CARD(), {
       card: stateAlertRemove.itemRemove.id,
     });
     if (success) {

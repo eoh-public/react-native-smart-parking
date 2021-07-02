@@ -11,7 +11,7 @@ const useBookingScan = () => {
   const [loading, setLoading] = useState(false);
 
   const getActiveBooking = useCallback(async () => {
-    const { success, data } = await axiosGet(API.BOOKING.ACTIVE_SESSION);
+    const { success, data } = await axiosGet(API.BOOKING.ACTIVE_SESSION());
     if (!success) {
       return -1;
     }
@@ -45,7 +45,7 @@ const useBookingScan = () => {
 
   const checkScanToBook = useCallback(async (spot_id) => {
     const location = await getCurrentLatLng();
-    const res = await axiosPost(API.BOOKING.SCAN_TO_BOOK, {
+    const res = await axiosPost(API.BOOKING.SCAN_TO_BOOK(), {
       ...location,
       spot_id,
     });
@@ -53,7 +53,7 @@ const useBookingScan = () => {
   }, []);
 
   const checkScanToConfirm = useCallback(async (spot_id) => {
-    const res = await axiosPost(API.BOOKING.SCAN_TO_CONFIRM, {
+    const res = await axiosPost(API.BOOKING.SCAN_TO_CONFIRM(), {
       spot_id,
     });
     return res;

@@ -20,7 +20,7 @@ const useNearbyParkings = () => {
 
   const getNearbyParkings = useCallback(async ({ lat, lng }) => {
     setLoadingNearByParking(true);
-    const { data, success } = await axiosGet(API.PARKING.NEARBY, {
+    const { data, success } = await axiosGet(API.PARKING.NEARBY(), {
       params: { lat, lng },
     });
     if (success) {
@@ -30,7 +30,7 @@ const useNearbyParkings = () => {
   }, []);
 
   const getActiveSession = useCallback(async () => {
-    const { data, success } = await axiosGet(API.BOOKING.ACTIVE_SESSION);
+    const { data, success } = await axiosGet(API.BOOKING.ACTIVE_SESSION());
     if (success && data) {
       setActiveSessions(data);
     }
@@ -112,7 +112,7 @@ const useNotifications = () => {
   const [notificationNumber, setNotificationNumber] = useState(false);
 
   const getNotificationNumber = useCallback(async () => {
-    const { success, data } = await axiosGet(API.NOTIFICATION.NUMBER);
+    const { success, data } = await axiosGet(API.NOTIFICATION.NUMBER());
     if (success) {
       setNotificationNumber(data.unseen);
       dispatch(setNewNotification(true));

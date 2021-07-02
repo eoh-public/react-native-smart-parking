@@ -31,7 +31,7 @@ const SmartParkingDrawer = memo(() => {
   );
 
   const checkCarsInformation = useCallback(async () => {
-    const { data, success } = await axiosGet(API.CAR.CHECK_CARS_INFO);
+    const { data, success } = await axiosGet(API.CAR.CHECK_CARS_INFO());
     if (success) {
       dispatch(setInconpletedCarsInfo(data.incomplete));
     }

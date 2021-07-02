@@ -35,7 +35,7 @@ const SMScanQR = memo(() => {
         return;
       }
 
-      const response = await axiosGet(API.PARKING.PARKING_INFO, {
+      const response = await axiosGet(API.PARKING.PARKING_INFO(), {
         params: {
           spot_name: spot_name,
         },

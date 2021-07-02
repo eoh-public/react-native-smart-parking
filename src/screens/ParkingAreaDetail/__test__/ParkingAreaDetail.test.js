@@ -73,7 +73,7 @@ describe('Test ParkingAreaDetail', () => {
     Date.now = jest.fn(() => new Date('2021-01-24T12:00:00.000Z'));
 
     axios.get.mockImplementation(async (url, config) => {
-      if (url === API.CAR.MY_CARS) {
+      if (url === API.CAR.MY_CARS()) {
         return carResponse;
       }
 
@@ -108,7 +108,7 @@ describe('Test ParkingAreaDetail', () => {
       await textInput.props.onChangeText('HU1');
     });
     expect(axios.get).toHaveBeenCalledTimes(3);
-    expect(axios.get).toHaveBeenCalledWith(API.PARKING.PARKING_INFO, {
+    expect(axios.get).toHaveBeenCalledWith(API.PARKING.PARKING_INFO(), {
       params: {
         spot_name: 'HU1',
       },
@@ -174,7 +174,7 @@ describe('Test ParkingAreaDetail', () => {
     });
 
     expect(axios.get).toHaveBeenCalledTimes(3);
-    expect(axios.get).toHaveBeenCalledWith(API.PARKING.PARKING_INFO, {
+    expect(axios.get).toHaveBeenCalledWith(API.PARKING.PARKING_INFO(), {
       params: {
         spot_name: 'HU1',
       },
@@ -245,7 +245,7 @@ describe('Test ParkingAreaDetail', () => {
       textInput.props.onChangeText('HU');
     });
     expect(axios.get).toHaveBeenCalledTimes(2);
-    expect(axios.get).not.toHaveBeenCalledWith(API.PARKING.PARKING_INFO, {
+    expect(axios.get).not.toHaveBeenCalledWith(API.PARKING.PARKING_INFO(), {
       params: {
         spot_name: 'HU',
       },

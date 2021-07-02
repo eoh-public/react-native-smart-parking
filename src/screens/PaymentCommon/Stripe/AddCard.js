@@ -46,7 +46,7 @@ const StripeAddCard = memo(({ route }) => {
     }
 
     const cardId = response.data.id;
-    await axiosPost(API.BILLING.PAYMENT.STRIPE.ADD_CARD, {
+    await axiosPost(API.BILLING.PAYMENT.STRIPE.ADD_CARD(), {
       card_token: cardId,
     });
 

@@ -84,7 +84,7 @@ describe('Test Smart Parking Drawer', () => {
       (el) => el.props.testID === TESTID.ROW_ITEM_SMARTPARKING_DRAWER
     );
     expect(items).not.toBeUndefined();
-    expect(axios.get).toHaveBeenCalledWith(API.CAR.CHECK_CARS_INFO, {});
+    expect(axios.get).toHaveBeenCalledWith(API.CAR.CHECK_CARS_INFO(), {});
     expect(mockDispatch).toBeCalledTimes(1);
   });
 
@@ -97,7 +97,7 @@ describe('Test Smart Parking Drawer', () => {
         </Provider>
       );
     });
-    expect(axios.get).not.toHaveBeenCalledWith(API.CAR.CHECK_CARS_INFO, {});
+    expect(axios.get).not.toHaveBeenCalledWith(API.CAR.CHECK_CARS_INFO(), {});
   });
 
   test('render Smart Parking Drawer get api fail', async () => {
