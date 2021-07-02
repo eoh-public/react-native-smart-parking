@@ -90,8 +90,8 @@ const ItemNotification = memo(({ item, index }) => {
             Colors.Orange
           ),
           redirect: () =>
-            navigation.navigate(Routes.SmartParkingBookingDetails, {
-              id: booking_id,
+            navigation.navigate(Routes.MyBookingList, {
+              tab: 1,
             }),
         };
       case NOTIFICATION_TYPES.SYSTEM_CANCEL_NO_PAYMENT:
@@ -102,8 +102,8 @@ const ItemNotification = memo(({ item, index }) => {
             Colors.Orange
           ),
           redirect: () =>
-            navigation.navigate(Routes.SmartParkingBookingDetails, {
-              id: booking_id,
+            navigation.navigate(Routes.MyBookingList, {
+              tab: 1,
             }),
         };
       case NOTIFICATION_TYPES.BOOKING_SUCCESSFULLY:
@@ -126,11 +126,12 @@ const ItemNotification = memo(({ item, index }) => {
             Colors.Orange
           ),
           redirect: () =>
-            navigation.navigate(Routes.SmartParkingBookingDetails, {
-              id: booking_id,
+            navigation.navigate(Routes.MyBookingList, {
+              tab: 1,
             }),
         };
       case NOTIFICATION_TYPES.BOOKING_EXPIRED_AND_VIOLATION_CREATED:
+        const violated_booking_id = paramsJSON.violated_booking_id;
         return {
           content: customColorText(
             t(
@@ -141,7 +142,7 @@ const ItemNotification = memo(({ item, index }) => {
           ),
           redirect: () =>
             navigation.navigate(Routes.SmartParkingBookingDetails, {
-              id: booking_id,
+              id: violated_booking_id || booking_id,
             }),
         };
       case NOTIFICATION_TYPES.MOVE_CAR_WITHOUT_PAY_VIOLATION:
