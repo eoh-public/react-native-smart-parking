@@ -487,6 +487,7 @@ const MapDashboard = memo(({ route }) => {
   useEffect(() => {
     if (notificationData) {
       switch (notificationData.content_code) {
+        case NOTIFICATION_TYPES.PARKING_COMPLETED_DUE_TO_CAR_LEAVE:
         case NOTIFICATION_TYPES.SYSTEM_CANCEL_NO_PAYMENT:
           getActiveSession();
           break;
