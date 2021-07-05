@@ -38,6 +38,11 @@ export const BOOKING_STATUS = {
   CANCELLED: 'Cancelled',
 };
 
+export const PARKING_CHARGE_TYPE = {
+  FROM_BOOKING_TIME: 'from_booking_time',
+  FROM_ARRIVAL_TIME: 'from_arrival_time',
+};
+
 export const BLE_REMOTE_SERVICE_UUID = '4fafc201-1fb5-459e-8fcc-c5c9c331914b';
 export const BLE_REMOTE_CHARACTERISTIC_UUID =
   'beb5483e-36e1-4688-b7f5-ea07361b26a8';
@@ -52,6 +57,7 @@ export const Constants = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height,
   BOOKING_STATUS,
+  PARKING_CHARGE_TYPE,
   LANGUAGE,
   FONT_PREFIX,
   isIphoneX,
