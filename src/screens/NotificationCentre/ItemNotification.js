@@ -170,6 +170,7 @@ const ItemNotification = memo(({ item, index }) => {
             }),
         };
       case NOTIFICATION_TYPES.PAY_FINE_AND_EXTEND_SUCCESSFULLY:
+        const new_booking_id = paramsJSON.booking_id_new;
         return {
           content: customColorText(
             t('text_notification_content_pay_fine_and_extend_successfully'),
@@ -178,7 +179,7 @@ const ItemNotification = memo(({ item, index }) => {
           ),
           redirect: () =>
             navigation.navigate(Routes.SmartParkingBookingDetails, {
-              id: booking_id,
+              id: new_booking_id,
             }),
         };
       case NOTIFICATION_TYPES.STOP_VIOLATION_FREE_PARKING_ZONE:
