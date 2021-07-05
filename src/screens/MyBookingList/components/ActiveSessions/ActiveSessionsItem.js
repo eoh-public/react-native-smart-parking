@@ -26,6 +26,7 @@ const getTitleRightTitleColor = (
   spot_name,
   payment_url,
   payment_method,
+  payment_method_code,
   navigateDashBoard
 ) => {
   let rightColor = Colors.Orange;
@@ -42,7 +43,7 @@ const getTitleRightTitleColor = (
       rightData: {
         billingId: billing_id,
         paymentUrl: payment_url,
-        paymentMethod: payment_method,
+        paymentMethod: payment_method_code,
         handleSuccess: navigateDashBoard,
       },
     };
@@ -86,6 +87,7 @@ const ActiveSessionsItem = memo(
     grand_total,
     payment_url,
     payment_method,
+    payment_method_code,
     onParkingCompleted,
     reloadData,
   }) => {
@@ -177,6 +179,7 @@ const ActiveSessionsItem = memo(
           spot_name,
           payment_url,
           payment_method,
+          payment_method_code,
           navigateDashBoard
         ),
       [
@@ -191,6 +194,7 @@ const ActiveSessionsItem = memo(
         spot_name,
         payment_url,
         payment_method,
+        payment_method_code,
         navigateDashBoard,
       ]
     );
