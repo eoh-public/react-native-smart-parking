@@ -130,9 +130,10 @@ const ActiveSessionsItem = memo(
       }
       const timeout = setTimeout(() => {
         reloadData();
-      }, totalSeconds);
-      return () => clearTimeout(timeout);
-    }, [reloadData, arriveAt, now, start_countdown]);
+        clearTimeout(timeout);
+      }, totalSeconds * 1000);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [arrive_at]);
 
     useEffect(() => {
       if (!start_countdown || is_paid) {
