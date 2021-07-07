@@ -206,11 +206,11 @@ const BookingDetails = memo(({ route }) => {
   );
 
   const processExtend = useCallback(async () => {
-    const { success, data } = await createExtendBooking();
+    const { success, data, message } = await createExtendBooking();
     if (success) {
       handleExtendPayment(data.billing);
     } else {
-      ToastBottomHelper.error(t('payment_failed'));
+      ToastBottomHelper.error(message);
     }
   }, [createExtendBooking, handleExtendPayment]);
 
@@ -232,11 +232,11 @@ const BookingDetails = memo(({ route }) => {
   );
 
   const onPayFineAndExtend = useCallback(async () => {
-    const { success } = await createExtendBooking();
+    const { success, message } = await createExtendBooking();
     if (success) {
       await onPayFine(true);
     } else {
-      ToastBottomHelper.error(t('payment_failed'));
+      ToastBottomHelper.error(message);
     }
   }, [createExtendBooking, onPayFine]);
 
