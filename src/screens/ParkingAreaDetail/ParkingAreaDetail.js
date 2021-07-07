@@ -61,7 +61,14 @@ const ParkingAreaDetail = memo(({ route }) => {
   } = useParkingDetail(id, spot_name);
   const [car, setCar] = useState({ plate_number: '' });
 
-  const { is_saved, background, allow_pre_book: preBook } = parkingDetailData;
+  const {
+    is_saved,
+    background,
+    allow_pre_book: preBook,
+    name,
+    address,
+    charge_type,
+  } = parkingDetailData;
 
   const {
     bookTime,
@@ -180,9 +187,9 @@ const ParkingAreaDetail = memo(({ route }) => {
   const bookingDetailData = useMemo(() => {
     const item = {
       spot_name: spot_name || spotNumber,
-      street: parkingDetailData.name,
-      address: parkingDetailData.address,
-      background: parkingDetailData.background,
+      street: name,
+      address: address,
+      background: background,
       plate_number: car.plate_number,
       arrive_at: calcTime(arriveAt, 'HH:mm', 'LT, DD/MM/YYYY'),
       leave_at: calcTime(
@@ -224,9 +231,9 @@ const ParkingAreaDetail = memo(({ route }) => {
   }, [
     spot_name,
     spotNumber,
-    parkingDetailData.name,
-    parkingDetailData.address,
-    parkingDetailData.background,
+    name,
+    address,
+    background,
     car,
     arriveAt,
     bookTime.numBookHour,
@@ -386,6 +393,7 @@ const ParkingAreaDetail = memo(({ route }) => {
                     validCar={validCar}
                   />
                   <PaymentOption
+                    chargeType={charge_type}
                     setIsPayNow={setIsPayNow}
                     bookTime={bookTime}
                   />

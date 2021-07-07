@@ -4,10 +4,11 @@ import moment from 'moment';
 import { t } from 'i18n-js';
 
 import { Colors, SPConfig } from '../../../../configs';
+import { PARKING_CHARGE_TYPE } from '../../../../configs/Constants';
 import Text from '../../../../commons/Text';
 import { GroupCheckbox } from '../ParkingDetail';
 
-const PaymentOption = memo(({ bookTime, setIsPayNow }) => {
+const PaymentOption = memo(({ chargeType, bookTime, setIsPayNow }) => {
   const payBefore = moment(bookTime.arriveAt)
     .add(SPConfig.maxSeconds, 'seconds')
     .format('LT DD/MM/YYYY');
@@ -29,7 +30,10 @@ const PaymentOption = memo(({ bookTime, setIsPayNow }) => {
   const [options, setOptions] = useState([PAY_NOW_OPTION, PAY_LATER_OPTION]);
 
   useEffect(() => {
-    if (moment(bookTime.arriveAt) < moment()) {
+    if (
+      chargeType === PARKING_CHARGE_TYPE.FROM_BOOKING_TIME ||
+      moment(bookTime.arriveAt) < moment()
+    ) {
       setIsPayNow(true);
       setOptions([PAY_NOW_OPTION]);
     } else {
