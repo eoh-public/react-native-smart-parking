@@ -59,6 +59,7 @@ jest.mock('axios');
 const mockGetActionSession = jest.fn();
 const mockGetNearbyParking = jest.fn();
 const mockGetViolations = jest.fn();
+const mockGetNotificationNumber = jest.fn();
 
 jest.mock('../hooks', () => {
   return {
@@ -82,6 +83,7 @@ jest.mock('../hooks', () => {
     }),
     useNotifications: () => ({
       notificationNumber: 10,
+      getNotificationNumber: mockGetNotificationNumber,
     }),
   };
 });
@@ -376,6 +378,7 @@ describe('Test MapDashboard', () => {
         </Provider>
       );
     });
+    expect(mockGetNotificationNumber).toBeCalled();
     mockGetViolations.mockClear();
     capturedChangeCallback('active');
     expect(mockGetViolations).toBeCalled();
