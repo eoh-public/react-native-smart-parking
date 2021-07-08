@@ -3,11 +3,6 @@ import { TextInput } from 'react-native';
 import { act, create } from 'react-test-renderer';
 import { TESTID } from '../../../configs/Constants';
 
-jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
-  useDispatch: () => jest.fn(),
-}));
-
 const mockSetState = jest.fn();
 
 jest.mock('react', () => ({

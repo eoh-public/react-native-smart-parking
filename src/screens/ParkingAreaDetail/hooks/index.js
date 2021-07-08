@@ -1,15 +1,14 @@
-import { useCallback, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useCallback, useContext, useState } from 'react';
 
-import { setNewSavedParking } from '../../../redux/Actions/notifications';
 import { API } from '../../../configs';
 import { axiosGet, axiosPost } from '../../../utils/Apis/axios';
 import { getCurrentLatLng } from '../../../utils/CountryUtils';
+import { SPContext } from '../../../context';
 
 const useParkingDetail = (id, spot_name) => {
   const [loading, setLoading] = useState(false);
   const [parkingDetailData, setParkingDetailData] = useState({});
-  const dispatch = useDispatch();
+  const { setAction } = useContext(SPContext);
 
   const getParkingDetail = useCallback(async () => {
     setLoading(true);
@@ -38,9 +37,9 @@ const useParkingDetail = (id, spot_name) => {
     const { success } = await axiosPost(API.PARKING.SAVE(id));
     if (success) {
       saveParking(true);
-      dispatch(setNewSavedParking(true));
+      setAction('SET_NEW_SAVED_PARKING', true);
     }
-  }, [id, saveParking, dispatch]);
+  }, [id, saveParking, setAction]);
 
   const onUnsaveParking = useCallback(async () => {
     const { success } = await axiosPost(API.PARKING.UNSAVE(id));

@@ -1,21 +1,23 @@
+import React from 'react';
 import { renderHook, act } from '@testing-library/react-hooks';
 import API from '../../../../configs/API';
 import axios from 'axios';
 import { useNotifications, useNearbyParkings } from '../index';
+import { SPProvider } from '../../../../context';
+import { mockSPStore } from '../../../../context/mockStore';
 
 jest.mock('axios');
 
-const mockedDispatch = jest.fn();
+const mockedSetAction = jest.fn();
 
-jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
-  useDispatch: () => mockedDispatch,
-  useSelector: jest.fn(() => ({
-    myBookingList: {
-      violationsData: [],
-    },
-  })),
+const wrapper = ({ children }) => <SPProvider>{children}</SPProvider>;
+
+const mockUseContext = jest.fn().mockImplementation(() => ({
+  stateData: mockSPStore({ booking: { violationsData: [] } }),
+  setAction: mockedSetAction,
 }));
+
+React.useContext = mockUseContext;
 
 describe('Test DashBoard hook', () => {
   afterEach(() => {
@@ -48,7 +50,7 @@ describe('Test DashBoard hook', () => {
       status: 200,
       data: null,
     };
-    const { result } = renderHook(() => useNearbyParkings());
+    const { result } = renderHook(() => useNearbyParkings(), { wrapper });
 
     axios.get.mockImplementation(async () => {
       return response;
@@ -70,11 +72,11 @@ describe('Test DashBoard hook', () => {
     axios.get.mockImplementation(async () => {
       return response;
     });
-    const { result } = renderHook(() => useNearbyParkings());
+    const { result } = renderHook(() => useNearbyParkings(), { wrapper });
     act(() => {
       result.current.getViolations();
     });
-    expect(mockedDispatch).toBeCalled();
+    expect(mockedSetAction).toHaveBeenCalled();
   });
 
   test('test useNearbyParkings setActiveSessions has data', async () => {
@@ -82,7 +84,7 @@ describe('Test DashBoard hook', () => {
       status: 200,
       data: 'test',
     };
-    const { result } = renderHook(() => useNearbyParkings());
+    const { result } = renderHook(() => useNearbyParkings(), { wrapper });
 
     axios.get.mockImplementation(async () => {
       return response;
@@ -101,7 +103,7 @@ describe('Test DashBoard hook', () => {
       status: 200,
       data: 'test',
     };
-    const { result } = renderHook(() => useNearbyParkings());
+    const { result } = renderHook(() => useNearbyParkings(), { wrapper });
 
     axios.post.mockImplementation(async () => {
       return response;
@@ -118,7 +120,7 @@ describe('Test DashBoard hook', () => {
       status: 400,
       data: 'test',
     };
-    const { result } = renderHook(() => useNearbyParkings());
+    const { result } = renderHook(() => useNearbyParkings(), { wrapper });
 
     axios.post.mockImplementation(async () => {
       return response;
@@ -131,7 +133,7 @@ describe('Test DashBoard hook', () => {
   });
 
   test('test on close thank', async () => {
-    const { result } = renderHook(() => useNearbyParkings());
+    const { result } = renderHook(() => useNearbyParkings(), { wrapper });
 
     await act(async () => {
       result.current.onCloseThanks();
@@ -140,7 +142,7 @@ describe('Test DashBoard hook', () => {
   });
 
   test('test on show thank', async () => {
-    const { result } = renderHook(() => useNearbyParkings());
+    const { result } = renderHook(() => useNearbyParkings(), { wrapper });
 
     await act(async () => {
       result.current.onShowThanks();

@@ -1,12 +1,17 @@
 import { t } from 'i18n-js';
-import React, { memo, useCallback, useEffect, useState } from 'react';
+import React, {
+  memo,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
-import { useDispatch } from 'react-redux';
 import { SvgPhoneNotification } from '../../../assets/images/SmartParking';
 import Text from '../../commons/Text';
 import { API, Colors } from '../../configs';
+import { SPContext } from '../../context';
 
-import { setNewNotification } from '../../redux/Actions/notifications';
 import { axiosGet, axiosPost } from '../../utils/Apis/axios';
 
 import ItemNotification from './ItemNotification';
@@ -21,7 +26,7 @@ const NotificationCentre = memo(() => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [maxPageNotification, setMaxPageNotification] = useState(1);
   const [onEndReached, setOnEndReached] = useState(true);
-  const dispatch = useDispatch();
+  const { setAction } = useContext(SPContext);
 
   const fetchNotifications = useCallback(
     async (pageParam) => {
@@ -39,8 +44,8 @@ const NotificationCentre = memo(() => {
 
   const updateLastSeen = useCallback(async () => {
     const { success } = await axiosPost(API.NOTIFICATION.SET_LAST_SEEN());
-    success && dispatch(setNewNotification(false));
-  }, [dispatch]);
+    success && setAction('SET_NEW_NOTIFICATION', false);
+  }, [setAction]);
 
   useEffect(() => {
     updateLastSeen();

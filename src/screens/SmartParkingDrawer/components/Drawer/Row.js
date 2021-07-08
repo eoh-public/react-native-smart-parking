@@ -1,27 +1,26 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useContext } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import { useDispatch } from 'react-redux';
 import Basic from '../../../../../assets/images/SmartParking/basic.svg';
 import ExclamationCircle from '../../../../../assets/images/SmartParking/exclamation-circle.svg';
 import Text from '../../../../commons/Text';
 import { Colors } from '../../../../configs';
-import { exitApp } from '../../../../redux/Actions/ui';
+import { SPContext } from '../../../../context';
 import Route from '../../../../utils/Route';
 
 const RowSmartParkingDrawer = memo(
   ({ name, leftImage, borderBottom, vehicle, saved, route }) => {
     const { navigate } = useNavigation();
-    const dispatch = useDispatch();
+    const { setAction } = useContext(SPContext);
     const onPress = useCallback(() => {
       if (route) {
         if (route === Route.Main) {
-          dispatch(exitApp(true));
+          setAction('EXIT_APP', true);
         } else {
           navigate(route);
         }
       }
-    }, [route, navigate, dispatch]);
+    }, [route, navigate, setAction]);
     return (
       <TouchableOpacity
         onPress={onPress}

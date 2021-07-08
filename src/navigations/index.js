@@ -1,19 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import Toast from 'react-native-toast-message';
-import { useDispatch, useSelector } from 'react-redux';
 import { Alert } from '../commons';
 import { Colors } from '../configs';
-import { initAuth } from '../redux/Actions/auth';
-import { exitApp as resetExitApp } from '../redux/Actions/ui';
 import Routes from '../utils/Route';
 import { SmartParkingStack } from './SmartParkingStack';
 import { navigationRef } from './utils';
-import { saveNotificationData } from '../redux/Actions/notifications';
 import { updateTranslation } from '../utils/I18n';
+import { SPContext, useSPSelector } from '../context';
 
 const Stack = createStackNavigator();
 
@@ -57,12 +54,12 @@ const NavStack = () => {
 };
 
 const App = ({ dataNotification, auth, onExitApp, langTranslate }) => {
-  const exitApp = useSelector((state) => state.ui.exitApp);
+  const exitApp = useSPSelector((state) => state.app.exitApp);
   const [loading, setLoading] = useState(true);
-  const dispatch = useDispatch();
+  const { setAction, setAuth } = useContext(SPContext);
 
   useEffect(() => {
-    dispatch(initAuth(auth?.account));
+    setAuth({ account: auth?.account });
     updateTranslation(langTranslate);
     setLoading(false);
   }, []);
@@ -70,12 +67,12 @@ const App = ({ dataNotification, auth, onExitApp, langTranslate }) => {
   useEffect(() => {
     if (exitApp) {
       onExitApp && onExitApp();
-      dispatch(resetExitApp());
+      setAction('EXIT_APP', false);
     }
   }, [exitApp]);
 
   useEffect(() => {
-    dataNotification && dispatch(saveNotificationData(dataNotification));
+    dataNotification && setAction('SAVE_NOTIFICATION_DATA', dataNotification);
   }, [dataNotification]);
 
   if (loading) {

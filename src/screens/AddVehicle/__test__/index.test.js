@@ -9,13 +9,10 @@ import { API } from '../../../configs';
 import { TESTID } from '../../../configs/Constants';
 
 import AddVehicle from '../index';
+import { SPProvider } from '../../../context';
+import { mockSPStore } from '../../../context/mockStore';
 
 jest.mock('axios');
-
-jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
-  useSelector: jest.fn(),
-}));
 
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
@@ -205,6 +202,12 @@ describe('test AddVehicle container add new', () => {
   });
 });
 
+const wrapComponent = (route) => (
+  <SPProvider initState={mockSPStore({})}>
+    <AddVehicle route={route} />
+  </SPProvider>
+);
+
 describe('test AddVehicle container edit car', () => {
   afterEach(() => {
     axios.put.mockClear();
@@ -230,7 +233,7 @@ describe('test AddVehicle container edit car', () => {
 
   test('render AddVehicle with isEdit', async () => {
     await act(async () => {
-      tree = renderer.create(<AddVehicle route={route} />);
+      tree = renderer.create(wrapComponent(route));
     });
     const instance = tree.root;
     const {
@@ -254,7 +257,7 @@ describe('test AddVehicle container edit car', () => {
 
   test('press delete vehicle ', async () => {
     await act(async () => {
-      tree = renderer.create(<AddVehicle route={route} />);
+      tree = renderer.create(wrapComponent(route));
     });
     const instance = tree.root;
     const { buttonDeleteCar, modalDelete } = getElement(instance);
@@ -296,7 +299,7 @@ describe('test AddVehicle container edit car', () => {
 
   test('change vehicle name and seat', async () => {
     await act(async () => {
-      tree = renderer.create(<AddVehicle route={route} />);
+      tree = renderer.create(wrapComponent(route));
     });
     const instance = tree.root;
 

@@ -1,14 +1,12 @@
 import React from 'react';
 import { act, create } from 'react-test-renderer';
 import { TouchableOpacity } from 'react-native';
-import configureStore from 'redux-mock-store';
-import { Provider } from 'react-redux';
 
 import SearchBar from '../index';
 import { TESTID } from '../../../../../configs/Constants';
 import Routes from '../../../../../utils/Route';
-
-const mockStore = configureStore([]);
+import { SPProvider } from '../../../../../context';
+import { mockSPStore } from '../../../../../context/mockStore';
 
 const mockToggleDrawer = jest.fn();
 const mockNavigate = jest.fn();
@@ -21,6 +19,10 @@ jest.mock('@react-navigation/native', () => {
     }),
   };
 });
+
+const WrappedComponent = ({ store, children }) => (
+  <SPProvider initState={store}>{children}</SPProvider>
+);
 
 describe('Test SearchBar', () => {
   let tree;
@@ -35,8 +37,8 @@ describe('Test SearchBar', () => {
   };
 
   beforeEach(() => {
-    store = mockStore({
-      notifications: {
+    store = mockSPStore({
+      notification: {
         newNotification: true,
         newSavedParking: true,
       },
@@ -49,13 +51,13 @@ describe('Test SearchBar', () => {
 
     act(() => {
       tree = create(
-        <Provider store={store}>
+        <WrappedComponent store={store}>
           <SearchBar
             selectedLocation={selectedLocation}
             onClearDataParking={mockClearDataParking}
             onSelectLocation={mockSelectLocation}
           />
-        </Provider>
+        </WrappedComponent>
       );
     });
     const instance = tree.root;
@@ -98,12 +100,12 @@ describe('Test SearchBar', () => {
 
     act(() => {
       tree = create(
-        <Provider store={store}>
+        <WrappedComponent store={store}>
           <SearchBar
             selectedLocation={selectedLocation}
             onClearDataParking={mockClearDataParking}
           />
-        </Provider>
+        </WrappedComponent>
       );
     });
     const instance = tree.root;

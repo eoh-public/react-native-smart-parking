@@ -3,14 +3,14 @@ import { useIsFocused } from '@react-navigation/core';
 import { API } from '../../../configs';
 import { axiosGet } from '../../../utils/Apis/axios';
 import { NOTIFICATION_TYPES } from '../../../configs/Constants';
-import { useSelector } from 'react-redux';
+import { useSPSelector } from '../../../context';
 
 let onEndReachedCalledDuringMomentum = false;
 
 export default () => {
   const isFocused = useIsFocused();
-  const notificationData = useSelector(
-    (state) => state.notifications.notificationData
+  const notificationData = useSPSelector(
+    (state) => state.notification.notificationData
   );
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [isLoadMore, setIsLoadMore] = useState(false);

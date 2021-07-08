@@ -3,9 +3,11 @@ import { TouchableOpacity } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
 import RowSmartParkingDrawer from '../Row';
 import Route from '../../../../../utils/Route';
+import { SPContext } from '../../../../../context';
+import { mockSPStore } from '../../../../../context/mockStore';
 
 const mockedNavigate = jest.fn();
-const mockedDispatch = jest.fn();
+const mockSetAction = jest.fn();
 jest.mock('@react-navigation/native', () => {
   return {
     ...jest.requireActual('@react-navigation/native'),
@@ -15,27 +17,32 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
-jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
-  useDispatch: () => mockedDispatch,
-}));
+const WrapComponent = ({ children }) => (
+  <SPContext.Provider
+    value={{ stateData: mockSPStore({}), setAction: mockSetAction }}
+  >
+    {children}
+  </SPContext.Provider>
+);
 
 describe('Test RowSmartParkingDrawer', () => {
   let wrapper;
   afterEach(() => {
-    mockedDispatch.mockClear();
+    mockSetAction.mockClear();
     mockedNavigate.mockClear();
   });
   test('create RowSmartParkingDrawer route={Route.Main}', () => {
     act(() => {
       wrapper = renderer.create(
-        <RowSmartParkingDrawer
-          name={'name'}
-          leftImage={true}
-          borderBottom={true}
-          vehicle={true}
-          route={Route.Main}
-        />
+        <WrapComponent>
+          <RowSmartParkingDrawer
+            name={'name'}
+            leftImage={true}
+            borderBottom={true}
+            vehicle={true}
+            route={Route.Main}
+          />
+        </WrapComponent>
       );
     });
     const instance = wrapper.root;
@@ -44,19 +51,21 @@ describe('Test RowSmartParkingDrawer', () => {
     act(() => {
       button[0].props.onPress();
     });
-    expect(mockedDispatch).toBeCalledTimes(1);
+    expect(mockSetAction).toBeCalledTimes(1);
   });
 
   test('create RowSmartParkingDrawer route={Route}', () => {
     act(() => {
       wrapper = renderer.create(
-        <RowSmartParkingDrawer
-          name={'name'}
-          leftImage={true}
-          borderBottom={true}
-          vehicle={true}
-          route={Route}
-        />
+        <WrapComponent>
+          <RowSmartParkingDrawer
+            name={'name'}
+            leftImage={true}
+            borderBottom={true}
+            vehicle={true}
+            route={Route}
+          />
+        </WrapComponent>
       );
     });
     const instance = wrapper.root;
@@ -71,13 +80,15 @@ describe('Test RowSmartParkingDrawer', () => {
   test('create RowSmartParkingDrawer route null', () => {
     act(() => {
       wrapper = renderer.create(
-        <RowSmartParkingDrawer
-          name={'name'}
-          leftImage={true}
-          borderBottom={true}
-          vehicle={true}
-          saved={true}
-        />
+        <WrapComponent>
+          <RowSmartParkingDrawer
+            name={'name'}
+            leftImage={true}
+            borderBottom={true}
+            vehicle={true}
+            saved={true}
+          />
+        </WrapComponent>
       );
     });
     const instance = wrapper.root;

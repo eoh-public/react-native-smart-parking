@@ -1,8 +1,11 @@
+import React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 import { useViolation } from '../';
 import axios from 'axios';
 import { act } from 'react-test-renderer';
 import { API } from '../../../../configs';
+import { SPProvider } from '../../../../context';
+import { mockSPStore } from '../../../../context/mockStore';
 
 jest.mock('axios');
 const mockFocus = jest.fn();
@@ -13,15 +16,19 @@ jest.mock('@react-navigation/core', () => {
   };
 });
 
-jest.mock('react-redux', () => {
-  return {
-    ...jest.requireActual('react-redux'),
-    useSelector: () => jest.fn(),
-  };
-});
+const wrapper = ({ children }) => (
+  <SPProvider initState={mockSPStore({})}>{children}</SPProvider>
+);
+
+// const mockUseContext = jest.fn().mockImplementation(() => ({
+//   stateData: mockSPStore({ booking: { violationsData: [] } }),
+//   setAction: mockedSetAction,
+// }));
+
+// React.useContext = mockUseContext;
 
 describe('Test useKeyboardShow', () => {
-  const { result } = renderHook(() => useViolation());
+  const { result } = renderHook(() => useViolation(), { wrapper });
 
   it('Test init', async () => {
     expect(result.current.isRefreshing).toBeTruthy();

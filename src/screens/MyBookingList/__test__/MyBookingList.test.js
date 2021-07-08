@@ -4,6 +4,7 @@ import { act, create } from 'react-test-renderer';
 import { TabView } from 'react-native-tab-view';
 import MyBookingList from '../';
 import ScanningResponsePopup from '../../MapDashboard/components/ScanningResponsePopup';
+import { SPProvider } from '../../../context';
 
 let capturedChangeCallback = null;
 
@@ -38,12 +39,11 @@ jest.mock('react', () => {
   };
 });
 
-jest.mock('react-redux', () => {
-  return {
-    ...jest.requireActual('react-redux'),
-    useSelector: jest.fn(),
-  };
-});
+const wrapComponent = (route) => (
+  <SPProvider>
+    <MyBookingList route={route} />
+  </SPProvider>
+);
 
 describe('Test MyBookingList', () => {
   let route;
@@ -52,7 +52,7 @@ describe('Test MyBookingList', () => {
   it('Test render', () => {
     route = { params: {} };
     act(() => {
-      tree = create(<MyBookingList route={route} />);
+      tree = create(wrapComponent(route));
     });
     const instance = tree.root;
     const HeaderAnimElement = instance.findAllByType(Animated.View);
@@ -68,7 +68,7 @@ describe('Test MyBookingList', () => {
   it('Test render ScanningResponsePopupElement', () => {
     route = { params: { scanDataResponse: 1 } };
     act(() => {
-      tree = create(<MyBookingList route={route} />);
+      tree = create(wrapComponent(route));
     });
     const instance = tree.root;
     const ScanningResponsePopupElement = instance.findAllByType(
@@ -85,7 +85,7 @@ describe('Test MyBookingList', () => {
   it('Test appState', () => {
     route = { params: { scanDataResponse: 1 } };
     act(() => {
-      tree = create(<MyBookingList route={route} />);
+      tree = create(wrapComponent(route));
     });
     expect(mockAddListener).toBeCalled();
     capturedChangeCallback('active');
@@ -100,7 +100,7 @@ describe('Test MyBookingList', () => {
     });
     useState.mockImplementationOnce((init) => [1, mockSetState]);
     act(() => {
-      tree = create(<MyBookingList route={route} />);
+      tree = create(wrapComponent(route));
     });
     const instance = tree.root;
     const HeaderAnimElement = instance.findAllByType(Animated.View);
@@ -113,7 +113,7 @@ describe('Test MyBookingList', () => {
     });
     useState.mockImplementationOnce((init) => [2, mockSetState]);
     act(() => {
-      tree = create(<MyBookingList route={route} />);
+      tree = create(wrapComponent(route));
     });
     const instance = tree.root;
     const HeaderAnimElement = instance.findAllByType(Animated.View);

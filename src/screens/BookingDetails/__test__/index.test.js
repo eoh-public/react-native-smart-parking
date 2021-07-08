@@ -16,6 +16,7 @@ import Routes from '../../../utils/Route';
 import ScanningResponsePopup from '../../MapDashboard/components/ScanningResponsePopup';
 import ExtendPopup from '../components/ExtendPopup';
 import DisplayChecking from '../../../commons/DisplayChecking';
+import { SPProvider } from '../../../context';
 
 let mockGoBackGlobal;
 jest.mock('react', () => ({
@@ -47,17 +48,13 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
-const mockedDispatch = jest.fn();
-const mockedSelector = jest.fn();
-jest.mock('react-redux', () => {
-  return {
-    ...jest.requireActual('react-redux'),
-    useSelector: () => mockedSelector,
-    useDispatch: () => mockedDispatch,
-  };
-});
-
 const mockSetState = jest.fn();
+
+const componentWithRouteData = (route) => (
+  <SPProvider>
+    <BookingDetails route={route} />
+  </SPProvider>
+);
 
 describe('Test BookingDetails', () => {
   let route = {
@@ -108,7 +105,6 @@ describe('Test BookingDetails', () => {
 
   beforeEach(() => {
     mockSetState.mockClear();
-    mockedDispatch.mockClear();
     useIsFocused.mockClear();
     axios.get.mockClear();
     axios.post.mockClear();
@@ -163,7 +159,7 @@ describe('Test BookingDetails', () => {
     mockDangerouslyGetState.mockReturnValueOnce(state);
 
     await act(async () => {
-      wrapper = await create(<BookingDetails route={route} />);
+      wrapper = await create(componentWithRouteData(route));
     });
     expect(axios.get).toHaveBeenCalledWith(bookingDetailUrl, {});
     const instance = wrapper.root;
@@ -202,7 +198,7 @@ describe('Test BookingDetails', () => {
     mockDangerouslyGetState.mockReturnValueOnce(state);
 
     await act(async () => {
-      wrapper = await create(<BookingDetails route={route} />);
+      wrapper = await create(componentWithRouteData(route));
     });
     const instance = wrapper.root;
     const headerUnit = instance.find(
@@ -222,7 +218,7 @@ describe('Test BookingDetails', () => {
     mockInitBookingDetail();
 
     await act(async () => {
-      wrapper = await create(<BookingDetails route={route} />);
+      wrapper = await create(componentWithRouteData(route));
     });
 
     expect(axios.get).toHaveBeenCalledTimes(1);
@@ -241,7 +237,7 @@ describe('Test BookingDetails', () => {
     jest.useFakeTimers();
 
     await act(async () => {
-      wrapper = await create(<BookingDetails route={route} />);
+      wrapper = await create(componentWithRouteData(route));
     });
 
     expect(axios.get).toHaveBeenCalledTimes(1);
@@ -268,7 +264,7 @@ describe('Test BookingDetails', () => {
     });
 
     await act(async () => {
-      wrapper = await create(<BookingDetails route={route} />);
+      wrapper = await create(componentWithRouteData(route));
     });
 
     const instance = wrapper.root;
@@ -307,7 +303,7 @@ describe('Test BookingDetails', () => {
     });
 
     await act(async () => {
-      wrapper = await create(<BookingDetails route={route} />);
+      wrapper = await create(componentWithRouteData(route));
     });
     const instance = wrapper.root;
 
@@ -333,7 +329,7 @@ describe('Test BookingDetails', () => {
     });
 
     await act(async () => {
-      wrapper = await create(<BookingDetails route={route} />);
+      wrapper = await create(componentWithRouteData(route));
     });
     const instance = wrapper.root;
 
@@ -352,7 +348,7 @@ describe('Test BookingDetails', () => {
     });
 
     await act(async () => {
-      wrapper = await create(<BookingDetails route={route} />);
+      wrapper = await create(componentWithRouteData(route));
     });
     const instance = wrapper.root;
 
@@ -382,7 +378,7 @@ describe('Test BookingDetails', () => {
     };
 
     await act(async () => {
-      wrapper = await create(<BookingDetails route={modifiedRoute} />);
+      wrapper = await create(componentWithRouteData(modifiedRoute));
     });
     const instance = wrapper.root;
 
@@ -408,7 +404,7 @@ describe('Test BookingDetails', () => {
     });
 
     await act(async () => {
-      wrapper = await create(<BookingDetails route={route} />);
+      wrapper = await create(componentWithRouteData(route));
     });
     const instance = wrapper.root;
 
@@ -448,7 +444,7 @@ describe('Test BookingDetails', () => {
     jest.useFakeTimers();
     jest.runAllTimers();
     act(() => {
-      wrapper = create(<BookingDetails route={route} />);
+      wrapper = create(componentWithRouteData(route));
     });
     const instance = wrapper.root;
     const FullLoadingElement = instance.findAllByType(FullLoading);
@@ -469,7 +465,7 @@ describe('Test BookingDetails', () => {
     useState.mockImplementation((init) => [init, mockSetState]);
 
     await act(async () => {
-      wrapper = await create(<BookingDetails route={route} />);
+      wrapper = await create(componentWithRouteData(route));
     });
     const instance = wrapper.root;
 
@@ -503,9 +499,9 @@ describe('Test BookingDetails', () => {
     };
     await act(async () => {
       wrapper = await create(
-        <BookingDetails
-          route={{ params: { ...route.params, scanDataResponse: true } }}
-        />
+        componentWithRouteData({
+          params: { ...route.params, scanDataResponse: true },
+        })
       );
     });
     expect(setScanResponse).toHaveBeenCalledWith(true);
@@ -538,9 +534,9 @@ describe('Test BookingDetails', () => {
 
     await act(async () => {
       wrapper = await create(
-        <BookingDetails
-          route={{ params: { ...route.params, isShowExtendNow: true } }}
-        />
+        componentWithRouteData({
+          params: { ...route.params, isShowExtendNow: true },
+        })
       );
     });
 
@@ -589,7 +585,7 @@ describe('Test BookingDetails', () => {
     useState.mockImplementationOnce((init) => [{}, mockSetState]);
 
     await act(async () => {
-      wrapper = await create(<BookingDetails route={route} />);
+      wrapper = await create(componentWithRouteData(route));
     });
     const instance = wrapper.root;
 
@@ -626,7 +622,7 @@ describe('Test BookingDetails', () => {
     useState.mockImplementation((init) => [init, mockSetState]);
 
     await act(async () => {
-      wrapper = await create(<BookingDetails route={route} />);
+      wrapper = await create(componentWithRouteData(route));
     });
     const instance = wrapper.root;
 
@@ -652,7 +648,7 @@ describe('Test BookingDetails', () => {
     });
 
     await act(async () => {
-      wrapper = await create(<BookingDetails route={route} />);
+      wrapper = await create(componentWithRouteData(route));
     });
     const instance = wrapper.root;
 

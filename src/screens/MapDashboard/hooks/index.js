@@ -1,22 +1,18 @@
-import { useCallback, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { useIsFocused } from '@react-navigation/native';
 
-import {
-  setNewSavedParking,
-  setNewNotification,
-} from '../../../redux/Actions/notifications';
-import { getViolationSuccess } from '../../../redux/Actions/myBookingList';
 import { API } from '../../../configs';
 import { axiosGet, axiosPost } from '../../../utils/Apis/axios';
+import { SPContext, useSPSelector } from '../../../context';
 
 const useNearbyParkings = () => {
   const [showThanks, setShowThanks] = useState(false);
   const [loadingNearByParking, setLoadingNearByParking] = useState(false);
   const [nearbyParkings, setNearbyParkings] = useState([]);
   const [activeSessions, setActiveSessions] = useState(null);
-  const dispatch = useDispatch();
-  const { violationsData } = useSelector((state) => state.myBookingList);
+
+  const { setAction } = useContext(SPContext);
+  const { violationsData } = useSPSelector((state) => state.booking);
 
   const getNearbyParkings = useCallback(async ({ lat, lng }) => {
     setLoadingNearByParking(true);
@@ -57,10 +53,10 @@ const useNearbyParkings = () => {
       const { success } = await axiosPost(API.PARKING.SAVE(id));
       if (success) {
         saveParking(id, true);
-        dispatch(setNewSavedParking(true));
+        setAction('SET_NEW_SAVED_PARKING', true);
       }
     },
-    [saveParking, dispatch]
+    [saveParking, setAction]
   );
 
   const onUnsaveParking = useCallback(
@@ -85,7 +81,7 @@ const useNearbyParkings = () => {
   const getViolations = async () => {
     const { data, success } = await axiosGet(API.BOOKING.VIOLATION(1));
     if (success && data) {
-      dispatch(getViolationSuccess(data.results || []));
+      setAction('GET_VIOLATION_SUCCESS', data.results || []);
     }
   };
 
@@ -107,7 +103,7 @@ const useNearbyParkings = () => {
 
 const useNotifications = () => {
   const isFocused = useIsFocused();
-  const dispatch = useDispatch();
+  const { setAction } = useContext(SPContext);
 
   const [notificationNumber, setNotificationNumber] = useState(false);
 
@@ -115,9 +111,9 @@ const useNotifications = () => {
     const { success, data } = await axiosGet(API.NOTIFICATION.NUMBER());
     if (success) {
       setNotificationNumber(data.unseen);
-      dispatch(setNewNotification(true));
+      setAction('SET_NEW_NOTIFICATION', true);
     }
-  }, [dispatch]);
+  }, [setAction]);
 
   useEffect(() => {
     isFocused && getNotificationNumber();

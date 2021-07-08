@@ -1,16 +1,15 @@
+import React from 'react';
 import { renderHook, act } from '@testing-library/react-hooks';
 import axios from 'axios';
+import { SPProvider } from '../../../../context';
+import { mockSPStore } from '../../../../context/mockStore';
 import { useParkingDetail } from '../index';
 
 jest.mock('axios');
 
-const mockedDispatch = jest.fn();
-
-jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
-  useDispatch: () => mockedDispatch,
-  useSelector: jest.fn(),
-}));
+const wrapper = ({ children }) => (
+  <SPProvider initState={mockSPStore({})}>{children}</SPProvider>
+);
 
 describe('Test useParkingDetail hook', () => {
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('Test useParkingDetail hook', () => {
   });
 
   test('test save Parking', async () => {
-    const { result } = renderHook(() => useParkingDetail());
+    const { result } = renderHook(() => useParkingDetail(), { wrapper });
 
     const response = {
       status: 200,
@@ -44,7 +43,7 @@ describe('Test useParkingDetail hook', () => {
   });
 
   test('test unsave Parking', async () => {
-    const { result } = renderHook(() => useParkingDetail());
+    const { result } = renderHook(() => useParkingDetail(), { wrapper });
 
     const response = {
       status: 200,

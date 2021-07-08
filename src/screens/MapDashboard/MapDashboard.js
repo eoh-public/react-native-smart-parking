@@ -2,6 +2,7 @@
 import React, {
   memo,
   useCallback,
+  useContext,
   useEffect,
   useMemo,
   useRef,
@@ -21,7 +22,6 @@ import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import { useIsFocused, useNavigation } from '@react-navigation/native';
 import { t } from 'i18n-js';
-import { useSelector } from 'react-redux';
 
 import { ButtonPopup, CircleButton, FullLoading } from '../../commons';
 import ParkingAreaList from './components/ParkingAreaList';
@@ -36,7 +36,6 @@ import {
   useAndroidTranslucentStatusBar,
   useBlockBackAndroid,
 } from '../../hooks/Common';
-import { useDispatch } from 'react-redux';
 import { useCountDown } from '../../hooks/SmartParking';
 import { SvgWarningBell } from '../../../assets/images/SmartParking';
 import SvgLocate from '../../../assets/images/SmartParking/locate.svg';
@@ -46,7 +45,6 @@ import { axiosGet } from '../../utils/Apis/axios';
 import { getCurrentLatLng } from '../../utils/CountryUtils';
 import Routes from '../../utils/Route';
 import { isObjectEmpty } from '../../utils/Utils';
-import { exitApp } from '../../redux/Actions/ui';
 import { getData, storeData } from '../../utils/Storage';
 import AsyncKeys from '../../utils/AsyncKey';
 import TermAndConditions from '../TermAndConditions';
@@ -57,6 +55,7 @@ import { useNearbyParkings, useNotifications } from './hooks';
 import styles from './styles';
 import { ViolationItem } from './components/Violation';
 import { watchViolationData, unwatchViolationData } from './Monitor';
+import { SPContext, useSPSelector } from '../../context';
 
 const selectedParkingIcon = require('../../../assets/images/Map/marker_parking_selected.png');
 const parkingIcon = require('../../../assets/images/Map/marker_parking.png');
@@ -65,11 +64,12 @@ const MapDashboard = memo(({ route }) => {
   useAndroidTranslucentStatusBar();
   useBlockBackAndroid();
 
-  const user = useSelector((state) => state.auth.account.user);
-  const cancelBooking = useSelector((state) => state.local.cancelBooking);
-  const notificationData = useSelector(
-    (state) => state.notifications.notificationData
+  const user = useSPSelector((state) => state.auth.account.user);
+  const cancelBooking = useSPSelector((state) => state.booking.cancelBooking);
+  const notificationData = useSPSelector(
+    (state) => state.notification.notificationData
   );
+  const { setAction } = useContext(SPContext);
 
   const [loading, setLoading] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState({
@@ -83,7 +83,6 @@ const MapDashboard = memo(({ route }) => {
     longitudeDelta: 0.0421,
   };
 
-  const dispatch = useDispatch();
   const { scanDataResponse, responseData } = route.params ? route.params : {};
   const { navigate } = useNavigation();
   const isFocused = useIsFocused();
@@ -678,8 +677,8 @@ const MapDashboard = memo(({ route }) => {
           visible={showCondition}
           mainTitle={t('confirm')}
           secondaryTitle={t('cancel')}
-          onClose={() => dispatch(exitApp(true))}
-          onPressSecondary={() => dispatch(exitApp(true))}
+          onClose={() => setAction('EXIT_APP', true)}
+          onPressSecondary={() => setAction('EXIT_APP', true)}
           onPressMain={onConfirmTerm}
           hideClose={true}
           title={'Terms and Conditions Agreement'}
