@@ -115,7 +115,7 @@ const MapDashboard = memo(({ route }) => {
     getViolations,
     violationsData,
   } = useNearbyParkings();
-  const { notificationNumber } = useNotifications();
+  const { notificationNumber, getNotificationNumber } = useNotifications();
 
   const { time_remaining, is_paid, start_countdown } = useMemo(() => {
     if (!activeSessions) {
@@ -486,6 +486,7 @@ const MapDashboard = memo(({ route }) => {
 
   useEffect(() => {
     if (notificationData) {
+      getNotificationNumber();
       switch (notificationData.content_code) {
         case NOTIFICATION_TYPES.PARKING_COMPLETED_DUE_TO_CAR_LEAVE:
         case NOTIFICATION_TYPES.SYSTEM_CANCEL_NO_PAYMENT:
