@@ -1,14 +1,13 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { TESTID } from '../../../configs/Constants';
-import configureStore from 'redux-mock-store';
-import { Provider } from 'react-redux';
 import SmartParkingDrawer from '../index';
 import axios from 'axios';
 import { useIsFocused } from '@react-navigation/native';
 import { API } from '../../../configs';
+import { SPContext } from '../../../context';
+import { mockSPStore } from '../../../context/mockStore';
 
-const mockStore = configureStore([]);
 jest.mock('axios');
 const mockNavigateReact = jest.fn();
 
@@ -27,13 +26,13 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
-const mockDispatch = jest.fn();
-jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
-  useDispatch: () => {
-    return mockDispatch;
-  },
-}));
+const mockSetAction = jest.fn();
+
+const wrapComponent = (store) => (
+  <SPContext.Provider value={{ stateData: store, setAction: mockSetAction }}>
+    <SmartParkingDrawer />
+  </SPContext.Provider>
+);
 
 const setState = jest.fn();
 describe('Test Smart Parking Drawer', () => {
@@ -45,8 +44,8 @@ describe('Test Smart Parking Drawer', () => {
     setState.mockClear();
   });
   beforeEach(() => {
-    store = mockStore({
-      notifications: {
+    store = mockSPStore({
+      notification: {
         newSavedParking: 1,
       },
       auth: {
@@ -73,11 +72,7 @@ describe('Test Smart Parking Drawer', () => {
       return response;
     });
     await act(async () => {
-      tree = await renderer.create(
-        <Provider store={store}>
-          <SmartParkingDrawer />
-        </Provider>
-      );
+      tree = await renderer.create(wrapComponent(store));
     });
     const instance = tree.root;
     const items = instance.findAll(
@@ -85,17 +80,13 @@ describe('Test Smart Parking Drawer', () => {
     );
     expect(items).not.toBeUndefined();
     expect(axios.get).toHaveBeenCalledWith(API.CAR.CHECK_CARS_INFO(), {});
-    expect(mockDispatch).toBeCalledTimes(1);
+    expect(mockSetAction).toBeCalledTimes(1);
   });
 
   test('render Smart Parking Drawer useIsFocused false', async () => {
     useIsFocused.mockImplementation(() => false);
     await act(async () => {
-      tree = await renderer.create(
-        <Provider store={store}>
-          <SmartParkingDrawer />
-        </Provider>
-      );
+      tree = await renderer.create(wrapComponent(store));
     });
     expect(axios.get).not.toHaveBeenCalledWith(API.CAR.CHECK_CARS_INFO(), {});
   });
@@ -113,11 +104,7 @@ describe('Test Smart Parking Drawer', () => {
       return response;
     });
     await act(async () => {
-      tree = await renderer.create(
-        <Provider store={store}>
-          <SmartParkingDrawer />
-        </Provider>
-      );
+      tree = await renderer.create(wrapComponent(store));
     });
     expect(setState).toBeCalledTimes(0);
   });

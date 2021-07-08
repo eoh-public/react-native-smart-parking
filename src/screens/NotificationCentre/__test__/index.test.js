@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { act, create } from 'react-test-renderer';
-import { Provider } from 'react-redux';
 import axios from 'axios';
-import configureStore from 'redux-mock-store';
 import { FlatList } from 'react-native';
 import { t } from 'i18n-js';
 
@@ -10,8 +8,8 @@ import Text from '../../../commons/Text';
 import NotificationCentre from '../index';
 import { API } from '../../../configs';
 import { SvgPhoneNotification } from '../../../../assets/images/SmartParking';
-
-const mockStore = configureStore([]);
+import { SPContext } from '../../../context';
+import { mockSPStore } from '../../../context/mockStore';
 
 jest.mock('axios');
 
@@ -22,13 +20,15 @@ jest.mock('react', () => ({
   useState: jest.fn((init) => [init, mockSetState]),
 }));
 
-const mockDispatch = jest.fn();
-jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
-  useDispatch: () => {
-    return mockDispatch;
-  },
-}));
+const mockSetAction = jest.fn();
+
+const wrapComponent = (store) => {
+  return (
+    <SPContext.Provider value={{ stateData: store, setAction: mockSetAction }}>
+      <NotificationCentre />
+    </SPContext.Provider>
+  );
+};
 
 describe('Test NotificationCentre', () => {
   let tree;
@@ -37,8 +37,8 @@ describe('Test NotificationCentre', () => {
   beforeEach(() => {
     axios.post.mockClear();
     axios.get.mockClear();
-    store = mockStore({
-      notifications: {
+    store = mockSPStore({
+      notification: {
         newNotification: true,
         newSavedParking: true,
       },
@@ -59,11 +59,7 @@ describe('Test NotificationCentre', () => {
   test('did mount no notification', async () => {
     mockSetStates();
     await act(async () => {
-      tree = create(
-        <Provider store={store}>
-          <NotificationCentre />
-        </Provider>
-      );
+      tree = create(wrapComponent(store));
     });
     expect(axios.get).toHaveBeenCalledWith(
       API.NOTIFICATION.LIST_ALL_NOTIFICATIONS(1, ''),
@@ -79,11 +75,7 @@ describe('Test NotificationCentre', () => {
     mockSetStates();
     axios.get.mockImplementation(async () => ({ status: 400 }));
     await act(async () => {
-      tree = create(
-        <Provider store={store}>
-          <NotificationCentre />
-        </Provider>
-      );
+      tree = create(wrapComponent(store));
     });
     expect(axios.get).toHaveBeenCalledWith(
       API.NOTIFICATION.LIST_ALL_NOTIFICATIONS(1, ''),
@@ -108,11 +100,7 @@ describe('Test NotificationCentre', () => {
     axios.get.mockImplementation(async () => response);
 
     await act(async () => {
-      tree = create(
-        <Provider store={store}>
-          <NotificationCentre />
-        </Provider>
-      );
+      tree = create(wrapComponent(store));
     });
     const instance = tree.root;
     const texts = instance.findAllByType(Text); // no notifications
@@ -138,14 +126,10 @@ describe('Test NotificationCentre', () => {
     mockSetStates([]);
 
     await act(async () => {
-      tree = await create(
-        <Provider store={store}>
-          <NotificationCentre />
-        </Provider>
-      );
+      tree = await create(wrapComponent(store));
     });
     expect(axios.post).toHaveBeenCalledWith(API.NOTIFICATION.SET_LAST_SEEN());
-    expect(mockDispatch).not.toHaveBeenCalled();
+    expect(mockSetAction).not.toHaveBeenCalled();
   });
 
   const mockFetchNotifications = () => {
@@ -181,11 +165,7 @@ describe('Test NotificationCentre', () => {
     mockFetchNotifications();
 
     await act(async () => {
-      tree = await create(
-        <Provider store={store}>
-          <NotificationCentre />
-        </Provider>
-      );
+      tree = await create(wrapComponent(store));
     });
     expect(axios.get).toHaveBeenCalledWith(
       API.NOTIFICATION.LIST_ALL_NOTIFICATIONS(1, ''),
@@ -195,10 +175,7 @@ describe('Test NotificationCentre', () => {
     const flatLists = instance.findAll((el) => el.type === FlatList); // list notifications
     expect(flatLists).toHaveLength(1);
     expect(axios.post).toHaveBeenCalledWith(API.NOTIFICATION.SET_LAST_SEEN());
-    expect(mockDispatch).toHaveBeenCalledWith({
-      boolean: false,
-      type: 'SET_NEW_NOTIFICATION',
-    });
+    expect(mockSetAction).toHaveBeenCalledWith('SET_NEW_NOTIFICATION', false);
   });
 
   test('load new notification when reach end', async () => {
@@ -213,11 +190,7 @@ describe('Test NotificationCentre', () => {
     mockFetchNotifications();
 
     await act(async () => {
-      tree = await create(
-        <Provider store={store}>
-          <NotificationCentre />
-        </Provider>
-      );
+      tree = await create(wrapComponent(store));
     });
     const instance = tree.root;
     const flatList = instance.find((el) => el.type === FlatList); // list notifications
@@ -246,11 +219,7 @@ describe('Test NotificationCentre', () => {
     mockFetchNotifications();
 
     await act(async () => {
-      tree = await create(
-        <Provider store={store}>
-          <NotificationCentre />
-        </Provider>
-      );
+      tree = await create(wrapComponent(store));
     });
     const instance = tree.root;
     const flatList = instance.find((el) => el.type === FlatList); // list notifications
@@ -275,11 +244,7 @@ describe('Test NotificationCentre', () => {
     mockFetchNotifications();
 
     await act(async () => {
-      tree = await create(
-        <Provider store={store}>
-          <NotificationCentre />
-        </Provider>
-      );
+      tree = await create(wrapComponent(store));
     });
     const instance = tree.root;
     const flatList = instance.find((el) => el.type === FlatList); // list notifications

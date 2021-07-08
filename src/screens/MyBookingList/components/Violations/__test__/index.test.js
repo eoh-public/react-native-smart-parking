@@ -5,6 +5,8 @@ import Violation from '../';
 import axios from 'axios';
 import moment from 'moment';
 import { BOOKING_STATUS } from '../../../../../configs/Constants';
+import { SPProvider } from '../../../../../context';
+import { mockSPStore } from '../../../../../context/mockStore';
 
 const mockNavigation = jest.fn();
 
@@ -16,13 +18,6 @@ jest.mock('@react-navigation/core', () => {
   };
 });
 
-jest.mock('react-redux', () => {
-  return {
-    ...jest.requireActual('react-redux'),
-    useSelector: jest.fn(),
-  };
-});
-
 jest.mock('axios');
 
 describe('Test ActiveSessions', () => {
@@ -30,7 +25,11 @@ describe('Test ActiveSessions', () => {
   let appState = 'active';
   it('Test render', () => {
     act(() => {
-      tree = create(<Violation appState={appState} />);
+      tree = create(
+        <SPProvider initState={mockSPStore({})}>
+          <Violation appState={appState} />
+        </SPProvider>
+      );
     });
     expect(axios.get).toHaveBeenCalled();
     const instance = tree.root;

@@ -4,7 +4,6 @@ import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { IconOutline, IconFill } from '@ant-design/icons-react-native';
 import { t } from 'i18n-js';
-import { useSelector } from 'react-redux';
 
 import { Colors, Device } from '../../../../configs';
 import Text from '../../../../commons/Text';
@@ -12,6 +11,7 @@ import Route from '../../../../utils/Route';
 
 import ViewNotify from '../ViewNotify';
 import { TESTID } from '../../../../configs/Constants';
+import { useSPSelector } from '../../../../context';
 
 const SearchBar = memo(
   ({
@@ -22,7 +22,7 @@ const SearchBar = memo(
   }) => {
     const navigation = useNavigation();
     const { incompletedCarsInfo, newSavedParking, newNotification } =
-      useSelector((state) => state.notifications) || {};
+      useSPSelector((state) => state.notification) || {};
     const hasNotiOnMenu =
       !selectedLocation.description && (incompletedCarsInfo || newSavedParking);
     const onPressMenu = useCallback(() => {

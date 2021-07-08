@@ -1,10 +1,15 @@
-import React, { memo, useState, useEffect, useCallback } from 'react';
+import React, {
+  memo,
+  useState,
+  useEffect,
+  useCallback,
+  useContext,
+} from 'react';
 import { StyleSheet, View, ScrollView, ActivityIndicator } from 'react-native';
 import { useIsFocused, useNavigation } from '@react-navigation/native';
 import FastImage from 'react-native-fast-image';
 import moment from 'moment';
 import { t } from 'i18n-js';
-import { useDispatch } from 'react-redux';
 
 import { API, Colors, SPConfig } from '../../configs';
 import { axiosPost, axiosGet } from '../../utils/Apis/axios';
@@ -18,7 +23,7 @@ import ItemParkingSession from './components/ItemParkingSession/ItemParkingSessi
 import { ItemPaymentMethod } from './components/ItemPaymentMethod';
 import ItemInfo from './components/ItemInfo/ItemInfo';
 import { TESTID } from '../../configs/Constants';
-import { cancelBooking } from '../../redux/Actions/local';
+import { SPContext } from '../../context';
 
 const exampleUri =
   'https://cdn.theculturetrip.com/wp-content/uploads/2018/02/32154960113_42b503c1b1_k-1024x683.jpg';
@@ -30,7 +35,7 @@ const BookingConfirm = memo(({ route }) => {
   const [paymentMethod, setPaymentMethod] = useState({});
   const [total, setTotal] = useState();
   const [loadingTotal, setLoadingTotal] = useState(false);
-  const dispatch = useDispatch();
+  const { setAction } = useContext(SPContext);
 
   const [
     isReadyToConfirm,
@@ -143,7 +148,7 @@ const BookingConfirm = memo(({ route }) => {
   const onConfirmBooking = useCallback(async () => {
     const { success, data } = await axiosPost(API.BOOKING.CREATE(), body);
     if (success) {
-      dispatch(cancelBooking(false));
+      setAction('CANCEL_BOOKING', false);
       const { booking, billing, payment_url } = data;
       transformDatetime(booking, [
         'parking_session_start',
@@ -168,7 +173,7 @@ const BookingConfirm = memo(({ route }) => {
         navigateBookingSuccess(booking, billing);
       }
     }
-  }, [body, navigate, navigateBookingSuccess, dispatch]);
+  }, [body, navigate, navigateBookingSuccess, setAction]);
 
   const onPressChangePaymentMethod = useCallback(() => {
     navigate(Routes.SmartParkingSelectPaymentMethod, {

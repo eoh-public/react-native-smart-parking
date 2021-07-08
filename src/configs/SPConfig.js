@@ -6,7 +6,6 @@ const SPDefaultConfig = {
   pusherAppKey: '6e493d00ec2aa6b5276d',
   pusherAppCluster: 'ap1',
   maxSeconds: 900,
-  reduxLogger: false,
 };
 
 export class SPConfig {
@@ -16,7 +15,6 @@ export class SPConfig {
   static pusherAppKey = SPDefaultConfig.pusherAppKey;
   static pusherAppCluster = SPDefaultConfig.pusherAppCluster;
   static maxSeconds = SPDefaultConfig.maxSeconds;
-  static reduxLogger = SPDefaultConfig.reduxLogger;
 }
 
 export const initSPConfig = (config) => {
@@ -29,5 +27,4 @@ export const initSPConfig = (config) => {
   SPConfig.pusherAppCluster =
     config.pusherAppCluster ?? SPDefaultConfig.pusherAppCluster;
   SPConfig.maxSeconds = config.maxSeconds ?? SPDefaultConfig.maxSeconds;
-  SPConfig.reduxLogger = config.reduxLogger ?? SPDefaultConfig.reduxLogger;
 };

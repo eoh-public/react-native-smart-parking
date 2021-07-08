@@ -1,4 +1,10 @@
-import React, { memo, useCallback, useEffect, useState } from 'react';
+import React, {
+  memo,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { ScrollView, View, RefreshControl, AppState } from 'react-native';
 import {
   TESTID,
@@ -8,7 +14,6 @@ import {
 
 import { useNavigation, useIsFocused } from '@react-navigation/native';
 import { t } from 'i18n-js';
-import { useDispatch, useSelector } from 'react-redux';
 import { Icon } from '@ant-design/react-native';
 
 import { Colors, API } from '../../configs';
@@ -34,8 +39,7 @@ import {
 } from './hooks/useStateAlertAction';
 import styles from './styles';
 import { ItemPaymentMethod } from '../BookingConfirm/components/ItemPaymentMethod';
-import { cancelBooking } from '../../redux/Actions/local';
-import { getViolationSuccess } from '../../redux/Actions/myBookingList';
+import { SPContext, useSPSelector } from '../../context';
 
 const getButtonDrawner = (
   is_paid,
@@ -102,10 +106,11 @@ const getPaymentData = (paymentMethod) => {
 const BookingDetails = memo(({ route }) => {
   const { id, isShowExtendNow, scanDataResponse, methodItem } = route.params;
   const [showScanResponse, setShowScanResponse] = useState(true);
-  const { violationsData } = useSelector((state) => state.myBookingList);
-  const notificationData = useSelector(
-    (state) => state.notifications.notificationData
+  const { violationsData } = useSPSelector((state) => state.booking);
+  const notificationData = useSPSelector(
+    (state) => state.notification.notificationData
   );
+  const { setAction } = useContext(SPContext);
 
   const isFocus = useIsFocused();
   const { navigate } = useNavigation();
@@ -137,7 +142,6 @@ const BookingDetails = memo(({ route }) => {
     hideAlertCancel,
     onShowAlertCancel,
   } = useStateAlertCancel();
-  const dispatch = useDispatch();
 
   const hideScanResponse = useCallback(() => {
     setShowScanResponse(false);
@@ -223,12 +227,12 @@ const BookingDetails = memo(({ route }) => {
       if (!success) {
         return;
       }
-      dispatch(getViolationSuccess([]));
-      !isExtend && dispatch(cancelBooking(false));
+      setAction('GET_VIOLATION_SUCCESS', []);
+      !isExtend && setAction('CANCEL_BOOKING', false);
       const { booking, billing, payment_url: paymentUrl } = data;
       processPayment(booking, billing, paymentUrl, 'fine');
     },
-    [id, methodItem, processPayment, dispatch]
+    [id, methodItem, processPayment, setAction]
   );
 
   const onPayFineAndExtend = useCallback(async () => {
@@ -313,13 +317,13 @@ const BookingDetails = memo(({ route }) => {
   const onCancelBooking = useCallback(async () => {
     const { success } = await axiosPost(API.BOOKING.CANCEL(id));
     if (success) {
-      dispatch(cancelBooking(true));
+      setAction('CANCEL_BOOKING', true);
       getBookingDetail();
     } else {
       ToastBottomHelper.error(t('cancel_error_message'));
     }
     hideAlertCancel();
-  }, [id, hideAlertCancel, getBookingDetail, dispatch]);
+  }, [id, hideAlertCancel, getBookingDetail, setAction]);
 
   const navigation = useNavigation();
   const onRebook = useCallback(() => {

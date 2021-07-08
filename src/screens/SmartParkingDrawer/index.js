@@ -1,10 +1,14 @@
-import React, { memo, useMemo, useEffect, useCallback } from 'react';
+import React, {
+  memo,
+  useMemo,
+  useEffect,
+  useCallback,
+  useContext,
+} from 'react';
 import { ScrollView, View, StyleSheet } from 'react-native';
-import { useSelector } from 'react-redux';
 import { useIsFocused } from '@react-navigation/native';
 import { Icon } from '@ant-design/react-native';
 import { t } from 'i18n-js';
-import { useDispatch } from 'react-redux';
 
 import { Colors, API } from '../../configs';
 import { getStatusBarHeight, TESTID } from '../../configs/Constants';
@@ -21,19 +25,19 @@ import CreditCard from '../../../assets/images/SmartParking/credit-card.svg';
 import Tags from '../../../assets/images/SmartParking/tags.svg';
 import Phone from '../../../assets/images/SmartParking/phone.svg';
 import TermAndCondition from '../../../assets/images/SmartParking/term-condition.svg';
-import { setInconpletedCarsInfo } from '../../redux/Actions/notifications';
+import { SPContext, useSPSelector } from '../../context';
 
 const SmartParkingDrawer = memo(() => {
   const isFocused = useIsFocused();
-  const dispatch = useDispatch();
-  const { newSavedParking, incompletedCarsInfo } = useSelector(
-    (state) => state.notifications
+  const { setAction } = useContext(SPContext);
+  const { newSavedParking, incompletedCarsInfo } = useSPSelector(
+    (state) => state.notification
   );
 
   const checkCarsInformation = useCallback(async () => {
     const { data, success } = await axiosGet(API.CAR.CHECK_CARS_INFO());
     if (success) {
-      dispatch(setInconpletedCarsInfo(data.incomplete));
+      setAction('SET_INCOMPLETED_CARS_INFO', data.incomplete);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

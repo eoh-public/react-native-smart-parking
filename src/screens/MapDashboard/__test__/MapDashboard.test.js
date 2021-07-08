@@ -1,8 +1,6 @@
 import { useIsFocused } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { Provider } from 'react-redux';
 import renderer, { act } from 'react-test-renderer';
-import configureStore from 'redux-mock-store';
 import axios from 'axios';
 import _ from 'lodash';
 
@@ -14,8 +12,9 @@ import MapDashboard from '../MapDashboard';
 import SearchBar from '../components/SearchBar';
 import { AppState } from 'react-native';
 import { CustomCheckbox } from '../../../commons';
+import { mockSPStore } from '../../../context/mockStore';
+import { SPProvider } from '../../../context';
 
-const mockStore = configureStore([]);
 const mockNavigation = {
   navigate: jest.fn(),
 };
@@ -34,14 +33,6 @@ jest.mock(
   '../../MyBookingList/components/ActiveSessions/ActiveSessionsItem',
   () => 'ActiveSessionsItem'
 );
-
-jest.mock('react-redux', () => {
-  return {
-    ...jest.requireActual('react-redux'),
-    useDispatch: jest.fn(),
-    useSelector: () => mockUseSelector,
-  };
-});
 
 const mockSetState = jest.fn();
 const mockRef = { current: { fitToCoordinates: jest.fn() } };
@@ -99,18 +90,24 @@ jest.doMock('react-native/Libraries/AppState/AppState', () => ({
   removeEventListener: mockRemoveListener,
 }));
 
+const wrapComponent = (store, route) => (
+  <SPProvider initState={store}>
+    <MapDashboard route={route} />
+  </SPProvider>
+);
+
 describe('Test MapDashboard', () => {
   let store;
   let tree;
 
   beforeEach(() => {
-    store = mockStore({
-      notifications: {
+    store = mockSPStore({
+      notification: {
         newNotification: true,
         newSavedParking: true,
         incompletedCarsInfo: false,
       },
-      local: {
+      booking: {
         cancelBooking: false,
       },
     });
@@ -134,11 +131,7 @@ describe('Test MapDashboard', () => {
   test('onClearDataParking is called', async () => {
     const route = {};
     await act(async () => {
-      tree = await renderer.create(
-        <Provider store={store}>
-          <MapDashboard route={route} />
-        </Provider>
-      );
+      tree = await renderer.create(wrapComponent(store, route));
     });
     mockUseSelector.mockImplementation(() => ({
       local: { cancelBooking: true },
@@ -149,11 +142,7 @@ describe('Test MapDashboard', () => {
   test('onPressAgree is called', async () => {
     const route = {};
     await act(async () => {
-      tree = await renderer.create(
-        <Provider store={store}>
-          <MapDashboard route={route} />
-        </Provider>
-      );
+      tree = await renderer.create(wrapComponent(store, route));
     });
     const root = tree.root;
 
@@ -167,11 +156,7 @@ describe('Test MapDashboard', () => {
     const route = {};
 
     await act(async () => {
-      tree = await renderer.create(
-        <Provider store={store}>
-          <MapDashboard route={route} />
-        </Provider>
-      );
+      tree = await renderer.create(wrapComponent(store, route));
     });
     const root = tree.root;
 
@@ -187,11 +172,7 @@ describe('Test MapDashboard', () => {
   it('Quick jump to scan', async () => {
     const route = { params: { scanDataResponse: true } };
     await act(async () => {
-      tree = await renderer.create(
-        <Provider store={store}>
-          <MapDashboard route={route} />
-        </Provider>
-      );
+      tree = await renderer.create(wrapComponent(store, route));
     });
     const scanNodes = tree.root.findAllByType(ScanningResponsePopup);
     expect(scanNodes).toHaveLength(1);
@@ -216,11 +197,7 @@ describe('Test MapDashboard', () => {
 
     const route = {};
     await act(async () => {
-      tree = await renderer.create(
-        <Provider store={store}>
-          <MapDashboard route={route} />
-        </Provider>
-      );
+      tree = await renderer.create(wrapComponent(store, route));
     });
 
     expect(mockSetMethod).toBeCalledWith(cacheSelectLocation);
@@ -231,11 +208,7 @@ describe('Test MapDashboard', () => {
 
     const route = {};
     await act(async () => {
-      tree = await renderer.create(
-        <Provider store={store}>
-          <MapDashboard route={route} />
-        </Provider>
-      );
+      tree = await renderer.create(wrapComponent(store, route));
     });
 
     expect(mockGetActionSession).toBeCalled();
@@ -250,11 +223,7 @@ describe('Test MapDashboard', () => {
 
     const route = {};
     await act(async () => {
-      tree = await renderer.create(
-        <Provider store={store}>
-          <MapDashboard route={route} />
-        </Provider>
-      );
+      tree = await renderer.create(wrapComponent(store, route));
     });
 
     expect(mockSetMethod).not.toBeCalled();
@@ -271,11 +240,7 @@ describe('Test MapDashboard', () => {
 
     const route = {};
     await act(async () => {
-      tree = await renderer.create(
-        <Provider store={store}>
-          <MapDashboard route={route} />
-        </Provider>
-      );
+      tree = await renderer.create(wrapComponent(store, route));
     });
 
     const buttonPopup = tree.root.findAllByType(ButtonPopup)[0];
@@ -309,11 +274,7 @@ describe('Test MapDashboard', () => {
 
     const route = {};
     await act(async () => {
-      tree = await renderer.create(
-        <Provider store={store}>
-          <MapDashboard route={route} />
-        </Provider>
-      );
+      tree = await renderer.create(wrapComponent(store, route));
     });
 
     const buttonPopup = tree.root.findAllByType(ButtonPopup)[0];
@@ -333,11 +294,7 @@ describe('Test MapDashboard', () => {
 
     const route = {};
     await act(async () => {
-      tree = await renderer.create(
-        <Provider store={store}>
-          <MapDashboard route={route} />
-        </Provider>
-      );
+      tree = await renderer.create(wrapComponent(store, route));
     });
 
     const activeSessionItem = tree.root.findByType(ActiveSessionsItem);
@@ -353,11 +310,7 @@ describe('Test MapDashboard', () => {
     });
     const route = {};
     await act(async () => {
-      tree = await renderer.create(
-        <Provider store={store}>
-          <MapDashboard route={route} />
-        </Provider>
-      );
+      tree = await renderer.create(wrapComponent(store, route));
     });
     capturedChangeCallback('background');
     capturedChangeCallback('active');
@@ -370,11 +323,7 @@ describe('Test MapDashboard', () => {
     useIsFocused.mockImplementation(() => true);
     AppState.currentState = 'inactive';
     await act(async () => {
-      tree = await renderer.create(
-        <Provider store={store}>
-          <MapDashboard route={route} />
-        </Provider>
-      );
+      tree = await renderer.create(wrapComponent(store, route));
     });
     mockGetViolations.mockClear();
     capturedChangeCallback('active');

@@ -1,17 +1,15 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+import { SPProvider } from './src/context';
 import App from './src/navigations';
-import sagas from './src/redux/Sagas';
-import { sagaMiddleware, store } from './src/redux/store';
 
 const SmartParking = (props) => {
   return (
-    <Provider store={store}>
+    <SPProvider>
       <App {...props} />
-    </Provider>
+    </SPProvider>
   );
 };
 
-sagaMiddleware.run(sagas);
-
 export default SmartParking;
+
+export { initSPConfig } from './src/configs';

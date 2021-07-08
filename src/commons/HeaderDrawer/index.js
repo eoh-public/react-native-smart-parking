@@ -1,15 +1,15 @@
 import React, { memo } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { connect, useSelector } from 'react-redux';
 import { Icon } from '@ant-design/react-native';
 import { TESTID } from '../../configs/Constants';
 
 import Text from '../Text';
 import { Images, Colors } from '../../configs';
+import { useSPSelector } from '../../context';
 
 const HeaderDrawer = memo(() => {
-  const user = useSelector((state) => state.auth.account.user);
+  const user = useSPSelector((state) => state.auth.account.user);
   const userName =
     user && user.name !== null
       ? user.name
@@ -47,10 +47,7 @@ const HeaderDrawer = memo(() => {
   );
 });
 
-const mapStateToProps = ({ auth }) => ({
-  user: auth.account.user,
-});
-export default connect(mapStateToProps)(HeaderDrawer);
+export default HeaderDrawer;
 
 const styles = StyleSheet.create({
   row: {

@@ -1,9 +1,13 @@
-import React, { memo, useCallback, useEffect, useState } from 'react';
+import React, {
+  memo,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { View, StyleSheet } from 'react-native';
-import { useDispatch } from 'react-redux';
 import { t } from 'i18n-js';
 
-import { setNewSavedParking } from '../../redux/Actions/notifications';
 import { Colors } from '../../configs';
 import WrapHeaderScrollable from '../../commons/Sharing/WrapHeaderScrollable';
 import Text from '../../commons/Text';
@@ -11,10 +15,11 @@ import TabHeader from './TabHeader';
 import SavedParkingList from './components/SavedParkingList';
 import { useSavedParkings } from './hooks';
 import { SvgVehicleEmpty } from '../../../assets/images/SmartParking';
+import { SPContext } from '../../context';
 
 const SavedParking = memo(() => {
   const [tab, setTabActiveState] = useState(0);
-  const dispatch = useDispatch();
+  const { setAction } = useContext(SPContext);
 
   const {
     loading,
@@ -28,8 +33,8 @@ const SavedParking = memo(() => {
 
   useEffect(() => {
     getSavedParkings();
-    dispatch(setNewSavedParking(false));
-  }, [getSavedParkings, dispatch]);
+    setAction('SET_NEW_SAVED_PARKING', false);
+  }, [getSavedParkings, setAction]);
 
   const ChangeTabActiveState = useCallback((index) => {
     setTabActiveState(index);
@@ -69,9 +74,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.White,
-  },
-  wrap: {
-    paddingBottom: 0,
   },
   scrollView: {
     backgroundColor: Colors.White,

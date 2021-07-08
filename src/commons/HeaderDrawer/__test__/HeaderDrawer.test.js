@@ -1,20 +1,24 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 import renderer, { act } from 'react-test-renderer';
-import configureStore from 'redux-mock-store';
 import FastImage from 'react-native-fast-image';
 import { TESTID } from '../../../configs/Constants';
 
 import HeaderDrawer from '../index';
+import { mockSPStore } from '../../../context/mockStore';
+import { SPProvider } from '../../../context';
 
-const mockStore = configureStore([]);
+const wrapComponent = (store) => (
+  <SPProvider initState={store}>
+    <HeaderDrawer />
+  </SPProvider>
+);
 
 describe('Test HeaderDrawer', () => {
   let store;
   let tree;
 
   test('create HeaderDrawer', () => {
-    store = mockStore({
+    store = mockSPStore({
       auth: {
         account: {
           user: {
@@ -28,18 +32,14 @@ describe('Test HeaderDrawer', () => {
     });
 
     act(() => {
-      tree = renderer.create(
-        <Provider store={store}>
-          <HeaderDrawer />
-        </Provider>
-      );
+      tree = renderer.create(wrapComponent(store));
     });
     const image = tree.root.findByType(FastImage);
     expect(image).toBeDefined();
   });
 
   test('create not avt', () => {
-    store = mockStore({
+    store = mockSPStore({
       auth: {
         account: {
           user: {
@@ -52,11 +52,7 @@ describe('Test HeaderDrawer', () => {
     });
 
     act(() => {
-      tree = renderer.create(
-        <Provider store={store}>
-          <HeaderDrawer />
-        </Provider>
-      );
+      tree = renderer.create(wrapComponent(store));
     });
     const instance = tree.root;
     const itemInput = instance.findAll(
@@ -66,7 +62,7 @@ describe('Test HeaderDrawer', () => {
   });
 
   test('create userName with email', () => {
-    store = mockStore({
+    store = mockSPStore({
       auth: {
         account: {
           user: {
@@ -80,11 +76,7 @@ describe('Test HeaderDrawer', () => {
     });
 
     act(() => {
-      tree = renderer.create(
-        <Provider store={store}>
-          <HeaderDrawer />
-        </Provider>
-      );
+      tree = renderer.create(wrapComponent(store));
     });
     const instance = tree.root;
     const itemInput = instance.findAll(
@@ -94,7 +86,7 @@ describe('Test HeaderDrawer', () => {
   });
 
   test('create userName with no email', () => {
-    store = mockStore({
+    store = mockSPStore({
       auth: {
         account: {
           user: {
@@ -108,11 +100,7 @@ describe('Test HeaderDrawer', () => {
     });
 
     act(() => {
-      tree = renderer.create(
-        <Provider store={store}>
-          <HeaderDrawer />
-        </Provider>
-      );
+      tree = renderer.create(wrapComponent(store));
     });
     const instance = tree.root;
     const itemInput = instance.findAll(

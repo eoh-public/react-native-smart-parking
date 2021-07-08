@@ -13,13 +13,14 @@ import { API } from '../../../configs';
 import { TESTID } from '../../../configs/Constants';
 import Routes from '../../../utils/Route';
 import BookingConfirm from '../index';
+import { SPContext } from '../../../context';
+import { mockSPStore } from '../../../context/mockStore';
 
 jest.mock('axios');
 
 const mockedNavigate = jest.fn();
 const mockedAddRoute = jest.fn();
 const mockedVnpayMerchant = jest.fn();
-const mockedDispatch = jest.fn();
 
 jest.mock('@react-navigation/native', () => {
   return {
@@ -31,13 +32,6 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
-jest.mock('react-redux', () => {
-  return {
-    ...jest.requireActual('react-redux'),
-    useDispatch: () => mockedDispatch,
-  };
-});
-
 const mockSetState = jest.fn();
 jest.mock('react', () => {
   return {
@@ -45,6 +39,17 @@ jest.mock('react', () => {
     useState: jest.fn((init) => [init, mockSetState]),
   };
 });
+const mockSetAction = jest.fn();
+
+const wrapComponent = (route) => {
+  return (
+    <SPContext.Provider
+      value={{ stateData: mockSPStore({}), setAction: mockSetAction }}
+    >
+      <BookingConfirm route={route} />
+    </SPContext.Provider>
+  );
+};
 
 describe('test BookingConfirm container', () => {
   let route;
@@ -104,7 +109,7 @@ describe('test BookingConfirm container', () => {
     });
 
     await act(async () => {
-      await create(<BookingConfirm route={route} />);
+      await create(wrapComponent(route));
     });
     expect(axios.get).toHaveBeenCalledWith(
       API.BILLING.DEFAULT_PAYMENT_METHODS(),
@@ -127,7 +132,7 @@ describe('test BookingConfirm container', () => {
     });
 
     await act(async () => {
-      tree = await create(<BookingConfirm route={route} />);
+      tree = await create(wrapComponent(route));
     });
     const instance = tree.root;
     const itemPaymentMethod = instance.find(
@@ -153,7 +158,7 @@ describe('test BookingConfirm container', () => {
       useState.mockImplementationOnce((init) => [init, mockSetState]);
     });
     await act(async () => {
-      tree = await create(<BookingConfirm route={route} />);
+      tree = await create(wrapComponent(route));
     });
     const instance = tree.root;
     const itemPaymentMethod = instance.find(
@@ -170,7 +175,7 @@ describe('test BookingConfirm container', () => {
     route.params.methodItem = { id: 1, code: 'vnpay' };
 
     await act(async () => {
-      tree = await create(<BookingConfirm route={route} />);
+      tree = await create(wrapComponent(route));
     });
     const instance = tree.root;
     const itemPaymentMethod = instance.find(
@@ -231,7 +236,7 @@ describe('test BookingConfirm container', () => {
     const mockSetIsTicked = jest.fn();
     useState.mockImplementationOnce((init) => [init, mockSetIsTicked]);
     await act(async () => {
-      tree = await create(<BookingConfirm route={route} />);
+      tree = await create(wrapComponent(route));
     });
     const instance = tree.root;
     const itemPaymentMethod = instance.find(
@@ -255,7 +260,7 @@ describe('test BookingConfirm container', () => {
     useState.mockImplementationOnce((init) => [true, mockSetIsTicked]);
 
     await act(async () => {
-      tree = await create(<BookingConfirm route={route} />);
+      tree = await create(wrapComponent(route));
     });
     const instance = tree.root;
     const itemPaymentMethod = instance.find(
@@ -306,7 +311,7 @@ describe('test BookingConfirm container', () => {
     });
 
     await act(async () => {
-      tree = await create(<BookingConfirm route={route} />);
+      tree = await create(wrapComponent(route));
     });
     const instance = tree.root;
     const button = instance.findByType(Button);
@@ -314,7 +319,7 @@ describe('test BookingConfirm container', () => {
     await act(async () => {
       await button.props.onPress();
     });
-    expect(mockedDispatch).toHaveBeenCalled();
+    expect(mockSetAction).toHaveBeenCalled();
     expect(mockedNavigate).toHaveBeenCalledWith(
       Routes.SmartParkingBookingSuccess,
       {
@@ -363,7 +368,7 @@ describe('test BookingConfirm container', () => {
     });
 
     await act(async () => {
-      tree = await create(<BookingConfirm route={route} />);
+      tree = await create(wrapComponent(route));
     });
     const instance = tree.root;
     const button = instance.findByType(Button);
@@ -371,7 +376,7 @@ describe('test BookingConfirm container', () => {
     await act(async () => {
       await button.props.onPress();
     });
-    expect(mockedDispatch).toHaveBeenCalled();
+    expect(mockSetAction).toHaveBeenCalled();
     expect(mockedNavigate).toHaveBeenCalledTimes(1);
   });
 
@@ -416,7 +421,7 @@ describe('test BookingConfirm container', () => {
       return response;
     });
     await act(async () => {
-      tree = await create(<BookingConfirm route={route} />);
+      tree = await create(wrapComponent(route));
     });
     const instance = tree.root;
     const button = instance.findByType(Button);
@@ -424,7 +429,7 @@ describe('test BookingConfirm container', () => {
     await act(async () => {
       await button.props.onPress();
     });
-    expect(mockedDispatch).toHaveBeenCalled();
+    expect(mockSetAction).toHaveBeenCalled();
     expect(mockedNavigate).toHaveBeenCalledTimes(1);
   });
 
@@ -459,14 +464,14 @@ describe('test BookingConfirm container', () => {
     });
 
     await act(async () => {
-      tree = await create(<BookingConfirm route={route} />);
+      tree = await create(wrapComponent(route));
     });
     const instance = tree.root;
     const button = instance.findByType(Button);
     await act(async () => {
       await button.props.onPress();
     });
-    expect(mockedDispatch).toHaveBeenCalled();
+    expect(mockSetAction).toHaveBeenCalled();
     expect(mockedNavigate).not.toHaveBeenCalled();
   });
 
@@ -479,7 +484,7 @@ describe('test BookingConfirm container', () => {
     useState.mockImplementationOnce((init) => [true, mockSetState]);
 
     await act(async () => {
-      await create(<BookingConfirm route={route} />);
+      await create(wrapComponent(route));
     });
     expect(mockedNavigate).toBeCalledTimes(1);
     expect(mockedNavigate).toBeCalledWith(Routes.SmartParkingMapDrawer);
@@ -494,7 +499,7 @@ describe('test BookingConfirm container', () => {
     useState.mockImplementationOnce((init) => [init, setReadyToConfirm]);
     useState.mockImplementationOnce((init) => [true, mockSetState]);
     await act(async () => {
-      await create(<BookingConfirm route={route} />);
+      await create(wrapComponent(route));
     });
     expect(setReadyToConfirm).toHaveBeenCalledWith(true);
   });

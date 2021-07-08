@@ -5,13 +5,6 @@ import { useStateAlertRemove } from '../useStateAlertRemove';
 
 jest.mock('axios');
 
-const mockedDispatch = jest.fn();
-
-jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
-  useDispatch: () => mockedDispatch,
-}));
-
 describe('Test useStateAlertRemove', () => {
   afterEach(() => {
     axios.get.mockClear();

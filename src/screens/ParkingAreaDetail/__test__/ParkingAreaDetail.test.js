@@ -14,10 +14,6 @@ import LicensePlate from '../compenents/LicensePlate';
 import ParkingSpotInput from '../../ParkingInputManually/components/ParkingSpotInput';
 import { GroupCheckbox } from '../compenents/ParkingDetail';
 
-jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
-  useDispatch: jest.fn(),
-}));
 const mockNavigate = jest.fn();
 jest.mock('@react-navigation/native', () => {
   return {
