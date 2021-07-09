@@ -44,10 +44,10 @@ const ParkingTicket = memo(
           />
         )}
         <View>
-          <Text style={styles.parkingInfoText} type="H3" semibold>
+          <Text style={styles.parkingArea} type="H3" semibold>
             {parking_area}
           </Text>
-          <Text style={styles.parkingInfoText} type="Body" color={Colors.Gray8}>
+          <Text style={styles.parkingAddress} type="Body" color={Colors.Gray8}>
             {parking_address}
           </Text>
           <Text style={styles.parkingInfoText} type="Body" color={Colors.Gray8}>
@@ -101,6 +101,14 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   parkingInfoText: {
+    marginBottom: 8,
+  },
+  parkingArea: {
+    lineHeight: 32,
+    marginBottom: 8,
+  },
+  parkingAddress: {
+    lineHeight: 24,
     marginBottom: 8,
   },
 });
