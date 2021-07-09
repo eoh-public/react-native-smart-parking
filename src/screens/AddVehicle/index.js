@@ -54,6 +54,17 @@ const dataSeats = [
   },
 ];
 
+const optionsCapture = {
+  mediaType: 'photo',
+  quality: 0.7,
+  saveToPhotos: true,
+};
+
+const optionsSelect = {
+  mediaType: 'photo',
+  quality: 0.7,
+};
+
 const AddVehicle = memo(({ route }) => {
   const { updateData, car } = route.params;
   const isEdit = !!car;
@@ -231,6 +242,8 @@ const AddVehicle = memo(({ route }) => {
           showImagePicker={showImagePicker}
           setShowImagePicker={setShowImagePicker}
           setImageUrl={setImageUrl}
+          optionsCapture={optionsCapture}
+          optionsSelect={optionsSelect}
           testID={TESTID.ADD_VEHICLE_IMAGE_PICKER}
         />
         <ItemInput
