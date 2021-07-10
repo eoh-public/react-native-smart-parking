@@ -327,7 +327,7 @@ describe('Test MapDashboard', () => {
     await act(async () => {
       tree = await renderer.create(wrapComponent(store, route));
     });
-    expect(mockGetNotificationNumber).toBeCalled();
+    expect(mockGetNotificationNumber).not.toBeCalled();
     mockGetViolations.mockClear();
     capturedChangeCallback('active');
     expect(mockGetViolations).toBeCalled();
