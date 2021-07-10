@@ -442,7 +442,7 @@ describe('Test BookingDetails', () => {
       return response;
     });
     jest.useFakeTimers();
-    jest.runAllTimers();
+    jest.runOnlyPendingTimers();
     act(() => {
       wrapper = create(componentWithRouteData(route));
     });
@@ -542,7 +542,7 @@ describe('Test BookingDetails', () => {
 
     expect(setExtendState).toHaveBeenCalledTimes(0);
     await act(async () => {
-      jest.runAllTimers();
+      jest.runOnlyPendingTimers();
     });
     expect(setExtendState).toHaveBeenCalledWith(true);
 
