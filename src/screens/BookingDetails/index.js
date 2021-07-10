@@ -166,6 +166,17 @@ const BookingDetails = memo(({ route }) => {
     is_violated,
   } = bookingDetail;
 
+  useEffect(() => {
+    if (!is_violated) {
+      return;
+    }
+
+    const timer = setInterval(() => {
+      getBookingDetail();
+    }, 60000);
+    return () => clearTimeout(timer);
+  }, [is_violated, getBookingDetail]);
+
   const navigateBookingSuccess = useCallback(
     (bookingId, from) => {
       if (from === 'fine') {
