@@ -138,7 +138,7 @@ describe('Test MapDashboard', () => {
     mockUseSelector.mockImplementation(() => ({
       local: { cancelBooking: true },
     }));
-    expect(mockSetState).toHaveBeenNthCalledWith(2, 0);
+    expect(mockSetState).toHaveBeenCalled();
   });
 
   test('onPressAgree is called', async () => {

@@ -1,4 +1,4 @@
-import { removeDuplicateSearch } from '../array';
+import { removeDuplicateSearch, keyExtractor } from '../array';
 
 test('test removeDuplicateSearch', () => {
   let recentSearch = [
@@ -11,4 +11,13 @@ test('test removeDuplicateSearch', () => {
     { description: 'a' },
     { description: 'c' },
   ]);
+});
+
+test('test keyExtractor', () => {
+  const item = {
+    id: 111,
+    name: 'test',
+  };
+  const result = keyExtractor(item);
+  expect(result).toStrictEqual(111);
 });

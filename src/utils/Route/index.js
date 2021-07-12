@@ -89,6 +89,7 @@ const Routes = {
   EmergencyContactsSelectContacts: 'EmergencyContactsSelectContacts',
   TermAndPolicy: 'TermAndPolicy',
   ContactInformation: 'ContactInformation',
+  TermAndPolicies: 'TermAndPolicies',
   TermAndConditions: 'TermAndConditions',
   Browser: 'Browser',
   VnPay: 'VnPay',

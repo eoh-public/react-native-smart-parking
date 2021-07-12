@@ -47,7 +47,6 @@ import Routes from '../../utils/Route';
 import { isObjectEmpty } from '../../utils/Utils';
 import { getData, storeData } from '../../utils/Storage';
 import AsyncKeys from '../../utils/AsyncKey';
-import TermAndConditions from '../TermAndConditions';
 import { CustomCheckbox } from '../../commons';
 import { deleteData } from '../../utils/Storage';
 
@@ -56,6 +55,7 @@ import styles from './styles';
 import { ViolationItem } from './components/Violation';
 import { watchViolationData, unwatchViolationData } from './Monitor';
 import { SPContext, useSPSelector } from '../../context';
+import TermAndPolicies from '../TermAndPolicies';
 
 const selectedParkingIcon = require('../../../assets/images/Map/marker_parking_selected.png');
 const parkingIcon = require('../../../assets/images/Map/marker_parking.png');
@@ -681,12 +681,12 @@ const MapDashboard = memo(({ route }) => {
           onPressSecondary={() => setAction('EXIT_APP', true)}
           onPressMain={onConfirmTerm}
           hideClose={true}
-          title={'Terms and Conditions Agreement'}
+          title={t('term_and_policy_agreement')}
           titleStyle={styles.titleContainer}
           childrenStyle={styles.childrenStyle}
           typeMain={isTickConfirmTerms ? 'primary' : 'disabled'}
         >
-          <TermAndConditions scrollViewStyle={styles.scrollViewTerm} />
+          <TermAndPolicies scrollViewStyle={styles.scrollViewTerm} />
           <CustomCheckbox
             style={styles.buttonAgree}
             onPress={onPressAgree}
@@ -697,7 +697,7 @@ const MapDashboard = memo(({ route }) => {
             <Text type={'Body'} style={styles.termsText}>
               {t('terms_and_conditions_booking_prefix')}
               <Text underline style={styles.termsWord}>
-                {t('terms_and_conditions')}
+                {t('terms_and_policies')}
               </Text>
             </Text>
           </CustomCheckbox>

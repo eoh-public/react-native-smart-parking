@@ -24,6 +24,11 @@ test('test setAxiosDefaultLanguage', () => {
   expect(axios.defaults.headers.common['Accept-Language']).toEqual('LANG');
 });
 
+test('test setAxiosDefaultLanguage withoout params', () => {
+  setAxiosDefaultLanguage();
+  expect(axios.defaults.headers.common['Accept-Language']).toEqual('vi');
+});
+
 test('format money', () => {
   expect(formatMoney(1000)).toBe('1.000 đ');
 });

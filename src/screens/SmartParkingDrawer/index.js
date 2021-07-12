@@ -96,9 +96,9 @@ const SmartParkingDrawer = memo(() => {
       },
       {
         id: '1',
-        route: Routes.TermAndConditions,
+        route: Routes.TermAndPolicies,
         leftImage: <TermAndCondition />,
-        name: t('terms_and_condition'),
+        name: t('terms_and_policies'),
       },
     ],
     []
