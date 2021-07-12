@@ -44,7 +44,7 @@ const SearchLocation = ({ route }) => {
       if (!input) {
         return;
       }
-      const api_key = SPConfig.stripePublishKey;
+      const api_key = SPConfig.googleMapApiKey;
       try {
         const location = await getCurrentLatLng();
         const config = {
