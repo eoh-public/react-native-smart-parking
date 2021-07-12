@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Platform } from 'react-native';
 import { t } from 'i18n-js';
 
 import { Colors } from '../../../../configs';
@@ -104,11 +104,25 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   parkingArea: {
-    lineHeight: 32,
     marginBottom: 8,
+    ...Platform.select({
+      ios: {
+        lineHeight: 32,
+      },
+      android: {
+        lineHeight: 36,
+      },
+    }),
   },
   parkingAddress: {
-    lineHeight: 24,
     marginBottom: 8,
+    ...Platform.select({
+      ios: {
+        lineHeight: 24,
+      },
+      android: {
+        lineHeight: 26,
+      },
+    }),
   },
 });
