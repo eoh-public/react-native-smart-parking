@@ -28,7 +28,7 @@ import NotificationCentre from '../screens/NotificationCentre';
 import ProcessPayment from '../screens/PaymentCommon/ProcessPayment';
 import StripeAddCard from '../screens/PaymentCommon/Stripe/AddCard';
 import ContactInformation from '../screens/ContactInformation';
-import TermAndConditions from '../screens/TermAndConditions';
+import TermAndPolicies from '../screens/TermAndPolicies';
 import { SelectPaymentMethod } from '../screens/SelectPaymentMethod';
 import VnPayScreen from '../screens/VnPay';
 
@@ -199,9 +199,9 @@ export const SmartParkingStack = memo(() => {
         options={{ title: t('contact_infomation') }}
       />
       <Stack.Screen
-        name={Routes.TermAndConditions}
-        component={TermAndConditions}
-        options={{ title: t('terms_and_condition') }}
+        name={Routes.TermAndPolicies}
+        component={TermAndPolicies}
+        options={{ title: t('terms_and_policies') }}
       />
       <Stack.Screen
         name={Routes.VnPay}
