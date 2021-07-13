@@ -4,6 +4,7 @@ import { useIsFocused } from '@react-navigation/native';
 import { API } from '../../../configs';
 import { axiosGet, axiosPost } from '../../../utils/Apis/axios';
 import { SPContext, useSPSelector } from '../../../context';
+import moment from 'moment';
 
 const useNearbyParkings = () => {
   const [showThanks, setShowThanks] = useState(false);
@@ -84,6 +85,22 @@ const useNearbyParkings = () => {
       setAction('GET_VIOLATION_SUCCESS', data.results || []);
     }
   };
+
+  useEffect(() => {
+    let timeout;
+    if (activeSessions && activeSessions.arrive_at) {
+      const now = moment(new Date());
+      const arriveAt = moment(activeSessions.arrive_at);
+      const totalSeconds = arriveAt.diff(now, 'seconds');
+      if (totalSeconds < 0) {
+        return;
+      }
+      timeout = setTimeout(() => {
+        setActiveSessions({ ...activeSessions, start_countdown: true });
+      }, totalSeconds * 1000);
+    }
+    return () => timeout && clearTimeout(timeout);
+  }, [activeSessions]);
 
   return {
     showThanks,

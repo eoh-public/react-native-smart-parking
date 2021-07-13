@@ -12,7 +12,6 @@ import RowTimeParking from './RowTimeParking/RowTimeParking';
 import AddressInfo from './AddressInfo/AddressInfo';
 import ButtonTextBottomView from '../ButtonTextBottomView';
 import { TESTID } from '../../../../configs/Constants';
-import { getDurationTime } from '../../../../utils/Converter/time';
 
 const getTitleRightTitleColor = (
   id,
@@ -79,7 +78,7 @@ const ActiveSessionsItem = memo(
     arrive_at,
     leave_at,
     time_remaining,
-    parking,
+    parking = {},
     confirmed_arrival_at,
     start_countdown,
     billing_id,
@@ -106,9 +105,6 @@ const ActiveSessionsItem = memo(
       .add(SPConfig.maxSeconds, 'seconds')
       .format('HH:mm');
     const [taskId, setTaskId] = useState(null);
-    const hourParking = Math.round(
-      getDurationTime(arrive_at, leave_at).asHours()
-    );
     // check pay before
     useEffect(() => {
       const diff = payBefore.diff(moment());
@@ -119,46 +115,6 @@ const ActiveSessionsItem = memo(
         setTaskId(timeoutId);
       }
     }, [payBefore, reloadData, taskId]);
-
-    const now = moment(new Date());
-    const arriveAt = moment(arrive_at);
-
-    useEffect(() => {
-      const totalSeconds = arriveAt.diff(now, 'seconds');
-      if (totalSeconds < 0) {
-        return;
-      }
-      const timeout = setTimeout(() => {
-        reloadData();
-        clearTimeout(timeout);
-      }, totalSeconds * 1000);
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [arrive_at]);
-
-    useEffect(() => {
-      if (!start_countdown || is_paid) {
-        return;
-      }
-
-      const totalTime = hourParking * 3600;
-      const timeLeft = time_remaining;
-      let timeHandler;
-      if (timeLeft > totalTime - 900) {
-        const timeout = timeLeft - (totalTime - 900) + 5; // +5 for sure that BE has updated status
-        timeHandler = setTimeout(() => {
-          reloadData();
-        }, timeout * 1000);
-      }
-      return () => clearTimeout(timeHandler);
-    }, [
-      arrive_at,
-      hourParking,
-      is_paid,
-      leave_at,
-      reloadData,
-      start_countdown,
-      time_remaining,
-    ]);
 
     const {
       title,
