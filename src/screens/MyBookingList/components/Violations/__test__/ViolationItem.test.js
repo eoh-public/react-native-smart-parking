@@ -37,15 +37,16 @@ describe('Test ViolationItem', () => {
     });
     const instance = tree.root;
     const texts = instance.findAllByType(Text);
-    expect(texts[1].props.children).toBe('Thảo cầm viên parking street');
-    expect(texts[2].props.children).toBe(
+    expect(texts[0].props.children).toHaveLength(2);
+    expect(texts[2].props.children).toBe('Thảo cầm viên parking street');
+    expect(texts[3].props.children).toBe(
       '2 Nguyễn Bỉnh Khiêm, Bến Nghé, Quận 1'
     );
-    expect(texts[6].props.children).toBe('3:43 PM, 20/04/2021');
-    expect(texts[7].props.children).toBe('End time');
-    expect(texts[8].props.children).toBe('3:55 PM, 20/04/2021');
-    expect(texts[9].props.children).toBe('Total violating time');
-    expect(texts[10].props.style[0].color).toBe(Colors.Red6);
+    expect(texts[7].props.children).toBe('3:43 PM, 20/04/2021');
+    expect(texts[8].props.children).toBe('End time');
+    expect(texts[9].props.children).toBe('3:55 PM, 20/04/2021');
+    expect(texts[10].props.children).toBe('Total violating time');
+    expect(texts[11].props.style[0].color).toBe(Colors.Red6);
     const buttons = instance.findAllByType(TouchableOpacity);
     act(() => {
       buttons[0].props.onPress();

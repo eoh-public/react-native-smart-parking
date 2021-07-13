@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { View } from 'react-native';
 import { t } from 'i18n-js';
+import moment from 'moment';
 
 import { Colors } from '../../../../../configs';
 import Text from '../../../../../commons/Text';
@@ -19,23 +20,31 @@ const AddressInfo = memo(
     leave_at,
     payment_method,
     isViolated,
+    created_at,
   }) => {
+    const createdAt = moment(created_at).format('DD/MM/YYYY');
     let sub_text = '';
     if (!isViolated) {
       const hourParking = Math.round(
         getDurationTime(arrive_at, leave_at).asHours()
       );
       const text_hour = t(hourParking > 1 ? 'hours' : 'hour');
-      sub_text = ` (${hourParking} ${text_hour}) ${
+      sub_text = ` (${hourParking} ${text_hour}) - ${
         payment_method && payment_method
       }`;
     }
     return (
       <View style={styles.container}>
         <View style={styles.info}>
-          <Text type="Label" color={Colors.Gray6} numberOfLines={1}>
-            #{id}
-          </Text>
+          <View style={styles.textIdDate}>
+            <Text type="Label" color={Colors.Gray6} numberOfLines={1}>
+              #{id}
+            </Text>
+            <Text type="Label" color={Colors.Gray6} numberOfLines={1}>
+              {createdAt}
+            </Text>
+          </View>
+
           <Text
             type="Body"
             semibold
@@ -53,14 +62,14 @@ const AddressInfo = memo(
           >
             {address}
           </Text>
-          <Text
-            type="Label"
-            color={Colors.Gray9}
-            style={styles.textDetail}
-            semibold
-          >
+          <Text type="Body" bold color={Colors.Gray9} style={styles.textPrice}>
             {formatMoney(grand_total)}
-            <Text type="Label" color={Colors.Gray6} numberOfLines={1}>
+            <Text
+              type="Body"
+              color={Colors.Gray8}
+              numberOfLines={1}
+              style={styles.textDetail}
+            >
               {sub_text}
             </Text>
           </Text>

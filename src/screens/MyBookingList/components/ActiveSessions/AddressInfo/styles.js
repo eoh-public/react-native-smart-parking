@@ -16,12 +16,20 @@ export const styles = StyleSheet.create({
     paddingBottom: 16,
   },
   textDetail: {
-    marginTop: 4,
+    marginTop: 8,
     fontSize: 14,
     lineHeight: 22,
+    fontWeight: 'normal',
+  },
+  textPrice: {
+    marginTop: 8,
   },
   textName: {
     fontSize: 16,
     lineHeight: 24,
+  },
+  textIdDate: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
   },
 });

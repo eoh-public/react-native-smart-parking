@@ -165,7 +165,7 @@ describe('Test active session item component', () => {
     });
     const instance = tree.root;
     const TextElement = instance.findAllByType(Text);
-    expect(TextElement[9].props.children).toBe('Thời gian còn lại:');
+    expect(TextElement[10].props.children).toBe('Thời gian còn lại:');
     const TouchableOpacityElement = instance.findAllByType(TouchableOpacity);
     expect(TouchableOpacityElement[2].props.children.props.children).toBe(
       'Quét QR'
@@ -204,7 +204,9 @@ describe('Test active session item component', () => {
     });
     const instance = tree.root;
     const TouchableOpacityElement = instance.findAllByType(TouchableOpacity);
-    expect(TouchableOpacityElement[0].props.children[2].props.title).toBe('');
+    expect(TouchableOpacityElement[0].props.children[2].props.title).toBe(
+      'Dời xe trước 15:15'
+    );
   });
 
   it('test click active session', () => {

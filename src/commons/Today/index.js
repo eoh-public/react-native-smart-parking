@@ -15,7 +15,7 @@ const TodayComponent = ({ style }) => {
     if (currentLanguage === 'vi') {
       format = 'Do MMMM';
     }
-    return t('Today') + ', ' + moment().format(format);
+    return t('today') + ', ' + moment().format(format);
   };
 
   return (
