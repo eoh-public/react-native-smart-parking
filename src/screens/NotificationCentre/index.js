@@ -1,4 +1,3 @@
-import { t } from 'i18n-js';
 import React, {
   memo,
   useCallback,
@@ -6,15 +5,16 @@ import React, {
   useEffect,
   useState,
 } from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import { FlatList, View, ActivityIndicator } from 'react-native';
+import { t } from 'i18n-js';
 import { SvgPhoneNotification } from '../../../assets/images/SmartParking';
 import Text from '../../commons/Text';
 import { API, Colors } from '../../configs';
 import { SPContext } from '../../context';
-
 import { axiosGet, axiosPost } from '../../utils/Apis/axios';
-
 import ItemNotification from './ItemNotification';
+import FullLoading from '../../commons/FullLoading';
+import styles from './Styles/indexStyles';
 
 const keyExtractor = (item) => item.id.toString();
 
@@ -28,19 +28,16 @@ const NotificationCentre = memo(() => {
   const [onEndReached, setOnEndReached] = useState(true);
   const { setAction } = useContext(SPContext);
 
-  const fetchNotifications = useCallback(
-    async (pageParam) => {
-      const { success, data } = await axiosGet(
-        API.NOTIFICATION.LIST_ALL_NOTIFICATIONS(pageParam, '')
-      );
-      if (success) {
-        setNotifications((preState) => preState.concat(data.results));
-        setMaxPageNotification(Math.ceil(data.count / 10));
-      }
-      setIsLoaded(true);
-    },
-    [setIsLoaded]
-  );
+  const fetchNotifications = useCallback(async (pageParam) => {
+    const { success, data } = await axiosGet(
+      API.NOTIFICATION.LIST_ALL_NOTIFICATIONS(pageParam, '')
+    );
+    if (success) {
+      setNotifications((preState) => preState.concat(data.results));
+      setMaxPageNotification(Math.ceil(data.count / 10));
+    }
+    setIsLoaded(true);
+  }, []);
 
   const updateLastSeen = useCallback(async () => {
     const { success } = await axiosPost(API.NOTIFICATION.SET_LAST_SEEN());
@@ -70,78 +67,52 @@ const NotificationCentre = memo(() => {
     }
   }, [onEndReached, maxPageNotification, fetchNotifications]);
 
+  const renderListEmptyComponent = () => (
+    <View style={styles.notificationEmpty}>
+      <SvgPhoneNotification />
+      <Text
+        label="H4"
+        color={Colors.Gray8}
+        style={styles.textNoNotificationsYet}
+      >
+        {t('no_notifications_yet')}
+      </Text>
+    </View>
+  );
+
+  const renderListFooterComponent = () =>
+    onEndReached &&
+    notifications.length && (
+      <ActivityIndicator style={styles.loadMore} color={Colors.Primary} />
+    );
+
   return (
     <View style={styles.container}>
-      <View style={styles.notification}>
-        {isLoaded &&
-          (notifications.length ? (
-            <View style={styles.notificationData}>
-              <FlatList
-                ListHeaderComponent={() => (
-                  <View style={styles.content}>
-                    <Text type="H2" semibold>
-                      {t('notifications')}
-                    </Text>
-                  </View>
-                )}
-                bounces={false}
-                contentContainerStyle={styles.wrapItem}
-                onEndReachedThreshold={0.5}
-                initialNumToRender={10}
-                data={notifications}
-                keyExtractor={keyExtractor}
-                renderItem={renderItem}
-                onMomentumScrollBegin={() => setOnEndReached(false)}
-                onEndReached={handleEndReachNotifications}
-                style={styles.container}
-              />
-            </View>
-          ) : (
-            <View style={styles.notificationEmpty}>
-              <SvgPhoneNotification />
-              <Text
-                label="H4"
-                color={Colors.Gray8}
-                style={styles.textNoNotificationsYet}
-              >
-                {t('no_notifications_yet')}
+      {isLoaded ? (
+        <FlatList
+          ListHeaderComponent={() => (
+            <View style={styles.content}>
+              <Text type="H2" semibold>
+                {t('notifications')}
               </Text>
             </View>
-          ))}
-      </View>
+          )}
+          onEndReachedThreshold={0.01}
+          initialNumToRender={10}
+          data={notifications}
+          keyExtractor={keyExtractor}
+          renderItem={renderItem}
+          onMomentumScrollBegin={() => setOnEndReached(false)}
+          onEndReached={handleEndReachNotifications}
+          style={styles.container}
+          ListFooterComponent={renderListFooterComponent}
+          ListEmptyComponent={renderListEmptyComponent}
+        />
+      ) : (
+        <FullLoading />
+      )}
     </View>
   );
 });
 
 export default NotificationCentre;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.White,
-  },
-  content: {
-    flex: 1,
-    backgroundColor: Colors.White,
-    justifyContent: 'center',
-    paddingLeft: 16,
-    paddingBottom: 24,
-  },
-  notification: {
-    flex: 1,
-    width: '100%',
-  },
-  notificationEmpty: {
-    flex: 1,
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  textNoNotificationsYet: {
-    textAlign: 'center',
-    marginTop: 24,
-  },
-  notificationData: {
-    flex: 1,
-  },
-});

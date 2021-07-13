@@ -255,6 +255,7 @@ const styles = StyleSheet.create({
     padding: 16,
     borderTopWidth: 1,
     borderTopColor: Colors.Gray4,
+    width: '100%',
   },
   image: {
     width: 56,
