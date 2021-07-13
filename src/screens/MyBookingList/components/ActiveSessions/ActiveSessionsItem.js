@@ -36,6 +36,7 @@ const getTitleRightTitleColor = (
   if (!is_paid) {
     return {
       title: t('pay_before_%{time}', { time: payBeforeString }),
+      leftTitle: t('directions'),
       rightTitle: t('pay'),
       rightColor: rightColor,
       rightRoute: Routes.ProcessPayment,
@@ -49,6 +50,7 @@ const getTitleRightTitleColor = (
   } else if (!confirmed_arrival_at) {
     return {
       title: t('scan_qr_code_at_%{spot}', { spot: spot_name }),
+      leftTitle: t('directions'),
       rightTitle: t('scan_qr'),
       rightColor: rightColor,
       rightRoute: Routes.SmartParkingScanQR,
@@ -56,6 +58,7 @@ const getTitleRightTitleColor = (
   } else if (moment(leave_at).diff(moment(), 'seconds') < SPConfig.maxSeconds) {
     return {
       title: t('move_car_before', { time: moveCarBefore }),
+      leftTitle: t('stop'),
       rightTitle: t('extend'),
       rightColor: rightColor,
       rightRoute: Routes.SmartParkingBookingDetails,
@@ -63,7 +66,8 @@ const getTitleRightTitleColor = (
     };
   }
   return {
-    title: '',
+    title: t('move_car_before', { time: moveCarBefore }),
+    leftTitle: t('stop'),
     rightTitle: t('extend'),
     rightColor: rightColor,
     rightRoute: Routes.SmartParkingBookingDetails,
@@ -118,6 +122,7 @@ const ActiveSessionsItem = memo(
 
     const {
       title,
+      leftTitle,
       rightTitle,
       rightColor,
       rightRoute,
@@ -209,7 +214,7 @@ const ActiveSessionsItem = memo(
         </View>
         <ButtonTextBottomView
           title={title}
-          leftTitle={t('directions')}
+          leftTitle={leftTitle}
           rightTitle={rightTitle}
           rightRoute={rightRoute}
           rightData={rightData}

@@ -18,6 +18,7 @@ const BookingHistoryItem = memo(
     grand_total,
     status,
     hasActiveSessions,
+    created_at,
   }) => {
     const { navigate } = useNavigation();
 
@@ -27,29 +28,32 @@ const BookingHistoryItem = memo(
       });
     }, [navigate, id]);
     return (
-      <TouchableOpacity
-        style={styles.container}
-        onPress={onPress}
-        activeOpacity={0.4}
-      >
-        <AddressInfo
-          id={id}
-          name={parking.name}
-          leave_at={leave_at}
-          arrive_at={arrive_at}
-          address={parking.address}
-          grand_total={grand_total}
-          payment_method={payment_method}
-        />
-        <ButtonTextBottomView
-          rightTitle={!hasActiveSessions && t('rebook')}
-          status={status}
-          rightRoute={Routes.SmartParkingParkingAreaDetail}
-          rightData={{
-            id: parking.id,
-          }}
-        />
-      </TouchableOpacity>
+      <>
+        <TouchableOpacity
+          style={styles.container}
+          onPress={onPress}
+          activeOpacity={0.4}
+        >
+          <AddressInfo
+            id={id}
+            name={parking.name}
+            leave_at={leave_at}
+            arrive_at={arrive_at}
+            address={parking.address}
+            grand_total={grand_total}
+            payment_method={payment_method}
+            created_at={created_at}
+          />
+          <ButtonTextBottomView
+            rightTitle={!hasActiveSessions && t('rebook')}
+            status={status}
+            rightRoute={Routes.SmartParkingParkingAreaDetail}
+            rightData={{
+              id: parking.id,
+            }}
+          />
+        </TouchableOpacity>
+      </>
     );
   }
 );
