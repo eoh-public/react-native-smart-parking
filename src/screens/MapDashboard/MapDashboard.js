@@ -407,6 +407,23 @@ const MapDashboard = memo(({ route }) => {
     getViolations();
   };
 
+  const renderActiveSessionItem = useMemo(() => {
+    if (activeSessions && !violationsData) {
+      return (
+        <View style={[styles.fullWidth]}>
+          <View style={styles.activeSessionView}>
+            <ActiveSessionsItem
+              {...activeSessions}
+              onParkingCompleted={onParkingCompleted}
+              reloadData={onReloadData}
+            />
+          </View>
+        </View>
+      );
+    }
+    return null;
+  }, [activeSessions, violationsData]);
+
   useEffect(() => {
     setTimeout(() => {
       setEnableMapview(true);
@@ -643,17 +660,7 @@ const MapDashboard = memo(({ route }) => {
             scanDataResponse={scanDataResponse}
           />
         )}
-        {activeSessions && !violationsData && (
-          <View style={[styles.fullWidth]}>
-            <View style={styles.activeSessionView}>
-              <ActiveSessionsItem
-                {...activeSessions}
-                onParkingCompleted={onParkingCompleted}
-                reloadData={onReloadData}
-              />
-            </View>
-          </View>
-        )}
+        {renderActiveSessionItem}
         {activeSessions && !violationsData && (
           <ButtonPopup
             visible={showWarningBell}
