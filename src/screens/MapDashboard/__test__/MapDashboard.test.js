@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 import renderer, { act } from 'react-test-renderer';
 import axios from 'axios';
 import _ from 'lodash';
-
-import { ButtonPopup } from '../../../commons';
+import { ButtonPopup, CircleButton } from '../../../commons';
 import { storeData } from '../../../utils/Storage';
 import ActiveSessionsItem from '../../MyBookingList/components/ActiveSessions/ActiveSessionsItem';
 import ScanningResponsePopup from '../components/ScanningResponsePopup';
@@ -52,6 +51,13 @@ const mockGetNearbyParking = jest.fn();
 const mockGetViolations = jest.fn();
 const mockGetNotificationNumber = jest.fn();
 
+let mockActiveSession = {
+  parking: {
+    lat: 10,
+    lng: 100,
+  },
+};
+
 jest.mock('../hooks', () => {
   return {
     useNearbyParkings: () => ({
@@ -59,12 +65,7 @@ jest.mock('../hooks', () => {
       loadingNearByParking: false,
       nearbyParkings: jest.fn(),
       getNearbyParkings: mockGetNearbyParking,
-      activeSessions: {
-        parking: {
-          lat: 10,
-          lng: 100,
-        },
-      },
+      activeSessions: mockActiveSession,
       getActiveSession: mockGetActionSession,
       onSaveParking: jest.fn(),
       onUnsaveParking: jest.fn(),
@@ -331,5 +332,17 @@ describe('Test MapDashboard', () => {
     mockGetViolations.mockClear();
     capturedChangeCallback('active');
     expect(mockGetViolations).toBeCalled();
+  });
+
+  it('create CircleButton', async () => {
+    mockActiveSession = null;
+    const route = {};
+    await act(async () => {
+      tree = await renderer.create(wrapComponent(store, route));
+    });
+    const root = tree.root;
+
+    const items = root.findAllByType(CircleButton);
+    expect(items).toHaveLength(2);
   });
 });

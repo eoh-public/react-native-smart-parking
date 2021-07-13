@@ -493,6 +493,7 @@ const MapDashboard = memo(({ route }) => {
           break;
         case NOTIFICATION_TYPES.STOP_VIOLATION_FREE_PARKING_ZONE:
         case NOTIFICATION_TYPES.MOVE_CAR_WITHOUT_PAY_VIOLATION:
+        case NOTIFICATION_TYPES.BOOKING_EXPIRED_AND_VIOLATION_CREATED:
           getViolations();
           break;
         default:
