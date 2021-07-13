@@ -68,7 +68,7 @@ describe('Test NotificationCentre', () => {
     const instance = tree.root;
     instance.find((el) => el.type === SvgPhoneNotification); // found, no notifications
     const texts = instance.findAllByType(Text); // no notifications
-    expect(texts[0].props.children).toEqual(t('no_notifications_yet'));
+    expect(texts[1].props.children).toEqual(t('no_notifications_yet'));
   });
 
   test('did mount fetch notification failed', async () => {
@@ -84,7 +84,7 @@ describe('Test NotificationCentre', () => {
     const instance = tree.root;
     instance.find((el) => el.type === SvgPhoneNotification); // found, no notifications
     const texts = instance.findAllByType(Text); // no notifications
-    expect(texts[0].props.children).toEqual(t('no_notifications_yet'));
+    expect(texts[1].props.children).toEqual(t('no_notifications_yet'));
   });
 
   test('did mount waiting for fetchNotifications', async () => {
