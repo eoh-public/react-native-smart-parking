@@ -209,7 +209,7 @@ exports[`Test ItemPaymentMethod create ItemPaymentMethod 1`] = `
             ]
           }
         >
-          Điều khoản và điều kiện
+          Điều khoản và chính sách
         </Text>
         , và đồng ý đặt chỗ.
       </Text>
@@ -427,7 +427,7 @@ exports[`Test ItemPaymentMethod create ItemPaymentMethod is_default: false 1`] =
             ]
           }
         >
-          Điều khoản và điều kiện
+          Điều khoản và chính sách
         </Text>
         , và đồng ý đặt chỗ.
       </Text>

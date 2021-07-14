@@ -98,7 +98,7 @@ export const ItemPaymentMethod = memo(
       return getNameAndIconPaymentMethod(paymentMethod || {});
     }, [paymentMethod]);
 
-    const goToTerms = () => navigate(Routes.TermAndConditions);
+    const goToTerms = () => navigate(Routes.TermAndPolicies);
 
     return (
       <View style={styles.container}>
@@ -164,7 +164,7 @@ export const ItemPaymentMethod = memo(
           <Text type={'Body'} style={styles.termsText}>
             {t('terms_and_conditions_booking_prefix')}
             <Text style={styles.termsWord} onPress={goToTerms}>
-              {t('terms_and_conditions')}
+              {t('terms_and_policies')}
             </Text>
             {t('terms_and_conditions_booking_postfix')}
           </Text>
