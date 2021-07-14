@@ -11,6 +11,7 @@ import { IconFill } from '@ant-design/icons-react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useNavigation } from '@react-navigation/native';
 import { t } from 'i18n-js';
+import ImageResizer from 'react-native-image-resizer';
 
 import { Colors, Device, API } from '../../configs';
 import { TESTID } from '../../configs/Constants';
@@ -54,15 +55,24 @@ const dataSeats = [
   },
 ];
 
-const optionsCapture = {
-  mediaType: 'photo',
-  quality: 0.7,
-  saveToPhotos: true,
-};
+const MAX_FILE_SIZE_BYTES = 1.5 * 1024 * 1024; // 1.5mb
 
-const optionsSelect = {
-  mediaType: 'photo',
-  quality: 0.7,
+const prepareImageToUpload = async (image) => {
+  if (!image || image.fileSize < MAX_FILE_SIZE_BYTES) {
+    return image;
+  }
+  const result = await ImageResizer.createResizedImage(
+    image.uri,
+    1280,
+    1280,
+    'JPEG',
+    70
+  );
+  return {
+    fileName: result.name,
+    type: 'image/jpeg',
+    uri: result.uri,
+  };
 };
 
 const AddVehicle = memo(({ route }) => {
@@ -141,6 +151,7 @@ const AddVehicle = memo(({ route }) => {
       headers: { 'Content-Type': 'multipart/form-data' },
     };
     if (!isEdit) {
+      vehicle.background = await prepareImageToUpload(vehicle.background);
       const formData = createFormData(vehicle, ['background']);
       const { success } = await axiosPost(API.CAR.MY_CARS(), formData, header);
 
@@ -154,6 +165,8 @@ const AddVehicle = memo(({ route }) => {
       if (!vehicle.background.uri) {
         fileFields = [];
         delete data.background;
+      } else {
+        data.background = await prepareImageToUpload(vehicle.background);
       }
       const formData = createFormData(data, fileFields);
       const { success } = await axiosPut(
@@ -242,8 +255,6 @@ const AddVehicle = memo(({ route }) => {
           showImagePicker={showImagePicker}
           setShowImagePicker={setShowImagePicker}
           setImageUrl={setImageUrl}
-          optionsCapture={optionsCapture}
-          optionsSelect={optionsSelect}
           testID={TESTID.ADD_VEHICLE_IMAGE_PICKER}
         />
         <ItemInput

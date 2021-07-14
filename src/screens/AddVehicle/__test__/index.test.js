@@ -3,6 +3,7 @@ import { TextInput } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
 import { t } from 'i18n-js';
 import axios from 'axios';
+import ImageResizer from 'react-native-image-resizer';
 
 import Text from '../../../commons/Text';
 import { API } from '../../../configs';
@@ -29,6 +30,8 @@ jest.mock('@react-navigation/native', () => {
     }),
   };
 });
+
+jest.mock('react-native-image-resizer');
 
 const getElement = (instance) => {
   const itemInput = instance.findAll(
@@ -328,5 +331,23 @@ describe('test AddVehicle container edit car', () => {
     expect(itemInput[1].props.value).toBe('Name');
     expect(dropDownSeats[0].props.initIndex).toBe(2);
     expect(mockedNavigate).toBeCalled();
+  });
+
+  test('change background with image over limit', async () => {
+    const image = {
+      fileSize: 2 * 1024 * 1024,
+      uri: 'uri',
+    };
+    route.params.car.background = image;
+
+    await act(async () => {
+      tree = renderer.create(wrapComponent(route));
+    });
+    const instance = tree.root;
+    const { buttonSaveCar } = getElement(instance);
+    await act(async () => {
+      buttonSaveCar[0].props.onPress();
+    });
+    expect(ImageResizer.createResizedImage).toBeCalled();
   });
 });
