@@ -43,9 +43,9 @@ describe('Test ViolationItem', () => {
       '2 Nguyễn Bỉnh Khiêm, Bến Nghé, Quận 1'
     );
     expect(texts[7].props.children).toBe('3:43 PM, 20/04/2021');
-    expect(texts[8].props.children).toBe('End time');
+    expect(texts[8].props.children).toBe('Thời gian kết thúc');
     expect(texts[9].props.children).toBe('3:55 PM, 20/04/2021');
-    expect(texts[10].props.children).toBe('Total violating time');
+    expect(texts[10].props.children).toBe('Tổng thời gian vi phạm');
     expect(texts[11].props.style[0].color).toBe(Colors.Red6);
     const buttons = instance.findAllByType(TouchableOpacity);
     act(() => {
