@@ -1,5 +1,5 @@
 import React, { memo, useEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import moment from 'moment';
 import { t } from 'i18n-js';
@@ -226,10 +226,26 @@ const styles = StyleSheet.create({
     marginTop: 16,
     marginLeft: 16,
     marginBottom: 8,
+    ...Platform.select({
+      ios: {
+        lineHeight: 24,
+      },
+      android: {
+        lineHeight: 30,
+      },
+    }),
   },
   address: {
     marginBottom: 16,
     marginLeft: 16,
+    ...Platform.select({
+      ios: {
+        lineHeight: 22,
+      },
+      android: {
+        lineHeight: 26,
+      },
+    }),
   },
   line: {
     height: 1,
