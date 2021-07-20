@@ -48,9 +48,9 @@ const ParkingAreaList = ({
   }, [indexParking, parkingAreas]);
   const { navigate } = useNavigation();
   const renderItem = useCallback(
-    ({ item, index }) => {
-      const marginLeft = index === 0 ? -12 : 4;
-      const marginRight = index === parkingAreas.length - 1 ? -12 : 4;
+    ({ item }) => {
+      const marginLeft = 4;
+      const marginRight = 4;
 
       const onPressBookNow = () => {
         navigate(Routes.SmartParkingParkingAreaDetail, {
@@ -70,14 +70,14 @@ const ParkingAreaList = ({
             styles.itemContainer,
           ]}
         >
-          <TouchableOpacity onPress={onPressBookNow}>
+          <TouchableOpacity onPress={onPressBookNow} style={styles.itemContent}>
             <FastImage
               style={styles.image}
               resizeMode={'cover'}
               source={{ uri: item.background }}
             />
             <View style={styles.infoContainer}>
-              <Text type="H4" color={Colors.Gray9}>
+              <Text type="H4" color={Colors.Gray9} numberOfLines={1}>
                 {item.name}
               </Text>
               <Text
@@ -166,11 +166,11 @@ const ParkingAreaList = ({
         </View>
       );
     },
-    [navigate, onSaveParking, onUnsaveParking, parkingAreas, searchedLocation]
+    [navigate, onSaveParking, onUnsaveParking, searchedLocation]
   );
 
   return (
-    <View style={styles.container}>
+    <View>
       {!!parkingAreas.length && (
         <Carousel
           testID={TESTID.PARKING_AREA_POPUP}
@@ -178,7 +178,7 @@ const ParkingAreaList = ({
           layout={'default'}
           data={parkingAreas}
           sliderWidth={screenWidth}
-          itemWidth={screenWidth - 48}
+          itemWidth={screenWidth - 24}
           renderItem={renderItem}
           inactiveSlideScale={1}
           onSnapToItem={onSnapToIndex}
@@ -189,17 +189,17 @@ const ParkingAreaList = ({
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
   itemContainer: {
     backgroundColor: Colors.White,
     borderRadius: 20,
     borderWidth: 1,
     borderColor: Colors.Gray4,
     paddingBottom: 24,
+    height: 310,
+  },
+  itemContent: {
+    height: '100%',
+    justifyContent: 'space-between',
   },
   image: {
     width: '100%',
