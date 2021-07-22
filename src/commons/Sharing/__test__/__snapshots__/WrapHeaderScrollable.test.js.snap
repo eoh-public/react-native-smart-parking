@@ -16,6 +16,7 @@ exports[`WrapHeaderScrollable WrapHeaderScrollable snapshot 1`] = `
     style={
       Object {
         "backgroundColor": "transparent",
+        "paddingTop": 0,
         "width": "100%",
         "zIndex": 2,
       }

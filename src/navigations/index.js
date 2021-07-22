@@ -81,7 +81,11 @@ const App = ({ dataNotification, auth, onExitApp, langTranslate }) => {
 
   return (
     <>
-      <StatusBar barStyle={'dark-content'} />
+      <StatusBar
+        barStyle={'dark-content'}
+        translucent
+        backgroundColor={Colors.TextTransparent}
+      />
       <NavigationContainer ref={navigationRef} independent={true}>
         <NavStack />
       </NavigationContainer>

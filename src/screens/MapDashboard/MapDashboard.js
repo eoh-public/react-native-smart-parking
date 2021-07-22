@@ -32,10 +32,7 @@ import ActiveSessionsItem from '../MyBookingList/components/ActiveSessions/Activ
 import Text from '../../commons/Text';
 import { API, SPConfig, Colors, Device } from '../../configs';
 import { NOTIFICATION_TYPES, TESTID } from '../../configs/Constants';
-import {
-  useAndroidTranslucentStatusBar,
-  useBlockBackAndroid,
-} from '../../hooks/Common';
+import { useBlockBackAndroid } from '../../hooks/Common';
 import { useCountDown } from '../../hooks/SmartParking';
 import { SvgWarningBell } from '../../../assets/images/SmartParking';
 import SvgLocate from '../../../assets/images/SmartParking/locate.svg';
@@ -61,7 +58,6 @@ const selectedParkingIcon = require('../../../assets/images/Map/marker_parking_s
 const parkingIcon = require('../../../assets/images/Map/marker_parking.png');
 
 const MapDashboard = memo(({ route }) => {
-  useAndroidTranslucentStatusBar();
   useBlockBackAndroid();
 
   const user = useSPSelector((state) => state.auth.account.user);
