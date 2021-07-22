@@ -1,4 +1,3 @@
-import useAndroidTranslucentStatusBar from './useAndroidTranslucentStatusBar';
 import useBoolean from './useBoolean';
 import useForceUpdate from './useForceUpdate';
 import useKeyboardShow from './useKeyboardShow';
@@ -9,7 +8,6 @@ import useToggle from './useToggle';
 import { useBlockBackAndroid } from './useBlockBackAndroid';
 
 export {
-  useAndroidTranslucentStatusBar,
   useBoolean,
   useForceUpdate,
   useKeyboardShow,

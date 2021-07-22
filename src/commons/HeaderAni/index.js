@@ -1,7 +1,14 @@
 import React, { memo, useCallback } from 'react';
-import { TouchableOpacity, StyleSheet, Animated, View } from 'react-native';
+import {
+  TouchableOpacity,
+  StyleSheet,
+  Animated,
+  View,
+  Platform,
+} from 'react-native';
 import { Icon } from '@ant-design/react-native';
 import { useNavigation } from '@react-navigation/native';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 
 import Text from '../../commons/Text';
 import { Colors } from '../../configs';
@@ -119,11 +126,20 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.TextTransparent,
     width: '100%',
     zIndex: 2,
+    paddingTop: Platform.select({
+      android: getStatusBarHeight(),
+      ios: 0,
+    }),
   },
   content: {
     position: 'absolute',
     width: '100%',
-    height: heightHeader,
+    height:
+      heightHeader +
+      Platform.select({
+        android: getStatusBarHeight(),
+        ios: 0,
+      }),
     backgroundColor: Colors.Gray2,
     borderWidth: 0.5,
     borderColor: Colors.Border,
