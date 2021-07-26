@@ -105,7 +105,7 @@ const AddVehicle = memo(({ route }) => {
   }, [car, isEdit]);
   const [vehicle, setVehicle] = useState(vehicleData);
   const [validCar, setValidCar] = useState(false);
-  const [defaultCar, setDefaultCar] = useState(false);
+  const [defaultCar, setDefaultCar] = useState(vehicleData.is_default);
 
   const {
     stateAlertRemove,
