@@ -21,6 +21,7 @@ const AddressInfo = memo(
     payment_method,
     isViolated,
     created_at,
+    isActiveSession = false,
   }) => {
     const createdAt = moment(created_at).format('DD/MM/YYYY');
     let sub_text = '';
@@ -40,9 +41,11 @@ const AddressInfo = memo(
             <Text type="Label" color={Colors.Gray6} numberOfLines={1}>
               #{id}
             </Text>
-            <Text type="Label" color={Colors.Gray6} numberOfLines={1}>
-              {createdAt}
-            </Text>
+            {!isActiveSession && (
+              <Text type="Label" color={Colors.Gray6} numberOfLines={1}>
+                {createdAt}
+              </Text>
+            )}
           </View>
 
           <Text

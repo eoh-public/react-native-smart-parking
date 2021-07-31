@@ -1,10 +1,11 @@
 import React, { memo, useEffect } from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { t } from 'i18n-js';
-import FlatListCT from '../FlatListCT';
+import SectionListBookingCard from '../SectionListBookingCard';
 import { useBookingHistory } from '../../hooks';
 import BookingHistoryItem from './BookingHistoryItem';
 import { Colors, Constants } from '../../../../configs';
+import Text from '../../../../commons/Text';
 
 const BookingHistory = ({
   hasActiveSessions,
@@ -28,8 +29,16 @@ const BookingHistory = ({
     />
   );
 
+  const renderSectionHeader = ({ section }) => (
+    <Text type="Body" color={Colors.Gray8} style={styles.textDateGroup}>
+      {section.date}
+    </Text>
+  );
+
   const renderListEmptyComponent = () => (
-    <Text style={styles.textEmpty}>{t('no_parking_history')}</Text>
+    <Text type="H4" color={Colors.Gray7} style={styles.textEmpty}>
+      {t('no_parking_history')}
+    </Text>
   );
 
   useEffect(() => {
@@ -38,9 +47,10 @@ const BookingHistory = ({
   }, [appState]);
 
   return (
-    <FlatListCT
+    <SectionListBookingCard
       data={arrBooking}
       renderItem={renderItem}
+      renderSectionHeader={renderSectionHeader}
       refreshing={isRefreshing}
       isLoadMore={isLoadMore}
       onRefresh={onRefresh}
@@ -58,8 +68,8 @@ const styles = StyleSheet.create({
   textEmpty: {
     marginTop: Constants.height * 0.3,
     alignSelf: 'center',
-    fontSize: 16,
-    lineHeight: 24,
-    color: Colors.Gray7,
+  },
+  textDateGroup: {
+    marginTop: 16,
   },
 });

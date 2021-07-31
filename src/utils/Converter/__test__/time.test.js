@@ -1,7 +1,12 @@
 import moment from 'moment';
 import { t } from 'i18n-js';
 
-const { transformDatetime, timeDifference, calcTime } = require('../time');
+const {
+  transformDatetime,
+  timeDifference,
+  calcTime,
+  getDateFormatString,
+} = require('../time');
 
 describe('test time utils, transformDatetime', () => {
   const timeSample = '2020-10-05T08:00:00.000Z';
@@ -102,4 +107,33 @@ describe('test time utils, calcTime', () => {
   const outputFormat = 'LT, DD/MM/YYYY';
   const result = calcTime(testTime, inputFormat, outputFormat);
   expect(result).toBe(moment(testTime, inputFormat).format(outputFormat));
+});
+
+describe('test time utils, getDateFormatString', () => {
+  Date.now = jest.fn(() => new Date('2021-07-24T07:46:00.025000Z'));
+
+  const _testTime = (date, expectedResult) => {
+    const result = getDateFormatString(date);
+    expect(result).toBe(expectedResult);
+  };
+
+  test('test return today', () => {
+    _testTime(moment(), 'Hôm nay');
+  });
+
+  test('test return yesterday', () => {
+    _testTime(moment().add(-1, 'days'), 'Hôm qua');
+  });
+
+  test('test return this week', () => {
+    _testTime(moment().add(-3, 'days'), 'Tuần này');
+  });
+
+  test('test return this month', () => {
+    _testTime(moment().add(-1, 'weeks'), 'Tháng này');
+  });
+
+  test('test return format MM/YYYY', () => {
+    _testTime(moment().add(-2, 'month'), '05/2021');
+  });
 });

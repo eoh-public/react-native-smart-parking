@@ -165,13 +165,13 @@ describe('Test active session item component', () => {
     });
     const instance = tree.root;
     const TextElement = instance.findAllByType(Text);
-    expect(TextElement[10].props.children).toBe('Thời gian còn lại:');
+    expect(TextElement[9].props.children).toBe('Thời gian còn lại:');
     const TouchableOpacityElement = instance.findAllByType(TouchableOpacity);
     expect(TouchableOpacityElement[2].props.children.props.children).toBe(
       'Quét QR'
     );
     expect(TouchableOpacityElement[0].props.children[2].props.title).toBe(
-      'Quét mã QR tại vị trí đỗ  A1'
+      'Quét mã QR để kích hoạt phiên đỗ xe'
     );
   });
 

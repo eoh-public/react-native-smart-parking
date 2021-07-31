@@ -49,7 +49,7 @@ const getTitleRightTitleColor = (
     };
   } else if (!confirmed_arrival_at) {
     return {
-      title: t('scan_qr_code_at_%{spot}', { spot: spot_name }),
+      title: t('scan_to_activate_booking'),
       leftTitle: t('directions'),
       rightTitle: t('scan_qr'),
       rightColor: rightColor,
@@ -104,7 +104,7 @@ const ActiveSessionsItem = memo(
       navigate(Routes.SmartParkingBookingDetails, { id });
     }, [id, navigate]);
     const payBefore = moment(arrive_at).add(SPConfig.maxSeconds, 'seconds');
-    const payBeforeString = payBefore.format('HH:mm');
+    const payBeforeString = payBefore.format('HH:mm A');
     const moveCarBefore = moment(leave_at)
       .add(SPConfig.maxSeconds, 'seconds')
       .format('HH:mm');
@@ -195,6 +195,7 @@ const ActiveSessionsItem = memo(
             grand_total,
             payment_method,
           }}
+          isActiveSession
         />
         <View style={styles.timeInfo}>
           <RowTimeParking
