@@ -3,7 +3,7 @@ import { StyleSheet, ActivityIndicator, Animated } from 'react-native';
 import { Colors } from '../../../../configs';
 import { keyExtractor } from '../../../../utils/Converter/array';
 
-const FLatListCT = ({
+const FLatListBookingCard = ({
   refreshing,
   isLoadMore,
   data,
@@ -43,7 +43,7 @@ const FLatListCT = ({
   );
 };
 
-export default memo(FLatListCT);
+export default memo(FLatListBookingCard);
 
 const styles = StyleSheet.create({
   container: {

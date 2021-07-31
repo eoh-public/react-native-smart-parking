@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList } from 'react-native';
+import { SectionList } from 'react-native';
 import { act, create } from 'react-test-renderer';
 import axios from 'axios';
 import moment from 'moment';
@@ -28,8 +28,8 @@ describe('Test ActiveSessions', () => {
     });
     expect(axios.get).toHaveBeenCalled();
     const instance = tree.root;
-    const FlatListElement = instance.findAllByType(FlatList);
-    expect(FlatListElement).toHaveLength(1);
+    const SectionListElement = instance.findAllByType(SectionList);
+    expect(SectionListElement).toHaveLength(1);
     const item = {
       arrive_at: moment('2021-01-26T07:00:00.025000Z'),
       billing_id: 1127,
@@ -58,7 +58,7 @@ describe('Test ActiveSessions', () => {
       time_remaining: 3600,
     };
     act(() => {
-      FlatListElement[0].props.renderItem({ item });
+      SectionListElement[0].props.renderItem({ item });
     });
     expect(axios.get).toHaveBeenCalledTimes(1);
   });

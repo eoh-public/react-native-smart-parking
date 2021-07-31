@@ -50,3 +50,18 @@ export const timeDifference = (current, previous) => {
 
 export const getDurationTime = (start, end = new Date()) =>
   moment.duration(moment(end).diff(moment(start)));
+
+export const getDateFormatString = (date) => {
+  const today = moment();
+  if (date.isSame(today, 'day')) {
+    return t('today');
+  } else if (date.isSame(today.add(-1, 'days'), 'day')) {
+    return t('yesterday');
+  } else if (date.isSame(today, 'week')) {
+    return t('this_week');
+  } else if (date.isSame(today, 'month')) {
+    return t('this_month');
+  } else {
+    return date.format('MM/YYYY');
+  }
+};

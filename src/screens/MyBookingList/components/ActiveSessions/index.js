@@ -1,16 +1,11 @@
 import React, { memo, useEffect } from 'react';
-import {
-  View,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  Platform,
-} from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import { t } from 'i18n-js';
 import ActiveSessionsItem from './ActiveSessionsItem';
-import FlatListCT from '../../components/FlatListCT';
+import FlatListBookingCard from '../../components/FlatListBookingCard';
 import { useActiveSession } from '../../hooks/index';
 import { Colors, Constants } from '../../../../configs';
+import Text from '../../../../commons/Text';
 
 const ActiveSessions = ({ appState }) => {
   const {
@@ -26,9 +21,11 @@ const ActiveSessions = ({ appState }) => {
 
   const renderListEmptyComponent = () => (
     <View style={styles.wrapEmpty}>
-      <Text style={styles.desEmpty}>{t('no_active_parking')}</Text>
+      <Text type="H4" color={Colors.Gray7}>
+        {t('no_active_parking')}
+      </Text>
       <TouchableOpacity style={styles.btn} onPress={onPressFindAParkingArea}>
-        <Text style={[styles.desEmpty, styles.textBtn]}>
+        <Text type="H4" color={Colors.Gray7} style={styles.textBtn}>
           {t('find_a_parking_area')}
         </Text>
       </TouchableOpacity>
@@ -41,7 +38,7 @@ const ActiveSessions = ({ appState }) => {
   }, [appState]);
 
   return (
-    <FlatListCT
+    <FlatListBookingCard
       data={arrActiveSessions}
       refreshing={isRefreshing}
       onRefresh={getActiveSession}
@@ -58,11 +55,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: Constants.height * 0.3,
     alignItems: 'center',
-  },
-  desEmpty: {
-    fontSize: 16,
-    lineHeight: 24,
-    color: Colors.Gray7,
   },
   btn: {
     paddingHorizontal: 16,
