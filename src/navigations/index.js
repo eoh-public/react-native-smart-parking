@@ -8,7 +8,7 @@ import { Alert } from '../commons';
 import { Colors } from '../configs';
 import Routes from '../utils/Route';
 import { SmartParkingStack } from './SmartParkingStack';
-import { navigationRef } from './utils';
+import utils, { navigationRef } from './utils';
 import { updateTranslation } from '../utils/I18n';
 import { SPContext, useSPSelector } from '../context';
 
@@ -27,6 +27,7 @@ const NavStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
+        ...utils.screenOptions,
         headerTintColor: '#000',
         headerBackTitle: true,
         headerStyle: {
