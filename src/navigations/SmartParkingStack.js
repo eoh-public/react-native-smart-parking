@@ -31,6 +31,7 @@ import ContactInformation from '../screens/ContactInformation';
 import TermAndPolicies from '../screens/TermAndPolicies';
 import { SelectPaymentMethod } from '../screens/SelectPaymentMethod';
 import VnPayScreen from '../screens/VnPay';
+import utils from './utils';
 
 const Stack = createStackNavigator();
 
@@ -57,6 +58,7 @@ export const SmartParkingStack = memo(() => {
     <Stack.Navigator
       initialRouteName={Routes.SmartParkingMapDrawer}
       screenOptions={{
+        ...utils.screenOptions,
         headerTitleAlign: 'center',
         headerBackImage: () => (
           <IconOutline
