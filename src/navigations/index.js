@@ -5,7 +5,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import Toast from 'react-native-toast-message';
 import { Alert } from '../commons';
-import { Colors } from '../configs';
+import { Colors, initSPConfig } from '../configs';
 import Routes from '../utils/Route';
 import { SmartParkingStack } from './SmartParkingStack';
 import utils, { navigationRef } from './utils';
@@ -54,7 +54,7 @@ const NavStack = () => {
   );
 };
 
-const App = ({ dataNotification, auth, onExitApp, langTranslate }) => {
+const App = ({ dataNotification, auth, onExitApp, langTranslate, config }) => {
   const exitApp = useSPSelector((state) => state.app.exitApp);
   const [loading, setLoading] = useState(true);
   const { setAction, setAuth } = useContext(SPContext);
@@ -62,6 +62,7 @@ const App = ({ dataNotification, auth, onExitApp, langTranslate }) => {
   useEffect(() => {
     setAuth({ account: auth?.account });
     updateTranslation(langTranslate);
+    initSPConfig(config);
     setLoading(false);
   }, []);
 
