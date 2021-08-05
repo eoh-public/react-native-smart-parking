@@ -436,6 +436,7 @@ const BookingDetails = memo(({ route }) => {
             refreshControl={
               <RefreshControl refreshing={loading} onRefresh={onRefresh} />
             }
+            scrollIndicatorInsets={{ right: 1 }}
           >
             <ParkingTicket
               {...bookingDetail}
