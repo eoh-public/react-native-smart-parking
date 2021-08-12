@@ -10,11 +10,12 @@ import { useIsFocused } from '@react-navigation/native';
 
 import { Button } from '../../../commons';
 import { API } from '../../../configs';
-import { TESTID } from '../../../configs/Constants';
+import { BOOKING_TYPE, TESTID } from '../../../configs/Constants';
 import Routes from '../../../utils/Route';
 import BookingConfirm from '../index';
 import { SPContext } from '../../../context';
 import { mockSPStore } from '../../../context/mockStore';
+import { Actions } from '../../../context/actionType';
 
 jest.mock('axios');
 
@@ -336,7 +337,11 @@ describe('test BookingConfirm container', () => {
 
   test('onConfirmBooking pay now with stripe', async () => {
     route.params.body.is_pay_now = true;
-    route.params.methodItem = { id: 1, code: 'vnpay' };
+    route.params.methodItem = {
+      id: 1,
+      code: 'stripe',
+      payment_method: 'stripe',
+    };
 
     const responseBookingPrice = {
       status: 200,
@@ -502,5 +507,48 @@ describe('test BookingConfirm container', () => {
       await create(wrapComponent(route));
     });
     expect(setReadyToConfirm).toHaveBeenCalledWith(true);
+  });
+
+  test('onConfirmBooking fail', async () => {
+    route.params.body.is_pay_now = true;
+    route.params.methodItem = { id: 1, code: 'vnpay' };
+
+    const responseBookingPrice = {
+      status: 200,
+      data: {
+        price: 3000,
+      },
+    };
+
+    axios.get.mockImplementation(async (url) => {
+      if (url === API.BILLING.DEFAULT_PAYMENT_METHODS()) {
+        return responseBookingPrice;
+      }
+      return {};
+    });
+
+    const response = {
+      status: 500,
+      data: {
+        parking_id: {
+          message: 'Parking is full',
+          status: BOOKING_TYPE.FULL,
+        },
+      },
+    };
+    axios.post.mockImplementation(async () => {
+      return response;
+    });
+
+    await act(async () => {
+      tree = await create(wrapComponent(route));
+    });
+    const instance = tree.root;
+    const button = instance.findByType(Button);
+
+    await act(async () => {
+      await button.props.onPress();
+    });
+    expect(mockSetAction).toBeCalledWith(Actions.CANCEL_BOOKING, false);
   });
 });

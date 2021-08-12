@@ -46,7 +46,7 @@ exports[`Test ParkingStatusBar render ParkingStatusBar 1`] = `
           ]
         }
       >
-        FULL
+        ĐẦY
       </Text>
       <Text
         style={

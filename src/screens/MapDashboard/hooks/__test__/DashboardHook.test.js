@@ -101,6 +101,23 @@ describe('Test DashBoard hook', () => {
   test('test save parking', async () => {
     const response = {
       status: 200,
+      data: [{ id: 1 }],
+    };
+    const { result } = renderHook(() => useNearbyParkings(), { wrapper });
+
+    axios.post.mockImplementation(async () => {
+      return response;
+    });
+
+    await act(async () => {
+      result.current.onSaveParking(1, true);
+    });
+    expect(axios.post).toBeCalledTimes(1);
+  });
+
+  test('test unsave parking', async () => {
+    const response = {
+      status: 400,
       data: 'test',
     };
     const { result } = renderHook(() => useNearbyParkings(), { wrapper });
@@ -110,15 +127,14 @@ describe('Test DashBoard hook', () => {
     });
 
     await act(async () => {
-      result.current.onSaveParking(1);
+      result.current.onUnsaveParking(1);
     });
     expect(axios.post).toBeCalledTimes(1);
   });
 
-  test('test unsave parking', async () => {
+  test('test unsave parking with success call api', async () => {
     const response = {
-      status: 400,
-      data: 'test',
+      status: 200,
     };
     const { result } = renderHook(() => useNearbyParkings(), { wrapper });
 

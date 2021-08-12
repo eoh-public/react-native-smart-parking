@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { TextInput } from 'react-native';
 import { act, create } from 'react-test-renderer';
 import { TESTID } from '../../../configs/Constants';
+import { SPProvider } from '../../../context';
+import { mockSPStore } from '../../../context/mockStore';
+import ParkingAreaDetail from '../ParkingAreaDetail';
 
 const mockSetState = jest.fn();
 
@@ -15,7 +18,11 @@ jest.mock('react-native/Libraries/Core/ExceptionsManager', () => ({
   handleException: jest.fn(),
 }));
 
-import ParkingAreaDetail from '../ParkingAreaDetail';
+const wrapComponent = (props) => (
+  <SPProvider initState={mockSPStore({})}>
+    <ParkingAreaDetail {...props} />
+  </SPProvider>
+);
 
 describe('Test Parking Area Detail', () => {
   let data;
@@ -36,7 +43,7 @@ describe('Test Parking Area Detail', () => {
     useState.mockImplementation((init) => [init, setCar]); // for normal
     useState.mockImplementationOnce((init) => [false, mockSetState]); // for loading
     await act(async () => {
-      wrapper = await create(<ParkingAreaDetail {...data} />);
+      wrapper = await create(wrapComponent(data));
     });
 
     const instance = wrapper.root;

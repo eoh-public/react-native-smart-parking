@@ -28,17 +28,16 @@ const ParkingAreaList = ({
   searchedLocation,
 }) => {
   const carousel = useRef();
-  const debounce = useRef();
 
   useEffect(() => {
-    clearTimeout(debounce.current);
     if (!!carousel && !!carousel.current && parkingAreas.length > 0) {
       if (carousel.current.currentScrollPosition !== 0) {
         carousel.current.snapToItem(indexParking, true, true);
       } else {
         if (indexParking !== 0) {
-          debounce.current = setTimeout(() => {
+          const to = setTimeout(() => {
             if (!!carousel && !!carousel.current) {
+              clearTimeout(to);
               carousel.current.snapToItem(indexParking, true, true);
             }
           }, 1000);

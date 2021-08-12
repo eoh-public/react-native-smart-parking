@@ -11,8 +11,8 @@ describe('Test useKeyboardShow', () => {
   });
 
   it('Test init', () => {
-    const { result } = renderHook(() => useCountUp());
-    jest.runAllTicks();
+    const { result } = renderHook(() => useCountUp(new Date()));
+    jest.runOnlyPendingTimers();
     expect(result.current.countUpStr).toBe('00 : 00 : 00');
   });
 });

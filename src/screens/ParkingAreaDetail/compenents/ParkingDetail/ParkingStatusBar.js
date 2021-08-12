@@ -8,7 +8,7 @@ import { Colors } from '../../../../configs';
 
 const ParkingStatusBar = memo(
   ({ status, freeFrom, freeTo, preBook, spot_name }) => {
-    const isFull = status === 'FULL' || status === 'ĐẦY';
+    const isFull = status === t('full');
     const statusInfo = isFull
       ? 'status_full_info'
       : freeFrom === ''
