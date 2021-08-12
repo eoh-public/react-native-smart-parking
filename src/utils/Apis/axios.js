@@ -21,12 +21,14 @@ const parseErrorResponse = (error) => {
     error.response.data instanceof Object
   ) {
     data = error.response.data;
-
     const firstKey = Object.keys(error.response.data)[0];
     message = error.response.data[firstKey];
 
     if (message instanceof Array) {
       message = message[0];
+    }
+    if (message.message) {
+      message = message.message;
     }
   } else {
     message = error.message;

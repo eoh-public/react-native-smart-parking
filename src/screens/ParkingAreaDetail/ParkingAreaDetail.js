@@ -55,7 +55,6 @@ const ParkingAreaDetail = memo(({ route }) => {
   const {
     loading,
     parkingDetailData,
-    getParkingDetail,
     onSaveParking,
     onUnsaveParking,
   } = useParkingDetail(id, spot_name);
@@ -142,10 +141,6 @@ const ParkingAreaDetail = memo(({ route }) => {
   const default_car = useMemo(() => {
     return cars.filter((item) => item.is_default)[0];
   }, [cars]);
-
-  useEffect(() => {
-    getParkingDetail();
-  }, [getParkingDetail]);
 
   useEffect(() => {
     preBook && getParkingSession();

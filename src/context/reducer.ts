@@ -1,5 +1,11 @@
 import { initData } from '../utils/InitData';
-import { ActionType, AuthData, Language } from './actionType';
+import {
+  Actions,
+  ActionType,
+  AuthData,
+  Language,
+  ParkingNearMe,
+} from './actionType';
 
 export type ContextData = {
   auth: AuthData;
@@ -20,6 +26,10 @@ export type ContextData = {
     notificationData: any;
     newSavedParking: boolean;
     incompletedCarsInfo: boolean;
+  };
+
+  maps: {
+    parkingsNearMe: ParkingNearMe[];
   };
 };
 
@@ -53,6 +63,10 @@ export const initialState: ContextData = {
     incompletedCarsInfo: false,
     notificationData: null,
   },
+
+  maps: {
+    parkingsNearMe: [],
+  },
 };
 
 export const reducer = (
@@ -61,32 +75,32 @@ export const reducer = (
 ): ContextData => {
   const { type, payload } = action;
   switch (type) {
-    case 'UPDATE_AUTH':
+    case Actions.UPDATE_AUTH:
       initData((payload as AuthData).account);
       return { ...currentState, auth: payload };
 
-    case 'CHANGE_LANGUAGE':
+    case Actions.CHANGE_LANGUAGE:
       return {
         ...currentState,
         app: { ...currentState.app, language: payload },
       };
-    case 'SET_LOADING':
+    case Actions.SET_LOADING:
       return {
         ...currentState,
         app: { ...currentState.app, loading: payload },
       };
-    case 'EXIT_APP':
+    case Actions.EXIT_APP:
       return {
         ...currentState,
         app: { ...currentState.app, exitApp: payload },
       };
 
-    case 'CANCEL_BOOKING':
+    case Actions.CANCEL_BOOKING:
       return {
         ...currentState,
         booking: { ...currentState.booking, cancelBooking: payload },
       };
-    case 'GET_VIOLATION_SUCCESS':
+    case Actions.GET_VIOLATION_SUCCESS:
       return {
         ...currentState,
         booking: {
@@ -95,7 +109,7 @@ export const reducer = (
         },
       };
 
-    case 'SET_NEW_NOTIFICATION':
+    case Actions.SET_NEW_NOTIFICATION:
       return {
         ...currentState,
         notification: {
@@ -103,7 +117,7 @@ export const reducer = (
           newNotification: payload,
         },
       };
-    case 'SAVE_NOTIFICATION_DATA':
+    case Actions.SAVE_NOTIFICATION_DATA:
       return {
         ...currentState,
         notification: {
@@ -111,7 +125,7 @@ export const reducer = (
           notificationData: payload,
         },
       };
-    case 'SET_NEW_SAVED_PARKING':
+    case Actions.SET_NEW_SAVED_PARKING:
       return {
         ...currentState,
         notification: {
@@ -119,12 +133,19 @@ export const reducer = (
           newSavedParking: payload,
         },
       };
-    case 'SET_INCOMPLETED_CARS_INFO':
+    case Actions.SET_INCOMPLETED_CARS_INFO:
       return {
         ...currentState,
         notification: {
           ...currentState.notification,
           newSavedParking: payload,
+        },
+      };
+    case Actions.SET_PARKING_NEAR_ME:
+      return {
+        ...currentState,
+        maps: {
+          parkingsNearMe: payload,
         },
       };
 

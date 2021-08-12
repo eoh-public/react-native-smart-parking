@@ -34,6 +34,10 @@ export const mockDataStore: ContextData = {
     incompletedCarsInfo: false,
     notificationData: null,
   },
+
+  maps: {
+    parkingsNearMe: [],
+  },
 };
 
 export const mockSPStore = (data: ContextData): ContextData => {
@@ -55,6 +59,10 @@ export const mockSPStore = (data: ContextData): ContextData => {
     notification: {
       ...mockDataStore.notification,
       ...data.notification,
+    },
+    maps: {
+      ...mockDataStore.maps,
+      ...data.maps,
     },
   };
 };

@@ -9,7 +9,7 @@ const AppAction = {
 };
 
 const BookingAction = {
-  CANCEL_BOOKING: 'CHANGE_LANGUAGE',
+  CANCEL_BOOKING: 'CANCEL_BOOKING',
   GET_VIOLATION_SUCCESS: 'GET_VIOLATION_SUCCESS',
 };
 
@@ -20,11 +20,16 @@ const NotificationAction = {
   SAVE_NOTIFICATION_DATA: 'SAVE_NOTIFICATION_DATA',
 };
 
-const Action = {
+const MapsAction = {
+  SET_PARKING_NEAR_ME: 'SET_PARKING_NEAR_ME',
+};
+
+export const Actions = {
   ...AuthAction,
   ...AppAction,
   ...BookingAction,
   ...NotificationAction,
+  ...MapsAction,
 };
 
 export type AuthData = {
@@ -35,7 +40,7 @@ export type AuthData = {
 };
 export type Language = 'en' | 'vi';
 
-export type ActionType = keyof typeof Action;
+export type ActionType = keyof typeof Actions;
 
 export type ActionDataMap = {
   UPDATE_AUTH: AuthData;
@@ -51,4 +56,29 @@ export type ActionDataMap = {
   SET_NEW_SAVED_PARKING: boolean;
   SET_INCOMPLETED_CARS_INFO: boolean;
   SAVE_NOTIFICATION_DATA: any;
+};
+
+export type ParkingNearMe = {
+  id: number;
+  name: string;
+  background: string;
+  address: string;
+  type: number;
+  lat: number;
+  lng: number;
+  parking_charges: Array<{
+    time_start: string;
+    time_end: string;
+    price_per_hour: number;
+  }>;
+  charge_type: string;
+  available_spots_count: number;
+  distance: number;
+  is_saved: boolean;
+  tip: string;
+  total_spot: number;
+  status: any;
+  allow_pre_book: boolean;
+  price_now: number;
+  free_time: any;
 };

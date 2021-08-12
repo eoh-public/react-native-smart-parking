@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import { Animated } from 'react-native';
+import { Animated, Text } from 'react-native';
 import WrapHeaderScrollable from '../WrapHeaderScrollable';
 
 describe('WrapHeaderScrollable', () => {
@@ -32,6 +32,26 @@ describe('WrapHeaderScrollable', () => {
     const loadMore = jest.fn();
     act(() => {
       tree = renderer.create(<WrapHeaderScrollable />);
+    });
+    const root = tree.root;
+    const scrollView = root.findByType(Animated.ScrollView);
+    act(() => {
+      scrollView.props.onMomentumScrollEnd();
+    });
+    expect(loadMore).toHaveBeenCalledTimes(0);
+  });
+
+  test('WrapHeaderScrollable has props', () => {
+    const loadMore = jest.fn();
+    const props = {
+      subTitle: 'test',
+      contentContainerStyle: {},
+      children: <Text>test</Text>,
+      title: 'test',
+      loading: true,
+    };
+    act(() => {
+      tree = renderer.create(<WrapHeaderScrollable {...props} />);
     });
     const root = tree.root;
     const scrollView = root.findByType(Animated.ScrollView);

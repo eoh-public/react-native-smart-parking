@@ -14,6 +14,14 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
+const mockRef = { current: { snapToItem: jest.fn() } };
+jest.mock('react', () => {
+  return {
+    ...jest.requireActual('react'),
+    useRef: () => mockRef,
+  };
+});
+
 describe('test component ParkingAreaList', () => {
   let tree;
   let parkingAreas = [
@@ -68,19 +76,29 @@ describe('test component ParkingAreaList', () => {
     return { parkingAreaPopup, buttonBookNow, buttonSaveParking };
   };
 
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
   test('render ParkingAreaList', () => {
     act(() => {
-      tree = renderer.create(<ParkingAreaList parkingAreas={parkingAreas} />);
+      tree = renderer.create(
+        <ParkingAreaList parkingAreas={parkingAreas} indexParking={1} />
+      );
     });
 
     const instance = tree.root;
+    jest.runAllTimers();
+
     const { parkingAreaPopup } = getElement(instance);
     expect(parkingAreaPopup[0]).toBeDefined();
   });
 
   test('click book now', async () => {
     await act(async () => {
-      tree = renderer.create(<ParkingAreaList parkingAreas={parkingAreas} />);
+      tree = renderer.create(
+        <ParkingAreaList parkingAreas={parkingAreas} indexParking={1} />
+      );
     });
 
     const instance = tree.root;
@@ -104,6 +122,7 @@ describe('test component ParkingAreaList', () => {
           parkingAreas={parkingAreas}
           onSaveParking={mockedOnSaveParking}
           onUnsaveParking={mockedOnUnSaveParking}
+          indexParking={1}
         />
       );
     });
@@ -130,6 +149,7 @@ describe('test component ParkingAreaList', () => {
           parkingAreas={parkingAreas}
           onSaveParking={mockedOnSaveParking}
           onUnsaveParking={mockedOnUnSaveParking}
+          indexParking={1}
         />
       );
     });

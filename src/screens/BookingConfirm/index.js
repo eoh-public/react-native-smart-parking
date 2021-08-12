@@ -22,8 +22,9 @@ import { Button } from '../../commons';
 import ItemParkingSession from './components/ItemParkingSession/ItemParkingSession';
 import { ItemPaymentMethod } from './components/ItemPaymentMethod';
 import ItemInfo from './components/ItemInfo/ItemInfo';
-import { TESTID } from '../../configs/Constants';
-import { SPContext } from '../../context';
+import { BOOKING_TYPE, TESTID } from '../../configs/Constants';
+import { SPContext, useSPSelector } from '../../context';
+import { Actions } from '../../context/actionType';
 
 const exampleUri =
   'https://cdn.theculturetrip.com/wp-content/uploads/2018/02/32154960113_42b503c1b1_k-1024x683.jpg';
@@ -36,6 +37,7 @@ const BookingConfirm = memo(({ route }) => {
   const [total, setTotal] = useState();
   const [loadingTotal, setLoadingTotal] = useState(false);
   const { setAction } = useContext(SPContext);
+  const { parkingsNearMe } = useSPSelector((state) => state.maps);
 
   const [
     isReadyToConfirm,
@@ -172,8 +174,27 @@ const BookingConfirm = memo(({ route }) => {
       } else {
         navigateBookingSuccess(booking, billing);
       }
+    } else {
+      if (
+        data?.parking_id?.status === BOOKING_TYPE.FREE ||
+        data?.parking_id?.status === BOOKING_TYPE.FULL
+      ) {
+        const dataTemp = [...parkingsNearMe];
+        const index = dataTemp.findIndex((i) => i.id === body.parking_id);
+        dataTemp.splice(index, 1, {
+          ...dataTemp[index],
+          available_spots_count:
+            data?.parking_id?.status === BOOKING_TYPE.FULL
+              ? 0
+              : dataTemp[index].available_spots_count,
+          status: t(
+            data?.parking_id?.status === BOOKING_TYPE.FULL ? 'full' : 'free'
+          ),
+        });
+        setAction(Actions.SET_PARKING_NEAR_ME, dataTemp);
+      }
     }
-  }, [body, navigate, navigateBookingSuccess, setAction]);
+  }, [body, navigate, navigateBookingSuccess, setAction, parkingsNearMe]);
 
   const onPressChangePaymentMethod = useCallback(() => {
     navigate(Routes.SmartParkingSelectPaymentMethod, {

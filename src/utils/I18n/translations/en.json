@@ -692,5 +692,7 @@
   "find_a_parking_area": "Find a parking area",
   "no_parking_history": "No parking history.",
   "general_trading_conditions": "General Trading Conditions",
+  "full": "FULL",
+  "free": "FREE",
   "error_please_try_later": "Error! Please try later"
 }

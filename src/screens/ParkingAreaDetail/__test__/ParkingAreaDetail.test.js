@@ -13,11 +13,20 @@ import moment from 'moment';
 import LicensePlate from '../compenents/LicensePlate';
 import ParkingSpotInput from '../../ParkingInputManually/components/ParkingSpotInput';
 import { GroupCheckbox } from '../compenents/ParkingDetail';
+import { SPProvider } from '../../../context';
+import { mockSPStore } from '../../../context/mockStore';
+
+const wrapComponent = (route) => (
+  <SPProvider initState={mockSPStore({})}>
+    <ParkingAreaDetail route={route} />
+  </SPProvider>
+);
 
 const mockNavigate = jest.fn();
 jest.mock('@react-navigation/native', () => {
   return {
     ...jest.requireActual('@react-navigation/native'),
+    useIsFocused: jest.fn(),
     useNavigation: () => ({
       navigate: mockNavigate,
     }),
@@ -92,7 +101,7 @@ describe('Test ParkingAreaDetail', () => {
     };
 
     await act(async () => {
-      wrapper = await create(<ParkingAreaDetail route={route} />);
+      wrapper = await create(wrapComponent(route));
     });
     const instance = wrapper.root;
     const textInput = instance.find(
@@ -157,7 +166,7 @@ describe('Test ParkingAreaDetail', () => {
     delete parkingResponse.status;
 
     await act(async () => {
-      wrapper = await create(<ParkingAreaDetail route={route} />);
+      wrapper = await create(wrapComponent(route));
     });
     const instance = wrapper.root;
     const textInput = instance.find(
@@ -229,7 +238,7 @@ describe('Test ParkingAreaDetail', () => {
     };
 
     await act(async () => {
-      wrapper = await create(<ParkingAreaDetail route={route} />);
+      wrapper = await create(wrapComponent(route));
     });
     const instance = wrapper.root;
     const textInput = instance.find(
@@ -290,7 +299,7 @@ describe('Test ParkingAreaDetail', () => {
 
   test('onFocus TextInput', async () => {
     act(() => {
-      wrapper = create(<ParkingAreaDetail route={route} />);
+      wrapper = create(wrapComponent(route));
     });
     const instance = wrapper.root;
     const textInput = instance.findByType(TextInput);
@@ -303,7 +312,7 @@ describe('Test ParkingAreaDetail', () => {
 
   test('onBlur TextInput', async () => {
     act(() => {
-      wrapper = create(<ParkingAreaDetail route={route} />);
+      wrapper = create(wrapComponent(route));
     });
     const instance = wrapper.root;
     const textInput = instance.findByType(TextInput);
@@ -316,7 +325,7 @@ describe('Test ParkingAreaDetail', () => {
     route.params.unLock = true;
 
     await act(async () => {
-      wrapper = create(<ParkingAreaDetail route={route} />);
+      wrapper = create(wrapComponent(route));
     });
     const instance = wrapper.root;
     const button = instance.find(
@@ -333,7 +342,7 @@ describe('Test ParkingAreaDetail', () => {
     route.params.unLock = true;
 
     await act(async () => {
-      wrapper = create(<ParkingAreaDetail route={route} />);
+      wrapper = create(wrapComponent(route));
     });
     const instance = wrapper.root;
     const textInputOnChangeCar = instance.find(
@@ -364,7 +373,7 @@ describe('Test ParkingAreaDetail', () => {
     };
 
     await act(async () => {
-      wrapper = create(<ParkingAreaDetail route={route} />);
+      wrapper = create(wrapComponent(route));
     });
     const instance = wrapper.root;
     const textInputOnChangeCar = instance.find(
@@ -388,7 +397,7 @@ describe('Test ParkingAreaDetail', () => {
     };
 
     await act(async () => {
-      wrapper = await create(<ParkingAreaDetail route={route} />);
+      wrapper = await create(wrapComponent(route));
     });
 
     const instance = wrapper.root;
@@ -424,7 +433,7 @@ describe('Test ParkingAreaDetail', () => {
       plate_number: '59Z-1234',
     };
     await act(async () => {
-      wrapper = create(<ParkingAreaDetail route={route} />);
+      wrapper = create(wrapComponent(route));
     });
     const instance = wrapper.root;
     const button = instance.find(
@@ -437,7 +446,7 @@ describe('Test ParkingAreaDetail', () => {
     route.params.unLock = true;
     route.params.carItem = null;
     await act(async () => {
-      wrapper = create(<ParkingAreaDetail route={route} />);
+      wrapper = create(wrapComponent(route));
     });
     const instance = wrapper.root;
     const button = instance.find(
@@ -451,7 +460,7 @@ describe('Test ParkingAreaDetail', () => {
     route.params.numBookHour = null;
 
     await act(async () => {
-      wrapper = create(<ParkingAreaDetail route={route} />);
+      wrapper = create(wrapComponent(route));
     });
     const instance = wrapper.root;
     const parkingSession = instance.findByType(ParkingSession);
@@ -480,13 +489,13 @@ describe('Test ParkingAreaDetail', () => {
     };
 
     await act(async () => {
-      wrapper = create(<ParkingAreaDetail route={route} />);
+      wrapper = create(wrapComponent(route));
     });
   });
 
   test('onTextInputFocus', async () => {
     await act(async () => {
-      wrapper = create(<ParkingAreaDetail route={route} />);
+      wrapper = create(wrapComponent(route));
     });
     const instance = wrapper.root;
     const parkingSpotInput = instance.findByType(ParkingSpotInput);
@@ -501,7 +510,7 @@ describe('Test ParkingAreaDetail', () => {
     route.params.unLock = true;
 
     await act(async () => {
-      wrapper = create(<ParkingAreaDetail route={route} />);
+      wrapper = create(wrapComponent(route));
     });
     const instance = wrapper.root;
     const parkingSession = instance.findByType(ParkingSession);

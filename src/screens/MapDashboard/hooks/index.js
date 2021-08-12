@@ -5,6 +5,7 @@ import { API } from '../../../configs';
 import { axiosGet, axiosPost } from '../../../utils/Apis/axios';
 import { SPContext, useSPSelector } from '../../../context';
 import moment from 'moment';
+import { Actions } from '../../../context/actionType';
 
 const useNearbyParkings = () => {
   const [showThanks, setShowThanks] = useState(false);
@@ -14,6 +15,7 @@ const useNearbyParkings = () => {
 
   const { setAction } = useContext(SPContext);
   const { violationsData } = useSPSelector((state) => state.booking);
+  const { parkingsNearMe } = useSPSelector((state) => state.maps);
 
   const getNearbyParkings = useCallback(async ({ lat, lng }) => {
     setLoadingNearByParking(true);
@@ -21,9 +23,10 @@ const useNearbyParkings = () => {
       params: { lat, lng },
     });
     if (success) {
-      setNearbyParkings(data);
+      setAction(Actions.SET_PARKING_NEAR_ME, data);
     }
     setLoadingNearByParking(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getActiveSession = useCallback(async () => {
@@ -44,8 +47,9 @@ const useNearbyParkings = () => {
         }
         return item;
       });
-      setNearbyParkings(newNearbyParkings);
+      setAction(Actions.SET_PARKING_NEAR_ME, newNearbyParkings);
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [nearbyParkings]
   );
 
@@ -101,6 +105,10 @@ const useNearbyParkings = () => {
     }
     return () => timeout && clearTimeout(timeout);
   }, [activeSessions]);
+
+  useEffect(() => {
+    setNearbyParkings(parkingsNearMe);
+  }, [parkingsNearMe]);
 
   return {
     showThanks,

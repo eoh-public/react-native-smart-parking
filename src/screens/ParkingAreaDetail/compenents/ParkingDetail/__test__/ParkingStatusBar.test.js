@@ -2,11 +2,12 @@ import ParkingStatusBar from '../ParkingStatusBar';
 import React from 'react';
 import { create, act } from 'react-test-renderer';
 import moment from 'moment';
+import { t } from 'i18n-js';
 
 describe('Test ParkingStatusBar', () => {
   let tree;
   test('render ParkingStatusBar', () => {
-    const obj = { status: 'FULL', freeFrom: '' };
+    const obj = { status: t('full'), freeFrom: '' };
     act(() => {
       tree = create(<ParkingStatusBar {...obj} preBook={true} />);
     });

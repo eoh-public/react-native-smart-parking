@@ -8,7 +8,13 @@ import { useParkingDetail } from '../index';
 jest.mock('axios');
 
 const wrapper = ({ children }) => (
-  <SPProvider initState={mockSPStore({})}>{children}</SPProvider>
+  <SPProvider
+    initState={mockSPStore({
+      maps: { parkingsNearMe: [{ id: 1, available_spots_count: 0 }] },
+    })}
+  >
+    {children}
+  </SPProvider>
 );
 
 describe('Test useParkingDetail hook', () => {
@@ -18,11 +24,11 @@ describe('Test useParkingDetail hook', () => {
   });
 
   test('test save Parking', async () => {
-    const { result } = renderHook(() => useParkingDetail(), { wrapper });
+    const { result } = renderHook(() => useParkingDetail(1), { wrapper });
 
     const response = {
       status: 200,
-      data: { is_saved: false },
+      data: { is_saved: false, id: 1 },
     };
 
     axios.get.mockImplementation(async () => {
@@ -43,11 +49,11 @@ describe('Test useParkingDetail hook', () => {
   });
 
   test('test unsave Parking', async () => {
-    const { result } = renderHook(() => useParkingDetail(), { wrapper });
+    const { result } = renderHook(() => useParkingDetail(1), { wrapper });
 
     const response = {
       status: 200,
-      data: { is_saved: true },
+      data: { is_saved: true, id: 1 },
     };
 
     axios.get.mockImplementation(async () => {
