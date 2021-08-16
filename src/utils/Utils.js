@@ -17,7 +17,7 @@ export const isObjectEmpty = (obj) => {
   return Object.keys(obj).length === 0;
 };
 
-export const formatMoney = (number, fixed = 0, currency = 'đ') => {
+export const formatMoney = (number, fixed = 0, currency = 'VND') => {
   return (
     parseInt(number, 10)
       .toFixed(fixed)

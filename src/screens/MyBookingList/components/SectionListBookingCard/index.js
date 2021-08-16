@@ -29,6 +29,7 @@ const SectionListBookingCard = ({
       contentContainerStyle={styles.contentContainerStyle}
       extraData={data}
       onMomentumScrollBegin={onMomentumScrollBegin}
+      stickySectionHeadersEnabled={false}
       ListFooterComponent={
         isLoadMore && (
           <ActivityIndicator style={styles.loadMore} color={Colors.Primary} />

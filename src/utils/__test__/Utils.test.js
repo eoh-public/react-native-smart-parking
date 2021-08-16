@@ -30,7 +30,7 @@ test('test setAxiosDefaultLanguage withoout params', () => {
 });
 
 test('format money', () => {
-  expect(formatMoney(1000)).toBe('1.000 đ');
+  expect(formatMoney(1000)).toBe('1.000 VND');
 });
 
 test('insert too string', () => {
