@@ -391,7 +391,7 @@ exports[`Test ScanningResponsePopup with mock OS render with device android 1`] 
               }
               testID="PARKING_PRICE_TEXT"
             >
-              NaN đ
+              NaN VND
               /h
             </Text>
             <SvgMock

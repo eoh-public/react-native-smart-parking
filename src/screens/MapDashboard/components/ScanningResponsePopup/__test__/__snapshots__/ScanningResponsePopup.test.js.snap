@@ -391,7 +391,7 @@ exports[`Test ScanningResponsePopup render 1`] = `
               }
               testID="PARKING_PRICE_TEXT"
             >
-              NaN đ
+              NaN VND
               /h
             </Text>
             <SvgMock
@@ -899,7 +899,7 @@ exports[`Test ScanningResponsePopup render status AVAILABLE_SPOTS 1`] = `
               }
               testID="PARKING_PRICE_TEXT"
             >
-              NaN đ
+              NaN VND
               /h
             </Text>
             <SvgMock
@@ -1428,7 +1428,7 @@ exports[`Test ScanningResponsePopup render status AVAILABLE_SPOTS but null 1`] =
               }
               testID="PARKING_PRICE_TEXT"
             >
-              NaN đ
+              NaN VND
               /h
             </Text>
             <SvgMock
@@ -1951,7 +1951,7 @@ exports[`Test ScanningResponsePopup render status BOOKING_ACTIVATED 1`] = `
               }
               testID="PARKING_PRICE_TEXT"
             >
-              NaN đ
+              NaN VND
               /h
             </Text>
             <SvgMock
@@ -2470,7 +2470,7 @@ exports[`Test ScanningResponsePopup render status NOT_WORKING_FOR_SENSOR_ONLY 1`
               }
               testID="PARKING_PRICE_TEXT"
             >
-              NaN đ
+              NaN VND
               /h
             </Text>
             <SvgMock
@@ -2992,7 +2992,7 @@ exports[`Test ScanningResponsePopup render status PARKING_NEAREST 1`] = `
               }
               testID="PARKING_PRICE_TEXT"
             >
-              1.000 đ
+              1.000 VND
               /h
             </Text>
             <SvgMock
@@ -3588,7 +3588,7 @@ exports[`Test ScanningResponsePopup render status SPOT_DOES_NOT_EXIST 1`] = `
               }
               testID="PARKING_PRICE_TEXT"
             >
-              NaN đ
+              NaN VND
               /h
             </Text>
             <SvgMock
@@ -4208,7 +4208,7 @@ exports[`Test ScanningResponsePopup render status WRONG_SPOT 1`] = `
               }
               testID="PARKING_PRICE_TEXT"
             >
-              NaN đ
+              NaN VND
               /h
             </Text>
             <SvgMock
@@ -4760,7 +4760,7 @@ exports[`Test ScanningResponsePopup render status not match 1`] = `
               }
               testID="PARKING_PRICE_TEXT"
             >
-              NaN đ
+              NaN VND
               /h
             </Text>
             <SvgMock

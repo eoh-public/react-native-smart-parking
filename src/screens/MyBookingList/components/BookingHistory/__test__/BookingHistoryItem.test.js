@@ -4,6 +4,7 @@ import BookingHistoryItem from '../BookingHistoryItem';
 import { TouchableOpacity } from 'react-native';
 import { Colors } from '../../../../../configs';
 import Routes from '../../../../../utils/Route';
+import moment from 'moment';
 
 const mockedNavigate = jest.fn();
 jest.mock('@react-navigation/native', () => {
@@ -24,6 +25,8 @@ describe('Test BookingHistoryItem', () => {
       name: 'test',
       address: 'test',
     },
+    arrive_at: moment('2021-01-26T07:00:00.025000Z'),
+    leave_at: moment('2021-01-26T09:00:00.025000Z'),
     status: '----',
     hasActiveSessions: false,
   };
