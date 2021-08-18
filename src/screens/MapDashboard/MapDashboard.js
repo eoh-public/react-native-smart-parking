@@ -373,7 +373,6 @@ const MapDashboard = memo(({ route }) => {
   const onParkingCompleted = useCallback(() => {
     setDirections({});
     onShowThanks();
-    getActiveSession();
     getViolations();
   }, []);
 
