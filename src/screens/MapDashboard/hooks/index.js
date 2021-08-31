@@ -1,17 +1,19 @@
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { useIsFocused } from '@react-navigation/native';
+import moment from 'moment';
 
 import { API } from '../../../configs';
 import { axiosGet, axiosPost } from '../../../utils/Apis/axios';
 import { SPContext, useSPSelector } from '../../../context';
-import moment from 'moment';
 import { Actions } from '../../../context/actionType';
+import { timeInRange } from '../../../utils/Utils';
 
 const useNearbyParkings = () => {
   const [showThanks, setShowThanks] = useState(false);
   const [loadingNearByParking, setLoadingNearByParking] = useState(false);
   const [nearbyParkings, setNearbyParkings] = useState([]);
   const [activeSessions, setActiveSessions] = useState(null);
+  const [showWarningBell, setShowWarningBell] = useState();
 
   const { setAction } = useContext(SPContext);
   const { violationsData } = useSPSelector((state) => state.booking);
@@ -90,6 +92,39 @@ const useNearbyParkings = () => {
     }
   };
 
+  const checkCanShowWarning = useCallback(async ({ id: parking_id }) => {
+    const { success, data: charges } = await axiosGet(
+      API.PARKING.CHARGES(parking_id)
+    );
+    if (success) {
+      const now = moment();
+      let hour, minute, second;
+      for (let i = 0; i < charges.length; i++) {
+        [hour, minute, second] = moment(`2020-01-01T${charges[i].time_start}`)
+          .format('HH:mm:ss')
+          .split(':');
+        const start = moment();
+        start.set({ hour, minute, second });
+
+        [hour, minute, second] = moment(`2020-01-01T${charges[i].time_end}`)
+          .format('HH:mm:ss')
+          .split(':');
+        const end = moment();
+        end.set({ hour, minute, second });
+
+        if (timeInRange(start, end, now)) {
+          setShowWarningBell(true);
+          return;
+        }
+      }
+      setShowWarningBell(false);
+    }
+  }, []);
+
+  const onCloseWarning = useCallback(() => {
+    setShowWarningBell(false);
+  }, []);
+
   useEffect(() => {
     let timeout;
     if (activeSessions && activeSessions.arrive_at) {
@@ -123,6 +158,9 @@ const useNearbyParkings = () => {
     onCloseThanks,
     onShowThanks,
     getViolations,
+    showWarningBell,
+    onCloseWarning,
+    checkCanShowWarning,
   };
 };
 

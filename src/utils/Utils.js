@@ -67,6 +67,13 @@ export const removeFromString = (str, index) => {
   return str.substr(0, index) + str.substr(index + 1);
 };
 
+export const timeInRange = (start, end, time) => {
+  if (start <= end) {
+    return start <= time && time <= end;
+  }
+  return start <= time || time <= end;
+};
+
 export default {
   isObjectEmpty,
   insertToString,

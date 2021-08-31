@@ -49,6 +49,7 @@ jest.mock('axios');
 const mockGetActionSession = jest.fn();
 const mockGetNearbyParking = jest.fn();
 const mockGetViolations = jest.fn();
+const mockOnCloseWarning = jest.fn();
 const mockGetNotificationNumber = jest.fn();
 
 let mockActiveSession = {
@@ -72,6 +73,9 @@ jest.mock('../hooks', () => {
       getViolations: mockGetViolations,
       onCloseThanks: jest.fn(),
       onShowThanks: jest.fn(),
+      showWarningBell: undefined,
+      onCloseWarning: mockOnCloseWarning,
+      checkCanShowWarning: jest.fn(),
     }),
     useNotifications: () => ({
       notificationNumber: 10,
@@ -183,11 +187,11 @@ describe('Test MapDashboard', () => {
 
   it('active session load cached search', async () => {
     const mockSetMethod = jest.fn();
-    _.range(0, 7).map(() => {
+    _.range(0, 6).map(() => {
       useState.mockImplementationOnce((init) => [init, mockSetState]);
     });
     useState.mockImplementationOnce((init) => [init, mockSetMethod]);
-    _.range(8, 14).map(() => {
+    _.range(7, 14).map(() => {
       useState.mockImplementationOnce((init) => [init, mockSetState]);
     });
     useState.mockImplementationOnce((init) => [activeSessions, mockSetState]); // active session
@@ -265,12 +269,7 @@ describe('Test MapDashboard', () => {
   });
 
   it('active session hide warning', async () => {
-    const mockSetMethod = jest.fn();
-    _.range(0, 6).map(() => {
-      useState.mockImplementationOnce((init) => [init, mockSetState]);
-    });
-    useState.mockImplementationOnce((init) => [init, mockSetMethod]);
-    _.range(7, 14).map(() => {
+    _.range(0, 13).map(() => {
       useState.mockImplementationOnce((init) => [init, mockSetState]);
     });
     useState.mockImplementationOnce((init) => [activeSessions, mockSetState]); // active session
@@ -286,11 +285,11 @@ describe('Test MapDashboard', () => {
       buttonPopup.props.onClose();
     });
 
-    expect(mockSetMethod).toBeCalledWith(false);
+    expect(mockOnCloseWarning).toBeCalled();
   });
 
   it('active session on parking complete', async () => {
-    _.range(0, 14).map(() => {
+    _.range(0, 13).map(() => {
       useState.mockImplementationOnce((init) => [init, mockSetState]);
     });
     useState.mockImplementationOnce((init) => [activeSessions, mockSetState]); // active session

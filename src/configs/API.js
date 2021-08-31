@@ -30,6 +30,8 @@ const API = {
     UNSAVE: (id) =>
       SPConfig.apiRoot + `/smart_parking/parking_areas/${id}/unsave/`,
     DETAIL: (id) => SPConfig.apiRoot + `/smart_parking/parking_areas/${id}/`,
+    CHARGES: (id) =>
+      SPConfig.apiRoot + `/smart_parking/parking_areas/${id}/charges/`,
     GET_BOOKING_PRICE: (id) =>
       SPConfig.apiRoot + `/smart_parking/parking_areas/${id}/get_price/`,
     AVAILABLE_TIME_SLOTS: (id) =>
