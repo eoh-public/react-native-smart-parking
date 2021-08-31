@@ -5,9 +5,11 @@ import {
   formatMoney,
   insertToString,
   removeFromString,
+  timeInRange,
   ToastBottomHelper,
 } from '../Utils';
 import axios from 'axios';
+import moment from 'moment';
 import Toast from 'react-native-toast-message';
 
 test('test isObjectEmpty', () => {
@@ -39,6 +41,26 @@ test('insert too string', () => {
 
 test('removeFromString', () => {
   expect(removeFromString('abc', 1)).toBe('ac');
+});
+
+test('timeInRange', () => {
+  // start <= end
+  let start = moment('2021-08-27T02:00:00.000Z');
+  let end = moment('2021-08-27T08:00:00.000Z');
+  let time = moment('2021-08-27T07:00:00.000Z');
+  expect(timeInRange(start, end, time)).toBe(true);
+
+  time = moment('2021-08-27T010:00:00.000Z');
+  expect(timeInRange(start, end, time)).toBe(false);
+
+  // start > end
+  start = moment('2021-08-27T08:00:00.000Z');
+  end = moment('2021-08-27T02:00:00.000Z');
+  time = moment('2021-08-27T10:00:00.000Z');
+  expect(timeInRange(start, end, time)).toBe(true);
+
+  time = moment('2021-08-27T007:00:00.000Z');
+  expect(timeInRange(start, end, time)).toBe(false);
 });
 
 const mockToastShow = jest.fn();

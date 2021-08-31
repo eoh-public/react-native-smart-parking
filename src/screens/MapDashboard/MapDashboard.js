@@ -85,7 +85,6 @@ const MapDashboard = memo(({ route }) => {
   const [enableMapview, setEnableMapview] = useState(false);
   const [indexParking, setIndexParking] = useState(null);
   const [showScanResponse, setShowScanResponse] = useState(true);
-  const [showWarningBell, setShowWarningBell] = useState();
 
   const [searchedLocation, setSearchedLocation] = useState(null);
   const [currentLocation, setCurrentLocation] = useState(null);
@@ -109,12 +108,20 @@ const MapDashboard = memo(({ route }) => {
     onShowThanks,
     getViolations,
     violationsData,
+    showWarningBell,
+    onCloseWarning,
+    checkCanShowWarning,
   } = useNearbyParkings();
   const { notificationNumber, getNotificationNumber } = useNotifications();
 
-  const { time_remaining, is_paid, start_countdown } = useMemo(() => {
+  const { time_remaining, is_paid, start_countdown, parking } = useMemo(() => {
     if (!activeSessions) {
-      return { time_remaining: 0, is_paid: false, start_countdown: false };
+      return {
+        time_remaining: 0,
+        is_paid: false,
+        start_countdown: false,
+        parking: null,
+      };
     }
     return activeSessions;
   }, [activeSessions]);
@@ -380,21 +387,13 @@ const MapDashboard = memo(({ route }) => {
     ? searchedLocation
     : currentLocation;
 
-  const onCloseWarning = useCallback(() => {
-    setShowWarningBell(false);
-  }, []);
-
-  const onShowWarning = useCallback(() => {
-    setShowWarningBell(true);
-  }, []);
-
   const onExtend = useCallback(() => {
     activeSessions &&
       navigate(Routes.SmartParkingBookingDetails, {
         id: activeSessions.id,
         isShowExtendNow: true,
       });
-    setShowWarningBell(false);
+    onCloseWarning();
   }, [activeSessions, navigate]);
 
   const onReloadData = () => {
@@ -463,10 +462,10 @@ const MapDashboard = memo(({ route }) => {
   useEffect(() => {
     if (timeLeft !== 0 && timeLeft < SPConfig.maxSeconds) {
       if (is_paid && showWarningBell === undefined) {
-        onShowWarning();
+        checkCanShowWarning(parking);
       }
     }
-  }, [timeLeft, is_paid, onShowWarning, showWarningBell]);
+  }, [timeLeft, is_paid, parking, showWarningBell, checkCanShowWarning]);
 
   useEffect(() => {
     if (scanDataResponse) {

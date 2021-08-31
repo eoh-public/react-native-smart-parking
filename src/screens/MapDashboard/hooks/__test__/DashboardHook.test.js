@@ -165,4 +165,53 @@ describe('Test DashBoard hook', () => {
     });
     expect(result.current.showThanks).toBe(true);
   });
+
+  test('test checkCanShowWarning', async () => {
+    const parking = { id: 1 };
+    Date.now = jest.fn(() => new Date('2021-08-27T07:00:00.000Z'));
+
+    const { result } = renderHook(() => useNearbyParkings(), { wrapper });
+
+    const response = {
+      status: 200,
+      data: [
+        {
+          price_per_hour: 35000,
+          time_start: '02:00:00+00:00',
+          time_end: '08:00:00+00:00',
+        },
+      ],
+    };
+    axios.get.mockImplementationOnce(async () => {
+      return response;
+    });
+
+    await act(async () => {
+      await result.current.checkCanShowWarning(parking);
+    });
+    expect(axios.get).toHaveBeenCalledWith(API.PARKING.CHARGES(parking.id), {});
+    expect(result.current.showWarningBell).toBe(true);
+
+    axios.get.mockClear();
+
+    response.data = [];
+    axios.get.mockImplementationOnce(async () => {
+      return response;
+    });
+
+    await act(async () => {
+      await result.current.checkCanShowWarning(parking);
+    });
+    expect(result.current.showWarningBell).toBe(false);
+    expect(axios.get).toHaveBeenCalledWith(API.PARKING.CHARGES(parking.id), {});
+  });
+
+  test('test on close warning', async () => {
+    const { result } = renderHook(() => useNearbyParkings(), { wrapper });
+
+    await act(async () => {
+      result.current.onCloseWarning();
+    });
+    expect(result.current.showWarningBell).toBe(false);
+  });
 });
