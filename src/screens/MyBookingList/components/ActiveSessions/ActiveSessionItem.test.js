@@ -188,7 +188,7 @@ describe('Test active session item component', () => {
     const instance = tree.root;
     const TouchableOpacityElement = instance.findAllByType(TouchableOpacity);
     expect(TouchableOpacityElement[0].props.children[2].props.title).toBe(
-      'Dời xe trước 15:15'
+      'Dời xe trước 15:00'
     );
   });
 
@@ -205,7 +205,7 @@ describe('Test active session item component', () => {
     const instance = tree.root;
     const TouchableOpacityElement = instance.findAllByType(TouchableOpacity);
     expect(TouchableOpacityElement[0].props.children[2].props.title).toBe(
-      'Dời xe trước 15:15'
+      'Dời xe trước 15:00'
     );
   });
 
