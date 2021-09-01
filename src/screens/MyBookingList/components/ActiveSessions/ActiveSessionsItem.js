@@ -105,9 +105,7 @@ const ActiveSessionsItem = memo(
     }, [id, navigate]);
     const payBefore = moment(arrive_at).add(SPConfig.maxSeconds, 'seconds');
     const payBeforeString = payBefore.format('HH:mm A');
-    const moveCarBefore = moment(leave_at)
-      .add(SPConfig.maxSeconds, 'seconds')
-      .format('HH:mm');
+    const moveCarBefore = moment(leave_at).format('HH:mm');
     const [taskId, setTaskId] = useState(null);
     // check pay before
     useEffect(() => {
