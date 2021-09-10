@@ -104,8 +104,8 @@ const ActiveSessionsItem = memo(
       navigate(Routes.SmartParkingBookingDetails, { id });
     }, [id, navigate]);
     const payBefore = moment(arrive_at).add(SPConfig.maxSeconds, 'seconds');
-    const payBeforeString = payBefore.format('HH:mm A');
-    const moveCarBefore = moment(leave_at).format('HH:mm');
+    const payBeforeString = payBefore.format('hh:mm A');
+    const moveCarBefore = moment(leave_at).format('hh:mm A');
     const [taskId, setTaskId] = useState(null);
     // check pay before
     useEffect(() => {
