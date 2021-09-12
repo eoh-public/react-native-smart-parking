@@ -2,7 +2,7 @@ import React from 'react';
 import { create, act } from 'react-test-renderer';
 import BookingSuccess from '../index';
 import moment from 'moment';
-import { TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity, Text, Platform } from 'react-native';
 
 import { TESTID } from '../../../configs/Constants';
 import Routes from '../../../utils/Route';
@@ -24,10 +24,6 @@ jest.mock('@react-navigation/native', () => {
 
 describe('test BookingSuccess container', () => {
   const id = 1096;
-  let Platform;
-  beforeEach(() => {
-    Platform = require('react-native').Platform;
-  });
   const common_data = {
     id: id,
     parking_address:
