@@ -82,7 +82,7 @@ const NotificationCentre = memo(() => {
 
   const renderListFooterComponent = () =>
     onEndReached &&
-    notifications.length && (
+    notifications.length > 0 && (
       <ActivityIndicator style={styles.loadMore} color={Colors.Primary} />
     );
 
