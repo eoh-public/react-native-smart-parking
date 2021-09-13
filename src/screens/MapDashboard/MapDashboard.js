@@ -687,6 +687,7 @@ const MapDashboard = memo(({ route }) => {
           titleStyle={styles.titleContainer}
           childrenStyle={styles.childrenStyle}
           typeMain={isTickConfirmTerms ? 'primary' : 'disabled'}
+          bottomStyles={styles.bottomButtontTermAndPolicy}
         >
           <TermAndPolicies scrollViewStyle={styles.scrollViewTerm} />
           <CustomCheckbox

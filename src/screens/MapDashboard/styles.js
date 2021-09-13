@@ -88,4 +88,13 @@ export default StyleSheet.create({
     borderTopColor: Colors.WrapGray,
     borderBottomColor: Colors.WrapGray,
   },
+  termsText: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  bottomButtontTermAndPolicy: {
+    position: 'relative',
+    marginBottom: 0,
+  },
 });

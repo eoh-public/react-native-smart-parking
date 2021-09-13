@@ -267,6 +267,17 @@ describe('Test MapDashboard', () => {
     });
     expect(mockSetState).toHaveBeenCalled();
   });
+  it('ButtonPopup term_and_policy_agreement on close', async () => {
+    const route = {};
+    await act(async () => {
+      tree = await renderer.create(wrapComponent(store, route));
+    });
+    const buttonPopup = tree.root.findAllByType(ButtonPopup)[1];
+    act(() => {
+      buttonPopup.props.onClose();
+    });
+    expect(buttonPopup.props.hideClose).toEqual(true);
+  });
 
   it('active session hide warning', async () => {
     _.range(0, 13).map(() => {
