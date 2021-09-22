@@ -51,10 +51,18 @@ const BookingConfirm = memo(({ route }) => {
       API.BILLING.DEFAULT_PAYMENT_METHODS()
     );
     if (success) {
-      item.payment_method = data;
-      body.payment_method = data.code;
-      body.payment_card_id = data.id;
-      setPaymentMethod(data);
+      if (data.code === 'stripe') {
+        const paymentMethodItem = data.items.find((item) => item.is_default);
+        item.payment_method = paymentMethodItem;
+        body.payment_method = data.code;
+        body.payment_card_id = paymentMethodItem.id;
+        setPaymentMethod(paymentMethodItem);
+      } else {
+        item.payment_method = data;
+        body.payment_method = data.code;
+        body.payment_card_id = data.id;
+        setPaymentMethod(data);
+      }
     }
   }, [item, body]);
 

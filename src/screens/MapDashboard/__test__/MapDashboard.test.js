@@ -344,7 +344,7 @@ describe('Test MapDashboard', () => {
     expect(mockGetViolations).toBeCalled();
   });
 
-  it('create CircleButton', async () => {
+  it('Create CircleButton', async () => {
     mockActiveSession = null;
     const route = {};
     await act(async () => {
@@ -354,5 +354,39 @@ describe('Test MapDashboard', () => {
 
     const items = root.findAllByType(CircleButton);
     expect(items).toHaveLength(2);
+  });
+
+  it('Change CustomCheckbox terms and policies', async () => {
+    const route = {};
+    const mockSetIsTickConfirmTerms = jest.fn();
+    useState.mockImplementationOnce((init) => [
+      init,
+      mockSetIsTickConfirmTerms,
+    ]);
+    await act(async () => {
+      tree = await renderer.create(wrapComponent(store, route));
+    });
+    const root = tree.root;
+    const items = root.findByType(CustomCheckbox);
+    expect(items.props.value).toEqual(false);
+
+    act(() => {
+      items.props.onValueChange(true);
+    });
+    expect(mockSetIsTickConfirmTerms).toBeCalledWith(true);
+  });
+  it('Test hide ScanningResponsePopup', async () => {
+    const mockSetIsHideModal = jest.fn();
+    useState.mockImplementationOnce((init) => [init, mockSetIsHideModal]);
+    const route = { params: { scanDataResponse: true } };
+    await act(async () => {
+      tree = await renderer.create(wrapComponent(store, route));
+    });
+    const scanNodes = tree.root.findByType(ScanningResponsePopup);
+    expect(scanNodes.props.visible).toEqual(true);
+    act(() => {
+      scanNodes.props.hideModal(false);
+    });
+    expect(mockSetIsHideModal).toBeCalledWith(false);
   });
 });

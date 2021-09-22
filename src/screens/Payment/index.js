@@ -22,6 +22,7 @@ import { useStateAlertRemove } from './hooks/useStateAlertRemove';
 import Routes from '../../utils/Route';
 import { axiosGet, axiosDelete, axiosPost } from '../../utils/Apis/axios';
 import CardItem from './CardItem';
+import { ToastBottomHelper } from '../../utils/Utils';
 
 import {
   SvgCreditCardColor,
@@ -36,6 +37,8 @@ const Payment = memo(() => {
   const [loading, setLoading] = useState(false);
 
   const [cards, setCards] = useState([]);
+  const [paymentStripe, setPaymentStripe] = useState([]);
+
   const {
     childRef,
     showingPopover,
@@ -108,6 +111,15 @@ const Payment = memo(() => {
     setLoading(false);
   }, []);
 
+  const fetchPaymentMethodByCountry = useCallback(async () => {
+    const { success, data } = await axiosGet(
+      API.BILLING.LIST_PAYMENT_METHODS_BY_COUNTRY('vn')
+    );
+    if (success) {
+      setPaymentStripe(data.find((item) => item.items));
+    }
+  }, []);
+
   const onPressRemove = useCallback(async () => {
     hideAlertAction();
     const { success } = await axiosDelete(
@@ -123,15 +135,28 @@ const Payment = memo(() => {
   const onPressChangeDefault = useCallback(async () => {
     setLoading(true);
     hideAlertAction();
+    const result = await axiosPost(API.BILLING.DEFAULT_PAYMENT_METHODS(), {
+      payment_method: paymentStripe.id,
+    });
     const { success } = await axiosPost(API.ACCOUNTS.CHANGE_DEFAULT_CARD(), {
       card: stateAlertRemove.itemRemove.id,
     });
-    if (success) {
+    if (success && result.success) {
+      fetchPaymentMethodByCountry();
       fetchCard();
       setShowDefault(false);
+    } else {
+      setLoading(false);
+      ToastBottomHelper.error(t('cant_change_default_payment_method'));
     }
     setLoading(false);
-  }, [fetchCard, hideAlertAction, stateAlertRemove.itemRemove.id]);
+  }, [
+    fetchCard,
+    fetchPaymentMethodByCountry,
+    hideAlertAction,
+    paymentStripe,
+    stateAlertRemove.itemRemove.id,
+  ]);
 
   const onItemAddClick = useCallback(
     (item) => {
@@ -141,13 +166,15 @@ const Payment = memo(() => {
   );
 
   const onRefresh = useCallback(() => {
+    fetchPaymentMethodByCountry();
     fetchCard();
-  }, [fetchCard]);
+  }, [fetchCard, fetchPaymentMethodByCountry]);
 
   useEffect(() => {
+    fetchPaymentMethodByCountry();
     fetchCard();
     setShowRemove(false);
-  }, [fetchCard]);
+  }, [fetchCard, fetchPaymentMethodByCountry]);
 
   return (
     <View style={styles.container}>
