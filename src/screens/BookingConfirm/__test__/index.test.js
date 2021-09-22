@@ -551,4 +551,41 @@ describe('test BookingConfirm container', () => {
     });
     expect(mockSetAction).toBeCalledWith(Actions.CANCEL_BOOKING, false);
   });
+  test('getDefaultPaymentMethod stripe', async () => {
+    useIsFocused.mockImplementation(() => true);
+    const response = {
+      status: 200,
+      data: {
+        id: 1,
+        code: 'stripe',
+        name: 'Visa/Master',
+        items: [
+          {
+            id: 'card_1Ixq8qDKEhTHCCCW1XVWwZYW',
+            brand: 'MasterCard',
+            last4: '4444',
+            is_default: true,
+          },
+          {
+            id: 'card_1JUjjsDKEhTHCCCWXYLLS3gK',
+            brand: 'Visa',
+            last4: '4242',
+            is_default: false,
+          },
+        ],
+      },
+      success: true,
+    };
+    axios.get.mockImplementation(async () => {
+      return response;
+    });
+
+    await act(async () => {
+      await create(wrapComponent(route));
+    });
+    expect(axios.get).toHaveBeenCalledWith(
+      API.BILLING.DEFAULT_PAYMENT_METHODS(),
+      {}
+    );
+  });
 });

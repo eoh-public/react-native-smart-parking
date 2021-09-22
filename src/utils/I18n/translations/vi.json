@@ -694,6 +694,7 @@
   "find_a_parking_area": "Tìm một khu vực đậu xe",
   "no_parking_history": "Không có lịch sử đậu xe.",
   "general_trading_conditions": "Điều khoản giao dịch chung",
+  "cant_change_default_payment_method": "Không thể thay đổi phương thức thanh toán mặc định",
   "full": "ĐẦY",
   "free": "Miễn phí",
   "error_please_try_later": "Lỗi! Vui lòng thử lại sau"

@@ -350,4 +350,16 @@ describe('test AddVehicle container edit car', () => {
     });
     expect(ImageResizer.createResizedImage).toBeCalled();
   });
+  test('press default vehicle', async () => {
+    await act(async () => {
+      tree = renderer.create(wrapComponent(route));
+    });
+    const instance = tree.root;
+    const { checkBoxDefaultCar } = getElement(instance);
+    await act(async () => {
+      checkBoxDefaultCar[0].props.onPress();
+      checkBoxDefaultCar[0].props.onValueChange();
+    });
+    expect(checkBoxDefaultCar[0].props.value).toBe(undefined);
+  });
 });
