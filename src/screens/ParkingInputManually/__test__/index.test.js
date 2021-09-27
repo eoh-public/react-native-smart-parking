@@ -251,6 +251,8 @@ describe('Test ParkingInputManually container', () => {
     expect(mockedNavigate).toHaveBeenCalledWith(Routes.ParkingAreaDetail, {
       id: resParkingInfo.parking_id,
       spot_id: resParkingInfo.id,
+      booking_id: resParkingInfo.booking_id,
+      spot_status_check_car_parked: false,
       spot_name: parkingSpot,
       unLock: true,
     });

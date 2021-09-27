@@ -7,8 +7,6 @@ import { useBookingScan } from './hooks';
 import { ToastBottomHelper } from '../../utils/Utils';
 import QRScan from './components/QRScan';
 import { TESTID } from '../../configs/Constants';
-import { axiosGet } from '../../utils/Apis/axios';
-import { API } from '../../configs';
 import Routes from '../../utils/Route';
 
 const SMScanQR = memo(() => {
@@ -19,6 +17,8 @@ const SMScanQR = memo(() => {
     scanToConfirm,
     scanToBook,
     getActiveBooking,
+    getStatusCheckCar,
+    getParkingInfo,
     checkQRCodeValid,
   } = useBookingScan();
 
@@ -35,11 +35,8 @@ const SMScanQR = memo(() => {
         return;
       }
 
-      const response = await axiosGet(API.PARKING.PARKING_INFO(), {
-        params: {
-          spot_name: spot_name,
-        },
-      });
+      const response = await getParkingInfo(spot_name);
+
       if (response.success && response.data && response.data.booking_id) {
         navigate(Routes.SmartParkingBookingDetails, {
           id: response.data.booking_id,
@@ -55,12 +52,25 @@ const SMScanQR = memo(() => {
       if (hasBooked) {
         scanToConfirm(spot_id);
       } else {
-        scanToBook(parking_id, spot_id, spot_name);
+        const booking_id =
+          response.success && response.data
+            ? response.data.booking_id
+            : undefined;
+        const status_check_car = await getStatusCheckCar(spot_name);
+        scanToBook(
+          parking_id,
+          spot_id,
+          spot_name,
+          booking_id,
+          status_check_car
+        );
       }
     },
     [
       checkQRCodeValid,
       getActiveBooking,
+      getStatusCheckCar,
+      getParkingInfo,
       goBack,
       scanToBook,
       scanToConfirm,

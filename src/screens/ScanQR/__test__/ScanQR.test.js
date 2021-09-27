@@ -347,6 +347,8 @@ describe('Test Scan QR', () => {
         id: 1,
         spot_id: 2,
         spot_name: undefined,
+        booking_id: undefined,
+        spot_status_check_car_parked: false,
         unLock: true,
       }
     );
@@ -360,7 +362,6 @@ describe('Test Scan QR', () => {
     axios.get.mockImplementation(async () => {
       return responseGet;
     });
-
     let postData = { status: 'parking_nearest' };
     const responsePost = {
       status: 400,
@@ -380,7 +381,6 @@ describe('Test Scan QR', () => {
       const e = { data: JSON.stringify({ parking: 1, id: 2 }) };
       await RNCam.props.onBarCodeRead(e);
     });
-
     expect(axios.get).toHaveBeenCalledWith(API.BOOKING.ACTIVE_SESSION(), {});
     expect(mockedNavigate).toHaveBeenCalledWith(Routes.MapDashboard, {
       scanDataResponse: postData,

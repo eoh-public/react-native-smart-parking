@@ -62,4 +62,17 @@ describe('Test ActiveSessions', () => {
     });
     expect(axios.get).toHaveBeenCalledTimes(1);
   });
+  it('Test render renderSectionHeader', () => {
+    act(() => {
+      tree = create(<BookingHistory appState={appState} />);
+    });
+    expect(axios.get).toHaveBeenCalled();
+    const section = { section: 1 };
+    const instance = tree.root;
+    const SectionListElement = instance.findAllByType(SectionList);
+    expect(SectionListElement).toHaveLength(1);
+    act(() => {
+      SectionListElement[0].props.renderSectionHeader({ section });
+    });
+  });
 });
