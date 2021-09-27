@@ -73,6 +73,9 @@ const ParkingInputManually = memo(() => {
     if (success && data && data.can_park) {
       navigate(Routes.ParkingAreaDetail, {
         id: parkingInfo.parking_id,
+        spot_status_check_car_parked:
+          data.status === SPOT_STATUS_CHECK_CAR.THERE_IS_CAR_PARKED,
+        booking_id: parkingInfo.booking_id,
         spot_id: parkingInfo.id,
         spot_name: parkingSpot,
         unLock: true,

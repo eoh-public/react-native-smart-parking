@@ -5,6 +5,7 @@ import { API } from '../../../configs';
 import Routes from '../../../utils/Route';
 import { axiosGet, axiosPost } from '../../../utils/Apis/axios';
 import { getCurrentLatLng } from '../../../utils/CountryUtils';
+import { SPOT_STATUS_CHECK_CAR } from '../../../configs/Constants';
 
 const useBookingScan = () => {
   const navigation = useNavigation();
@@ -16,6 +17,28 @@ const useBookingScan = () => {
       return -1;
     }
     return !!data;
+  }, []);
+
+  const getStatusCheckCar = useCallback(async (spot_name) => {
+    const { success, data } = await axiosGet(API.PARKING.CHECK_CAR_PARKED(), {
+      params: {
+        spot_name,
+      },
+    });
+    if (success && data && data.can_park) {
+      return data.status;
+    } else {
+      return '';
+    }
+  }, []);
+
+  const getParkingInfo = useCallback(async (spot_name) => {
+    const response = await axiosGet(API.PARKING.PARKING_INFO(), {
+      params: {
+        spot_name,
+      },
+    });
+    return response;
   }, []);
 
   const onBack = useCallback(
@@ -71,7 +94,7 @@ const useBookingScan = () => {
   );
 
   const scanToBook = useCallback(
-    async (parking_id, spot_id, spot_name) => {
+    async (parking_id, spot_id, spot_name, booking_id, status_check_car) => {
       const { success: canBook, data } = await checkScanToBook(spot_id);
       if (data.spot_id) {
         data.status = data.spot_id[0];
@@ -81,6 +104,9 @@ const useBookingScan = () => {
         navigation.navigate(Routes.SmartParkingParkingAreaDetail, {
           id: parking_id,
           unLock: true,
+          spot_status_check_car_parked:
+            status_check_car === SPOT_STATUS_CHECK_CAR.THERE_IS_CAR_PARKED,
+          booking_id,
           spot_name,
           spot_id,
         });
@@ -116,6 +142,8 @@ const useBookingScan = () => {
     scanToConfirm,
     scanToBook,
     getActiveBooking,
+    getStatusCheckCar,
+    getParkingInfo,
     checkQRCodeValid,
   };
 };

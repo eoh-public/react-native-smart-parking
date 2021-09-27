@@ -37,4 +37,20 @@ describe('Test ParkingSpotList', () => {
     expect(mockSetState).toHaveBeenCalledTimes(6);
     expect(mockFunc).toHaveBeenCalledTimes(0);
   });
+  test('render ParkingSpotInput', () => {
+    const item = { index: 0, text: { length: 1 } };
+    const item1 = { index: 1, text: '' };
+    const item2 = { index: 2, text: '' };
+    act(() => {
+      wrapper = create(<ParkingSpotList onfinishInputCode="function" />);
+    });
+    const instance = wrapper.root;
+    const arrTextInput = instance.findAllByType(TextInput);
+    act(() => {
+      arrTextInput[0].props.onChangeText({ item });
+      arrTextInput[1].props.onChangeText({ item1 });
+      arrTextInput[2].props.onChangeText({ item2 });
+    });
+    expect(arrTextInput).toHaveLength(3);
+  });
 });

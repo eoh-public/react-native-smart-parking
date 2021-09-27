@@ -33,6 +33,8 @@ const AddressInfo = memo(
     preBook,
     spot_name,
     searchedLocation,
+    spot_status_check_car_parked,
+    booking_id,
   }) => {
     const distance = calcDistance(rawDistance);
     const { navigate } = useNavigation();
@@ -108,14 +110,16 @@ const AddressInfo = memo(
           {address}
         </Text>
 
-        <ParkingStatusBar
-          testID={TESTID.PARKING_DETAIL_STATUS_BAR}
-          status={status}
-          freeFrom={freeFrom}
-          freeTo={freeTo}
-          preBook={preBook}
-          spot_name
-        />
+        {!spot_status_check_car_parked && !booking_id && (
+          <ParkingStatusBar
+            testID={TESTID.PARKING_DETAIL_STATUS_BAR}
+            status={status}
+            freeFrom={freeFrom}
+            freeTo={freeTo}
+            preBook={preBook}
+            spot_name
+          />
+        )}
 
         <RowItem
           testID={TESTID.PARKING_DETAIL_SPOTS_AVAILABLE}

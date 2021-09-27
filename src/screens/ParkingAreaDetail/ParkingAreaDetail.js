@@ -47,6 +47,8 @@ const ParkingAreaDetail = memo(({ route }) => {
     id,
     spot_id,
     spot_name,
+    spot_status_check_car_parked,
+    booking_id,
     carItem,
     unLock,
     numBookHour,
@@ -361,6 +363,8 @@ const ParkingAreaDetail = memo(({ route }) => {
                 spot_name={spot_name}
                 preBook={preBook}
                 searchedLocation={searchedLocation}
+                spot_status_check_car_parked={spot_status_check_car_parked}
+                booking_id={booking_id}
               />
               {checkLockBook && (
                 <>
